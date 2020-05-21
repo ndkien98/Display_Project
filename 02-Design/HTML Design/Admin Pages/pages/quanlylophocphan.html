@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+  <title>Hệ Thống Trưng Bày Sản Phẩm Đồ Án Môn Học | Quản Lý Lớp Học Phần</title>
+
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="../plugins/fontawesome-free/css/all.min.css">
+  <!-- overlayScrollbars -->
+  <link rel="stylesheet" href="../plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+  <!-- DataTables -->
+  <link rel="stylesheet" href="../plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+  <link rel="stylesheet" href="../plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+  <!-- Select2 -->
+  <link rel="stylesheet" href="../plugins/select2/css/select2.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="../dist/css/adminlte.min.css">
+  <!-- Google Font: Source Sans Pro -->
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+</head>
+<body class="hold-transition sidebar-mini layout-fixed">
+<div class="wrapper">
+
+  <!-- Navbar -->
+  <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+    <!-- Left navbar links -->
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+      </li>
+      <li class="nav-item d-none d-sm-inline-block">
+        <a href="home.html" class="nav-link">Home</a>
+      </li>
+    </ul>
+
+    <!-- SEARCH FORM -->
+    <form class="form-inline ml-3">
+      <div class="input-group input-group-sm">
+        <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
+        <div class="input-group-append">
+          <button class="btn btn-navbar" type="submit">
+            <i class="fas fa-search"></i>
+          </button>
+        </div>
+      </div>
+    </form>
+
+    <!-- Right navbar links -->
+    <ul class="navbar-nav ml-auto">
+      <!-- User Dropdown Menu -->
+      <li class="nav-item dropdown user-menu">
+        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
+          <img src="../dist/img/user2-160x160.jpg" class="user-image img-circle elevation-2" alt="User Image">
+          <span class="d-none d-md-inline">Admin</span>
+        </a>
+        <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+          <!-- User image -->
+          <li class="user-header bg-primary">
+            <img src="../dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+            <p>
+              Admin - Admin
+              <small>Member since May. 2020</small>
+            </p>
+          </li>
+          <!-- Menu Body -->
+          <!-- <li class="user-body">
+            <div class="row">
+              <div class="col-4 text-center">
+                <a href="#">Followers</a>
+              </div>
+              <div class="col-4 text-center">
+                <a href="#">Sales</a>
+              </div>
+              <div class="col-4 text-center">
+                <a href="#" class="btn btn-default btn-flat">Profile</a>
+              </div>
+            </div> -->
+          <!-- /.row -->
+          <!-- </li> -->
+          <!-- Menu Footer-->
+          <li class="user-footer">
+            <a href="#" class="btn btn-default btn-flat">Profile</a>
+            <a href="#" class="btn btn-default btn-flat float-right">Sign out</a>
+          </li>
+        </ul>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
+          <i class="fas fa-th-large"></i>
+        </a>
+      </li>
+    </ul>
+  </nav>
+  <!-- /.navbar -->
+
+  <!-- Main Sidebar Container -->
+  <aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <!-- Brand Logo -->
+    <a href="#" class="brand-link">
+      <img src="../dist/img/FITALogo.png" alt="Faculty Logo" class="brand-image img-circle elevation-3"
+           style="opacity: .8">
+      <span class="brand-text font-weight-light">FITA - VNUA</span>
+    </a>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <!-- Sidebar user panel (optional) -->
+      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+        <div class="image">
+          <img src="../dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+        </div>
+        <div class="info">
+          <a href="#" class="d-block">Admin</a>
+        </div>
+      </div>
+
+      <!-- Sidebar Menu -->
+      <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+          <!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
+          <!-- Phân quyền -->
+          <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <p>
+                Phân Quyền
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="../pages/danhsachnhomquyen.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Danh Sách Nhóm Quyền</p>
+                </a>
+              </li>
+            </ul>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="../pages/phanquyenchucnang.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Phân Quyền Chức Năng</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+
+          <!-- Danh mục quản lý -->
+          <li class="nav-item has-treeview menu-open">
+            <a href="#" class="nav-link active">
+              <i class="nav-icon fas fa-university"></i>
+              <p>
+                Danh Mục Quản Lý
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="../pages/quanlybomon.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Bộ Môn</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="../pages/quanlyuser.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>User</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="../pages/quanlymonhoc.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Môn Học</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="../pages/quanlynamhochocky.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Năm Học - Học Kỳ</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="quanlylophocphan.html" class="nav-link active">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Lớp Học Phần</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="../pages/quanlytheloai.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Thể Loại</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="../pages/quanlydoan.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Đồ Án</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+
+          <!-- Kiểm duyệt -->
+          <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-tasks"></i>
+              <p>
+                Kiểm Duyệt
+                <i class="right fas fa-angle-left"></i>
+                <span class="badge badge-info right">0</span>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="../pages/kiemduyetdoan.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Kiểm Duyệt Đồ Án</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+
+          <!-- Thống kê báo cáo -->
+          <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-chart-pie"></i>
+              <p>
+                Thống Kê Báo Cáo
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="../pages/thongkedoan.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Thống Kê Đồ Án</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <!-- /.sidebar-menu -->
+    </div>
+    <!-- /.sidebar -->
+  </aside>
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0 text-dark">Quản Lý Lớp Học Phần</h1>
+          </div><!-- /.col -->
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="home.html">Home</a></li>
+              <li class="breadcrumb-item active">Quản Lý Lớp Học Phần</li>
+            </ol>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+
+    <!-- Main content -->
+    <div class="content">
+      <div class="container-fluid">
+        <!-- JUST EDIT HERE! -->
+        <div class="row">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-header">
+                <div class="row">
+                  <div class="col-sm-6 col-md-8 my-2">
+                    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal-add">Thêm lớp học phần</button>
+                  </div>
+                  <div class="col-sm-6 col-md-4 my-2">
+                    <select class="custom-select year-semester-select2">
+                      <option>Học kỳ 2 - Năm học 2019-2020</option>
+                      <option>Học kỳ 1 - Năm học 2019-2020</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                <table id="coursesDatatable" class="table table-bordered table-striped">
+                  <thead>
+                  <tr>
+                    <th>STT</th>
+                    <th>Mã môn học</th>
+                    <th>Tên môn học</th>
+                    <th>Nhóm môn học</th>
+                    <th>Giảng viên</th>
+                    <th>Học kỳ</th>
+                    <th>Năm học</th>
+                    <th>Hành động</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr>
+                    <td>1</td>
+                    <td>TH01001</td>
+                    <td>Tin học cơ sở</td>
+                    <td>01</td>
+                    <td>CNP02</td>
+                    <td>1</td>
+                    <td>2016-2017</td>
+                    <td>
+                      <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#modal-info">
+                        <i class="fas fa-eye"></i> Chi tiết
+                      </button>
+                      <button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#modal-edit">
+                        <i class="fas fa-pencil-alt"></i> Sửa
+                      </button>
+                      <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modal-delete">
+                        <i class="fas fa-trash"></i> Xoá
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>2</td>
+                    <td>PTH03104</td>
+                    <td>Lập trình Java</td>
+                    <td>01</td>
+                    <td>CNP07</td>
+                    <td>1</td>
+                    <td>2018-2019</td>
+                    <td>
+                      <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#modal-info">
+                        <i class="fas fa-eye"></i> Chi tiết
+                      </button>
+                      <button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#modal-edit">
+                        <i class="fas fa-pencil-alt"></i> Sửa
+                      </button>
+                      <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modal-delete">
+                        <i class="fas fa-trash"></i> Xoá
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>3</td>
+                    <td>PTH03115</td>
+                    <td>Đồ án 1</td>
+                    <td>01</td>
+                    <td>CNP02</td>
+                    <td>2</td>
+                    <td>2019-2020</td>
+                    <td>
+                      <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#modal-info">
+                        <i class="fas fa-eye"></i> Chi tiết
+                      </button>
+                      <button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#modal-edit">
+                        <i class="fas fa-pencil-alt"></i> Sửa
+                      </button>
+                      <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modal-delete">
+                        <i class="fas fa-trash"></i> Xoá
+                      </button>
+                    </td>
+                  </tr>
+                  </tbody>
+                </table>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+          <!-- /.col -->
+        </div>
+        <!-- /.row -->
+      </div><!-- /.container-fluid -->
+
+      <!-- Modal thêm lớp học phần -->
+      <div class="modal fade" id="modal-add">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header bg-success">
+              <h4 class="modal-title">Thêm lớp học phần</h4>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div class="form-group">
+                <label>Mã môn học</label>
+                <select class="form-control subject-code-select2" style="width: 100%;">
+                  <option></option>
+                  <option>PTH03115</option>
+                  <option>PTH02004</option>
+                  <option>TH01206</option>
+                  <option>TH02490</option>
+                  <option>PTH25112</option>
+                  <option>PTH46080</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="subjectNameAddModal">Tên môn học</label>
+                <input type="text" class="form-control" id="subjectNameAddModal" readonly>
+              </div>
+              <div class="form-group">
+                <label for="subjectGroupAddModal">Nhóm môn học</label>
+                <input type="number" class="form-control" id="subjectGroupAddModal" placeholder="Nhập nhóm môn học" min="1">
+              </div>
+              <div class="form-group">
+                <label>Mã giảng viên</label>
+                <select class="form-control lecturer-code-select2" style="width: 100%;">
+                  <option></option>
+                  <option >CNP02</option>
+                  <option>CNP03</option>
+                  <option>CNP04</option>
+                  <option>CNP07</option>
+                  <option>MTI05</option>
+                  <option>MTI10</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="lecturerNameAddModal">Tên giảng viên</label>
+                <input type="text" class="form-control" id="lecturerNameAddModal" readonly>
+              </div>
+              <div class="form-group">
+                <label>Học kỳ - năm học</label>
+                <select class="form-control year-semester-select2" style="width: 100%;">
+                  <option>Học kỳ 2 - Năm học 2019-2020</option>
+                  <option>Học kỳ 1 - Năm học 2019-2020</option>
+                </select>
+              </div>
+            </div>
+            <div class="modal-footer justify-content-between">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
+              <button type="button" class="btn btn-primary">Thêm</button>
+            </div>
+          </div>
+          <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+      </div>
+      <!-- /.modal -->
+
+      <!-- Modal chi tiết lớp học phần -->
+      <div class="modal fade" id="modal-info">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header bg-info">
+              <h4 class="modal-title">Chi tiết lớp học phần</h4>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div class="form-group row">
+                <label for="subjectCodeDetailModal" class="col-sm-4 col-form-label">Mã môn học:</label>
+                <label id="subjectCodeDetailModal" class="col-sm-8 col-form-label bg-light">PTH03115</label>
+              </div>
+              <div class="form-group row">
+                <label for="subjectNameDetailModal" class="col-sm-4 col-form-label">Tên môn học:</label>
+                <label id="subjectNameDetailModal" class="col-sm-8 col-form-label bg-light">Đồ án 1</label>
+              </div>
+              <div class="form-group row">
+                <label for="subjectGroupDetailModal" class="col-sm-4 col-form-label">Nhóm môn học:</label>
+                <label id="subjectGroupDetailModal" class="col-sm-8 col-form-label bg-light">01</label>
+              </div>
+              <div class="form-group row">
+                <label for="lecturerCodeDetailModal" class="col-sm-4 col-form-label">Mã giảng viên:</label>
+                <label id="lecturerCodeDetailModal" class="col-sm-8 col-form-label bg-light">CNP02</label>
+              </div>
+              <div class="form-group row">
+                <label for="lecturerNameDetailModal" class="col-sm-4 col-form-label">Tên giảng viên:</label>
+                <label id="lecturerNameDetailModal" class="col-sm-8 col-form-label bg-light">Ngô Công Thắng</label>
+              </div>
+              <div class="form-group row">
+                <label for="semesterDetailModal" class="col-sm-4 col-form-label">Học kỳ:</label>
+                <label id="semesterDetailModal" class="col-sm-8 col-form-label bg-light">2</label>
+              </div>
+              <div class="form-group row">
+                <label for="yearDetailModal" class="col-sm-4 col-form-label">Năm học:</label>
+                <label id="yearDetailModal" class="col-sm-8 col-form-label bg-light">2019-2020</label>
+              </div>
+              <div class="form-group row">
+                <label for="createdDateDetailModal" class="col-sm-4 col-form-label">Ngày tạo:</label>
+                <label id="createdDateDetailModal" class="col-sm-8 col-form-label bg-light">15/05/2020 23:15:00</label>
+              </div>
+              <div class="form-group row">
+                <label for="createdByDetailModal" class="col-sm-4 col-form-label">Người tạo:</label>
+                <label id="createdByDetailModal" class="col-sm-8 col-form-label bg-light">CNP02</label>
+              </div>
+              <div class="form-group row">
+                <label for="lastModifiedDateDetailModal" class="col-sm-4 col-form-label">Chỉnh sửa lần cuối:</label>
+                <label id="lastModifiedDateDetailModal" class="col-sm-8 col-form-label bg-light">15/05/2020 23:15:00</label>
+              </div>
+            </div>
+            <div class="modal-footer justify-content-center">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
+            </div>
+          </div>
+          <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+      </div>
+      <!-- /.modal -->
+
+      <!-- Modal sửa lớp học phần -->
+      <div class="modal fade" id="modal-edit">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header bg-warning">
+              <h4 class="modal-title">Sửa lớp học phần</h4>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div class="form-group">
+                <label>Mã môn học</label>
+                <select class="form-control subject-code-select2" style="width: 100%;">
+                  <option>PTH03115</option>
+                  <option>PTH02004</option>
+                  <option>TH01206</option>
+                  <option>TH02490</option>
+                  <option>PTH25112</option>
+                  <option>PTH46080</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="subjectNameEditModal">Tên môn học</label>
+                <input type="text" class="form-control" id="subjectNameEditModal" value="Đồ án 1" readonly>
+              </div>
+              <div class="form-group">
+                <label for="subjectGroupEditModal">Nhóm môn học</label>
+                <input type="number" class="form-control" id="subjectGroupEditModal" value="1" placeholder="Nhập nhóm môn học" min="1">
+              </div>
+              <div class="form-group">
+                <label>Mã giảng viên</label>
+                <select class="form-control lecturer-code-select2" style="width: 100%;">
+                  <option>CNP02</option>
+                  <option>CNP03</option>
+                  <option>CNP04</option>
+                  <option>CNP07</option>
+                  <option>MTI05</option>
+                  <option>MTI10</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="lecturerNameEditModal">Tên giảng viên</label>
+                <input type="text" class="form-control" id="lecturerNameEditModal" value="Ngô Công Thắng" readonly>
+              </div>
+              <div class="form-group">
+                <label>Học kỳ - năm học</label>
+                <select class="form-control year-semester-select2" style="width: 100%;" disabled>
+                  <option>Học kỳ 1 - Năm học 2019-2020</option>
+                  <option>Học kỳ 2 - Năm học 2019-2020</option>
+                  <option>Học kỳ 1 - Năm học 2020-2021</option>
+                </select>
+              </div>
+            </div>
+            <div class="modal-footer justify-content-between">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
+              <button type="button" class="btn btn-primary">Lưu</button>
+            </div>
+          </div>
+          <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+      </div>
+      <!-- /.modal -->
+
+      <!-- Modal xoá lớp học phần -->
+      <div class="modal fade" id="modal-delete">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header bg-danger">
+              <h4 class="modal-title">Xoá lớp học phần</h4>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body" style="text-align: center">
+              Xoá lớp học phần <label id="subjectNameDeleteModal">Đồ án 1</label>?
+            </div>
+            <div class="modal-footer justify-content-between">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Huỷ</button>
+              <button type="button" class="btn btn-primary">Xoá</button>
+            </div>
+          </div>
+          <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+      </div>
+      <!-- /.modal -->
+    </div>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+  </aside>
+  <!-- /.control-sidebar -->
+
+  <!-- Main Footer -->
+  <footer class="main-footer">
+    <!-- To the right -->
+    <div class="float-right d-none d-sm-inline">
+      Anything you want
+    </div>
+    <!-- Default to the left -->
+    <strong>Copyright &copy; 2014-2019 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
+  </footer>
+</div>
+<!-- ./wrapper -->
+
+<!-- REQUIRED SCRIPTS -->
+
+<!-- jQuery -->
+<script src="../plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- overlayScrollbars -->
+<script src="../plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+<!-- AdminLTE App -->
+<script src="../dist/js/adminlte.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="../dist/js/demo.js"></script>
+<!-- Select2 -->
+<script src="../plugins/select2/js/select2.full.min.js"></script>
+<!-- DataTables -->
+<script src="../plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="../plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+<script src="../plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+<script src="../plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+<!-- page script -->
+<script>
+  $(function () {
+    //Initialize Select2 Elements
+    $('.subject-code-select2').select2({
+      placeholder: "Chọn mã môn học"
+    })
+
+    $('.lecturer-code-select2').select2({
+      placeholder: "Chọn mã giảng viên"
+    })
+
+    $('.year-semester-select2').select2({
+      placeholder: "Chọn học kỳ - năm học",
+    })
+
+    //Datatable
+    $("#coursesDatatable").DataTable({
+      "responsive": true,
+      "autoWidth": false,
+      "columnDefs": [
+        { "width": "5%", "targets": 0 },
+        { "width": "10%", "targets": 1 },
+        { "width": "30%", "targets": 2 },
+        { "width": "10%", "targets": 3 },
+        { "width": "10%", "targets": 4 },
+        { "width": "10%", "targets": 5 },
+        { "width": "10%", "targets": 6 },
+        { "width": "15%", "targets": 7 }
+      ]
+    })
+  });
+</script>
+</body>
+</html>
