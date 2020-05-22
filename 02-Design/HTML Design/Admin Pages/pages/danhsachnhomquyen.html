@@ -56,7 +56,7 @@
                 <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
                     <!-- User image -->
                     <li class="user-header bg-primary">
-                        <img src="./dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+                        <img src="../dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
                         <p>
                             Admin - Admin
                             <small>Member since May. 2020</small>
@@ -116,34 +116,18 @@
 
             <!-- Sidebar Menu -->
             <nav class="mt-2">
-                <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
+                    data-accordion="false">
                     <!-- Add icons to the links using the .nav-icon class
                          with font-awesome or any other icon font library -->
                     <!-- Phân quyền -->
-                    <li class="nav-item has-treeview menu-open">
-                        <a href="#" class="nav-link active">
+                    <li class="nav-item has-treeview">
+                        <a href="danhsachnhomquyen.html" class="nav-link">
                             <i class="nav-icon fas fa-tachometer-alt"></i>
                             <p>
                                 Phân Quyền
-                                <i class="right fas fa-angle-left"></i>
                             </p>
                         </a>
-                        <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a href="danhsachnhomquyenTest.html" class="nav-link active">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Danh Sách Nhóm Quyền</p>
-                                </a>
-                            </li>
-                        </ul>
-                        <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a href="phanquyenchucnang.html" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Phân Quyền Chức Năng</p>
-                                </a>
-                            </li>
-                        </ul>
                     </li>
 
                     <!-- Danh mục quản lý -->
@@ -274,14 +258,9 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <form class="form-inline">
-                                    <div class="form-group">
-                                        <input type="text" class="form-control mr-2 my-2" placeholder="Tên nhóm quyền">
-                                        <button type="button" class="btn btn-success">
-                                            <span class="glyphicon glyphicon-plus"></span> Thêm quyền
-                                        </button>
-                                    </div>
-                                </form>
+                                <button type="button" class="btn btn-success" data-toggle="modal"
+                                        data-target="#modal-add-role">Thêm nhóm quyền
+                                </button>
                             </div>
                             <!-- /.card-header -->
                             <div class="card-body">
@@ -298,10 +277,12 @@
                                         <td>1</td>
                                         <td>Admin</td>
                                         <td>
-                                            <button type="button" class="btn btn-warning btn-sm">
+                                            <button type="button" class="btn btn-warning btn-sm" data-toggle="modal"
+                                                    data-target="#modal-edit-role">
                                                 <i class="fas fa-pencil-alt"></i> Sửa
                                             </button>
-                                            <button type="button" class="btn btn-danger btn-sm">
+                                            <button type="button" class="btn btn-danger btn-sm" data-toggle="modal"
+                                                    data-target="#modal-delete-role">
                                                 <i class="fas fa-trash"></i> Xoá
                                             </button>
                                         </td>
@@ -310,10 +291,12 @@
                                         <td>2</td>
                                         <td>Giảng viên</td>
                                         <td>
-                                            <button type="button" class="btn btn-warning btn-sm">
+                                            <button type="button" class="btn btn-warning btn-sm" data-toggle="modal"
+                                                    data-target="#modal-edit-role">
                                                 <i class="fas fa-pencil-alt"></i> Sửa
                                             </button>
-                                            <button type="button" class="btn btn-danger btn-sm">
+                                            <button type="button" class="btn btn-danger btn-sm" data-toggle="modal"
+                                                    data-target="#modal-delete-role">
                                                 <i class="fas fa-trash"></i> Xoá
                                             </button>
                                         </td>
@@ -322,10 +305,12 @@
                                         <td>3</td>
                                         <td>Sinh viên</td>
                                         <td>
-                                            <button type="button" class="btn btn-warning btn-sm">
+                                            <button type="button" class="btn btn-warning btn-sm" data-toggle="modal"
+                                                    data-target="#modal-edit-role">
                                                 <i class="fas fa-pencil-alt"></i> Sửa
                                             </button>
-                                            <button type="button" class="btn btn-danger btn-sm">
+                                            <button type="button" class="btn btn-danger btn-sm" data-toggle="modal"
+                                                    data-target="#modal-delete-role">
                                                 <i class="fas fa-trash"></i> Xoá
                                             </button>
                                         </td>
@@ -341,11 +326,215 @@
                 </div>
                 <!-- /.row -->
             </div><!-- /.container-fluid -->
+
+            <!-- Modal thêm nhóm quyền -->
+            <div class="modal fade" id="modal-add-role">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header bg-success">
+                            <h4 class="modal-title">Thêm nhóm quyền</h4>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label for="role-name-add">Tên nhóm quyền</label>
+                                <input type="text" class="form-control" id="role-name-add" placeholder="Tên nhóm quyền">
+                            </div>
+                            <table id="table-manager-function" class="table table-bordered table-striped">
+                                <thead>
+                                <tr>
+                                    <th>STT</th>
+                                    <th>Tên Chức năng</th>
+                                    <th>Tác vụ</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>Phân quyền hệ thống</td>
+                                    <td>
+                                        <!-- Bootstrap Switch -->
+                                        <input type="checkbox" name="my-checkbox" checked data-bootstrap-switch data-off-color="danger" data-on-color="success">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>Thêm nhóm quyền</td>
+                                    <td>
+                                        <!-- Bootstrap Switch -->
+                                        <input type="checkbox" name="my-checkbox" checked data-bootstrap-switch data-off-color="danger" data-on-color="success">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>Phân quyền chức năng</td>
+                                    <td>
+                                        <!-- Bootstrap Switch -->
+                                        <input type="checkbox" name="my-checkbox" checked data-bootstrap-switch data-off-color="danger" data-on-color="success">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>4</td>
+                                    <td>Xóa nhóm quyền</td>
+                                    <td>
+                                        <!-- Bootstrap Switch -->
+                                        <input type="checkbox" name="my-checkbox" checked data-bootstrap-switch data-off-color="danger" data-on-color="success">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>5</td>
+                                    <td>Quản lý bộ môn</td>
+                                    <td>
+                                        <!-- Bootstrap Switch -->
+                                        <input type="checkbox" name="my-checkbox" checked data-bootstrap-switch data-off-color="danger" data-on-color="success">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>6</td>
+                                    <td>Thêm bộ môn</td>
+                                    <td>
+                                        <!-- Bootstrap Switch -->
+                                        <input type="checkbox" name="my-checkbox" checked data-bootstrap-switch data-off-color="danger" data-on-color="success">
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                            <!-- /.modal-dialog -->
+
+                        </div>
+                        <div class="modal-footer justify-content-between">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
+                            <button type="button" class="btn btn-primary">Thêm</button>
+                        </div>
+                    </div>
+                    <!-- /.modal-content -->
+                </div>
+
+            </div>
+
+
+            <!-- Modal edit nhom quyen -->
+            <div class="modal fade" id="modal-edit-role">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header bg-warning">
+                            <h4 class="modal-title">Chỉnh sửa nhóm quyền</h4>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label for="role-name-edit">Tên nhóm quyền</label>
+                                <input type="text" class="form-control" id="role-name-edit" placeholder="Tên nhóm quyền" value="admin">
+                            </div>
+                            <table id="table-manager-edit-function" class="table table-bordered table-striped">
+                                <thead>
+                                <tr>
+                                    <th>STT</th>
+                                    <th>Tên Chức năng</th>
+                                    <th>Tác vụ</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>Phân quyền hệ thống</td>
+                                    <td>
+                                        <!-- Bootstrap Switch -->
+                                        <input type="checkbox" name="my-checkbox" checked data-bootstrap-switch data-off-color="danger" data-on-color="success">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>Thêm nhóm quyền</td>
+                                    <td>
+                                        <!-- Bootstrap Switch -->
+                                        <input type="checkbox" name="my-checkbox" checked data-bootstrap-switch data-off-color="danger" data-on-color="success">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>Phân quyền chức năng</td>
+                                    <td>
+                                        <!-- Bootstrap Switch -->
+                                        <input type="checkbox" name="my-checkbox" checked data-bootstrap-switch data-off-color="danger" data-on-color="success">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>4</td>
+                                    <td>Xóa nhóm quyền</td>
+                                    <td>
+                                        <!-- Bootstrap Switch -->
+                                        <input type="checkbox" name="my-checkbox" checked data-bootstrap-switch data-off-color="danger" data-on-color="success">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>5</td>
+                                    <td>Quản lý bộ môn</td>
+                                    <td>
+                                        <!-- Bootstrap Switch -->
+                                        <input type="checkbox" name="my-checkbox" checked data-bootstrap-switch data-off-color="danger" data-on-color="success">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>6</td>
+                                    <td>Thêm bộ môn</td>
+                                    <td>
+                                        <!-- Bootstrap Switch -->
+                                        <input type="checkbox" name="my-checkbox" checked data-bootstrap-switch data-off-color="danger" data-on-color="success">
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                            <!-- /.modal-dialog -->
+
+                        </div>
+                        <div class="modal-footer justify-content-between">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
+                            <button type="button" class="btn btn-primary">Thêm</button>
+                        </div>
+                    </div>
+                    <!-- /.modal-content -->
+                </div>
+
+            </div>
+
+            <!-- Modal delete nhom quyen -->
+            <div class="modal fade" id="modal-delete-role">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header bg-danger">
+                            <h4 class="modal-title">Xóa nhóm quyền</h4>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body" style="text-align: center">
+                            Xoá nhóm quyền : <label id="delete-role">Giảng viên</label>?
+                        </div>
+                        <div class="modal-footer justify-content-between">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
+                            <button type="button" class="btn btn-primary">Xóa</button>
+                        </div>
+                    </div>
+                    <!-- /.modal-content -->
+                </div>
+
+            </div>
+
+
         </div>
         <!-- /.content -->
+
+
     </div>
     <!-- /.content-wrapper -->
 
+
+    <!-- /.modal -->
     <!-- Control Sidebar -->
     <aside class="control-sidebar control-sidebar-dark">
         <!-- Control sidebar content goes here -->
@@ -377,16 +566,54 @@
 <script src="../dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="../dist/js/demo.js"></script>
+
+<!-- DataTables -->
+<script src="../plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="../plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+<script src="../plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+<script src="../plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+<!-- Bootstrap Switch -->
+<script src="../plugins/bootstrap-switch/js/bootstrap-switch.min.js"></script>
+<!-- Select2 -->
+<script src="../plugins/select2/js/select2.full.min.js"></script>
+
+
 <script>
     $(function () {
         $("#example1").DataTable({
             "responsive": true,
             "autoWidth": false,
+            "searching": false,
             "columnDefs": [
-                { "width": "10%", "targets": 0 },
-                { "width": "60%", "targets": 1 },
-                { "width": "30%", "targets": 2 }
+                {"width": "10%", "targets": 0},
+                {"width": "60%", "targets": 1},
+                {"width": "30%", "targets": 2}
             ]
+        });
+
+        $("#table-manager-function").DataTable({
+            "responsive": true,
+            "autoWidth": false,
+            "columnDefs": [
+                { "width": "5%", "targets": 0 },
+                { "width": "22%", "targets": 1 },
+                { "width": "18%", "targets": 2 },
+            ]
+        });
+
+        $("#table-manager-edit-function").DataTable({
+            "responsive": true,
+            "autoWidth": false,
+            "columnDefs": [
+                { "width": "5%", "targets": 0 },
+                { "width": "22%", "targets": 1 },
+                { "width": "18%", "targets": 2 },
+            ]
+        });
+
+        $("input[data-bootstrap-switch]").each(function(){
+            // $(this).bootstrapSwitch('state', $(this).attr('checked', false));
+            $(this).bootstrapSwitch('state', false);
         });
     });
 </script>
