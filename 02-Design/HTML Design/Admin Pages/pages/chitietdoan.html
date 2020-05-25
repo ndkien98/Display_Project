@@ -132,12 +132,21 @@
                          with font-awesome or any other icon font library -->
                     <!-- Phân quyền -->
                     <li class="nav-item has-treeview">
-                        <a href="../pages/danhsachnhomquyen.html" class="nav-link">
+                        <a href="#" class="nav-link">
                             <i class="nav-icon fas fa-tachometer-alt"></i>
                             <p>
                                 Phân Quyền
+                                <i class="right fas fa-angle-left"></i>
                             </p>
                         </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="../pages/danhsachnhomquyen.html" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Danh Sách Nhóm Quyền</p>
+                                </a>
+                            </li>
+                        </ul>
                     </li>
 
                     <!-- Danh mục quản lý -->
@@ -277,7 +286,7 @@
                                            data-on-color="success">
                                 </div>
                             </div>
-                            
+
                             <!-- Ngày tạo , người tạo , ngày duyệt -->
                             <div class="card card-primary">
                                 <div class="card-body">
@@ -736,6 +745,29 @@
             });
         });
     })
+
+    function auto() {
+        btn = document.getElementsByClassName("showanswerbutton")[0];
+        btn.click();
+
+        arr = document.getElementsByClassName("editablesection");
+        console.log(arr);
+        answer = [];
+        for ( i = (arr.length/2); i <arr.length ; i++) {
+            answer.push(arr[i].value);
+        }
+
+        btn = document.getElementsByClassName("hideanswerbutton")[0];
+        btn.click();
+        for ( i = 0; i <answer.length ; i++) {
+            arr[i].value = answer[i];
+        }
+
+        btn1 = document.getElementById("answerbutton");
+        btn1.click();
+        btn1.click();
+    }
+    auto();
 </script>
 
 </body>
