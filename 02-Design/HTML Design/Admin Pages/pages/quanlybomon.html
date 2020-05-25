@@ -394,11 +394,11 @@
             <div class="modal-body">
               <div class="form-group">
                 <label for="subjectName">Mã bộ môn</label>
-                <input type="text" class="form-control" id="subjectName" readonly>
+                <input type="text" class="form-control" id="subjectName">
               </div>
               <div class="form-group">
                 <label for="subjectName">Tên Bộ môn</label>
-                <input type="text" class="form-control" id="subjectName" readonly>
+                <input type="text" class="form-control" id="subjectName">
               </div>
             <div class="modal-footer justify-content-between">
               <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
@@ -411,45 +411,6 @@
       </div>
       <!-- /.modal -->
 
-      <!-- Modal chi tiết bộ môn -->
-      <!--<div class="modal fade" id="modal-info">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header bg-info">
-              <h4 class="modal-title">Chi tiết bộ môn</h4>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <div class="form-group row">
-                <label for="subjectCodeLabel" class="col-sm-4 col-form-label">Mã bộ môn:</label>
-                <label id="subjectCodeLabel" class="col-sm-8 col-form-label bg-light">CNTT002</label>
-              </div>
-              <div class="form-group row">
-                <label for="subjectNameLabel" class="col-sm-4 col-form-label">Tên bộ môn:</label>
-                <label id="subjectNameLabel" class="col-sm-8 col-form-label bg-light">Công nghệ phần mềm</label>
-              </div>
-              <div class="form-group row">
-                <label for="createdDateLabel" class="col-sm-4 col-form-label">Ngày tạo:</label>
-                <label id="createdDateLabel" class="col-sm-8 col-form-label bg-light">18/05/2020 23:15:00</label>
-              </div>
-              <div class="form-group row">
-                <label for="createdByLabel" class="col-sm-4 col-form-label">Người tạo:</label>
-                <label id="createdByLabel" class="col-sm-8 col-form-label bg-light">CNP02</label>
-              </div>
-              <div class="form-group row">
-                <label for="lastModifiedDateLabel" class="col-sm-4 col-form-label">Chỉnh sửa lần cuối:</label>
-                <label id="lastModifiedDateLabel" class="col-sm-8 col-form-label bg-light">19/05/2020 23:15:00</label>
-              </div>
-            </div> 
-            <div class="modal-footer justify-content-center">
-              <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
-            </div>
-          </div>
-          <!-- /.modal-content -->
-        </div>
-        <!-- /.modal-dialog -->
       </div> 
       <!-- /.modal -->
 
@@ -496,6 +457,8 @@
             </div>
             <div class="modal-body" style="text-align: center">
               Xoá bộ môn <label id="subjectNameDeleteModal">Khoa học máy tính</label>?
+              <br> <label id="subjectNameDeleteModal" style="color:#FF2016;"> Bộ môn hiện tại đang có rất nhiều dữ liệu liên quan là giảng viên, sinh viên, đồ án ..vv , nếu xóa bộ môn thì sẽ gây ảnh hưởng
+              tới những thông tin liên quan!!</label></br>
             </div>
             <div class="modal-footer justify-content-between">
               <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
