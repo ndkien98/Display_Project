@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-    <title>Hệ Thống Trưng Bày Sản Phẩm Đồ Án Môn Học | Quản lý đồ án</title>
+    <title>Hệ Thống Trưng Bày Sản Phẩm Đồ Án Môn Học | Quản Lý Đồ Án</title>
 
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -151,7 +151,7 @@
 
                     <!-- Danh mục quản lý -->
                     <li class="nav-item has-treeview menu-open">
-                        <a href="#" class="nav-link">
+                        <a href="#" class="nav-link active">
                             <i class="nav-icon fas fa-university"></i>
                             <p>
                                 Danh Mục Quản Lý
@@ -196,7 +196,7 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="../pages/quanlydoan.html" class="nav-link">
+                                <a href="../pages/quanlydoan.html" class="nav-link active">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Đồ Án</p>
                                 </a>
@@ -256,12 +256,12 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h4 class="m-0 text-dark">Thông tin chi tiết đồ án </h4>
+                        <h4 class="m-0 text-dark">Thông Tin Chi Tiết Đồ Án </h4>
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item">Home</li>
-                            <li class="breadcrumb-item active">Chi tiết đồ án</li>
+                            <li class="breadcrumb-item active">Chi Tiết Đồ Án</li>
                         </ol>
                     </div><!-- /.col -->
                 </div><!-- /.row -->
@@ -280,7 +280,7 @@
                             <img class="img-fluid" src="../dist/img/project/avatar.png" alt="Photo">
                             <div class="card card-primary">
                                 <div class="card-body">
-                                    <b>Trạng thái : </b>
+                                    <b>Trạng thái: </b>
                                     <input type="checkbox" name="my-checkbox" checked data-bootstrap-switch
                                            data-off-color="danger"
                                            data-on-color="success">
@@ -290,23 +290,23 @@
                             <!-- Ngày tạo , người tạo , ngày duyệt -->
                             <div class="card card-primary">
                                 <div class="card-body">
-                                    <strong><i class="mr-1"></i> Người tạo : </strong>
+                                    <strong><i class="mr-1"></i> Người tạo: </strong>
                                     <a class="text-muted" href="#">
                                         Nguyễn Đắc Kiên
                                     </a>
                                     <hr>
 
-                                    <strong><i class="mr-1"></i> Ngày tạo : </strong>
+                                    <strong><i class="mr-1"></i> Ngày tạo: </strong>
 
                                     <strong class="text-muted">20/01/2020</strong>
 
                                     <hr>
-                                    <strong><i class="mr-1"></i> Người cập nhập : </strong>
+                                    <strong><i class="mr-1"></i> Người cập nhập: </strong>
 
                                     <a href="#" class="text-muted">Nguyễn Tuấn Mạnh</a>
                                     <hr>
 
-                                    <strong><i class="mr-1"></i> Ngày cập nhập : </strong>
+                                    <strong><i class="mr-1"></i> Ngày cập nhập: </strong>
 
                                     <strong class="text-muted">20/01/2020</strong>
 
@@ -330,7 +330,7 @@
                                                 <div class="row">
                                                     <div class="form-group row">
                                                         <label for="departemtsLabel" class="col-sm-4 col-form-label">Bộ
-                                                            môn :</label>
+                                                            môn:</label>
                                                         <label id="departemtsLabel"
                                                                class="col-sm-8 col-form-label bg-light">Công nghệ phần
                                                             mềm</label>
@@ -343,7 +343,7 @@
                                                     </div>
                                                     <div class="form-group row">
                                                         <label for="subjectCodeLabel" class="col-sm-4 col-form-label">Mã
-                                                            môn học : </label>
+                                                            môn học: </label>
                                                         <label id="subjectCodeLabel"
                                                                class="col-sm-8 col-form-label bg-light">MH0001</label>
                                                     </div>
@@ -383,7 +383,7 @@
                                             <div class="post clearfix">
                                                 <div class="form-group row">
                                                     <label for="createdDateLabel" class="col-sm-4 col-form-label">Thể
-                                                        loại :</label>
+                                                        loại:</label>
                                                     <label id="createdDateLabel"
                                                            class="col-sm-8 col-form-label bg-light">Web
                                                         application</label>
@@ -423,7 +423,7 @@
                                                 <h3 class="card-title">Thành viên thực hiện</h3>
                                             </div>
                                             <div class="card-body">
-                                                <table class="table table-hover text-nowrap">
+                                                <table class="table table-striped">
                                                     <thead>
                                                     <tr>
                                                         <th>Số thứ tự</th>
@@ -462,7 +462,7 @@
                                             </div>
                                             <div class="card">
                                                 <div class="card-header">
-                                                    <h3 class="card-title">Mô tả </h3>
+                                                    <h3 class="card-title">Mô tả chi tiết </h3>
                                                 </div>
                                                 <div class="card-body">
                                                     <div class="tab-content">
@@ -745,29 +745,6 @@
             });
         });
     })
-
-    function auto() {
-        btn = document.getElementsByClassName("showanswerbutton")[0];
-        btn.click();
-
-        arr = document.getElementsByClassName("editablesection");
-        console.log(arr);
-        answer = [];
-        for ( i = (arr.length/2); i <arr.length ; i++) {
-            answer.push(arr[i].value);
-        }
-
-        btn = document.getElementsByClassName("hideanswerbutton")[0];
-        btn.click();
-        for ( i = 0; i <answer.length ; i++) {
-            arr[i].value = answer[i];
-        }
-
-        btn1 = document.getElementById("answerbutton");
-        btn1.click();
-        btn1.click();
-    }
-    auto();
 </script>
 
 </body>
