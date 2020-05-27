@@ -260,8 +260,9 @@
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item">Home</li>
-                            <li class="breadcrumb-item active">Chi Tiết Đồ Án</li>
+                            <li class="breadcrumb-item"><a href="home.html">Home</a></li>
+                            <li class="breadcrumb-item"><a href="quanlydoan.html">Quản Lý Đồ Án</a></li>
+                            <li class="breadcrumb-item active">Thêm Đồ Án</li>
                         </ol>
                     </div><!-- /.col -->
                 </div><!-- /.row -->
@@ -318,7 +319,7 @@
                         <!-- /.col -->
                         <div class="col-md-7">
                             <div class="card">
-                                <!--                  Tên đồ án-->
+                                <!--Tên đồ án-->
                                 <div class="card-header p-2">
                                     <h4 class="">ASM - Front End Frameworks FPT Polytechnic web trắc nghiệm</h4>
                                 </div><!-- /.card-header -->
@@ -328,6 +329,12 @@
                                             <!-- Thông tin cơ bản -->
                                             <div class="post">
                                                 <div class="row">
+                                                    <div class="form-group row">
+                                                        <label for="proejctCodeLabel" class="col-sm-4 col-form-label">Mã
+                                                            đồ án:</label>
+                                                        <label id="proejctCodeLabel"
+                                                               class="col-sm-8 col-form-label bg-light">P0001</label>
+                                                    </div>
                                                     <div class="form-group row">
                                                         <label for="departemtsLabel" class="col-sm-4 col-form-label">Bộ
                                                             môn:</label>
@@ -399,294 +406,292 @@
                         </div>
                     </div>
                     <!--        Thông tin chi tiết , mô tả ngắn , mô tả chi tiết , ảnh-->
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-12">
-                                <!-- Default box -->
-                                <div class="card">
-                                    <div class="card-header">
-                                        <h3 class="card-title">Mô tả ngắn</h3>
+                    <div class="row">
+                        <div class="col-12">
+                            <!-- Default box -->
+                            <div class="card">
+                                <div class="card-header">
+                                    <h3 class="card-title">Mô tả ngắn</h3>
 
-                                    </div>
-                                    <div class="card-footer">
-                                        Giao diện web trắc nghiệm có đầy đủ chức năng như tài liệu ASM, sử dụng thuần
-                                        AngularJS + Bootstrap4
-                                    </div>
                                 </div>
-                                <div class="card">
-                                    <div class="card-header">
-                                        <h3 class="card-title">Chi tiết đồ án</h3>
-                                    </div>
-                                    <div class="card-footer">
+                                <div class="card-footer">
+                                    Giao diện web trắc nghiệm có đầy đủ chức năng như tài liệu ASM, sử dụng thuần
+                                    AngularJS + Bootstrap4
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header">
+                                    <h3 class="card-title">Chi tiết đồ án</h3>
+                                </div>
+                                <div class="card-footer">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <h3 class="card-title">Thành viên thực hiện</h3>
+                                        </div>
+                                        <div class="card-body">
+                                            <table class="table table-striped">
+                                                <thead>
+                                                <tr>
+                                                    <th>Số thứ tự</th>
+                                                    <th>Họ tên</th>
+                                                    <th>Mã sinh viên</th>
+                                                    <th>Lớp</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                <tr>
+                                                    <td>1</td>
+                                                    <td>Nguyễn văn A ( Nhóm trưởng )</td>
+                                                    <td>611292</td>
+                                                    <td>K61CNTTP</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>2</td>
+                                                    <td>Nguyễn Văn B</td>
+                                                    <td>611292</td>
+                                                    <td>K61MMT</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>3</td>
+                                                    <td>Nguyễn Văn B</td>
+                                                    <td>611292</td>
+                                                    <td>K61MMT</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>4</td>
+                                                    <td>Nguyễn Văn B</td>
+                                                    <td>611292</td>
+                                                    <td>K61MMT</td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
                                         <div class="card">
                                             <div class="card-header">
-                                                <h3 class="card-title">Thành viên thực hiện</h3>
+                                                <h3 class="card-title">Mô tả chi tiết </h3>
                                             </div>
                                             <div class="card-body">
-                                                <table class="table table-striped">
-                                                    <thead>
-                                                    <tr>
-                                                        <th>Số thứ tự</th>
-                                                        <th>Họ tên</th>
-                                                        <th>Mã sinh viên</th>
-                                                        <th>Lớp</th>
-                                                    </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                    <tr>
-                                                        <td>1</td>
-                                                        <td>Nguyễn văn A ( Nhóm trưởng )</td>
-                                                        <td>611292</td>
-                                                        <td>K61CNTTP</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>2</td>
-                                                        <td>Nguyễn Văn B</td>
-                                                        <td>611292</td>
-                                                        <td>K61MMT</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>3</td>
-                                                        <td>Nguyễn Văn B</td>
-                                                        <td>611292</td>
-                                                        <td>K61MMT</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>4</td>
-                                                        <td>Nguyễn Văn B</td>
-                                                        <td>611292</td>
-                                                        <td>K61MMT</td>
-                                                    </tr>
-                                                    </tbody>
-                                                </table>
-                                            </div>
-                                            <div class="card">
-                                                <div class="card-header">
-                                                    <h3 class="card-title">Mô tả chi tiết </h3>
-                                                </div>
-                                                <div class="card-body">
-                                                    <div class="tab-content">
-                                                        <div class="tab-pane active" id="tab_1">
-                                                            Amy normally hated Monday mornings, but this year was
-                                                            different. Kamal was in her art
-                                                            class and she liked Kamal. She was waiting outside the
-                                                            classroom when her friend Tara
-                                                            arrived.
+                                                <div class="tab-content">
+                                                    <div class="tab-pane active" id="tab_1">
+                                                        Amy normally hated Monday mornings, but this year was
+                                                        different. Kamal was in her art
+                                                        class and she liked Kamal. She was waiting outside the
+                                                        classroom when her friend Tara
+                                                        arrived.
 
-                                                            “Hi Amy! Your mum sent me a text. You forgot your inhaler.
-                                                            Why don’t you turn your phone
-                                                            on?” Amy didn’t like technology. She never sent text
-                                                            messages and she hated Facebook too.
+                                                        “Hi Amy! Your mum sent me a text. You forgot your inhaler.
+                                                        Why don’t you turn your phone
+                                                        on?” Amy didn’t like technology. She never sent text
+                                                        messages and she hated Facebook too.
 
-                                                            “Did Kamal ask you to the disco?” Tara was Amy’s best
-                                                            friend, and she wanted to know
-                                                            everything that was happening in Amy’s life. “I don’t think
-                                                            he likes me,” said Amy. “And I
-                                                            never see him alone. He’s always with Grant.” Amy and Tara
-                                                            didn’t like Grant.
+                                                        “Did Kamal ask you to the disco?” Tara was Amy’s best
+                                                        friend, and she wanted to know
+                                                        everything that was happening in Amy’s life. “I don’t think
+                                                        he likes me,” said Amy. “And I
+                                                        never see him alone. He’s always with Grant.” Amy and Tara
+                                                        didn’t like Grant.
 
-                                                            “Do you know about their art project?” asked Amy. “It’s
-                                                            about graffiti, I think,” said
-                                                            Tara. “They’re working on it at the old house behind the
-                                                            factory.” “But that building is
-                                                            dangerous,” said Amy. “Aah, are you worried he’s going to
-                                                            get hurt?" Tara teased. “Shut
-                                                            up, Tara! Hey look, here they come!”
+                                                        “Do you know about their art project?” asked Amy. “It’s
+                                                        about graffiti, I think,” said
+                                                        Tara. “They’re working on it at the old house behind the
+                                                        factory.” “But that building is
+                                                        dangerous,” said Amy. “Aah, are you worried he’s going to
+                                                        get hurt?" Tara teased. “Shut
+                                                        up, Tara! Hey look, here they come!”
 
-                                                            Kamal and Grant arrived. “Hi Kamal!” said Tara. “Are you
-                                                            going to the Halloween disco
-                                                            tomorrow?” “Yes. Hi Amy,” Kamal said, smiling. “Do you want
-                                                            to come and see our paintings
-                                                            after school?” “I’m coming too!” Tara insisted.
+                                                        Kamal and Grant arrived. “Hi Kamal!” said Tara. “Are you
+                                                        going to the Halloween disco
+                                                        tomorrow?” “Yes. Hi Amy,” Kamal said, smiling. “Do you want
+                                                        to come and see our paintings
+                                                        after school?” “I’m coming too!” Tara insisted.
 
-                                                            After school, Kamal took the girls to the old house. It was
-                                                            very old and very dirty too.
-                                                            There was rubbish everywhere. The windows were broken and
-                                                            the walls were damp. It was
-                                                            scary. Amy didn’t like it. There were paintings of zombies
-                                                            and skeletons on the walls.
-                                                            “We’re going to take photos for the school art competition,”
-                                                            said Kamal. Amy didn’t like
-                                                            it but she didn’t say anything. “Where’s Grant?” asked Tara.
-                                                            “Er, he’s buying more paint.”
-                                                            Kamal looked away quickly. Tara thought he looked
-                                                            suspicious. “It’s getting dark, can we
-                                                            go now?” said Amy. She didn’t like zombies.
+                                                        After school, Kamal took the girls to the old house. It was
+                                                        very old and very dirty too.
+                                                        There was rubbish everywhere. The windows were broken and
+                                                        the walls were damp. It was
+                                                        scary. Amy didn’t like it. There were paintings of zombies
+                                                        and skeletons on the walls.
+                                                        “We’re going to take photos for the school art competition,”
+                                                        said Kamal. Amy didn’t like
+                                                        it but she didn’t say anything. “Where’s Grant?” asked Tara.
+                                                        “Er, he’s buying more paint.”
+                                                        Kamal looked away quickly. Tara thought he looked
+                                                        suspicious. “It’s getting dark, can we
+                                                        go now?” said Amy. She didn’t like zombies.
 
-                                                            Then, they heard a loud noise coming from a cupboard in the
-                                                            corner of the room. “What’s
-                                                            that?” Amy was frightened. “I didn’t hear anything,” said
-                                                            Kamal. Something was making
-                                                            strange noises. There was something inside the cupboard. “Oh
-                                                            no! What is it?” Amy was very
-                                                            frightened now. “What do you mean? There’s nothing there!”
-                                                            Kamal was trying not to smile.
-                                                            Suddenly the door opened with a bang and a zombie appeared,
-                                                            shouting and moving its arms.
-                                                            Amy screamed and covered her eyes. “Oh very funny, Grant!”
-                                                            said Tara looking bored. Kamal
-                                                            and Grant started laughing. “Ha ha, you were frightened!”
-                                                            said Grant. "Do you like my
-                                                            zombie costume?” Amy took Tara’s arm. “I can’t breathe,” she
-                                                            said. Kamal looked worried
-                                                            now. “Is she OK? It was only a joke.” “No she’s not OK, you
-                                                            idiot. She’s having an asthma
-                                                            attack and she forgot her inhaler.” Tara took out her phone.
-                                                            “I’m calling her dad.”
+                                                        Then, they heard a loud noise coming from a cupboard in the
+                                                        corner of the room. “What’s
+                                                        that?” Amy was frightened. “I didn’t hear anything,” said
+                                                        Kamal. Something was making
+                                                        strange noises. There was something inside the cupboard. “Oh
+                                                        no! What is it?” Amy was very
+                                                        frightened now. “What do you mean? There’s nothing there!”
+                                                        Kamal was trying not to smile.
+                                                        Suddenly the door opened with a bang and a zombie appeared,
+                                                        shouting and moving its arms.
+                                                        Amy screamed and covered her eyes. “Oh very funny, Grant!”
+                                                        said Tara looking bored. Kamal
+                                                        and Grant started laughing. “Ha ha, you were frightened!”
+                                                        said Grant. "Do you like my
+                                                        zombie costume?” Amy took Tara’s arm. “I can’t breathe,” she
+                                                        said. Kamal looked worried
+                                                        now. “Is she OK? It was only a joke.” “No she’s not OK, you
+                                                        idiot. She’s having an asthma
+                                                        attack and she forgot her inhaler.” Tara took out her phone.
+                                                        “I’m calling her dad.”
 
-                                                            Next evening was Halloween. The girls were at the school
-                                                            disco. “Are you better now?”
-                                                            asked Tara. “I’m fine,” said Amy. “I think it was the smell
-                                                            of paint that started the
-                                                            attack.” Tara looked around. “So, where are the zombies?” “I
-                                                            don’t know, I don’t want to
-                                                            see Kamal again,” said Amy. “Come on, let’s dance!”
-                                                        </div>
+                                                        Next evening was Halloween. The girls were at the school
+                                                        disco. “Are you better now?”
+                                                        asked Tara. “I’m fine,” said Amy. “I think it was the smell
+                                                        of paint that started the
+                                                        attack.” Tara looked around. “So, where are the zombies?” “I
+                                                        don’t know, I don’t want to
+                                                        see Kamal again,” said Amy. “Come on, let’s dance!”
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="card">
-                                                <div class="card-body">
-                                                    <div class="col-12">
-                                                        <div class="card card-primary">
-                                                            <div class="card-header">
-                                                                <div class="card-title">
-                                                                    Ảnh demo
-                                                                </div>
-                                                            </div>
-                                                            <div class="card-body">
-                                                                <div class="row">
-                                                                    <div class="col-sm-2">
-                                                                        <a href="../dist/img/project/des01.png"
-                                                                           data-toggle="lightbox"
-                                                                           data-title="Ảnh 1"
-                                                                           data-gallery="gallery">
-                                                                            <img src="../dist/img/project/des01.png"
-                                                                                 class="img-fluid mb-2"
-                                                                                 alt="white sample" width="100%">
-                                                                        </a>
-                                                                    </div>
-                                                                    <div class="col-sm-2">
-                                                                        <a href="../dist/img/project/des02.png"
-                                                                           data-toggle="lightbox"
-                                                                           data-title="Ảnh 2"
-                                                                           data-gallery="gallery">
-                                                                            <img src="../dist/img/project/des02.png"
-                                                                                 class="img-fluid mb-2"
-                                                                                 alt="black sample">
-                                                                        </a>
-                                                                    </div>
-                                                                    <div class="col-sm-2">
-                                                                        <a href="../dist/img/project/des03.jpg"
-                                                                           data-toggle="lightbox"
-                                                                           data-title="Ảnh 3"
-                                                                           data-gallery="gallery">
-                                                                            <img src="../dist/img/project/des03.jpg"
-                                                                                 class="img-fluid mb-2"
-                                                                                 alt="red sample">
-                                                                        </a>
-                                                                    </div>
-                                                                    <div class="col-sm-2">
-                                                                        <a href="../dist/img/project/des04.png"
-                                                                           data-toggle="lightbox"
-                                                                           data-title="Ảnh 4"
-                                                                           data-gallery="gallery">
-                                                                            <img src="../dist/img/project/des04.png"
-                                                                                 class="img-fluid mb-2"
-                                                                                 alt="red sample">
-                                                                        </a>
-                                                                    </div>
-                                                                    <div class="col-sm-2">
-                                                                        <a href="../dist/img/project/des05.png"
-                                                                           data-toggle="lightbox"
-                                                                           data-title="Ảnh 5"
-                                                                           data-gallery="gallery">
-                                                                            <img src="../dist/img/project/des05.png"
-                                                                                 class="img-fluid mb-2"
-                                                                                 alt="black sample">
-                                                                        </a>
-                                                                    </div>
-                                                                    <div class="col-sm-2">
-                                                                        <a href="../dist/img/project/des06.jpeg"
-                                                                           data-toggle="lightbox"
-                                                                           data-title="Ảnh 6"
-                                                                           data-gallery="gallery">
-                                                                            <img src="../dist/img/project/des06.jpeg"
-                                                                                 class="img-fluid mb-2"
-                                                                                 alt="white sample">
-                                                                        </a>
-                                                                    </div>
-                                                                    <div class="col-sm-2">
-                                                                        <a href="../dist/img/project/des07.png"
-                                                                           data-toggle="lightbox"
-                                                                           data-title="Ảnh 7"
-                                                                           data-gallery="gallery">
-                                                                            <img src="../dist/img/project/des07.png"
-                                                                                 class="img-fluid mb-2"
-                                                                                 alt="white sample">
-                                                                        </a>
-                                                                    </div>
-                                                                    <div class="col-sm-2">
-                                                                        <a href="../dist/img/project/des08.png"
-                                                                           data-toggle="lightbox"
-                                                                           data-title="Ảnh 8"
-                                                                           data-gallery="gallery">
-                                                                            <img src="../dist/img/project/des08.png"
-                                                                                 class="img-fluid mb-2"
-                                                                                 alt="black sample">
-                                                                        </a>
-                                                                    </div>
-                                                                    <div class="col-sm-2">
-                                                                        <a href="../dist/img/project/des09.jpg"
-                                                                           data-toggle="lightbox"
-                                                                           data-title="Ảnh 9"
-                                                                           data-gallery="gallery">
-                                                                            <img src="../dist/img/project/des09.jpg"
-                                                                                 class="img-fluid mb-2"
-                                                                                 alt="red sample">
-                                                                        </a>
-                                                                    </div>
-                                                                    <div class="col-sm-2">
-                                                                        <a href="../dist/img/project/des10.PNG"
-                                                                           data-toggle="lightbox"
-                                                                           data-title="sample 10 - white"
-                                                                           data-gallery="gallery" data-max-width="1200">
-                                                                            <img src="../dist/img/project/des10.PNG?image=100"
-                                                                                 class="img-fluid mb-2"
-                                                                                 alt="white sample"
-                                                                                 data-max-width="300">
-                                                                        </a>
-                                                                    </div>
-                                                                </div>
+                                        </div>
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <div class="col-12">
+                                                    <div class="card card-primary">
+                                                        <div class="card-header">
+                                                            <div class="card-title">
+                                                                Ảnh demo
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="card">
-                                                <div class="card-header">
-                                                    <h3 class="card-title">Link demo : <a
-                                                            href="https://wireframepro.mockflow.com/editor.jsp?editor=off&perm=Owner&projectid=M3b233c0ff7e27d44e705374ffa596ab91588585628708&publicid=d5963554103145e3aeb10f0ae09f507f#/page/cc05f57f83bc4ae8963f90c107ba346a">Click
-                                                        here</a>
-                                                    </h3>
-                                                </div>
-                                                <div class="card-body">
-                                                    <div class="row">
-                                                        <div class="col-sm-6 col-md-8 my-2">
-                                                            <button type="button" class="btn btn-success">Trở lại
-                                                            </button>
+                                                        <div class="card-body">
+                                                            <div class="row">
+                                                                <div class="col-sm-2">
+                                                                    <a href="../dist/img/project/des01.png"
+                                                                       data-toggle="lightbox"
+                                                                       data-title="Ảnh 1"
+                                                                       data-gallery="gallery">
+                                                                        <img src="../dist/img/project/des01.png"
+                                                                             class="img-fluid mb-2"
+                                                                             alt="white sample" width="100%">
+                                                                    </a>
+                                                                </div>
+                                                                <div class="col-sm-2">
+                                                                    <a href="../dist/img/project/des02.png"
+                                                                       data-toggle="lightbox"
+                                                                       data-title="Ảnh 2"
+                                                                       data-gallery="gallery">
+                                                                        <img src="../dist/img/project/des02.png"
+                                                                             class="img-fluid mb-2"
+                                                                             alt="black sample">
+                                                                    </a>
+                                                                </div>
+                                                                <div class="col-sm-2">
+                                                                    <a href="../dist/img/project/des03.jpg"
+                                                                       data-toggle="lightbox"
+                                                                       data-title="Ảnh 3"
+                                                                       data-gallery="gallery">
+                                                                        <img src="../dist/img/project/des03.jpg"
+                                                                             class="img-fluid mb-2"
+                                                                             alt="red sample">
+                                                                    </a>
+                                                                </div>
+                                                                <div class="col-sm-2">
+                                                                    <a href="../dist/img/project/des04.png"
+                                                                       data-toggle="lightbox"
+                                                                       data-title="Ảnh 4"
+                                                                       data-gallery="gallery">
+                                                                        <img src="../dist/img/project/des04.png"
+                                                                             class="img-fluid mb-2"
+                                                                             alt="red sample">
+                                                                    </a>
+                                                                </div>
+                                                                <div class="col-sm-2">
+                                                                    <a href="../dist/img/project/des05.png"
+                                                                       data-toggle="lightbox"
+                                                                       data-title="Ảnh 5"
+                                                                       data-gallery="gallery">
+                                                                        <img src="../dist/img/project/des05.png"
+                                                                             class="img-fluid mb-2"
+                                                                             alt="black sample">
+                                                                    </a>
+                                                                </div>
+                                                                <div class="col-sm-2">
+                                                                    <a href="../dist/img/project/des06.jpeg"
+                                                                       data-toggle="lightbox"
+                                                                       data-title="Ảnh 6"
+                                                                       data-gallery="gallery">
+                                                                        <img src="../dist/img/project/des06.jpeg"
+                                                                             class="img-fluid mb-2"
+                                                                             alt="white sample">
+                                                                    </a>
+                                                                </div>
+                                                                <div class="col-sm-2">
+                                                                    <a href="../dist/img/project/des07.png"
+                                                                       data-toggle="lightbox"
+                                                                       data-title="Ảnh 7"
+                                                                       data-gallery="gallery">
+                                                                        <img src="../dist/img/project/des07.png"
+                                                                             class="img-fluid mb-2"
+                                                                             alt="white sample">
+                                                                    </a>
+                                                                </div>
+                                                                <div class="col-sm-2">
+                                                                    <a href="../dist/img/project/des08.png"
+                                                                       data-toggle="lightbox"
+                                                                       data-title="Ảnh 8"
+                                                                       data-gallery="gallery">
+                                                                        <img src="../dist/img/project/des08.png"
+                                                                             class="img-fluid mb-2"
+                                                                             alt="black sample">
+                                                                    </a>
+                                                                </div>
+                                                                <div class="col-sm-2">
+                                                                    <a href="../dist/img/project/des09.jpg"
+                                                                       data-toggle="lightbox"
+                                                                       data-title="Ảnh 9"
+                                                                       data-gallery="gallery">
+                                                                        <img src="../dist/img/project/des09.jpg"
+                                                                             class="img-fluid mb-2"
+                                                                             alt="red sample">
+                                                                    </a>
+                                                                </div>
+                                                                <div class="col-sm-2">
+                                                                    <a href="../dist/img/project/des10.PNG"
+                                                                       data-toggle="lightbox"
+                                                                       data-title="sample 10 - white"
+                                                                       data-gallery="gallery" data-max-width="1200">
+                                                                        <img src="../dist/img/project/des10.PNG?image=100"
+                                                                             class="img-fluid mb-2"
+                                                                             alt="white sample"
+                                                                             data-max-width="300">
+                                                                    </a>
+                                                                </div>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
+                                        <div class="card">
+                                            <div class="card-header">
+                                                <h3 class="card-title">Link demo : <a
+                                                        href="https://wireframepro.mockflow.com/editor.jsp?editor=off&perm=Owner&projectid=M3b233c0ff7e27d44e705374ffa596ab91588585628708&publicid=d5963554103145e3aeb10f0ae09f507f#/page/cc05f57f83bc4ae8963f90c107ba346a">Click
+                                                    here</a>
+                                                </h3>
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="row">
+                                                    <div class="col-sm-6 col-md-8 my-2">
+                                                        <button type="button" class="btn btn-success">Trở lại
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <!-- /.card -->
                                 </div>
+                                <!-- /.card -->
                             </div>
                         </div>
-
-                    </div><!-- /.container-fluid -->
+                    </div>
+                    <!-- /.container-fluid -->
                 </div>
                 <!-- /.content -->
             </div><!-- /.container-fluid -->
@@ -725,14 +730,10 @@
 <script src="../dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="../dist/js/demo.js"></script>
-
-
 <!-- Bootstrap Switch -->
 <script src="../plugins/bootstrap-switch/js/bootstrap-switch.min.js"></script>
 <!-- Ekko Lightbox -->
 <script src="../plugins/ekko-lightbox/ekko-lightbox.min.js"></script>
-
-
 <script>
     $("input[data-bootstrap-switch]").each(function () {
         $(this).bootstrapSwitch('state', $(this).prop('checked'));
