@@ -303,8 +303,11 @@
                     <td>2</td>
                     <td>2016-2017</td>
                     <td>
-                      <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#modal-info">
+                      <button type="button" class="btn btn-info btn-sm"><a href="quanlydoan.html"></a>
                         <i class="fas fa-eye"></i> Chi tiết
+                      </button>
+                      <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modal-accept">
+                        <i class="fas fa-circle"></i> Kiểm duyệt
                       </button>
                       <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modal-delete">
                         <i class="fas fa-trash"></i> Hủy
@@ -324,8 +327,8 @@
         <!-- /.row -->
       </div><!-- /.container-fluid -->
 
-      <!-- Modal chi tiết lớp học phần -->
-      <div class="modal fade" id="modal-info">
+      <!-- Modal chi tiết đồ án -->
+      <!-- <div class="modal fade" id="modal-info">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header bg-info">
@@ -340,16 +343,42 @@
             <div class="modal-footer justify-content-center">
               <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
             </div>
+          </div> -->
+          <!-- /.modal-content -->
+        <!-- </div> -->
+        <!-- /.modal-dialog -->
+      <!-- </div> -->
+      <!-- /.modal --> 
+
+     <!-- Modal kiểm duyệt đồ án -->
+      <div class="modal fade" id="modal-accept">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header bg-primary">
+              <h4 class="modal-title">Kiểm duyệt</h4>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body" style="text-align: center">
+              Chấp nhận?
+            </div>
+            <div class="modal-footer justify-content-between">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Huỷ</button>
+              <button type="button" class="btn btn-primary">Chấp nhận</button>
+            </div>
           </div>
           <!-- /.modal-content -->
         </div>
         <!-- /.modal-dialog -->
       </div>
       <!-- /.modal -->
+    </div>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
 
-     
-
-      <!-- Modal xoá lớp học phần -->
+      <!-- Modal xoá đồ án -->
       <div class="modal fade" id="modal-delete">
         <div class="modal-dialog">
           <div class="modal-content">
@@ -424,11 +453,11 @@
       "columnDefs": [
         { "width": "5%", "targets": 0 },
         { "width": "25%", "targets": 1 },
-        { "width": "20%", "targets": 2 },
+        { "width": "15%", "targets": 2 },
         { "width": "10%", "targets": 3 },
         { "width": "10%", "targets": 4 },
         { "width": "10%", "targets": 5 },
-        { "width": "20%", "targets": 6 },
+        { "width": "25%", "targets": 6 },
       ]
     })
   });
