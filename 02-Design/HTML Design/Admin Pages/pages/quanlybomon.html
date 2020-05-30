@@ -281,21 +281,15 @@
               <div class="card-header">
                 <div class="row">
                   <div class="col-sm-6 col-md-8 my-2">
-                    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal-add">Thêm bộ môn</button>
+                    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal-add-department">Thêm bộ
+                      môn
+                    </button>
                   </div>
-                  <!--<div class="col-sm-6 col-md-4 my-2">
-                    <select class="custom-select year-semester-select2">
-                      <option></option>
-                      <option>Học kỳ 1 - Năm học 2019-2020</option>
-                      <option>Học kỳ 2 - Năm học 2019-2020</option>
-                      <option>Học kỳ 1 - Năm học 2020-2021</option>
-                    </select>
-                  </div> -->
                 </div>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
-                <table id="coursesDatatable" class="table table-bordered table-striped">
+                <table id="departmentsDatatable" class="table table-bordered table-striped">
                   <thead>
                   <tr>
                     <th>STT</th>
@@ -313,10 +307,12 @@
                       <!--<button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#modal-info">
                         <i class="fas fa-eye"></i> Chi tiết
                       </button> -->
-                      <button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#modal-edit">
+                      <button type="button" class="btn btn-warning btn-sm" data-toggle="modal"
+                              data-target="#modal-edit-department">
                         <i class="fas fa-pencil-alt"></i> Sửa
                       </button>
-                      <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modal-delete">
+                      <button type="button" class="btn btn-danger btn-sm" data-toggle="modal"
+                              data-target="#modal-delete-department">
                         <i class="fas fa-trash"></i> Xoá
                       </button>
                     </td>
@@ -329,10 +325,12 @@
                       <!-- <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#modal-info">
                         <i class="fas fa-eye"></i> Chi tiết
                       </button> -->
-                      <button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#modal-edit">
+                      <button type="button" class="btn btn-warning btn-sm" data-toggle="modal"
+                              data-target="#modal-edit-department">
                         <i class="fas fa-pencil-alt"></i> Sửa
                       </button>
-                      <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modal-delete">
+                      <button type="button" class="btn btn-danger btn-sm" data-toggle="modal"
+                              data-target="#modal-delete-department">
                         <i class="fas fa-trash"></i> Xoá
                       </button>
                     </td>
@@ -345,10 +343,12 @@
                       <!-- <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#modal-info">
                         <i class="fas fa-eye"></i> Chi tiết
                       </button> -->
-                      <button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#modal-edit">
+                      <button type="button" class="btn btn-warning btn-sm" data-toggle="modal"
+                              data-target="#modal-edit-department">
                         <i class="fas fa-pencil-alt"></i> Sửa
                       </button>
-                      <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modal-delete">
+                      <button type="button" class="btn btn-danger btn-sm" data-toggle="modal"
+                              data-target="#modal-delete-department">
                         <i class="fas fa-trash"></i> Xoá
                       </button>
                     </td>
@@ -361,10 +361,12 @@
                       <!-- <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#modal-info">
                         <i class="fas fa-eye"></i> Chi tiết
                       </button> -->
-                      <button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#modal-edit">
+                      <button type="button" class="btn btn-warning btn-sm" data-toggle="modal"
+                              data-target="#modal-edit-department">
                         <i class="fas fa-pencil-alt"></i> Sửa
                       </button>
-                      <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modal-delete">
+                      <button type="button" class="btn btn-danger btn-sm" data-toggle="modal"
+                              data-target="#modal-delete-department">
                         <i class="fas fa-trash"></i> Xoá
                       </button>
                     </td>
@@ -382,7 +384,7 @@
       </div><!-- /.container-fluid -->
 
       <!-- Modal thêm bộ môn -->
-      <div class="modal fade" id="modal-add">
+      <div class="modal fade" id="modal-add-department">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header bg-success">
@@ -393,13 +395,14 @@
             </div>
             <div class="modal-body">
               <div class="form-group">
-                <label for="subjectName">Mã bộ môn</label>
-                <input type="text" class="form-control" id="subjectName">
+                <label for="departmentCodeAddModal">Mã bộ môn</label>
+                <input type="text" class="form-control" id="departmentCodeAddModal">
               </div>
               <div class="form-group">
-                <label for="subjectName">Tên Bộ môn</label>
-                <input type="text" class="form-control" id="subjectName">
+                <label for="departmentNameAddModal">Tên Bộ môn</label>
+                <input type="text" class="form-control" id="departmentNameAddModal">
               </div>
+            </div>
             <div class="modal-footer justify-content-between">
               <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
               <button type="button" class="btn btn-primary">Thêm</button>
@@ -411,11 +414,8 @@
       </div>
       <!-- /.modal -->
 
-      </div> 
-      <!-- /.modal -->
-
       <!-- Modal sửa bộ môn -->
-      <div class="modal fade" id="modal-edit">
+      <div class="modal fade" id="modal-edit-department">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header bg-warning">
@@ -426,12 +426,12 @@
             </div>
             <div class="modal-body">
               <div class="form-group">
-                <label for="subjectNameEditModal">Mã bộ môn</label>
-                <input type="text" class="form-control" id="subjectNameEditModal" value="CNTT001">
+                <label for="departmentCodeEditModal">Mã bộ môn</label>
+                <input type="text" class="form-control" id="departmentCodeEditModal" value="CNTT001">
               </div>
               <div class="form-group">
-                <label for="lecturerNameEditModal">Tên bộ môn</label>
-                <input type="text" class="form-control" id="lecturerNameEditModal" value="Khoa học máy tính">
+                <label for="departmentNameEditModal">Tên bộ môn</label>
+                <input type="text" class="form-control" id="departmentNameEditModal" value="Khoa học máy tính">
               </div>
             </div>
             <div class="modal-footer justify-content-between">
@@ -446,7 +446,7 @@
       <!-- /.modal -->
 
       <!-- Modal xoá bộ môn -->
-      <div class="modal fade" id="modal-delete">
+      <div class="modal fade" id="modal-delete-department">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header bg-danger">
@@ -456,7 +456,7 @@
               </button>
             </div>
             <div class="modal-body" style="text-align: center">
-              Xoá bộ môn <label id="subjectNameDeleteModal">Khoa học máy tính</label>?
+              Xoá bộ môn <label id="departmentNameDeleteModal">Khoa học máy tính</label>?
             </div>
             <div class="modal-footer justify-content-between">
               <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
@@ -512,19 +512,19 @@
 <script src="../plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
 <!-- page script -->
 <script>
-  $(function () {
-    //Datatable
-    $("#coursesDatatable").DataTable({
-      "responsive": true,
-      "autoWidth": false,
-      "columnDefs": [
-        { "width": "5%", "targets": 0 },
-        { "width": "10%", "targets": 1 },
-        { "width": "25%", "targets": 2 },
-        { "width": "10%", "targets": 3 }
-      ]
-    })
-  });
+    $(function () {
+        //Datatable
+        $("#departmentsDatatable").DataTable({
+            "responsive": true,
+            "autoWidth": false,
+            "columnDefs": [
+                {"width": "5%", "targets": 0},
+                {"width": "10%", "targets": 1},
+                {"width": "25%", "targets": 2},
+                {"width": "10%", "targets": 3}
+            ]
+        })
+    });
 </script>
 </body>
 </html>
