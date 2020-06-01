@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <title>Hệ Thống Trưng Bày Sản Phẩm Đồ Án Môn Học | Thêm Đồ Án</title>
+
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="../plugins/fontawesome-free/css/all.min.css">
+    <!-- overlayScrollbars -->
+    <link rel="stylesheet" href="../plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+    <!-- DataTables -->
+    <link rel="stylesheet" href="../plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="../plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+    <!-- Select2 -->
+    <link rel="stylesheet" href="../plugins/select2/css/select2.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="../dist/css/adminlte.min.css">
+    <!-- Google Font: Source Sans Pro -->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+    <!--icon add member-->
+    <link rel="stylesheet" href="../plugins/icon.css">
+    <!-- summernote -->
+    <link rel="stylesheet" href="../plugins/summernote/summernote-bs4.css">
+
+</head>
+<body class="hold-transition sidebar-mini layout-fixed">
+<div class="wrapper">
+
+    <!-- Navbar -->
+    <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+        <!-- Left navbar links -->
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+            </li>
+            <li class="nav-item d-none d-sm-inline-block">
+                <a href="home.html" class="nav-link">Home</a>
+            </li>
+        </ul>
+
+        <!-- SEARCH FORM -->
+        <form class="form-inline ml-3">
+            <div class="input-group input-group-sm">
+                <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
+                <div class="input-group-append">
+                    <button class="btn btn-navbar" type="submit">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+            </div>
+        </form>
+
+        <!-- Right navbar links -->
+        <ul class="navbar-nav ml-auto">
+            <!-- User Dropdown Menu -->
+            <li class="nav-item dropdown user-menu">
+                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
+                    <img src="../dist/img/user2-160x160.jpg" class="user-image img-circle elevation-2" alt="User Image">
+                    <span class="d-none d-md-inline">Admin</span>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+                    <!-- User image -->
+                    <li class="user-header bg-primary">
+                        <img src="../dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+                        <p>
+                            Admin - Admin
+                            <small>Member since May. 2020</small>
+                        </p>
+                    </li>
+                    <!-- Menu Body -->
+                    <!-- <li class="user-body">
+                      <div class="row">
+                        <div class="col-4 text-center">
+                          <a href="#">Followers</a>
+                        </div>
+                        <div class="col-4 text-center">
+                          <a href="#">Sales</a>
+                        </div>
+                        <div class="col-4 text-center">
+                          <a href="#" class="btn btn-default btn-flat">Profile</a>
+                        </div>
+                    </div> -->
+                    <!-- /.row -->
+                    <!-- </li> -->
+                    <!-- Menu Footer-->
+                    <li class="user-footer">
+                        <a href="#" class="btn btn-default btn-flat">Profile</a>
+                        <a href="#" class="btn btn-default btn-flat float-right">Sign out</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
+                    <i class="fas fa-th-large"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <!-- /.navbar -->
+
+    <!-- Main Sidebar Container -->
+    <aside class="main-sidebar sidebar-dark-primary elevation-4">
+        <!-- Brand Logo -->
+        <a href="#" class="brand-link">
+            <img src="../dist/img/FITALogo.png" alt="Faculty Logo" class="brand-image img-circle elevation-3"
+                 style="opacity: .8">
+            <span class="brand-text font-weight-light">FITA - VNUA</span>
+        </a>
+
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <!-- Sidebar user panel (optional) -->
+            <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+                <div class="image">
+                    <img src="../dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+                </div>
+                <div class="info">
+                    <a href="#" class="d-block">Admin</a>
+                </div>
+            </div>
+
+            <!-- Sidebar Menu -->
+            <nav class="mt-2">
+                <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
+                    data-accordion="false">
+                    <!-- Add icons to the links using the .nav-icon class
+                       with font-awesome or any other icon font library -->
+                    <!-- Phân quyền -->
+                    <li class="nav-item has-treeview">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fas fa-tachometer-alt"></i>
+                            <p>
+                                Phân Quyền
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="../pages/danhsachnhomquyen.html" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Danh Sách Nhóm Quyền</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <!-- Danh mục quản lý -->
+                    <li class="nav-item has-treeview menu-open">
+                        <a href="#" class="nav-link active">
+                            <i class="nav-icon fas fa-university"></i>
+                            <p>
+                                Danh Mục Quản Lý
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="../pages/quanlybomon.html" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Bộ Môn</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../pages/quanlyuser.html" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>User</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../pages/quanlymonhoc.html" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Môn Học</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../pages/quanlynamhochocky.html" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Năm Học - Học Kỳ</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="quanlylophocphan.html" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Lớp Học Phần</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../pages/quanlytheloai.html" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Thể Loại</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../pages/quanlydoan.html" class="nav-link active">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Đồ Án</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <!-- Kiểm duyệt -->
+                    <li class="nav-item has-treeview">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fas fa-tasks"></i>
+                            <p>
+                                Kiểm Duyệt
+                                <i class="right fas fa-angle-left"></i>
+                                <span class="badge badge-info right">0</span>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="../pages/kiemduyetdoan.html" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Kiểm Duyệt Đồ Án</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <!-- Thống kê báo cáo -->
+                    <li class="nav-item has-treeview">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fas fa-chart-pie"></i>
+                            <p>
+                                Thống Kê Báo Cáo
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="../pages/thongkedoan.html" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Thống Kê Đồ Án</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+            <!-- /.sidebar-menu -->
+        </div>
+        <!-- /.sidebar -->
+    </aside>
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <div class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+                        <h4 class="m-0 text-dark">Thêm Đồ Án</h4>
+                    </div><!-- /.col -->
+                    <div class="col-sm-6">
+                        <ol class="breadcrumb float-sm-right">
+                            <li class="breadcrumb-item"><a href="home.html">Home</a></li>
+                            <li class="breadcrumb-item"><a href="quanlydoan.html">Quản Lý Đồ Án</a></li>
+                            <li class="breadcrumb-item active">Thêm Đồ Án</li>
+                        </ol>
+                    </div><!-- /.col -->
+                </div><!-- /.row -->
+            </div><!-- /.container-fluid -->
+        </div>
+        <!-- /.content-header -->
+
+        <!-- Main content -->
+        <div class="content">
+            <div class="container-fluid">
+                <!-- Chỉnh sửa ở đây! -->
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <!--                Ảnh , trạng thái-->
+                            <img class="img-fluid" src="../dist/img/imgaddproject.png" id="viewAvatar" alt="Photo">
+                            <div class="form-group">
+                                <label for="inputImgAvatar">Tải lên ảnh đại diện của đồ án</label>
+                                <div class="input-group">
+                                    <div class="custom-file">
+                                        <input type="file" class="custom-file-input" id="inputImgAvatar">
+                                        <label class="custom-file-label" for="inputImgAvatar">Choose file</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /.col -->
+                        <div class="col-md-8">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="tab-content">
+                                        <div class="tab-pane active" id="activity">
+                                            <!-- Thông tin cơ bản -->
+                                            <div class="post">
+                                                <div class="row">
+                                                    <div class="form-group row">
+                                                        <div class="row">
+                                                            <div class="col-lg-3">
+                                                                <label class="col-form-label" style="padding-left: 7px">Tên
+                                                                    đồ án:</label>
+                                                            </div>
+                                                            <div class="col-lg-8">
+                                                                <input type="text" class="form-control"
+                                                                       placeholder="Nhập tên đồ án">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group row">
+                                                        <div class="row">
+                                                            <div class="col-lg-3">
+                                                                <label class="col-form-label" style="padding-left: 7px">Mã
+                                                                    đồ án:</label>
+                                                            </div>
+                                                            <div class="col-lg-8">
+                                                                <input type="text" class="form-control"
+                                                                       placeholder="Nhập mã đồ án">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group row">
+                                                        <div class="row">
+                                                            <div class="col-lg-3">
+                                                                <label class="col-form-label" style="padding-left: 7px">Mã
+                                                                    lớp học phần:</label>
+                                                            </div>
+                                                            <div class="col-lg-8">
+                                                                <select class="form-control courses-code-select2"
+                                                                        style="width: 100%;">
+                                                                    <option></option>
+                                                                    <option>LP03115</option>
+                                                                    <option>LP02004</option>
+                                                                    <option>LP01206</option>
+                                                                    <option>LP02490</option>
+                                                                    <option>LP25112</option>
+                                                                    <option>LP46080</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group row">
+                                                        <div class="row">
+                                                            <div class="col-lg-2">
+                                                                <label class="col-form-label" style="padding-left: 7px">Môn
+                                                                    học:</label>
+                                                            </div>
+                                                            <div class="col-lg-4">
+                                                                <input type="text" class="form-control" readonly>
+                                                            </div>
+                                                            <div class="col-lg-3">
+                                                                <label class="col-form-label" style="padding-left: 7px">Mã
+                                                                    môn học:</label>
+                                                            </div>
+                                                            <div class="col-lg-3">
+                                                                <input type="text" class="form-control" readonly>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group row">
+                                                        <div class="row">
+                                                            <div class="col-lg-2">
+                                                                <label class="col-form-label" style="padding-left: 7px">Bộ
+                                                                    môn:</label>
+                                                            </div>
+                                                            <div class="col-lg-4">
+                                                                <input type="text" class="form-control" readonly>
+                                                            </div>
+                                                            <div class="col-lg-3">
+                                                                <label class="col-form-label" style="padding-left: 7px">Nhóm:</label>
+                                                            </div>
+                                                            <div class="col-lg-3">
+                                                                <input type="text" class="form-control" readonly>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group row">
+                                                        <div class="row">
+                                                            <div class="col-lg-2">
+                                                                <label class="col-form-label" style="padding-left: 7px">Tên
+                                                                    giảng viên:</label>
+                                                            </div>
+                                                            <div class="col-lg-4">
+                                                                <input type="text" class="form-control" readonly>
+                                                            </div>
+                                                            <div class="col-lg-3">
+                                                                <label class="col-form-label" style="padding-left: 7px">Mã
+                                                                    giảng viên:</label>
+                                                            </div>
+                                                            <div class="col-lg-3">
+                                                                <input type="text" class="form-control" readonly>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group row">
+                                                        <div class="row">
+                                                            <div class="col-lg-2">
+                                                                <label class="col-form-label" style="padding-left: 7px">Năm
+                                                                    học:</label>
+                                                            </div>
+                                                            <div class="col-lg-4">
+                                                                <input type="text" class="form-control" readonly>
+                                                            </div>
+                                                            <div class="col-lg-3">
+                                                                <label class="col-form-label" style="padding-left: 7px">Học
+                                                                    kỳ:</label>
+                                                            </div>
+                                                            <div class="col-lg-3">
+                                                                <input type="text" class="form-control" readonly>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="post clearfix">
+                                        <div class="form-group row">
+                                            <div class="row">
+                                                <div class="col-lg-3">
+                                                    <label class="col-form-label" style="padding-left: 7px">Mã
+                                                        Thể loại:</label>
+                                                </div>
+                                                <div class="col-lg-8">
+                                                    <select class="form-control category-name-select2"
+                                                            style="width: 100%;">
+                                                        <option></option>
+                                                        <option>Web Application</option>
+                                                        <option>Desktop Application</option>
+                                                        <option>Mobile Application</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- /.tab-content -->
+                            </div><!-- /.card-body -->
+                        </div>
+                        <!-- /.nav-tabs-custom -->
+                    </div>
+                    <!-- /.col -->
+                </div>
+            </div>
+            <!--        Thông tin chi tiết , mô tả ngắn , mô tả chi tiết , ảnh-->
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12">
+                        <!-- Default box -->
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">Mô tả ngắn</h3>
+
+                            </div>
+                            <div class="card-footer">
+                                <div class="form-group">
+                                    <textarea class="form-control" rows="3"
+                                              placeholder="Nhập mô tả ngắn ..."></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">Chi tiết đồ án</h3>
+                            </div>
+                            <div class="card-footer">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h3 class="card-title">Thành viên thực hiện</h3>
+                                    </div>
+                                    <div class="card-body">
+                                        <table class="table table-striped" id="tableMemberBuilProject">
+                                            <thead>
+                                            <tr>
+                                                <th>Số thứ tự</th>
+                                                <th>Họ tên</th>
+                                                <th>Mã sinh viên</th>
+                                                <th>Lớp</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                <td>1 ( Nhóm trưởng )</td>
+                                                <td><input type="text" class="form-control"
+                                                           placeholder="Nhập tên nhóm trưởng"></td>
+                                                <td><input type="text" class="form-control"
+                                                           placeholder="Nhập mã sinh viên"></td>
+                                                <td><input type="text" class="form-control"
+                                                           placeholder="Nhập lớp"></td>
+                                            </tr>
+                                            <tr>
+                                                <td>2</td>
+                                                <td><input type="text" class="form-control"
+                                                           placeholder="Nhập tên thành viên"></td>
+                                                <td><input type="text" class="form-control"
+                                                           placeholder="Nhập mã sinh viên"></td>
+                                                <td><input type="text" class="form-control"
+                                                           placeholder="Nhập lớp"></td>
+                                                <td>
+                                                    <button class="btn btn-danger btn-sm" onclick="deleteMember()"><i
+                                                            class="material-icons dp48">delete_forever</i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                        <button class="btn btn-success" id="addMember" onclick="addMember()"><i
+                                                class="material-icons dp48">add_circle_outline</i></button>
+                                    </div>
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <h3 class="card-title">Mô tả chi tiết kèm ảnh minh họa </h3>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="mb-3">
+                                                <textarea class="textarea" placeholder="Place some text here"
+                                                          style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--                                    <div class="card">-->
+                                    <!--                                        <div class="card-body">-->
+                                    <!--                                            <div class="col-12">-->
+                                    <!--                                                <div class="card card-primary">-->
+                                    <!--                                                    <div class="card-header">-->
+                                    <!--                                                        <div class="card-title">-->
+                                    <!--                                                            Ảnh demo-->
+                                    <!--                                                        </div>-->
+                                    <!--                                                    </div>-->
+                                    <!--                                                    <div class="card-body">-->
+                                    <!--                                                        <h1>Ảnh demo</h1>-->
+                                    <!--                                                    </div>-->
+                                    <!--                                                </div>-->
+                                    <!--                                            </div>-->
+                                    <!--                                        </div>-->
+                                    <!--                                    </div>-->
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <div class="form-group row">
+                                                <div class="row">
+                                                    <div class="col-lg-5">
+                                                        <label class="col-form-label" style="padding-left: 7px">
+                                                            Link chạy thử:</label>
+                                                    </div>
+                                                    <div class="col-lg-7">
+                                                        <input type="text" class="form-control"
+                                                               placeholder="Nhập link chạy thử">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col-lg-5">
+                                                    <button type="button" class="btn btn-default">Trở lại
+                                                    </button>
+                                                </div>
+                                                <div class="col-lg-7">
+                                                    <button type="button" onclick="addProject()"
+                                                            class="btn btn-success">Thêm đồ án
+                                                    </button>
+                                                </div>
+                                                <div id="test">
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- /.card -->
+                        </div>
+                    </div>
+                </div>
+
+            </div><!-- /.container-fluid -->
+        </div>
+        <!-- /.content -->
+    </div><!-- /.container-fluid -->
+</div>
+<!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
+
+<!-- Control Sidebar -->
+<aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+</aside>
+<!-- /.control-sidebar -->
+
+<!-- Main Footer -->
+<footer class="main-footer">
+    <!-- To the right -->
+    <div class="float-right d-none d-sm-inline">
+        Anything you want
+    </div>
+    <!-- Default to the left -->
+    <strong>Copyright &copy; 2014-2019 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
+</footer>
+</div>
+<!-- ./wrapper -->
+
+<!-- REQUIRED SCRIPTS -->
+
+<!-- jQuery -->
+<script src="../plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- overlayScrollbars -->
+<script src="../plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+<!-- AdminLTE App -->
+<script src="../dist/js/adminlte.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="../dist/js/demo.js"></script>
+<!-- Select2 -->
+<script src="../plugins/select2/js/select2.full.min.js"></script>
+
+<!-- Summernote -->
+<script src="../plugins/summernote/summernote-bs4.min.js"></script>
+
+<script>
+    // select 2 them ma lop hoc
+    //Initialize Select2 Elements
+    $('.courses-code-select2').select2({
+        placeholder: "Chọn mã lớp học phần"
+    })
+
+    // select 2 category
+    $('.category-name-select2').select2({
+        placeholder: "Chọn thể loại"
+    })
+
+    // load avartar project
+    var fileTag = document.getElementById("inputImgAvatar");
+    var preview = document.getElementById("viewAvatar");
+
+    fileTag.addEventListener("change", function () {
+        console.log(this.toString());
+        changeImage(this);
+    });
+
+    function changeImage(input) {
+        var render;
+        if (input.files && input.files[0]) {
+            render = new FileReader();
+            render.onload = function (e) {
+                preview.setAttribute('src', e.target.result);
+            }
+            render.readAsDataURL(input.files[0]);
+        }
+    }
+
+    //add member
+    var i = 2;
+    var STT;
+
+    function addMember() {
+        STT = i + 1
+        var table = document.getElementById("tableMemberBuilProject");
+        var row = table.insertRow(i + 1);
+        var cell0 = row.insertCell(0).innerHTML = '' + STT + '';
+        var cell1 = row.insertCell(1).innerHTML = '<input type="text" class="form-control"\n' +
+            '                                                           placeholder="Nhập tên thành viên">';
+        var cell2 = row.insertCell(2).innerHTML = '<input type="text" class="form-control"\n' +
+            '                                                           placeholder="Nhập mã sinh viên">';
+        var cell3 = row.insertCell(3).innerHTML = '<input type="text" class="form-control"\n' +
+            '                                                           placeholder="Nhập lớp">';
+        var cell4 = row.insertCell(4).innerHTML = '<button class="btn btn-danger btn-sm" onclick="deleteMember()"><i class="material-icons dp48">delete_forever</i>\n' +
+            '                                                    </button>';
+        this.i++;
+    }
+
+    function deleteMember() {
+        document.getElementById("tableMemberBuilProject").deleteRow(i);
+        i--;
+    }
+
+    // Summernote
+    $('.textarea').summernote()
+
+    //add project
+    // test data mô tả chi tiết đồ án khi điền dữ liệu vào mô tả chi tiết , có thể kèm theo cả ảnh
+    function addProject() {
+        var dataDetailsProject = $('.textarea').summernote('code');
+        console.log(dataDetailsProject);
+        var test = document.getElementById("test");
+        test.innerHTML = dataDetailsProject;
+    }
+</script>
+
+</body>
+</html>
