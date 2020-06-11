@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-  <title>Hệ Thống Trưng Bày Sản Phẩm Đồ Án Môn Học | Home</title>
+  <title>Hệ Thống Trưng Bày Sản Phẩm Đồ Án Môn Học | Quản Lý Thể Loại</title>
 
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -13,6 +13,9 @@
   <link rel="stylesheet" href="../plugins/fontawesome-free/css/all.min.css">
   <!-- overlayScrollbars -->
   <link rel="stylesheet" href="../plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+  <!-- DataTables -->
+  <link rel="stylesheet" href="../plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+  <link rel="stylesheet" href="../plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="../dist/css/adminlte.min.css">
   <!-- Google Font: Source Sans Pro -->
@@ -79,7 +82,7 @@
           <!-- </li> -->
           <!-- Menu Footer-->
           <li class="user-footer">
-            <a href="../pages/thongtincanhan.html" class="btn btn-default btn-flat">Profile</a>
+            <a href="#" class="btn btn-default btn-flat">Profile</a>
             <a href="#" class="btn btn-default btn-flat float-right">Sign out</a>
           </li>
         </ul>
@@ -110,7 +113,7 @@
           <img src="../dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="../pages/thongtincanhan.html" class="d-block">Admin</a>
+          <a href="#" class="d-block">Admin</a>
         </div>
       </div>
 
@@ -147,8 +150,8 @@
           </li>
 
           <!-- Danh mục quản lý -->
-          <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
+          <li class="nav-item has-treeview menu-open">
+            <a href="#" class="nav-link active">
               <i class="nav-icon fas fa-university"></i>
               <p>
                 Danh Mục Quản Lý
@@ -181,13 +184,13 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="../pages/quanlylophocphan.html" class="nav-link">
+                <a href="quanlylophocphan.html" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Lớp Học Phần</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="../pages/quanlytheloai.html" class="nav-link">
+                <a href="../pages/quanlytheloai.html" class="nav-link active">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Thể Loại</p>
                 </a>
@@ -253,11 +256,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Hệ Thống Trưng Bày Sản Phẩm Đồ Án Môn Học</h1>
+            <h1 class="m-0 text-dark">Quản Lý Thể Loại</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item active">Home</li>
+              <li class="breadcrumb-item"><a href="home.html">Home</a></li>
+              <li class="breadcrumb-item active">Quản Lý Thể Loại</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -268,10 +272,179 @@
     <!-- Main content -->
     <div class="content">
       <div class="container-fluid">
-        <!-- CHỈNH SỬA Ở ĐÂY! -->
-
-
+        <!-- JUST EDIT HERE! -->
+        <div class="row">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-header">
+                <div class="row">
+                  <div class="col-sm-6 col-md-8 my-2">
+                    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal-add-category">Thêm thể
+                      loại
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                <table id="categoryDatatable" class="table table-bordered table-striped">
+                  <thead>
+                  <tr>
+                    <th>STT</th>
+                    <th>Mã thể loại</th>
+                    <th>Tên thể loại</th>
+                    <th>Hành động</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr>
+                    <td>1</td>
+                    <td>TL01</td>
+                    <td>Ứng dụng web</td>
+                    <td>
+                      <button type="button" class="btn btn-warning btn-sm" data-toggle="modal"
+                              data-target="#modal-edit-category">
+                        <i class="fas fa-pencil-alt"></i>
+                        Sửa
+                      </button>
+                      <button type="button" class="btn btn-danger btn-sm" data-toggle="modal"
+                              data-target="#modal-delete-category">
+                        <i class="fas fa-trash"></i>
+                        Xoá
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>2</td>
+                    <td>TL02</td>
+                    <td>Ứng dụng desktop</td>
+                    <td>
+                      <button type="button" class="btn btn-warning btn-sm" data-toggle="modal"
+                              data-target="#modal-edit-category">
+                        <i class="fas fa-pencil-alt"></i>
+                        Sửa
+                      </button>
+                      <button type="button" class="btn btn-danger btn-sm" data-toggle="modal"
+                              data-target="#modal-delete-category">
+                        <i class="fas fa-trash"></i>
+                        Xoá
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>3</td>
+                    <td>TL03</td>
+                    <td>Ứng dụng mobile</td>
+                    <td>
+                      <button type="button" class="btn btn-warning btn-sm" data-toggle="modal"
+                              data-target="#modal-edit-category">
+                        <i class="fas fa-pencil-alt"></i>
+                        Sửa
+                      </button>
+                      <button type="button" class="btn btn-danger btn-sm" data-toggle="modal"
+                              data-target="#modal-delete-category">
+                        <i class="fas fa-trash"></i>
+                        Xoá
+                      </button>
+                    </td>
+                  </tr>
+                  </tbody>
+                </table>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+          <!-- /.col -->
+        </div>
+        <!-- /.row -->
       </div><!-- /.container-fluid -->
+
+      <!-- Modal thêm thể loại -->
+      <div class="modal fade" id="modal-add-category">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header bg-success">
+              <h4 class="modal-title">Thêm thể loại</h4>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div class="form-group">
+                <label for="categoryCodeAddModal">Mã thể loại</label>
+                <input type="text" class="form-control" id="categoryCodeAddModal" placeholder="Nhập mã thể loại">
+              </div>
+              <div class="form-group">
+                <label for="categoryNameAddModal">Tên thể loại</label>
+                <input type="text" class="form-control" id="categoryNameAddModal" placeholder="Nhập tên thể loại">
+              </div>
+            </div>
+            <div class="modal-footer justify-content-between">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
+              <button type="button" class="btn btn-primary">Thêm</button>
+            </div>
+          </div>
+          <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+      </div>
+      <!-- /.modal -->
+
+      <!-- Modal sửa thể loại -->
+      <div class="modal fade" id="modal-edit-category">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header bg-warning">
+              <h4 class="modal-title">Sửa thể loại</h4>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div class="form-group">
+                <label for="categoryCodeEditModal">Mã thể loại</label>
+                <input type="text" class="form-control" id="categoryCodeEditModal" value="TL01">
+              </div>
+              <div class="form-group">
+                <label for="categoryNameEditModal">Tên Thể loại</label>
+                <input type="text" class="form-control" id="categoryNameEditModal" value="Ứng dụng web">
+              </div>
+            </div>
+            <div class="modal-footer justify-content-between">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
+              <button type="button" class="btn btn-primary">Lưu</button>
+            </div>
+          </div>
+          <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+      </div>
+      <!-- /.modal -->
+
+      <!-- Modal xoá thể loại -->
+      <div class="modal fade" id="modal-delete-category">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header bg-danger">
+              <h4 class="modal-title">Xoá thể loại</h4>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body" style="text-align: center">
+              Xoá thể loại <label id="categoryNameDeleteModal">Ứng dụng web</label>?
+            </div>
+            <div class="modal-footer justify-content-between">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Huỷ</button>
+              <button type="button" class="btn btn-primary">Xoá</button>
+            </div>
+          </div>
+          <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+      </div>
+      <!-- /.modal -->
     </div>
     <!-- /.content -->
   </div>
@@ -307,5 +480,26 @@
 <script src="../dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="../dist/js/demo.js"></script>
+<!-- DataTables -->
+<script src="../plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="../plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+<script src="../plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+<script src="../plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+<!-- page script -->
+<script>
+    $(function () {
+        //Datatable
+        $("#categoryDatatable").DataTable({
+            "responsive": true,
+            "autoWidth": false,
+            "columnDefs": [
+                {"width": "10%", "targets": 0},
+                {"width": "20%", "targets": 1},
+                {"width": "50%", "targets": 2},
+                {"width": "20%", "targets": 3}
+            ]
+        })
+    });
+</script>
 </body>
 </html>
