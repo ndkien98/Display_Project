@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <title>Hệ Thống Trưng Bày Sản Phẩm Đồ Án Môn Học | Chỉnh Sửa Đồ Án</title>
+
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="../plugins/fontawesome-free/css/all.min.css">
+    <!-- overlayScrollbars -->
+    <link rel="stylesheet" href="../plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+    <!-- DataTables -->
+    <link rel="stylesheet" href="../plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="../plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+    <!-- Select2 -->
+    <link rel="stylesheet" href="../plugins/select2/css/select2.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="../dist/css/adminlte.min.css">
+    <!-- Google Font: Source Sans Pro -->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+    <!--icon add member-->
+    <link rel="stylesheet" href="../plugins/icon.css">
+    <!-- summernote -->
+    <link rel="stylesheet" href="../plugins/summernote/summernote-bs4.css">
+
+</head>
+<body class="hold-transition sidebar-mini layout-fixed">
+<div class="wrapper">
+
+    <!-- Navbar -->
+    <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+        <!-- Left navbar links -->
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+            </li>
+            <li class="nav-item d-none d-sm-inline-block">
+                <a href="home.html" class="nav-link">Home</a>
+            </li>
+        </ul>
+
+        <!-- SEARCH FORM -->
+        <form class="form-inline ml-3">
+            <div class="input-group input-group-sm">
+                <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
+                <div class="input-group-append">
+                    <button class="btn btn-navbar" type="submit">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+            </div>
+        </form>
+
+        <!-- Right navbar links -->
+        <ul class="navbar-nav ml-auto">
+            <!-- User Dropdown Menu -->
+            <li class="nav-item dropdown user-menu">
+                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
+                    <img src="../dist/img/user2-160x160.jpg" class="user-image img-circle elevation-2" alt="User Image">
+                    <span class="d-none d-md-inline">Admin</span>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+                    <!-- User image -->
+                    <li class="user-header bg-primary">
+                        <img src="../dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+                        <p>
+                            Admin - Admin
+                            <small>Member since May. 2020</small>
+                        </p>
+                    </li>
+                    <!-- Menu Body -->
+                    <!-- <li class="user-body">
+                      <div class="row">
+                        <div class="col-4 text-center">
+                          <a href="#">Followers</a>
+                        </div>
+                        <div class="col-4 text-center">
+                          <a href="#">Sales</a>
+                        </div>
+                        <div class="col-4 text-center">
+                          <a href="#" class="btn btn-default btn-flat">Profile</a>
+                        </div>
+                    </div> -->
+                    <!-- /.row -->
+                    <!-- </li> -->
+                    <!-- Menu Footer-->
+                    <li class="user-footer">
+                        <a href="#" class="btn btn-default btn-flat">Profile</a>
+                        <a href="#" class="btn btn-default btn-flat float-right">Sign out</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
+                    <i class="fas fa-th-large"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <!-- /.navbar -->
+
+    <!-- Main Sidebar Container -->
+    <aside class="main-sidebar sidebar-dark-primary elevation-4">
+        <!-- Brand Logo -->
+        <a href="#" class="brand-link">
+            <img src="../dist/img/FITALogo.png" alt="Faculty Logo" class="brand-image img-circle elevation-3"
+                 style="opacity: .8">
+            <span class="brand-text font-weight-light">FITA - VNUA</span>
+        </a>
+
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <!-- Sidebar user panel (optional) -->
+            <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+                <div class="image">
+                    <img src="../dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+                </div>
+                <div class="info">
+                    <a href="#" class="d-block">Admin</a>
+                </div>
+            </div>
+
+            <!-- Sidebar Menu -->
+            <nav class="mt-2">
+                <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
+                    data-accordion="false">
+                    <!-- Add icons to the links using the .nav-icon class
+                       with font-awesome or any other icon font library -->
+                    <!-- Phân quyền -->
+                    <li class="nav-item has-treeview">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fas fa-tachometer-alt"></i>
+                            <p>
+                                Phân Quyền
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="../pages/danhsachnhomquyen.html" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Danh Sách Nhóm Quyền</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <!-- Danh mục quản lý -->
+                    <li class="nav-item has-treeview menu-open">
+                        <a href="#" class="nav-link active">
+                            <i class="nav-icon fas fa-university"></i>
+                            <p>
+                                Danh Mục Quản Lý
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="../pages/quanlybomon.html" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Bộ Môn</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../pages/quanlyuser.html" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>User</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../pages/quanlymonhoc.html" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Môn Học</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../pages/quanlynamhochocky.html" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Năm Học - Học Kỳ</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../pages/quanlylophocphan.html" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Lớp Học Phần</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../pages/quanlytheloai.html" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Thể Loại</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../pages/quanlydoan.html" class="nav-link active">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Đồ Án</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <!-- Kiểm duyệt -->
+                    <li class="nav-item has-treeview">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fas fa-tasks"></i>
+                            <p>
+                                Kiểm Duyệt
+                                <i class="right fas fa-angle-left"></i>
+                                <span class="badge badge-info right">0</span>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="../pages/kiemduyetdoan.html" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Kiểm Duyệt Đồ Án</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <!-- Thống kê báo cáo -->
+                    <li class="nav-item has-treeview">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fas fa-chart-pie"></i>
+                            <p>
+                                Thống Kê Báo Cáo
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="../pages/thongkedoan.html" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Thống Kê Đồ Án</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+            <!-- /.sidebar-menu -->
+        </div>
+        <!-- /.sidebar -->
+    </aside>
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <div class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+                        <h4 class="m-0 text-dark">Chỉnh Sửa Đồ Án</h4>
+                    </div><!-- /.col -->
+                    <div class="col-sm-6">
+                        <ol class="breadcrumb float-sm-right">
+                            <li class="breadcrumb-item"><a href="home.html">Home</a></li>
+                            <li class="breadcrumb-item"><a href="quanlydoan.html">Quản Lý Đồ Án</a></li>
+                            <li class="breadcrumb-item active">Chỉnh Sửa Đồ Án</li>
+                        </ol>
+                    </div><!-- /.col -->
+                </div><!-- /.row -->
+            </div><!-- /.container-fluid -->
+        </div>
+        <!-- /.content-header -->
+
+        <!-- Main content -->
+        <div class="content">
+            <div class="container-fluid">
+                <!-- Chỉnh sửa ở đây! -->
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <!--                Ảnh-->
+                            <img class="img-fluid" src="../dist/img/imgaddproject.png" id="idViewAvatar" alt="Photo">
+                            <div class="form-group">
+                                <label for="inputImgAvatar">Chỉnh sửa ảnh đại diện đồ án</label>
+                                <div class="input-group">
+                                    <div class="custom-file">
+                                        <input type="file" class="custom-file-input" id="inputImgAvatar">
+                                        <label class="custom-file-label" for="inputImgAvatar">Choose file</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card card-primary">
+                                <div class="card-body">
+                                    <b>Trạng thái: </b>
+                                    <input type="checkbox" name="my-checkbox" checked data-bootstrap-switch
+                                           data-off-color="danger"
+                                           data-on-color="success">
+                                </div>
+                            </div>
+                            <!-- Ngày tạo , người tạo , ngày duyệt -->
+                            <div class="card card-primary">
+                                <div class="card-body">
+                                    <strong><i class="mr-1"></i> Người tạo: </strong>
+                                    <a class="text-muted" href="#">
+                                        Nguyễn Đắc Kiên
+                                    </a>
+                                    <hr>
+
+                                    <strong><i class="mr-1"></i> Ngày tạo: </strong>
+
+                                    <strong class="text-muted">20/01/2020</strong>
+
+                                    <hr>
+                                    <strong><i class="mr-1"></i> Người cập nhập: </strong>
+
+                                    <a href="#" class="text-muted">Nguyễn Tuấn Mạnh</a>
+                                    <hr>
+
+                                    <strong><i class="mr-1"></i> Ngày cập nhập: </strong>
+
+                                    <strong class="text-muted">20/01/2020</strong>
+
+                                    <hr>
+                                </div>
+                                <!-- /.card-body -->
+                            </div>
+                        </div>
+                        <!-- /.col -->
+                        <div class="col-md-8">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="tab-content">
+                                        <div class="tab-pane active" id="activity">
+                                            <!-- Thông tin cơ bản -->
+                                            <div class="post">
+                                                <div class="row">
+                                                    <div class="form-group row">
+                                                        <div class="row">
+                                                            <div class="col-lg-3">
+                                                                <label class="col-form-label" style="padding-left: 7px">Tên
+                                                                    đồ án:</label>
+                                                            </div>
+                                                            <div class="col-lg-8">
+                                                                <input id="idProjectName" type="text"
+                                                                       class="form-control"
+                                                                       placeholder="Nhập tên đồ án">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group row">
+                                                        <div class="row">
+                                                            <div class="col-lg-3">
+                                                                <label class="col-form-label" style="padding-left: 7px">Mã
+                                                                    đồ án:</label>
+                                                            </div>
+                                                            <div class="col-lg-8">
+                                                                <input id="idProjectCode" type="text"
+                                                                       class="form-control"
+                                                                       placeholder="Nhập mã đồ án">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group row">
+                                                        <div class="row">
+                                                            <div class="col-lg-3">
+                                                                <label class="col-form-label" style="padding-left: 7px">Học
+                                                                    kỳ - Năm học:</label>
+                                                            </div>
+                                                            <div class="col-lg-8">
+                                                                <select id="idSemester-year"
+                                                                        class="form-control year-semester-select2"
+                                                                        style="width: 100%;">
+                                                                    <option></option>
+                                                                    <option>Học kỳ 2 - Năm học 2019-2020</option>
+                                                                    <option>Học kỳ 1 - Năm học 2019-2020</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group row">
+                                                        <div class="row">
+                                                            <div class="col-lg-3">
+                                                                <label class="col-form-label" style="padding-left: 7px">Chọn
+                                                                    lớp học phần:</label>
+                                                            </div>
+                                                            <div class="col-lg-8">
+                                                                <select id="idCoursesName"
+                                                                        class="form-control courses-select2"
+                                                                        style="width: 100%;">
+                                                                    <option></option>
+                                                                    <option>Mã MH: PTH03115 - Nhóm MH: 01 - Mã lớp:
+                                                                        K61CNPMP
+                                                                    </option>
+                                                                    <option>Mã MH: PTH05115 - Nhóm MH: 03 - Mã lớp:
+                                                                        K61CNPMP
+                                                                    </option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group row">
+                                                        <div class="row">
+                                                            <div class="col-lg-3">
+                                                                <label class="col-form-label" style="padding-left: 7px">Tên
+                                                                    giảng viên:</label>
+                                                            </div>
+                                                            <div class="col-lg-4">
+                                                                <input id="idLecturersName" type="text"
+                                                                       class="form-control" readonly>
+                                                            </div>
+                                                            <div class="col-lg-3">
+                                                                <label class="col-form-label" style="padding-left: 7px">Mã
+                                                                    giảng viên:</label>
+                                                            </div>
+                                                            <div class="col-lg-2">
+                                                                <input id="idLecturersCode" type="text"
+                                                                       class="form-control" readonly>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group row">
+                                                        <div class="row">
+                                                            <div class="col-lg-3">
+                                                                <label class="col-form-label" style="padding-left: 7px">Mã
+                                                                    Thể loại:</label>
+                                                            </div>
+                                                            <div class="col-lg-8">
+                                                                <select id="idCategoryName"
+                                                                        class="form-control category-name-select2"
+                                                                        style="width: 100%;">
+                                                                    <option></option>
+                                                                    <option>Web Application</option>
+                                                                    <option>Desktop Application</option>
+                                                                    <option>Mobile Application</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- /.tab-content -->
+                            </div><!-- /.card-body -->
+                        </div>
+                        <!-- /.nav-tabs-custom -->
+                    </div>
+                    <!-- /.col -->
+                </div>
+            </div>
+            <!--        Thông tin chi tiết , mô tả ngắn , mô tả chi tiết , ảnh-->
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12">
+                        <!-- Default box -->
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">Mô tả ngắn</h3>
+                            </div>
+                            <div class="card-footer">
+                                <div class="form-group">
+                                    <textarea id="idShortDescription" class="form-control" rows="3"
+                                              placeholder="Nhập mô tả ngắn ..."></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">Chi tiết đồ án</h3>
+                            </div>
+                            <div class="card-footer">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h3 class="card-title">Thành viên thực hiện</h3>
+                                    </div>
+                                    <div class="card-body">
+                                        <table class="table table-striped" id="tableMemberBuilProject">
+                                            <thead>
+                                            <tr>
+                                                <th>Họ tên</th>
+                                                <th>Mã sinh viên</th>
+                                                <th>Lớp</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr id="rowId0">
+                                                <td>
+                                                    <input id="idNameMember0" type="text" class="form-control"
+                                                           placeholder="Nhập tên nhóm trưởng">( Nhóm trưởng
+                                                    )
+                                                </td>
+                                                <td><input id="idCodeMB0" type="text" class="form-control"
+                                                           placeholder="Nhập mã sinh viên"></td>
+                                                <td><input id="idCodeClass0" type="text" class="form-control"
+                                                           placeholder="Nhập lớp"></td>
+                                            </tr>
+                                            <tr id="rowId1">
+                                                <td><input id="idNameMember1" type="text" class="form-control"
+                                                           placeholder="Nhập tên thành viên"></td>
+                                                <td><input id="idCodeMB1" type="text" class="form-control"
+                                                           placeholder="Nhập mã sinh viên"></td>
+                                                <td><input id="idCodeClass1" type="text" class="form-control"
+                                                           placeholder="Nhập lớp"></td>
+                                                <td>
+                                                    <button class="btn btn-danger btn-sm"
+                                                    ><i
+                                                            class="material-icons dp48">delete_forever</i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                            <tr id="rowId2">
+                                                <td><input id="idNameMember2" type="text" class="form-control"
+                                                           placeholder="Nhập tên thành viên"></td>
+                                                <td><input id="idCodeMB2" type="text" class="form-control"
+                                                           placeholder="Nhập mã sinh viên"></td>
+                                                <td><input id="idCodeClass2" type="text" class="form-control"
+                                                           placeholder="Nhập lớp"></td>
+                                                <td>
+                                                    <button class="btn btn-danger btn-sm"
+                                                    ><i
+                                                            class="material-icons dp48">delete_forever</i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                            <tr id="rowId3">
+                                                <td><input id="idNameMember3" type="text" class="form-control"
+                                                           placeholder="Nhập tên thành viên"></td>
+                                                <td><input id="idCodeMB3" type="text" class="form-control"
+                                                           placeholder="Nhập mã sinh viên"></td>
+                                                <td><input id="idCodeClass3" type="text" class="form-control"
+                                                           placeholder="Nhập lớp"></td>
+                                                <td>
+                                                    <button class="btn btn-danger btn-sm"
+                                                    ><i
+                                                            class="material-icons dp48">delete_forever</i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                        <button class="btn btn-success" id="addMember"
+                                                onclick="addMember()"><i
+                                                class="material-icons dp48">add_circle_outline</i></button>
+                                    </div>
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <h3 class="card-title">Mô tả chi tiết kèm ảnh minh họa </h3>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="mb-3">
+                                                <textarea id="idDetailedDescription" class="textarea"
+                                                          placeholder="Place some text here"
+                                                          style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <div class="form-group row">
+                                                <div class="row">
+                                                    <div class="col-lg-5">
+                                                        <label class="col-form-label"
+                                                               style="padding-left: 7px">
+                                                            Link chạy thử:</label>
+                                                    </div>
+                                                    <div class="col-lg-7">
+                                                        <input id="idLinkDemo" type="text" class="form-control"
+                                                               placeholder="Nhập link chạy thử">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col-lg-5">
+                                                    <button type="button" class="btn btn-default">Trở lại
+                                                    </button>
+                                                </div>
+                                                <div class="col-lg-7">
+                                                    <button type="button" onclick="addProject()"
+                                                            class="btn btn-success">Lưu
+                                                    </button>
+                                                </div>
+                                                <div id="test">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- /.card -->
+                        </div>
+                    </div>
+                </div>
+
+            </div><!-- /.container-fluid -->
+        </div>
+        <!-- /.content -->
+    </div><!-- /.container-fluid -->
+</div>
+<!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
+
+<!-- Control Sidebar -->
+<aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+</aside>
+<!-- /.control-sidebar -->
+
+<!-- Main Footer -->
+<footer class="main-footer">
+    <!-- To the right -->
+    <div class="float-right d-none d-sm-inline">
+        Anything you want
+    </div>
+    <!-- Default to the left -->
+    <strong>Copyright &copy; 2014-2019 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
+</footer>
+</div>
+<!-- ./wrapper -->
+
+<!-- REQUIRED SCRIPTS -->
+
+<!-- jQuery -->
+<script src="../plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- overlayScrollbars -->
+<script src="../plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+<!-- AdminLTE App -->
+<script src="../dist/js/adminlte.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="../dist/js/demo.js"></script>
+<!-- Select2 -->
+<script src="../plugins/select2/js/select2.full.min.js"></script>
+<!-- Summernote -->
+<script src="../plugins/summernote/summernote-bs4.min.js"></script>
+<!-- Bootstrap Switch -->
+<script src="../plugins/bootstrap-switch/js/bootstrap-switch.min.js"></script>
+
+<script>
+    // select 2 them ma lop hoc
+    //Initialize Select2 Elements
+    $('.year-semester-select2').select2({
+        placeholder: "Chọn học kỳ - Năm học"
+    })
+
+
+    $('.courses-select2').select2({
+        placeholder: "Chọn lớp học phần"
+    })
+
+    // select 2 category
+    $('.category-name-select2').select2({
+        placeholder: "Chọn thể loại"
+    });
+
+    // Summernote add thu vien
+    $('.textarea').summernote();
+
+    // set data cho trang chirnh sửa
+
+    //Ảnh của đồ án
+    $('#idViewAvatar').attr("src", "../dist/img/photo1.png");
+
+    // tên đồ án
+    $('#idProjectName').val("ASM - Front End Frameworks FPT Polytechnic web trắc nghiệm");
+
+    //mã đồ án
+    $('#idProjectCode').attr("value", "P00001");
+
+    // học kỳ - năm học
+    $('#idSemester-year').val("Học kỳ 2 - Năm học 2019-2020").change();
+
+    // Lớp học phần
+    $('#idCoursesName').val("Mã MH: PTH05115 - Nhóm MH: 03 - Mã lớp: K61CNPMP").change();
+
+    // tên giảng viên
+    $('#idLecturersName').val("Nguyễn Văn A");
+
+    // Mã giảng viên
+    $('#idLecturersCode').val("GV0111");
+
+    // thể loại đồ án
+    $('#idCategoryName').val("Web Application").change();
+
+    // Mô tả ngắn
+    $('#idShortDescription').val("In short a microservices architecture is a term used to describe the practice of breaking up an application into a series of smaller, more specialised parts, each of which communicate with one another across common interfaces such as APIs and REST interfaces like HTTP");
+
+    // mô tả chi tiết
+    var HTMLstring = "<h1 id=\"pattern-microservice-architecture\" style=\"margin: 20px 0px 10px; font-size: 36px; font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; line-height: 1.1; color: rgb(51, 51, 51);\">Pattern: Microservice Architecture</h1><h2 id=\"context\" style=\"font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; line-height: 1.1; color: rgb(51, 51, 51); margin-top: 20px; margin-bottom: 10px; font-size: 30px;\">Context</h2><p style=\"margin-right: 0px; margin-bottom: 10px; margin-left: 0px; color: rgb(51, 51, 51); font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-size: 14px;\">You are developing a server-side enterprise application. It must support a variety of different clients including desktop browsers, mobile browsers and native mobile applications. The application might also expose an API for 3rd parties to consume. It might also integrate with other applications via either web services or a message broker. The application handles requests (HTTP requests and messages) by executing business logic; accessing a database; exchanging messages with other systems; and returning a HTML/JSON/XML response. There are logical components corresponding to different functional areas of the application.</p><h2 id=\"problem\" style=\"font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; line-height: 1.1; color: rgb(51, 51, 51); margin-top: 20px; margin-bottom: 10px; font-size: 30px;\">Problem</h2><p style=\"margin-right: 0px; margin-bottom: 10px; margin-left: 0px; color: rgb(51, 51, 51); font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-size: 14px;\">What’s the application’s deployment architecture?</p><h2 id=\"forces\" style=\"font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; line-height: 1.1; color: rgb(51, 51, 51); margin-top: 20px; margin-bottom: 10px; font-size: 30px;\">Forces</h2><ul style=\"margin-bottom: 10px; color: rgb(51, 51, 51); font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-size: 14px;\"><li>There is a team of developers working on the application</li><li>New team members must quickly become productive</li><li>The application must be easy to understand and modify</li><li>You want to practice continuous deployment of the application</li><li>You must run multiple instances of the application on multiple machines in order to satisfy scalability and availability requirements</li><li>You want to take advantage of emerging technologies (frameworks, programming languages, etc)</li></ul><h2 id=\"solution\" style=\"font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; line-height: 1.1; color: rgb(51, 51, 51); margin-top: 20px; margin-bottom: 10px; font-size: 30px;\">Solution</h2><p style=\"margin-right: 0px; margin-bottom: 10px; margin-left: 0px; color: rgb(51, 51, 51); font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-size: 14px;\">Define an architecture that structures the application as a set of loosely coupled, collaborating services. This approach corresponds to the Y-axis of the&nbsp;<a href=\"https://microservices.io/articles/scalecube.html\" style=\"background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; color: rgb(66, 139, 202);\">Scale Cube</a>. Each service is:</p><ul style=\"margin-bottom: 10px; color: rgb(51, 51, 51); font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-size: 14px;\"><li>Highly maintainable and testable - enables rapid and frequent development and deployment</li><li>Loosely coupled with other services - enables a team to work independently the majority of time on their service(s) without being impacted by changes to other services and without affecting other services</li><li>Independently deployable - enables a team to deploy their service without having to coordinate with other teams</li><li>Capable of being developed by a small team - essential for high productivity by avoiding the high communication head of large teams</li></ul><p style=\"margin-right: 0px; margin-bottom: 10px; margin-left: 0px; color: rgb(51, 51, 51); font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-size: 14px;\">Services communicate using either synchronous protocols such as HTTP/REST or asynchronous protocols such as AMQP. Services can be developed and deployed independently of one another. Each service has its&nbsp;<a href=\"https://microservices.io/patterns/data/database-per-service.html\" style=\"background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; color: rgb(66, 139, 202);\">own database</a>&nbsp;in order to be decoupled from other services. Data consistency between services is maintained using the&nbsp;<a href=\"https://microservices.io/patterns/data/saga.html\" style=\"background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; color: rgb(66, 139, 202);\">Saga pattern</a></p><p style=\"margin-right: 0px; margin-bottom: 10px; margin-left: 0px; color: rgb(51, 51, 51); font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-size: 14px;\">To learn more about the nature of a service, please&nbsp;<a href=\"http://chrisrichardson.net/post/microservices/general/2019/02/16/whats-a-service-part-1.html\" style=\"background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; color: rgb(66, 139, 202);\">read this article</a>.</p><h2 id=\"examples\" style=\"font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; line-height: 1.1; color: rgb(51, 51, 51); margin-top: 20px; margin-bottom: 10px; font-size: 30px;\">Examples</h2><h3 id=\"fictitious-e-commerce-application\" style=\"font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; line-height: 1.1; color: rgb(51, 51, 51); margin-top: 20px; margin-bottom: 10px; font-size: 24px;\">Fictitious e-commerce application</h3><p style=\"margin-right: 0px; margin-bottom: 10px; margin-left: 0px; color: rgb(51, 51, 51); font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-size: 14px;\">Let’s imagine that you are building an e-commerce application that takes orders from customers, verifies inventory and available credit, and ships them. The application consists of several components including the StoreFrontUI, which implements the user interface, along with some backend services for checking credit, maintaining inventory and shipping orders. The application consists of a set of services.</p><p style=\"margin-right: 0px; margin-bottom: 10px; margin-left: 0px; color: rgb(51, 51, 51); font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-size: 14px;\"><img class=\"img-responsive\" src=\"https://microservices.io/i/Microservice_Architecture.png\" style=\"border: 0px; display: block; max-width: 100%; height: auto;\"></p><h3 id=\"show-me-the-code\" style=\"font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; line-height: 1.1; color: rgb(51, 51, 51); margin-top: 20px; margin-bottom: 10px; font-size: 24px;\">Show me the code</h3><p style=\"margin-right: 0px; margin-bottom: 10px; margin-left: 0px; color: rgb(51, 51, 51); font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-size: 14px;\">Please see the&nbsp;<a href=\"http://eventuate.io/exampleapps.html\" style=\"background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; color: rgb(66, 139, 202);\">example applications developed by Chris Richardson</a>. These examples on Github illustrate various aspects of the microservice architecture.</p><h2 id=\"resulting-context\" style=\"font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; line-height: 1.1; color: rgb(51, 51, 51); margin-top: 20px; margin-bottom: 10px; font-size: 30px;\">Resulting context</h2><h3 id=\"benefits\" style=\"font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; line-height: 1.1; color: rgb(51, 51, 51); margin-top: 20px; margin-bottom: 10px; font-size: 24px;\">Benefits</h3><p style=\"margin-right: 0px; margin-bottom: 10px; margin-left: 0px; color: rgb(51, 51, 51); font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-size: 14px;\">This solution has a number of benefits:</p><ul style=\"margin-bottom: 10px; color: rgb(51, 51, 51); font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-size: 14px;\"><li>Enables the continuous delivery and deployment of large, complex applications.<ul><li>Improved maintainability - each service is relatively small and so is easier to understand and change</li><li>Better testability - services are smaller and faster to test</li><li>Better deployability - services can be deployed independently</li><li>It enables you to organize the development effort around multiple, autonomous teams. Each (so called two pizza) team owns and is responsible for one or more services. Each team can develop, test, deploy and scale their services independently of all of the other teams.</li></ul></li><li>Each microservice is relatively small:<ul><li>Easier for a developer to understand</li><li>The IDE is faster making developers more productive</li><li>The application starts faster, which makes developers more productive, and speeds up deployments</li></ul></li><li>Improved fault isolation. For example, if there is a memory leak in one service then only that service will be affected. The other services will continue to handle requests. In comparison, one misbehaving component of a monolithic architecture can bring down the entire system.</li><li>Eliminates any long-term commitment to a technology stack. When developing a new service you can pick a new technology stack. Similarly, when making major changes to an existing service you can rewrite it using a new technology stack.</li></ul><h3 id=\"drawbacks\" style=\"font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; line-height: 1.1; color: rgb(51, 51, 51); margin-top: 20px; margin-bottom: 10px; font-size: 24px;\">Drawbacks</h3><p style=\"margin-right: 0px; margin-bottom: 10px; margin-left: 0px; color: rgb(51, 51, 51); font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-size: 14px;\">This solution has a number of drawbacks:</p><ul style=\"margin-bottom: 10px; color: rgb(51, 51, 51); font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-size: 14px;\"><li>Developers must deal with the additional complexity of creating a distributed system:<ul><li>Developers must implement the inter-service communication mechanism and deal with partial failure</li><li>Implementing requests that span multiple services is more difficult</li><li>Testing the interactions between services is more difficult</li><li>Implementing requests that span multiple services requires careful coordination between the teams</li><li>Developer tools/IDEs are oriented on building monolithic applications and don’t provide explicit support for developing distributed applications.</li></ul></li><li>Deployment complexity. In production, there is also the operational complexity of deploying and managing a system comprised of many different services.</li><li>Increased memory consumption. The microservice architecture replaces N monolithic application instances with NxM services instances. If each service runs in its own JVM (or equivalent), which is usually necessary to isolate the instances, then there is the overhead of M times as many JVM runtimes. Moreover, if each service runs on its own VM (e.g. EC2 instance), as is the case at Netflix, the overhead is even higher.</li></ul>"
+    $('#idDetailedDescription').summernote('pasteHTML', HTMLstring);
+
+    // set data cho bảng thành viên
+    var numberRow = $('#tableMemberBuilProject > tbody').find('tr').length;
+    var row;
+    var codeAscii = 65;
+    var codeMB = 611292;
+    for (let j = 0; j <= numberRow; j++) {
+        row = $("#rowId" + j);
+        codeMB += 12;
+        row.find('input[id=idNameMember' + j + ']').val("Nguyễn Văn " + String.fromCharCode(codeAscii + j));
+        row.find('input[id=idCodeMB' + j + ']').val("" + codeMB);
+        row.find('input[id=idCodeClass' + j + ']').val("K61CNTT" + String.fromCharCode(codeAscii + j));
+    }
+
+    // link demo
+    $('#idLinkDemo').val("https://bitly.com.vn/hgYby");
+
+    // trạng thái của đồ án
+    $("input[data-bootstrap-switch]").each(function () {
+        $(this).bootstrapSwitch('state', false);
+    });
+
+
+    // tải lên ảnh đjai diện khi người dùng chọn
+    var fileTag = document.getElementById("inputImgAvatar");
+    var preview = document.getElementById("viewAvatar");
+
+    fileTag.addEventListener("change", function () {
+        console.log(this.toString());
+        changeImage(this);
+    });
+
+    function changeImage(input) {
+        var render;
+        if (input.files && input.files[0]) {
+            render = new FileReader();
+            render.onload = function (e) {
+                preview.setAttribute('src', e.target.result);
+            }
+            render.readAsDataURL(input.files[0]);
+        }
+    }
+
+    //Thêm thành viên
+    var i = numberRow;
+
+    function addMember() {
+        var table = document.getElementById("tableMemberBuilProject");
+        var row = table.insertRow(i + 1);
+        row.setAttribute("id", 'rowId' + i);
+        var cell1 = row.insertCell(0).innerHTML = '<input type="text" class="form-control"\n' +
+            '                                                           placeholder="Nhập tên thành viên">';
+        var cell2 = row.insertCell(1).innerHTML = '<input type="text" class="form-control"\n' +
+            '                                                           placeholder="Nhập mã sinh viên">';
+        var cell3 = row.insertCell(2).innerHTML = '<input type="text" class="form-control"\n' +
+            '                                                           placeholder="Nhập lớp">';
+
+        var cell4 = row.insertCell(3).innerHTML = '<button class="btn btn-danger btn-sm" id="' + i + '"\n' +
+            '                                                            ><i\n' +
+            '                                                            class="material-icons dp48">delete_forever</i>\n' +
+            '                                                    </button>';
+        console.log("i add : " + i);
+        this.i++;
+
+    }
+
+    // Xóa thành viên
+    $(document).ready(function () {
+        $("#tableMemberBuilProject").on('click', 'button', function (e) {
+            $(this).closest('tr').remove();
+            i--;
+        });
+    });
+
+    //add project
+    // test data mô tả chi tiết đồ án khi điền dữ liệu vào mô tả chi tiết , có thể kèm theo cả ảnh
+    function addProject() {
+        var dataDetailsProject = $('.textarea').summernote('code');
+        console.log(dataDetailsProject);
+        var test = document.getElementById("test");
+        test.innerHTML = dataDetailsProject;
+    }
+</script>
+
+</body>
+</html>
