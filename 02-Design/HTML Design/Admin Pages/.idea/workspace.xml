@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="75bbfb7a-8e76-41b0-a535-67f8332e7978" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/pages/forgot-password.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/lockscreen.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/login.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/recover-password.html" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
+  </component>
+  <component name="ProjectId" id="1dBKoAkwTYaFfhQGc5SvgqpLXm9" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="75bbfb7a-8e76-41b0-a535-67f8332e7978" name="Default Changelist" comment="" />
+      <created>1591893218925</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1591893218925</updated>
+      <workItem from="1591893222028" duration="1686000" />
+      <workItem from="1591945321887" duration="188000" />
+      <workItem from="1591969922064" duration="313000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="845" y="387" key="#Notifications" timestamp="1591893463803">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="845" y="387" key="#Notifications/0.0.1920.1050@0.0.1920.1050" timestamp="1591893463803" />
+    <state x="739" y="266" key="FileChooserDialogImpl" timestamp="1591945499882">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="739" y="266" key="FileChooserDialogImpl/0.0.1920.1050@0.0.1920.1050" timestamp="1591945499882" />
+    <state x="461" y="169" key="SettingsEditor" timestamp="1591893521810">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="461" y="169" key="SettingsEditor/0.0.1920.1050@0.0.1920.1050" timestamp="1591893521810" />
+    <state x="342" y="145" key="new project wizard" timestamp="1591945509316">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="342" y="145" key="new project wizard/0.0.1920.1050@0.0.1920.1050" timestamp="1591945509316" />
+  </component>
+</project>
