@@ -360,14 +360,14 @@
                                                     </div>
                                                     <div class="form-group row">
                                                         <div class="row">
-                                                            <div class="col-lg-4">
+                                                            <div class="col-lg-3">
                                                                 <label class="col-form-label" style="padding-left: 7px">Tên
                                                                     giảng viên:</label>
                                                             </div>
                                                             <div class="col-lg-4">
                                                                 <input type="text" class="form-control" readonly>
                                                             </div>
-                                                            <div class="col-lg-2">
+                                                            <div class="col-lg-3">
                                                                 <label class="col-form-label" style="padding-left: 7px">Mã
                                                                     giảng viên:</label>
                                                             </div>
@@ -376,25 +376,23 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="post clearfix">
-                                        <div class="form-group row">
-                                            <div class="row">
-                                                <div class="col-lg-3">
-                                                    <label class="col-form-label" style="padding-left: 7px">Mã
-                                                        Thể loại:</label>
-                                                </div>
-                                                <div class="col-lg-8">
-                                                    <select class="form-control category-name-select2"
-                                                            style="width: 100%;">
-                                                        <option></option>
-                                                        <option>Web Application</option>
-                                                        <option>Desktop Application</option>
-                                                        <option>Mobile Application</option>
-                                                    </select>
+                                                    <div class="form-group row">
+                                                        <div class="row">
+                                                            <div class="col-lg-3">
+                                                                <label class="col-form-label" style="padding-left: 7px">Mã
+                                                                    Thể loại:</label>
+                                                            </div>
+                                                            <div class="col-lg-8">
+                                                                <select class="form-control category-name-select2"
+                                                                        style="width: 100%;">
+                                                                    <option></option>
+                                                                    <option>Web Application</option>
+                                                                    <option>Desktop Application</option>
+                                                                    <option>Mobile Application</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -605,7 +603,7 @@
     }
 
     //add member
-    var i = 2;
+    var i = $('#tableMemberBuilProject > tbody').find('tr').length;;
 
     function addMember() {
         var table = document.getElementById("tableMemberBuilProject");
