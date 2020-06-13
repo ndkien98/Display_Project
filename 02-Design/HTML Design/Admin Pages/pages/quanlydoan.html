@@ -279,10 +279,15 @@
                                         </button>
                                     </div>
                                     <div class="col-sm-6 col-md-4 my-2">
-                                        <select class="custom-select year-semester-select2">
-                                            <option>Học kỳ 2 - Năm học 2019-2020</option>
-                                            <option>Học kỳ 1 - Năm học 2019-2020</option>
-                                        </select>
+                                        <div class="post">
+                                            <div class="form-group row">
+                                                <select class="custom-select year-semester-select2">
+                                                    <option>Học kỳ 2 - Năm học 2019-2020</option>
+                                                    <option>Tất cả học kỳ - Năm học</option>
+                                                    <option>Học kỳ 1 - Năm học 2019-2020</option>
+                                                </select>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -297,8 +302,6 @@
                                         <th>Tên thể loại</th>
                                         <th>Ngày tạo</th>
                                         <th>Môn học</th>
-                                        <th>Học kỳ</th>
-                                        <th>Năm học</th>
                                         <th>Hành động</th>
                                     </tr>
                                     </thead>
@@ -310,8 +313,6 @@
                                         <td>Web aplication</td>
                                         <td>01/02/2020</td>
                                         <td>Đồ án 1</td>
-                                        <td>2</td>
-                                        <td>2016-2017</td>
                                         <td>
                                             <button type="button" class="btn btn-info btn-sm">
                                                 <i class="fas fa-eye"></i> <a style="color: white"
@@ -326,8 +327,6 @@
                                         <td>Web aplication</td>
                                         <td>01/02/2020</td>
                                         <td>Lập trình window</td>
-                                        <td>2</td>
-                                        <td>2017-2018</td>
                                         <td>
                                             <button type="button" class="btn btn-info btn-sm">
                                                 <i class="fas fa-eye"></i> <a style="color: white"
@@ -342,8 +341,6 @@
                                         <td>Desktop</td>
                                         <td>01/02/2020</td>
                                         <td>Đồ án 1</td>
-                                        <td>3</td>
-                                        <td>2019-2020</td>
                                         <td>
                                             <button type="button" class="btn btn-info btn-sm">
                                                 <i class="fas fa-eye"></i> <a style="color: white"
@@ -418,17 +415,17 @@
         $("#coursesDatatable").DataTable({
             "responsive": true,
             "autoWidth": false,
-            "columnDefs": [
-                {"width": "3%", "targets": 0},
-                {"width": "10%", "targets": 1},
-                {"width": "20%", "targets": 2},
-                {"width": "14%", "targets": 3},
-                {"width": "10%", "targets": 4},
-                {"width": "10%", "targets": 5},
-                {"width": "8%", "targets": 6},
-                {"width": "10%", "targets": 7},
-                {"width": "15%", "targets": 8}
-            ]
+            // "columnDefs": [
+            //     {"width": "3%", "targets": 0},
+            //     {"width": "10%", "targets": 1},
+            //     {"width": "20%", "targets": 2},
+            //     {"width": "14%", "targets": 3},
+            //     {"width": "10%", "targets": 4},
+            //     {"width": "10%", "targets": 5},
+            //     {"width": "8%", "targets": 6},
+            //     {"width": "10%", "targets": 7},
+            //     {"width": "15%", "targets": 8}
+            // ]
         })
     });
 </script>
