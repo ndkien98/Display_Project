@@ -364,15 +364,17 @@
                                                                 <label class="col-form-label" style="padding-left: 7px">Tên
                                                                     giảng viên:</label>
                                                             </div>
-                                                            <div class="col-lg-4">
-                                                                <input type="text" class="form-control" readonly>
-                                                            </div>
                                                             <div class="col-lg-3">
-                                                                <label class="col-form-label" style="padding-left: 7px">Mã
-                                                                    giảng viên:</label>
+                                                                <input type="text" class="form-control" readonly>
                                                             </div>
                                                             <div class="col-lg-2">
-                                                                <input type="text" class="form-control" readonly>
+                                                                <label class="col-form-label"
+                                                                       style="padding-left: 7px">Mã
+                                                                    giảng viên:</label>
+                                                            </div>
+                                                            <div class="col-lg-3">
+                                                                <input type="text" class="form-control"
+                                                                       readonly>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -603,7 +605,8 @@
     }
 
     //add member
-    var i = $('#tableMemberBuilProject > tbody').find('tr').length;;
+    var i = $('#tableMemberBuilProject > tbody').find('tr').length;
+    ;
 
     function addMember() {
         var table = document.getElementById("tableMemberBuilProject");
