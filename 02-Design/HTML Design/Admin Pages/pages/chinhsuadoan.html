@@ -291,37 +291,11 @@
                             <div class="card card-primary">
                                 <div class="card-body">
                                     <b>Trạng thái: </b>
-                                    <input type="checkbox" name="my-checkbox" checked data-bootstrap-switch
+                                    <input type="checkbox" style="width: 100%" name="my-checkbox" checked
+                                           data-bootstrap-switch
                                            data-off-color="danger"
                                            data-on-color="success">
                                 </div>
-                            </div>
-                            <!-- Ngày tạo , người tạo , ngày duyệt -->
-                            <div class="card card-primary">
-                                <div class="card-body">
-                                    <strong><i class="mr-1"></i> Người tạo: </strong>
-                                    <a class="text-muted" href="#">
-                                        Nguyễn Đắc Kiên
-                                    </a>
-                                    <hr>
-
-                                    <strong><i class="mr-1"></i> Ngày tạo: </strong>
-
-                                    <strong class="text-muted">20/01/2020</strong>
-
-                                    <hr>
-                                    <strong><i class="mr-1"></i> Người cập nhập: </strong>
-
-                                    <a href="#" class="text-muted">Nguyễn Tuấn Mạnh</a>
-                                    <hr>
-
-                                    <strong><i class="mr-1"></i> Ngày cập nhập: </strong>
-
-                                    <strong class="text-muted">20/01/2020</strong>
-
-                                    <hr>
-                                </div>
-                                <!-- /.card-body -->
                             </div>
                         </div>
                         <!-- /.col -->
@@ -477,28 +451,37 @@
                                         <table class="table table-striped" id="tableMemberBuilProject">
                                             <thead>
                                             <tr>
-                                                <th>Họ tên</th>
                                                 <th>Mã sinh viên</th>
+                                                <th>Họ tên</th>
                                                 <th>Lớp</th>
                                             </tr>
                                             </thead>
                                             <tbody>
                                             <tr id="rowId0">
                                                 <td>
-                                                    <input id="idNameMember0" type="text" class="form-control"
-                                                           placeholder="Nhập tên nhóm trưởng">( Nhóm trưởng
+                                                    <select id="idCodeMB0"
+                                                            class="form-control code-member-select2"
+                                                            style="width: 100%;">
+                                                        <option></option>
+                                                        <option>611292</option>
+                                                        <option>611290</option>
+                                                        <option>611280</option>
+                                                    </select>
+                                                    ( Nhóm trưởng
                                                     )
                                                 </td>
-                                                <td><input id="idCodeMB0" type="text" class="form-control"
-                                                           placeholder="Nhập mã sinh viên"></td>
+                                                <td>
+                                                    <input id="idNameMember0" type="text" class="form-control"
+                                                           placeholder="Nhập tên nhóm trưởng" readonly>
+                                                </td>
                                                 <td><input id="idCodeClass0" type="text" class="form-control"
-                                                           placeholder="Nhập lớp"></td>
+                                                           placeholder="Nhập lớp" readonly></td>
                                             </tr>
                                             <tr id="rowId1">
-                                                <td><input id="idNameMember1" type="text" class="form-control"
-                                                           placeholder="Nhập tên thành viên"></td>
                                                 <td><input id="idCodeMB1" type="text" class="form-control"
                                                            placeholder="Nhập mã sinh viên"></td>
+                                                <td><input id="idNameMember1" type="text" class="form-control"
+                                                           placeholder="Nhập tên thành viên"></td>
                                                 <td><input id="idCodeClass1" type="text" class="form-control"
                                                            placeholder="Nhập lớp"></td>
                                                 <td>
@@ -509,10 +492,10 @@
                                                 </td>
                                             </tr>
                                             <tr id="rowId2">
-                                                <td><input id="idNameMember2" type="text" class="form-control"
-                                                           placeholder="Nhập tên thành viên"></td>
                                                 <td><input id="idCodeMB2" type="text" class="form-control"
                                                            placeholder="Nhập mã sinh viên"></td>
+                                                <td><input id="idNameMember2" type="text" class="form-control"
+                                                           placeholder="Nhập tên thành viên"></td>
                                                 <td><input id="idCodeClass2" type="text" class="form-control"
                                                            placeholder="Nhập lớp"></td>
                                                 <td>
@@ -523,10 +506,10 @@
                                                 </td>
                                             </tr>
                                             <tr id="rowId3">
-                                                <td><input id="idNameMember3" type="text" class="form-control"
-                                                           placeholder="Nhập tên thành viên"></td>
                                                 <td><input id="idCodeMB3" type="text" class="form-control"
                                                            placeholder="Nhập mã sinh viên"></td>
+                                                <td><input id="idNameMember3" type="text" class="form-control"
+                                                           placeholder="Nhập tên thành viên"></td>
                                                 <td><input id="idCodeClass3" type="text" class="form-control"
                                                            placeholder="Nhập lớp"></td>
                                                 <td>
@@ -656,6 +639,11 @@
         placeholder: "Chọn thể loại"
     });
 
+    // select 2 code leader
+    $('.code-member-select2').select2({
+        placeholder: "Chọn mã sinh viên"
+    });
+
     // Summernote add thu vien
     $('.textarea').summernote();
 
@@ -693,15 +681,21 @@
     $('#idDetailedDescription').summernote('pasteHTML', HTMLstring);
 
     // set data cho bảng thành viên
+
+    $('#idCodeMB0').val("611280").change();
+    $('input[id=idNameMember0]').val("Nguyễn Văn A");
+    $('input[id=idCodeClass0]').val("K61CNPMP");
+
+
     var numberRow = $('#tableMemberBuilProject > tbody').find('tr').length;
     var row;
     var codeAscii = 65;
     var codeMB = 611292;
-    for (let j = 0; j <= numberRow; j++) {
+    for (let j = 1; j <= numberRow; j++) {
         row = $("#rowId" + j);
         codeMB += 12;
-        row.find('input[id=idNameMember' + j + ']').val("Nguyễn Văn " + String.fromCharCode(codeAscii + j));
         row.find('input[id=idCodeMB' + j + ']').val("" + codeMB);
+        row.find('input[id=idNameMember' + j + ']').val("Nguyễn Văn " + String.fromCharCode(codeAscii + j));
         row.find('input[id=idCodeClass' + j + ']').val("K61CNTT" + String.fromCharCode(codeAscii + j));
     }
 
@@ -716,7 +710,7 @@
 
     // tải lên ảnh đjai diện khi người dùng chọn
     var fileTag = document.getElementById("inputImgAvatar");
-    var preview = document.getElementById("viewAvatar");
+    var preview = document.getElementById("idViewAvatar");
 
     fileTag.addEventListener("change", function () {
         console.log(this.toString());
@@ -742,9 +736,9 @@
         var row = table.insertRow(i + 1);
         row.setAttribute("id", 'rowId' + i);
         var cell1 = row.insertCell(0).innerHTML = '<input type="text" class="form-control"\n' +
-            '                                                           placeholder="Nhập tên thành viên">';
-        var cell2 = row.insertCell(1).innerHTML = '<input type="text" class="form-control"\n' +
             '                                                           placeholder="Nhập mã sinh viên">';
+        var cell2 = row.insertCell(1).innerHTML = '<input type="text" class="form-control"\n' +
+            '                                                           placeholder="Nhập tên thành viên">';
         var cell3 = row.insertCell(2).innerHTML = '<input type="text" class="form-control"\n' +
             '                                                           placeholder="Nhập lớp">';
 
