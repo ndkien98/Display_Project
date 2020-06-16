@@ -409,12 +409,12 @@
                 <label for="genderAddModal">Giới tính</label>
                 <div class="form-inline" id="genderAddModal">
                   <div class="form-check mx-2">
-                    <input class="form-check-input" type="radio" id="maleGender" name="gender">
-                    <label for="maleGender" class="form-check-label">Nam</label>
+                    <input class="form-check-input" type="radio" id="maleGenderAddModal" name="genderAddModal">
+                    <label for="maleGenderAddModal" class="form-check-label">Nam</label>
                   </div>
                   <div class="form-check mx-2">
-                    <input class="form-check-input" type="radio" id="femaleGender" name="gender">
-                    <label for="femaleGender" class="form-check-label">Nữ</label>
+                    <input class="form-check-input" type="radio" id="femaleGenderAddModal" name="genderAddModal">
+                    <label for="femaleGenderAddModal" class="form-check-label">Nữ</label>
                   </div>
                 </div>
               </div>
@@ -535,8 +535,8 @@
       </div>
       <!-- /.modal -->
 
-      <!-- Modal sửa người dùng là giảng viên-->
-      <div class="modal fade" id="modal-edit-giangvien">
+      <!-- Modal sửa người dùng -->
+      <div class="modal fade" id="modal-edit">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header bg-warning">
@@ -546,112 +546,77 @@
               </button>
             </div>
             <div class="modal-body">
-              <div class="modal-body">
-                <div class="user-header text-center">
-                  <div class="add-image">
-                    <a href="#">
-                      <img src="../dist/img/user8-128x128.jpg" class="img-circle elevation-2" alt="User Image">
-                      <!-- <div class="Footer">
-                        <button class="fas fa-pencil-alt">Thay đổi ảnh đại diện</button>
-                      </div> -->
-                    </a>
+              <div class="form-group text-center">
+                <div class="text-center mb-2">
+                  <img src="../dist/img/user2-160x160.jpg" class="user-image img-circle elevation-2" alt="User Image">
+                </div>
+                <input type="file" accept="image/*">
+                <hr>
+              </div>
+              <div class="form-group">
+                <label for="usernameEditModal">Tên tài khoản</label>
+                <input type="text" id="usernameEditModal" class="form-control" value="CNP02">
+              </div>
+              <div class="form-group">
+                <label for="passwordEditModal">Mật khẩu</label>
+                <input type="text" id="passwordEditModal" class="form-control" value="123456">
+              </div>
+              <div class="form-group">
+                <label for="fullNameEditModal">Họ tên</label>
+                <input type="text" id="fullNameEditModal" class="form-control" value="Ngô Công Thắng">
+              </div>
+              <div class="form-group">
+                <label for="birthDateEditModal">Ngày sinh</label>
+                <input id="birthDateEditModal" type="text" class="form-control" data-inputmask-alias="datetime"
+                       data-inputmask-inputformat="dd/mm/yyyy" data-mask value="10/10/1968">
+              </div>
+              <div class="form-group">
+                <label for="genderEditModal">Giới tính</label>
+                <div class="form-inline" id="genderEditModal">
+                  <div class="form-check mx-2">
+                    <input class="form-check-input" type="radio" id="maleGenderEditModal" name="genderEditModal"
+                           checked>
+                    <label for="maleGenderEditModal" class="form-check-label">Nam</label>
+                  </div>
+                  <div class="form-check mx-2">
+                    <input class="form-check-input" type="radio" id="femaleGenderEditModal" name="genderEditModal">
+                    <label for="femaleGenderEditModal" class="form-check-label">Nữ</label>
                   </div>
                 </div>
-                <div class="form-group">
-                  <label for="editUserNameLabel">Tên đăng nhập</label>
-                  <input type="text" id="editUserNameLabel" class="form-control" style="width: 100%;" value="CNP02">
-                </div>
-                <div class="form-group">
-                  <label for="editPassword" class="col-sm-4 col-form-label">Mật khẩu</label>
-                  <input type="text" id="editPassword" class="form-control" style="width: 100%;" value="123456">
-                </div>
-                <div class="form-group">
-                  <label for="editFullName">Họ tên</label>
-                  <input type="text" for="editFullName" class="form-control" style="width: 100%;"
-                         value="Ngô Công Thắng">
-                </div>
-                <div class="form-group">
-                  <label for="editDateBirth">Ngày sinh</label>
-                  <div class="input-group">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
-                    </div>
-                    <input for="editDateBirth" type="text" class="form-control" style="width: 100%;"
-                           data-inputmask-alias="datetime" data-inputmask-inputformat="dd/mm/yyyy" data-mask
-                           placeholder="dd/mm/yyyy">
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label for="editGender">Giới tính</label>
-                  <div>
-                    <input type="radio" id="editGender" name="gender" value="male" checked="true">
-                    <label for="male">Nam</label>
-                    &nbsp;&nbsp;
-                    <input type="radio" id="editGender" name="gender" value="female">
-                    <label for="female">Nữ</label>
-                  </div>
-                  <!--  <select id="editGender" class="form-control" style="width: 100%;">
-                     <option selected="">Nam</option>
-                     <option>Nữ</option>
-                   </select> -->
-                </div>
-                <div class="form-group">
-                  <label for="editEmail">Email</label>
-                  <div class="input-group mb-3">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text"><i class="fas fa-envelope"></i></span>
-                    </div>
-                    <input type="email" class="form-control" value="ncthang@gmail.com">
-                  </div>
-                  <!-- <div>
-                      <input type="Email" id="editEmail" class="form-control" style="width: 100%;" value="ncthang@gmail.com">
-                  </div> -->
-                </div>
-                <div class="form-group">
-                  <label for="editPhone">Số điện thoại</label>
-                  <div class="form-group">
-                    <div class="input-group">
-                      <div class="input-group-prepend">
-                        <span class="input-group-text"><i class="fas fa-phone"></i></span>
-                      </div>
-                      <input type="text" class="form-control" data-inputmask='"mask": "(999) 999-9999"' data-mask
-                             value="1234567890">
-                    </div>
-                    <!-- /.input group -->
-                  </div>
-                  <!-- /.form group -->
-                  <!-- <div>
-                      <input type="text" id="editPhone" class="form-control" style="width: 100%;" value="1234567890">
-                  </div> -->
-                </div>
-                <div class="form-group">
-                  <label for="editRole">Quyền</label>
-                  <div>
-                    <!-- <select id="editRole" class="form-control" style="width: 100%;">
-                     <option value="student">Sinh viên</option>
-                     <option selected="" value="lecture">Giảng viên</option>
-                   </select> -->
-                    <input type="text" id="editRole" class="form-control subject-code-select2" style="width: 100%;"
-                           value="Giảng viên" disabled="true">
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label for="editAddress">Bộ môn</label>
-                  <div>
-                    <select id="editAddress" class="form-control department-name-select2" style="width: 100%;">
-                      <option>Toán tin ứng dụng</option>
-                      <option selected>Công nghệ phần mềm</option>
-                      <option>Toán</option>
-                      <option>Khoa học máy tính</option>
-                      <option>Vật lý</option>
-                    </select>
-                  </div>
-                </div>
+              </div>
+              <div class="form-group">
+                <label for="emailEditModal">Email</label>
+                <input type="email" id="emailEditModal" class="form-control" value="ncthang@gmail.com">
+              </div>
+              <div class="form-group">
+                <label for="phoneEditModal">Số điện thoại</label>
+                <input type="text" id="phoneEditModal" class="form-control" data-inputmask='"mask": "9999999999"'
+                       data-mask value="0123456789">
+              </div>
+              <div class="form-group">
+                <label for="roleEditModal">Quyền</label>
+                <select class="form-control role-name-select2" id="roleEditModal" style="width: 100%;" disabled>
+                  <option value="1" selected>Giảng viên</option>
+                  <option value="2">Sinh viên</option>
+                </select>
+              </div>
+              <div class="form-group" id="lecturerDepartmentEditModal">
+                <label for="departmentEditModal">Bộ môn</label>
+                <select class="form-control department-name-select2" id="departmentEditModal" style="width: 100%;">
+                  <option>Công nghệ phần mềm</option>
+                  <option>Khoa học máy tính</option>
+                  <option>Toán - Tin ứng dụng</option>
+                </select>
+              </div>
+              <div class="form-group" id="studentClassEditModal" style="display: none">
+                <label for="classEditModal">Lớp</label>
+                <input type="text" id="classEditModal" class="form-control" style="width: 100%;"
+                       value="K61CNPMP">
               </div>
             </div>
             <div class="modal-footer justify-content-between">
               <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
-              <button type="button" class="btn btn-primary">Lưu</button>
+              <button type="button" class="btn btn-primary">Thêm</button>
             </div>
           </div>
           <!-- /.modal-content -->
@@ -776,6 +741,15 @@
             document.getElementById("studentClassAddModal").style.display = "block";
         }
     };
+
+    var roleValue = document.getElementById("roleEditModal").value;
+    if (roleValue === "1") {
+        document.getElementById("lecturerDepartmentEditModal").style.display = "block";
+        document.getElementById("studentClassEditModal").style.display = "none";
+    } else {
+        document.getElementById("lecturerDepartmentEditModal").style.display = "none";
+        document.getElementById("studentClassEditModal").style.display = "block";
+    }
 </script>
 </body>
 </html>
