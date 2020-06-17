@@ -81,12 +81,13 @@ create table courses (
     id int auto_increment not null primary key,
     subject_code varchar(10) not null,
     subject_group int not null,
+    class_code nvarchar(50) not null,
     years_semesters_id int not null,
     lecturer_code varchar(10) not null,
     created_date datetime default current_timestamp(),
     created_by varchar(10),
     last_modified_date datetime default current_timestamp(),
-    unique (subject_code, subject_group, years_semesters_id),
+    unique (subject_code, subject_group, class_code, years_semesters_id),
     foreign key (subject_code) references subjects (subject_code),
     foreign key (lecturer_code) references lecturers (lecturer_code),
     foreign key (years_semesters_id) references years_semesters (id)
@@ -126,3 +127,14 @@ create table projects (
     foreign key (student_code) references students (student_code),
     foreign key (course_id) references courses (id)
 );
+
+-- bảng Thành viên
+create table project_members
+(
+    id int auto_increment not null primary key,
+    studens_code varchar(10),
+    full_name nvarchar(50) not null,
+    class_code varchar(10),
+    project_id int not null,
+    foreign key (project_id) references projects (id)
+)
