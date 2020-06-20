@@ -11,170 +11,21 @@
 
   <title>Hệ Thống Trưng Bày Sản Phẩm Đồ Án Môn Học | Home</title>
 
-  <!-- Tell the browser to be responsive to screen width -->
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- Font Awesome Icons -->
-  <link rel="stylesheet" href="assets/admin-dashboard/plugins/fontawesome-free/css/all.min.css">
-  <!-- overlayScrollbars -->
-  <link rel="stylesheet" href="assets/admin-dashboard/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
-  <!-- Theme style -->
-  <link rel="stylesheet" href="assets/admin-dashboard/dist/css/adminlte.min.css">
-  <!-- Google Font: Source Sans Pro -->
-  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+<!--  &lt;!&ndash; Tell the browser to be responsive to screen width &ndash;&gt;-->
+<!--  <meta name="viewport" content="width=device-width, initial-scale=1">-->
+<!--  &lt;!&ndash; Font Awesome Icons &ndash;&gt;-->
+<!--  <link rel="stylesheet" href="assets/admin-dashboard/plugins/fontawesome-free/css/all.min.css">-->
+<!--  &lt;!&ndash; overlayScrollbars &ndash;&gt;-->
+<!--  <link rel="stylesheet" href="assets/admin-dashboard/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">-->
+<!--  &lt;!&ndash; Theme style &ndash;&gt;-->
+<!--  <link rel="stylesheet" href="assets/admin-dashboard/dist/css/adminlte.min.css">-->
+<!--  &lt;!&ndash; Google Font: Source Sans Pro &ndash;&gt;-->
+<!--  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">-->
 </head>
-<body class="hold-transition sidebar-mini layout-fixed nav-child-indent">
-<app-root></app-root>
-<div class="wrapper">
+<body>
+  <app-root></app-root>
 
 
-
-
-  <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <div class="content-header">
-      <div class="container-fluid">
-        <div class="row mb-2">
-          <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Hệ Thống Trưng Bày Sản Phẩm Đồ Án Môn Học</h1>
-          </div><!-- /.col -->
-          <div class="col-sm-6">
-            <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item active">Home</li>
-            </ol>
-          </div><!-- /.col -->
-        </div><!-- /.row -->
-      </div><!-- /.container-fluid -->
-    </div>
-    <!-- /.content-header -->
-
-    <!-- Main content -->
-    <div class="content">
-      <div class="container-fluid">
-        <!-- JUST EDIT HERE! -->
-
-
-      </div><!-- /.container-fluid -->
-
-      <!-- Modal thông tin cá nhân -->
-      <div class="modal fade" id="modal-profile">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header bg-primary">
-              <h4 class="modal-title">Thông tin cá nhân</h4>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <div class="form-group text-center">
-                <div class="text-center mb-2">
-                  <img src="assets/admin-dashboard/dist/img/user2-160x160.jpg" class="user-image img-circle elevation-2"
-                       alt="User Image">
-                </div>
-                <input type="file" accept="image/*">
-                <hr>
-              </div>
-              <div class="form-group">
-                <label for="usernameProfileModal">Tên tài khoản</label>
-                <input type="text" id="usernameProfileModal" class="form-control" value="611209" readonly>
-              </div>
-              <div class="form-group">
-                <label for="fullNameProfileModal">Họ tên</label>
-                <input type="text" id="fullNameProfileModal" class="form-control" value="Nguyễn Tùng Bái">
-              </div>
-              <div class="form-group">
-                <label for="birthDateProfileModal">Ngày sinh</label>
-                <input id="birthDateProfileModal" type="text" class="form-control" data-inputmask-alias="datetime"
-                       data-inputmask-inputformat="dd/mm/yyyy" data-mask placeholder="dd/mm/yyyy" value="12/01/1998">
-              </div>
-              <div class="form-group">
-                <label for="genderProfileModal">Giới tính</label>
-                <div class="form-inline" id="genderProfileModal">
-                  <div class="form-check mx-2">
-                    <input class="form-check-input" type="radio" id="maleGender" name="genderProfile" checked>
-                    <label for="maleGender" class="form-check-label">Nam</label>
-                  </div>
-                  <div class="form-check mx-2">
-                    <input class="form-check-input" type="radio" id="femaleGender" name="genderProfile">
-                    <label for="femaleGender" class="form-check-label">Nữ</label>
-                  </div>
-                </div>
-              </div>
-              <div class="form-group">
-                <label for="emailProfileModal">Email</label>
-                <input type="email" id="emailProfileModal" class="form-control" value="tungbai121@gmail.com">
-              </div>
-              <div class="form-group">
-                <label for="phoneProfileModal">Số điện thoại</label>
-                <input type="text" id="phoneProfileModal" class="form-control" data-inputmask='"mask": "9999999999"'
-                       data-mask value="0359318946">
-              </div>
-              <div class="form-group">
-                <label for="roleProfileModal">Quyền</label>
-                <input type="text" id="roleProfileModal" class="form-control" value="Sinh viên" readonly>
-              </div>
-              <div class="form-group">
-                <label for="addressProfileModal">Địa chỉ</label>
-                <input type="text" id="addressProfileModal" class="form-control" value="K61CNPMP" readonly>
-              </div>
-              <div class="form-group">
-                <label for="joinDateProfileModal">Ngày tham gia</label>
-                <input type="text" id="joinDateProfileModal" class="form-control" value="20/05/2020" readonly>
-              </div>
-            </div>
-            <div class="modal-footer justify-content-between">
-              <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
-              <button type="button" class="btn btn-primary">Lưu</button>
-            </div>
-          </div>
-          <!-- /.modal-content -->
-        </div>
-        <!-- /.modal-dialog -->
-      </div>
-      <!-- /.modal -->
-
-      <!-- Modal đổi mật khẩu -->
-      <div class="modal fade" id="modal-password">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header bg-danger">
-              <h4 class="modal-title">Đổi mật khẩu</h4>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <div class="form-group">
-                <label for="currentPassword">Mật khẩu hiện tại</label>
-                <input type="password" id="currentPassword" class="form-control">
-              </div>
-              <div class="form-group">
-                <label for="newPassword">Mật khẩu mới</label>
-                <input type="password" id="newPassword" class="form-control">
-              </div>
-              <div class="form-group">
-                <label for="confirmPassword">Xác nhận mật khẩu</label>
-                <input type="password" id="confirmPassword" class="form-control">
-              </div>
-            </div>
-            <div class="modal-footer justify-content-between">
-              <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
-              <button type="button" class="btn btn-primary">Lưu</button>
-            </div>
-          </div>
-          <!-- /.modal-content -->
-        </div>
-        <!-- /.modal-dialog -->
-      </div>
-      <!-- /.modal -->
-    </div>
-    <!-- /.content -->
-  </div>
-  <!-- /.content-wrapper -->
-
-
-</div>
 <!-- ./wrapper -->
 <!-- ./wrapper -->
 

@@ -6,10 +6,12 @@ import {CommonModule} from '@angular/common';
   declarations: [
     FooterComponent
   ],
-  imports: [],
+  imports: [
+    CommonModule
+  ],
   exports: [
     FooterComponent,
     CommonModule
   ]
 })
-export class HeaderModule {}
+export class FooterModule {}

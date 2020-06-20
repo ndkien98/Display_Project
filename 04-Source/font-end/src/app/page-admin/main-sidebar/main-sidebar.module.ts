@@ -12,4 +12,4 @@ import {CommonModule} from '@angular/common';
     CommonModule
   ]
 })
-export class HeaderModule {}
+export class MainSidebarModule {}

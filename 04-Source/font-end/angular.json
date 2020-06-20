@@ -24,7 +24,11 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "src/assets/admin-dashboard/plugins/fontawesome-free/css/all.min.css",
+              "src/assets/admin-dashboard/plugins/overlayScrollbars/css/OverlayScrollbars.min.css",
+              "src/assets/admin-dashboard/dist/css/adminlte.min.css",
+              "src/assets/admin-dashboard/plugins/css.css"
             ],
             "scripts": []
           },

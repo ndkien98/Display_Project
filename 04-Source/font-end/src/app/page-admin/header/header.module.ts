@@ -6,7 +6,9 @@ import {CommonModule} from '@angular/common';
   declarations: [
     HeaderComponent
   ],
-  imports: [],
+  imports: [
+    CommonModule
+  ],
   exports: [
     HeaderComponent,
     CommonModule
