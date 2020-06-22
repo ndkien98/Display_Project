@@ -354,6 +354,7 @@ CREATE TABLE `users` (
   `phone_number` varchar(10) DEFAULT NULL,
   `role_id` int NOT NULL,
   `user_avatar_url` varchar(500) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `status` int DEFAULT 1 NOT NULL,
   `created_date` datetime DEFAULT CURRENT_TIMESTAMP,
   `created_by` varchar(10) DEFAULT NULL,
   PRIMARY KEY (`id`),
