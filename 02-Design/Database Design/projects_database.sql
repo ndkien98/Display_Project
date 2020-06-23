@@ -168,7 +168,7 @@ DROP TABLE IF EXISTS `project_members`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `project_members` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `studens_code` varchar(10) DEFAULT NULL,
+  `student_code` varchar(10) DEFAULT NULL,
   `full_name` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `class_code` varchar(10) DEFAULT NULL,
   `project_id` int NOT NULL,
