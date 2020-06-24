@@ -41,5 +41,4 @@ public class YearSemesterController {
     public ResponseEntity<?> deleteYearSemester(@PathVariable int id) {
         return ResponseEntity.ok(yearSemesterService.deleteYearSemester(id));
     }
-
 }

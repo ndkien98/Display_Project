@@ -29,14 +29,14 @@ public class DepartmentServiceImpl implements DepartmentService {
     public List<DepartmentDTO> getDepartments() {
         try {
             List<Department> departments = departmentRepository.findAll();
-            List<DepartmentDTO> departmentDTOs = new ArrayList<>();
+            List<DepartmentDTO> departmentsDTO = new ArrayList<>();
 
             //Convert department (Entity) -> departmentDTO (DTO)
             for (Department department : departments) {
-                departmentDTOs.add(modelMapper.map(department, DepartmentDTO.class));
+                departmentsDTO.add(modelMapper.map(department, DepartmentDTO.class));
             }
 
-            return departmentDTOs;
+            return departmentsDTO;
         } catch (NoSuchElementException e) {
             return null;
         }

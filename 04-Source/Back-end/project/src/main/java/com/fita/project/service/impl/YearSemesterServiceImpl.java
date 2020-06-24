@@ -29,14 +29,14 @@ public class YearSemesterServiceImpl implements YearSemesterService {
     public List<YearSemesterDTO> getYearsSemesters() {
         try {
             List<YearSemester> yearsSemesters = yearSemesterRepository.findAll();
-            List<YearSemesterDTO> yearsSemestersDTOs = new ArrayList<>();
+            List<YearSemesterDTO> yearsSemestersDTO = new ArrayList<>();
 
             //Convert yearSemester (Entity) -> yearSemesterDTO (DTO)
             for (YearSemester yearSemester : yearsSemesters) {
-                yearsSemestersDTOs.add(modelMapper.map(yearSemester, YearSemesterDTO.class));
+                yearsSemestersDTO.add(modelMapper.map(yearSemester, YearSemesterDTO.class));
             }
 
-            return yearsSemestersDTOs;
+            return yearsSemestersDTO;
         } catch (NoSuchElementException e) {
             return null;
         }
@@ -53,7 +53,7 @@ public class YearSemesterServiceImpl implements YearSemesterService {
         try {
             YearSemester yearSemester = yearSemesterRepository.findById(id).get();
 
-            //Convert department (Entity) -> departmentDTO (DTO)
+            //Convert yearSemester (Entity) -> yearSemesterDTO (DTO)
             YearSemesterDTO yearSemesterDTO = modelMapper.map(yearSemester, YearSemesterDTO.class);
 
             return  yearSemesterDTO;

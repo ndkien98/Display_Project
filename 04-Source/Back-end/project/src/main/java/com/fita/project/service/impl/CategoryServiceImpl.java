@@ -29,14 +29,14 @@ public class CategoryServiceImpl implements CategoryService {
     public List<CategoryDTO> getCategories() {
         try {
             List<Category> categories = categoryRepository.findAll();
-            List<CategoryDTO> categoriesDTOs = new ArrayList<>();
+            List<CategoryDTO> categoriesDTO = new ArrayList<>();
 
             //Convert category (Entity) -> categoryDTO (DTO)
             for (Category category : categories) {
-                categoriesDTOs.add(modelMapper.map(category, CategoryDTO.class));
+                categoriesDTO.add(modelMapper.map(category, CategoryDTO.class));
             }
 
-            return categoriesDTOs;
+            return categoriesDTO;
         } catch (NoSuchElementException e) {
             return null;
         }
@@ -53,7 +53,7 @@ public class CategoryServiceImpl implements CategoryService {
         try {
             Category category = categoryRepository.findById(id).get();
 
-            //Convert department (Entity) -> departmentDTO (DTO)
+            //Convert category (Entity) -> categoryDTO (DTO)
             CategoryDTO categoryDTO = modelMapper.map(category, CategoryDTO.class);
 
             return  categoryDTO;
