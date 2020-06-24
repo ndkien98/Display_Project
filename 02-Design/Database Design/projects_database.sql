@@ -53,18 +53,18 @@ CREATE TABLE `courses` (
   `subject_code` varchar(10) NOT NULL,
   `subject_group` int NOT NULL,
   `class_code` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `years_semesters_id` int NOT NULL,
+  `year_semester_id` int NOT NULL,
   `lecturer_code` varchar(10) NOT NULL,
   `created_date` datetime DEFAULT CURRENT_TIMESTAMP,
   `created_by` varchar(10) DEFAULT NULL,
   `last_modified_date` datetime DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `subject_code` (`subject_code`,`subject_group`,`class_code`,`years_semesters_id`),
+  UNIQUE KEY `subject_code` (`subject_code`,`subject_group`,`class_code`,`year_semester_id`),
   KEY `lecturer_code` (`lecturer_code`),
-  KEY `years_semesters_id` (`years_semesters_id`),
+  KEY `year_semester_id` (`year_semester_id`),
   CONSTRAINT `courses_ibfk_1` FOREIGN KEY (`subject_code`) REFERENCES `subjects` (`subject_code`),
   CONSTRAINT `courses_ibfk_2` FOREIGN KEY (`lecturer_code`) REFERENCES `lecturers` (`lecturer_code`),
-  CONSTRAINT `courses_ibfk_3` FOREIGN KEY (`years_semesters_id`) REFERENCES `years_semesters` (`id`)
+  CONSTRAINT `courses_ibfk_3` FOREIGN KEY (`year_semester_id`) REFERENCES `years_semesters` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
