@@ -17,14 +17,14 @@ public class YearSemester {
     private Integer id;
 
     @Column(name = "year", nullable = false)
-    private int year;
+    private Integer year;
 
     @Column(name = "semester", nullable = false)
-    private int semester;
+    private Integer semester;
 
     @Column(name = "start_date")
     private String startDate;
 
     @Column(name = "weeks_number")
-    private int weeksNumber;
+    private Integer weeksNumber;
 }

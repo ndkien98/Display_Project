@@ -20,13 +20,13 @@ public class Course {
     private String subjectCode;
 
     @Column(name = "subject_group", nullable = false)
-    private int subjectGroup;
+    private Integer subjectGroup;
 
     @Column(name = "class_code", length = 50, nullable = false)
     private String classCode;
 
     @Column(name = "year_semester_id", nullable = false)
-    private int yearSemesterId;
+    private Integer yearSemesterId;
 
     @Column(name = "lecturer_code", length = 10, nullable = false)
     private String lecturerCode;

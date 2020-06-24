@@ -17,11 +17,11 @@ public class RoleFunction {
     private Integer id;
 
     @Column(name = "role_id", nullable = false)
-    private int roleId;
+    private Integer roleId;
 
     @Column(name = "function_id", nullable = false)
-    private int functionId;
+    private Integer functionId;
 
     @Column(name = "status", nullable = false)
-    private int status;
+    private Integer status;
 }

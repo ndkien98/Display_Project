@@ -32,16 +32,16 @@ public class Project {
     private String demoLink;
 
     @Column(name = "category_id", nullable = false)
-    private int categoryId;
+    private Integer categoryId;
 
     @Column(name = "student_code", length = 10, nullable = false)
     private String studentCode;
 
     @Column(name = "course_id", nullable = false)
-    private int courseId;
+    private Integer courseId;
 
     @Column(name = "status", nullable = false)
-    private int status;
+    private Integer status;
 
     @Column(name = "created_date")
     private String createdDate;
