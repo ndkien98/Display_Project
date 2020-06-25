@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="62d6a2a4-ea5b-4816-91a5-d0ec63817f02" name="Default Changelist" comment="update ma do an , chinh sua link home/quanlydoan , xoa bo &lt;div class=&quot;content build&quot;&gt; &lt;/div&gt;">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/02-Design/Database Design/diagram_update_17-06-2020.mwb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/02-Design/Database Design/diagram_update_17-06-2020.mwb.bak" beforeDir="false" />
-    </list>
+    <list default="true" id="62d6a2a4-ea5b-4816-91a5-d0ec63817f02" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,7 +64,7 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/02-Design/HTML Design/Admin Pages/pages/themdoan.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="460">
+            <state relative-caret-position="372">
               <caret line="650" selection-start-line="650" selection-end-line="650" />
               <folding>
                 <element signature="n#style#0;n#img#0;n#a#0;n#aside#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -156,6 +152,16 @@
               <item name="group01-03project1" type="b2602c69:ProjectViewProjectNode" />
               <item name="group01-03project1" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="group01-03project1" type="b2602c69:ProjectViewProjectNode" />
+              <item name="group01-03project1" type="462c0819:PsiDirectoryNode" />
+              <item name="02-Design" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="group01-03project1" type="b2602c69:ProjectViewProjectNode" />
+              <item name="group01-03project1" type="462c0819:PsiDirectoryNode" />
+              <item name="04-Source" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -239,6 +245,7 @@
       <workItem from="1591381461449" duration="582000" />
       <workItem from="1591711281007" duration="34000" />
       <workItem from="1593079662102" duration="704000" />
+      <workItem from="1593081889431" duration="295000" />
     </task>
     <task id="LOCAL-00001" summary="update ma do an , chinh sua link home/quanlydoan , xoa bo &lt;div class=&quot;content build&quot;&gt; &lt;/div&gt;">
       <created>1590572783385</created>
@@ -247,16 +254,23 @@
       <option name="project" value="LOCAL" />
       <updated>1590572783385</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="update">
+      <created>1593081942656</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1593081942656</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="49987000" />
+    <option name="totallyTimeSpent" value="50282000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25340393" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25718608" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -292,7 +306,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="update ma do an , chinh sua link home/quanlydoan , xoa bo &lt;div class=&quot;content build&quot;&gt; &lt;/div&gt;" />
-    <option name="LAST_COMMIT_MESSAGE" value="update ma do an , chinh sua link home/quanlydoan , xoa bo &lt;div class=&quot;content build&quot;&gt; &lt;/div&gt;" />
+    <MESSAGE value="update" />
+    <option name="LAST_COMMIT_MESSAGE" value="update" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/../../group01-03project1/02-Design/Database Design/projects_database.sql" />
@@ -410,7 +425,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/02-Design/HTML Design/Admin Pages/pages/themdoan.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="460">
+        <state relative-caret-position="372">
           <caret line="650" selection-start-line="650" selection-end-line="650" />
           <folding>
             <element signature="n#style#0;n#img#0;n#a#0;n#aside#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
