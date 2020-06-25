@@ -5,6 +5,7 @@ import { PersonalInformationComponent } from './personal-information/personal-in
 import {NgxMaskModule} from 'ngx-mask';
 import {MobxAngularModule} from 'mobx-angular';
 import {FormsModule} from '@angular/forms';
+import {RouterModule} from "@angular/router";
 
 @NgModule({
   declarations: [
@@ -12,7 +13,8 @@ import {FormsModule} from '@angular/forms';
     PersonalInformationComponent
   ],
   imports: [
-    FormsModule
+    FormsModule,
+    RouterModule
   ],
   exports: [
     MainSidebarComponent,
