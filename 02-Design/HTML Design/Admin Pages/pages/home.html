@@ -295,7 +295,10 @@
                 <input type="text" id="fullNameProfileModal" class="form-control" value="Nguyễn Tùng Bái">
               </div>
               <div class="form-group">
-                <label for="birthDateProfileModal">Ngày sinh</label>
+                <label for="birthDateProf
+
+
+                ileModal">Ngày sinh</label>
                 <input id="birthDateProfileModal" type="text" class="form-control" data-inputmask-alias="datetime"
                        data-inputmask-inputformat="dd/mm/yyyy" data-mask placeholder="dd/mm/yyyy" value="12/01/1998">
               </div>
@@ -421,7 +424,7 @@
 <script>
     $(function () {
         //InputMask
-        $('#birthDateProfileModal').inputmask('dd/mm/yyyy', {'placeholder': 'dd/mm/yyyy'})
+        $('#birthDateProfileModal').inputmask('dd/mm/yyyy', {'placeholder': 'dmmm'})
         $('[data-mask]').inputmask()
     });
 </script>
