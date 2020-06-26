@@ -7,20 +7,28 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body">
-        <div class="form-group">
-          <label for="departmentCodeAddModal">Mã bộ môn</label>
-          <input type="text" class="form-control" id="departmentCodeAddModal" placeholder="Nhập mã bộ môn">
+      <form role="form" (ngSubmit)="onSubmit()" #formAddDepartment="ngForm">
+        <div class="modal-body">
+          <div class="form-group">
+            <label for="departmentCodeAddModal">Mã bộ môn</label>
+            <input type="text" class="form-control" id="departmentCodeAddModal" placeholder="Nhập mã bộ môn" required [(ngModel)]="department.departmentCode">
+<!--            <div [hidden]="departmentCode.valid || departmentCode.pristine" class="alert alert-danger">-->
+<!--              Mã bộ môn không được để trống!-->
+<!--            </div>-->
+          </div>
+          <div class="form-group">
+            <label for="departmentNameAddModal">Tên Bộ môn</label>
+            <input type="text" class="form-control" id="departmentNameAddModal" placeholder="Nhập tên bộ môn" required [(ngModel)]="department.departmentName" >
+<!--            <div [hidden]="departmentName.valid || departmentName.pristine" class="alert-danger">-->
+<!--              Tên bộ môn không được để trống!-->
+<!--            </div>-->
+          </div>
         </div>
-        <div class="form-group">
-          <label for="departmentNameAddModal">Tên Bộ môn</label>
-          <input type="text" class="form-control" id="departmentNameAddModal" placeholder="Nhập tên bộ môn">
+        <div class="modal-footer justify-content-between">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
+          <button type="button" class="btn btn-primary" [disabled]="!formAddDepartment.form.valid">Thêm</button>
         </div>
-      </div>
-      <div class="modal-footer justify-content-between">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
-        <button type="button" class="btn btn-primary">Thêm</button>
-      </div>
+      </form>
     </div>
     <!-- /.modal-content -->
   </div>

@@ -5,6 +5,7 @@ import { AddDepartmentComponent } from './add-department/add-department.componen
 import { EditDepartmentComponent } from './edit-department/edit-department.component';
 import { DeleteDepartmentComponent } from './delete-department/delete-department.component';
 import {DataTablesModule} from 'angular-datatables';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import {DataTablesModule} from 'angular-datatables';
   ],
   imports: [
     CommonModule,
-    DataTablesModule
+    DataTablesModule,
+    FormsModule
   ]
 })
 export class DepartmentModule { }

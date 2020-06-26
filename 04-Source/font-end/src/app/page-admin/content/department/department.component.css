@@ -1,0 +1,8 @@
+table {
+  counter-reset: section;
+}
+/*set tu dong tang cho STT*/
+.count:before {
+  counter-increment: section;
+  content: counter(section);
+}

@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/departments/")
+@CrossOrigin(origins = "*", maxAge = -1) // cho khai báo phép có địa chỉ domain nhất định call tới api
 public class DepartmentController {
     @Autowired
     DepartmentService departmentService;
