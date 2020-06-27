@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/years-semesters/")
+@CrossOrigin(value = "*", maxAge = -1)
 public class YearSemesterController {
     @Autowired
     YearSemesterService yearSemesterService;

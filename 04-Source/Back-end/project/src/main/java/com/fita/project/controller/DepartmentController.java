@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/departments/")
+@CrossOrigin(value = "*", maxAge = -1)
 public class DepartmentController {
     @Autowired
     DepartmentService departmentService;
