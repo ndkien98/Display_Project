@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 @CrossOrigin(value = "*", maxAge = -1)
 public class YearSemesterController {
     @Autowired
-    YearSemesterService yearSemesterService;
+    private YearSemesterService yearSemesterService;
 
     // Lấy ra tất cả các năm học - học kỳ
     @GetMapping("get-all")

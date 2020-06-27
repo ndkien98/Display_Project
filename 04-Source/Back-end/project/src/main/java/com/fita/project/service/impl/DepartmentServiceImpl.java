@@ -15,10 +15,10 @@ import java.util.NoSuchElementException;
 @Component
 public class DepartmentServiceImpl implements DepartmentService {
     @Autowired
-    DepartmentRepository departmentRepository;
+    private DepartmentRepository departmentRepository;
 
     @Autowired
-    ModelMapper modelMapper;
+    private ModelMapper modelMapper;
 
     /**
      * Lấy tất cả các bộ môn trong cơ sở dữ liệu

@@ -15,10 +15,10 @@ import java.util.NoSuchElementException;
 @Component
 public class YearSemesterServiceImpl implements YearSemesterService {
     @Autowired
-    YearSemesterRepository yearSemesterRepository;
+    private YearSemesterRepository yearSemesterRepository;
 
     @Autowired
-    ModelMapper modelMapper;
+    private ModelMapper modelMapper;
 
     /**
      * Lấy tất cả các năm học - học kỳ trong cơ sở dữ liệu
@@ -79,7 +79,7 @@ public class YearSemesterServiceImpl implements YearSemesterService {
     }
 
     /**
-     * Sửa học kỳ - năm học trong cơ sở dữ liệu dựa theo id
+     * Sửa năm học - học kỳ trong cơ sở dữ liệu dựa theo id
      *
      * @param id
      * @return true nếu sửa thành công, ngược lại trả về false
@@ -106,7 +106,7 @@ public class YearSemesterServiceImpl implements YearSemesterService {
     }
 
     /**
-     * Xoá học kỳ - năm học trong cơ sở dữ liệu dựa theo id
+     * Xoá năm học - học kỳ trong cơ sở dữ liệu dựa theo id
      *
      * @param id
      * @return true nếu xoá thành công, ngược lại trả về false

@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 @CrossOrigin(value = "*", maxAge = -1)
 public class CategoryController {
     @Autowired
-    CategoryService categoryService;
+    private CategoryService categoryService;
 
     // Lấy ra tất cả các thể loại
     @GetMapping("get-all")

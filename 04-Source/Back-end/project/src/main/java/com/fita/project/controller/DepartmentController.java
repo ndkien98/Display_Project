@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 @CrossOrigin(value = "*", maxAge = -1)
 public class DepartmentController {
     @Autowired
-    DepartmentService departmentService;
+    private DepartmentService departmentService;
 
     // Lấy ra tất cả các bộ môn
     @GetMapping("get-all")
