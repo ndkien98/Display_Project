@@ -56,7 +56,7 @@ public class YearSemesterServiceImpl implements YearSemesterService {
             //Convert yearSemester (Entity) -> yearSemesterDTO (DTO)
             YearSemesterDTO yearSemesterDTO = modelMapper.map(yearSemester, YearSemesterDTO.class);
 
-            return  yearSemesterDTO;
+            return yearSemesterDTO;
         } catch (NoSuchElementException e) {
             return null;
         }

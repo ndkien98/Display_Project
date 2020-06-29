@@ -4,10 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "lecturers")
@@ -16,7 +13,7 @@ import javax.persistence.Table;
 @AllArgsConstructor
 public class Lecturer {
     @Id
-    @Column(name = "leturer_code", length = 10, nullable = false)
+    @Column(name = "lecturer_code", length = 10, nullable = false)
     private String lecturerCode;
 
     @Column(name = "role_id", nullable = false)

@@ -56,7 +56,7 @@ public class DepartmentServiceImpl implements DepartmentService {
             //Convert department (Entity) -> departmentDTO (DTO)
             DepartmentDTO departmentDTO = modelMapper.map(department, DepartmentDTO.class);
 
-            return  departmentDTO;
+            return departmentDTO;
         } catch (NoSuchElementException e) {
             return null;
         }
