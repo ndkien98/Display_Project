@@ -1,6 +1,5 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {throwError} from 'rxjs';
 
 
 @Injectable({
@@ -11,6 +10,7 @@ export class BaseService {
 
   constructor(public http: HttpClient) {
   }
+
   // Http headers
   httpOptions = {
     header: new HttpHeaders({

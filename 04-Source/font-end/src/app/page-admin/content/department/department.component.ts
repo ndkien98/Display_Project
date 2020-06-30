@@ -35,15 +35,4 @@ export class DepartmentComponent implements OnInit {
       this.dtTrigger.next();
     });
   }
-
-  loadNumericalOrder() {
-    this.STT++;
-    console.log(this.STT);
-  }
-  // tslint:disable-next-line:use-lifecycle-interface
-  ngOnDestroy(): void {
-    this.dtTrigger.unsubscribe();
-  }
-
-
 }
