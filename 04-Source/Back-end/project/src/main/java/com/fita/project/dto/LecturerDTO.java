@@ -7,7 +7,6 @@ import lombok.*;
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 @ToString(callSuper = true)
-public class LecturerDTO extends UserDTO{
-    private String lecturerCode;
+public class LecturerDTO extends UserDTO {
     private String departmentCode;
 }

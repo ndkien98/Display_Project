@@ -7,6 +7,7 @@ import com.fita.project.repository.LecturerRepository;
 import com.fita.project.repository.StudentRepository;
 import com.fita.project.repository.UserRepository;
 import com.fita.project.repository.entity.Lecturer;
+import com.fita.project.repository.entity.Student;
 import com.fita.project.repository.entity.User;
 import com.fita.project.service.UserService;
 import org.modelmapper.ModelMapper;
@@ -30,6 +31,8 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     private ModelMapper modelMapper;
+
+    //====================NGƯỜI DÙNG====================
 
     /**
      * Lấy tất cả các người dùng trong cơ sở dữ liệu
@@ -161,6 +164,9 @@ public class UserServiceImpl implements UserService {
         }
     }
 
+
+    //====================GIẢNG VIÊN====================
+
     /**
      * Lấy tất cả các giảng viên trong cơ sở dữ liệu
      *
@@ -177,7 +183,6 @@ public class UserServiceImpl implements UserService {
                 UserDTO userDTO = getUserByUsername(lecturer.getLecturerCode());
 
                 LecturerDTO lecturerDTO = modelMapper.map(userDTO, LecturerDTO.class);
-                lecturerDTO.setLecturerCode(lecturer.getLecturerCode());
                 lecturerDTO.setDepartmentCode(lecturer.getDepartmentCode());
 
                 lecturersDTO.add(lecturerDTO);
@@ -205,7 +210,6 @@ public class UserServiceImpl implements UserService {
             for (Lecturer lecturer : lecturers) {
                 if (userDTO.getUsername().equalsIgnoreCase(lecturer.getLecturerCode())) {
                     lecturerDTO = modelMapper.map(userDTO, LecturerDTO.class);
-                    lecturerDTO.setLecturerCode(lecturer.getLecturerCode());
                     lecturerDTO.setDepartmentCode(lecturer.getDepartmentCode());
                 }
             }
@@ -227,6 +231,7 @@ public class UserServiceImpl implements UserService {
         try {
             User user = modelMapper.map(lecturerDTO, User.class);
             Lecturer lecturer = modelMapper.map(lecturerDTO, Lecturer.class);
+            lecturer.setLecturerCode(lecturerDTO.getUsername());
 
             userRepository.save(user);
             lecturerRepository.save(lecturer);
@@ -254,6 +259,7 @@ public class UserServiceImpl implements UserService {
                 // Cập nhật dữ liệu mới
                 User userToUpdate = modelMapper.map(lecturerDTO, User.class);
                 Lecturer lecturerToUpdate = modelMapper.map(lecturerDTO, Lecturer.class);
+                lecturerToUpdate.setLecturerCode(lecturerDTO.getUsername());
 
                 // Lưu lại vào cơ sở dữ liệu
                 userRepository.save(userToUpdate);
@@ -280,7 +286,7 @@ public class UserServiceImpl implements UserService {
             LecturerDTO lecturerToDeleteDTO = getLecturerById(id);
 
             if (lecturerToDeleteDTO != null) {
-                lecturerRepository.deleteByLecturerCode(lecturerToDeleteDTO.getLecturerCode());
+                lecturerRepository.deleteByLecturerCode(lecturerToDeleteDTO.getUsername());
                 userRepository.deleteById(id);
 
                 return true;
@@ -292,28 +298,137 @@ public class UserServiceImpl implements UserService {
         }
     }
 
+
+    //====================SINH VIÊN====================
+
+    /**
+     * Lấy tất cả các sinh viên trong cơ sở dữ liệu
+     *
+     * @return danh sách các sinh viên (nếu có), ngược lại trả về null
+     */
     @Override
     public List<StudentDTO> getStudents() {
-        return null;
+        try {
+            List<Student> students = studentRepository.findAll();
+            List<StudentDTO> studentsDTO = new ArrayList<>();
+
+            //Convert student (Entity) -> studentDTO (DTO)
+            for (Student student : students) {
+                UserDTO userDTO = getUserByUsername(student.getStudentCode());
+
+                StudentDTO studentDTO = modelMapper.map(userDTO, StudentDTO.class);
+                studentDTO.setClassCode(student.getClassCode());
+
+                studentsDTO.add(studentDTO);
+            }
+
+            return studentsDTO;
+        } catch (NoSuchElementException e) {
+            return null;
+        }
     }
 
+    /**
+     * Lấy sinh viên trong cơ sở dữ liệu dựa theo id
+     *
+     * @return sinh viên lấy được (nếu có), ngược lại trả về null
+     */
     @Override
     public StudentDTO getStudentById(int id) {
-        return null;
+        try {
+            UserDTO userDTO = getUserById(id);
+            List<Student> students = studentRepository.findAll();
+            StudentDTO studentDTO = null;
+
+            //Convert student (Entity) -> studentDTO (DTO)
+            for (Student student : students) {
+                if (userDTO.getUsername().equalsIgnoreCase(student.getStudentCode())) {
+                    studentDTO = modelMapper.map(userDTO, StudentDTO.class);
+                    studentDTO.setClassCode(student.getClassCode());
+                }
+            }
+
+            return studentDTO;
+        } catch (Exception e) {
+            return null;
+        }
     }
 
+    /**
+     * Thêm 1 sinh viên vào cơ sở dữ liệu
+     *
+     * @param studentDTO
+     * @return true nếu thêm thành công, ngược lại trả về false
+     */
     @Override
     public boolean addStudent(StudentDTO studentDTO) {
-        return false;
+        try {
+            User user = modelMapper.map(studentDTO, User.class);
+            Student student = modelMapper.map(studentDTO, Student.class);
+            student.setStudentCode(studentDTO.getUsername());
+
+            userRepository.save(user);
+            studentRepository.save(student);
+
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
     }
 
+    /**
+     * Sửa sinh viên trong cơ sở dữ liệu dựa theo id
+     *
+     * @param id
+     * @param studentDTO
+     * @return true nếu sửa thành công, ngược lại trả về false
+     */
     @Override
     public boolean editStudent(int id, StudentDTO studentDTO) {
-        return false;
+        try {
+            // Lấy sinh viên cần sửa
+            StudentDTO studentToUpdateDTO = getStudentById(id);
+
+            if (studentToUpdateDTO != null) {
+                // Cập nhật dữ liệu mới
+                User userToUpdate = modelMapper.map(studentDTO, User.class);
+                Student studentToUpdate = modelMapper.map(studentDTO, Student.class);
+                studentToUpdate.setStudentCode(studentDTO.getUsername());
+
+                // Lưu lại vào cơ sở dữ liệu
+                userRepository.save(userToUpdate);
+                studentRepository.save(studentToUpdate);
+
+                return true;
+            } else {
+                return false;
+            }
+        } catch (Exception e) {
+            return false;
+        }
     }
 
+    /**
+     * Xoá sinh viên trong cơ sở dữ liệu dựa theo id
+     *
+     * @param id
+     * @return true nếu xoá thành công, ngược lại trả về false
+     */
     @Override
     public boolean deleteStudent(int id) {
-        return false;
+        try {
+            StudentDTO studentToDeleteDTO = getStudentById(id);
+
+            if (studentToDeleteDTO != null) {
+                studentRepository.deleteByStudentCode(studentToDeleteDTO.getUsername());
+                userRepository.deleteById(id);
+
+                return true;
+            } else {
+                return false;
+            }
+        } catch (Exception e) {
+            return false;
+        }
     }
 }
