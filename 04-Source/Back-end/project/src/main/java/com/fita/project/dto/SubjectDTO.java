@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class SubjectDTO {
     private int id;
-    private int subjectCode;
-    private int subjectName;
-    private int departmentCode;
+    private String subjectCode;
+    private String subjectName;
+    private String departmentCode;
 }

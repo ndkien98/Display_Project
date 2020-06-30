@@ -8,7 +8,7 @@ import java.util.List;
 @Service
 public interface SubjectService {
     // Lấy ra tất cả các môn học
-    List<SubjectDTO> getSubject();
+    List<SubjectDTO> getSubjects();
 
     // Lấy ra môn học theo "id"
     SubjectDTO getSubjectById(int id);
