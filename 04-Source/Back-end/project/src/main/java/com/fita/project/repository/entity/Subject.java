@@ -23,5 +23,5 @@ public class Subject {
     private String subjectName;
 
     @Column(name = "department_code", length = 5, nullable = false)
-    private String department_code;
+    private String departmentCode;
 }
