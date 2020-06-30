@@ -82,6 +82,7 @@ public class DepartmentServiceImpl implements DepartmentService {
      * Sửa bộ môn trong cơ sở dữ liệu dựa theo id
      *
      * @param id
+     * @param departmentDTO
      * @return true nếu sửa thành công, ngược lại trả về false
      */
     @Override

@@ -82,6 +82,7 @@ public class CategoryServiceImpl implements CategoryService {
      * Sửa thể loại trong cơ sở dữ liệu dựa theo id
      *
      * @param id
+     * @param categoryDTO
      * @return true nếu sửa thành công, ngược lại trả về false
      */
     @Override
