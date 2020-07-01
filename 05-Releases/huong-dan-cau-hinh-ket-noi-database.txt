@@ -1,0 +1,15 @@
+
+* 1 : Cấu hình user và password từ web service tới mySQL
+- trong file application.properties
+	
+	# Database Connection
+	spring.datasource.url=jdbc:mysql://localhost:3306/projects_database    // Đường dẫn kết nối tới database mySQL
+	spring.datasource.username=root				   // tên username của mySQL
+	spring.datasource.password=1234				  // password của mySQL
+
+	## Hibernate Properties				( cấu hình mặc định của hibernate kết nối với database giữ nguyên không thay đổi )
+	# The SQL dialect makes Hibernate generate better SQL for the chosen database
+	spring.jpa.properties.hibernate.dialect = org.hibernate.dialect.MySQLDialect
+	# Hibernate ddl auto (create, create-drop, validate, update)
+	spring.jpa.hibernate.ddl-auto = update
+
