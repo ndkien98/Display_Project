@@ -1,6 +1,3 @@
-CREATE DATABASE `projects_database`;
-USE `projects_database`;
-
 -- Bảng "Bộ Môn"
 CREATE TABLE `departments` (
   `id` int NOT NULL AUTO_INCREMENT,
