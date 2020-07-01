@@ -1,0 +1,126 @@
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <div class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col-sm-6">
+          <h1 class="m-0 text-dark">Quản Lý Bộ Môn</h1>
+        </div><!-- /.col -->
+        <div class="col-sm-6">
+          <ol class="breadcrumb float-sm-right">
+            <li class="breadcrumb-item"><a href="home.html">Home</a></li>
+            <li class="breadcrumb-item active">Quản Lý Bộ Môn</li>
+          </ol>
+        </div><!-- /.col -->
+      </div><!-- /.row -->
+    </div><!-- /.container-fluid -->
+  </div>
+  <!-- /.content-header -->
+
+  <!-- Main content -->
+  <div class="content">
+    <div class="container-fluid">
+      <!-- JUST EDIT HERE! -->
+      <div class="row">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-header">
+              <div class="row">
+                <div class="col-sm-6 col-md-8 my-2">
+                  <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal-add-department">
+                    Thêm bộ môn
+                  </button>
+                </div>
+              </div>
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body">
+              <table id="departmentsDatatable" class="table table-bordered table-striped" datatable>
+                <thead>
+                <tr>
+                  <th>STT</th>
+                  <th>Mã bộ môn</th>
+                  <th>Tên bộ môn</th>
+                  <th>Hành động</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                  <td>1</td>
+                  <td>TH01</td>
+                  <td>Khoa học máy tính</td>
+                  <td>
+                    <button type="button" class="btn btn-warning btn-sm" data-toggle="modal"
+                            data-target="#modal-edit-department">
+                      <i class="fas fa-pencil-alt"></i>
+                      Sửa
+                    </button>
+                    <button type="button" class="btn btn-danger btn-sm" data-toggle="modal"
+                            data-target="#modal-delete-department">
+                      <i class="fas fa-trash"></i>
+                      Xoá
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>TH02</td>
+                  <td>Công nghệ phần mềm</td>
+                  <td>
+                    <button type="button" class="btn btn-warning btn-sm" data-toggle="modal"
+                            data-target="#modal-edit-department">
+                      <i class="fas fa-pencil-alt"></i>
+                      Sửa
+                    </button>
+                    <button type="button" class="btn btn-danger btn-sm" data-toggle="modal"
+                            data-target="#modal-delete-department">
+                      <i class="fas fa-trash"></i>
+                      Xoá
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>3</td>
+                  <td>TH03</td>
+                  <td>Toán - Tin ứng dụng</td>
+                  <td>
+                    <button type="button" class="btn btn-warning btn-sm" data-toggle="modal"
+                            data-target="#modal-edit-department">
+                      <i class="fas fa-pencil-alt"></i>
+                      Sửa
+                    </button>
+                    <button type="button" class="btn btn-danger btn-sm" data-toggle="modal"
+                            data-target="#modal-delete-department">
+                      <i class="fas fa-trash"></i>
+                      Xoá
+                    </button>
+                  </td>
+                </tr>
+                </tbody>
+              </table>
+            </div>
+            <!-- /.card-body -->
+          </div>
+          <!-- /.card -->
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+    </div><!-- /.container-fluid -->
+
+    <!-- Modal thêm bộ môn -->
+    <app-add-department></app-add-department>
+    <!-- /.modal -->
+
+    <!-- Modal sửa bộ môn -->
+    <app-edit-department></app-edit-department>
+    <!-- /.modal -->
+
+    <!-- Modal xoá bộ môn -->
+    <app-delete-department></app-delete-department>
+    <!-- /.modal -->
+  </div>
+  <!-- /.content -->
+</div>
+<!-- /.content-wrapper -->

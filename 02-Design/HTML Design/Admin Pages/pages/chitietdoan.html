@@ -1,0 +1,964 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <title>Hệ Thống Trưng Bày Sản Phẩm Đồ Án Môn Học | Quản Lý Đồ Án</title>
+
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="../plugins/fontawesome-free/css/all.min.css">
+    <!-- overlayScrollbars -->
+    <link rel="stylesheet" href="../plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+    <!-- DataTables -->
+    <link rel="stylesheet" href="../plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="../plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+    <!-- Select2 -->
+    <link rel="stylesheet" href="../plugins/select2/css/select2.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="../dist/css/adminlte.min.css">
+    <!-- Google Font: Source Sans Pro -->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
+    <!-- Ekko Lightbox -->
+    <link rel="stylesheet" href="../plugins/ekko-lightbox/ekko-lightbox.css">
+
+
+</head>
+<body class="hold-transition sidebar-mini layout-fixed">
+<div class="wrapper">
+
+    <!-- Navbar -->
+    <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+        <!-- Left navbar links -->
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+            </li>
+            <li class="nav-item d-none d-sm-inline-block">
+                <a href="home.html" class="nav-link">Home</a>
+            </li>
+        </ul>
+
+        <!-- SEARCH FORM -->
+        <form class="form-inline ml-3">
+            <div class="input-group input-group-sm">
+                <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
+                <div class="input-group-append">
+                    <button class="btn btn-navbar" type="submit">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+            </div>
+        </form>
+
+        <!-- Right navbar links -->
+        <ul class="navbar-nav ml-auto">
+            <!-- User Dropdown Menu -->
+            <li class="nav-item dropdown user-menu">
+                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
+                    <img src="../dist/img/user2-160x160.jpg" class="user-image img-circle elevation-2" alt="User Image">
+                    <span class="d-none d-md-inline">Admin</span>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+                    <!-- User image -->
+                    <li class="user-header bg-primary">
+                        <img src="../dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+                        <p>
+                            Admin - Admin
+                            <small>Member since May. 2020</small>
+                        </p>
+                    </li>
+                    <!-- Menu Body -->
+                    <!-- <li class="user-body">
+                      <div class="row">
+                        <div class="col-4 text-center">
+                          <a href="#">Followers</a>
+                        </div>
+                        <div class="col-4 text-center">
+                          <a href="#">Sales</a>
+                        </div>
+                        <div class="col-4 text-center">
+                          <a href="#" class="btn btn-default btn-flat">Profile</a>
+                        </div>
+                    </div> -->
+                    <!-- /.row -->
+                    <!-- </li> -->
+                    <!-- Menu Footer-->
+                    <li class="user-footer">
+                        <a href="#" class="btn btn-default btn-flat">Profile</a>
+                        <a href="#" class="btn btn-default btn-flat float-right">Sign out</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
+                    <i class="fas fa-th-large"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <!-- /.navbar -->
+
+    <!-- Main Sidebar Container -->
+    <aside class="main-sidebar sidebar-dark-primary elevation-4">
+        <!-- Brand Logo -->
+        <a href="#" class="brand-link">
+            <img src="../dist/img/FITALogo.png" alt="Faculty Logo" class="brand-image img-circle elevation-3"
+                 style="opacity: .8">
+            <span class="brand-text font-weight-light">FITA - VNUA</span>
+        </a>
+
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <!-- Sidebar user panel (optional) -->
+            <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+                <div class="image">
+                    <img src="../dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+                </div>
+                <div class="info">
+                    <a href="#" class="d-block">Admin</a>
+                </div>
+            </div>
+
+            <!-- Sidebar Menu -->
+            <nav class="mt-2">
+                <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
+                    data-accordion="false">
+                    <!-- Add icons to the links using the .nav-icon class
+                       with font-awesome or any other icon font library -->
+                    <!-- Phân quyền -->
+                    <li class="nav-item has-treeview">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fas fa-tachometer-alt"></i>
+                            <p>
+                                Phân Quyền
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="../pages/danhsachnhomquyen.html" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Danh Sách Nhóm Quyền</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <!-- Danh mục quản lý -->
+                    <li class="nav-item has-treeview menu-open">
+                        <a href="#" class="nav-link active">
+                            <i class="nav-icon fas fa-university"></i>
+                            <p>
+                                Danh Mục Quản Lý
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="../pages/quanlybomon.html" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Bộ Môn</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../pages/quanlyuser.html" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>User</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../pages/quanlymonhoc.html" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Môn Học</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../pages/quanlynamhochocky.html" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Năm Học - Học Kỳ</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="quanlylophocphan.html" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Lớp Học Phần</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../pages/quanlytheloai.html" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Thể Loại</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../pages/quanlydoan.html" class="nav-link active">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Đồ Án</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <!-- Kiểm duyệt -->
+                    <li class="nav-item has-treeview">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fas fa-tasks"></i>
+                            <p>
+                                Kiểm Duyệt
+                                <i class="right fas fa-angle-left"></i>
+                                <span class="badge badge-info right">0</span>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="../pages/kiemduyetdoan.html" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Kiểm Duyệt Đồ Án</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <!-- Thống kê báo cáo -->
+                    <li class="nav-item has-treeview">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fas fa-chart-pie"></i>
+                            <p>
+                                Thống Kê Báo Cáo
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="../pages/thongkedoan.html" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Thống Kê Đồ Án</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+            <!-- /.sidebar-menu -->
+        </div>
+        <!-- /.sidebar -->
+    </aside>
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <div class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+                        <h4 class="m-0 text-dark">Thông Tin Chi Tiết Đồ Án </h4>
+                    </div><!-- /.col -->
+                    <div class="col-sm-6">
+                        <ol class="breadcrumb float-sm-right">
+                            <li class="breadcrumb-item"><a href="home.html">Home</a></li>
+                            <li class="breadcrumb-item"><a href="quanlydoan.html">Quản Lý Đồ Án</a></li>
+                            <li class="breadcrumb-item active">Chi Tiết Đồ Án</li>
+                        </ol>
+                    </div><!-- /.col -->
+                </div><!-- /.row -->
+            </div><!-- /.container-fluid -->
+        </div>
+        <!-- /.content-header -->
+
+        <!-- Main content -->
+        <div class="content">
+            <div class="container-fluid">
+                <!-- Chỉnh sửa ở đây! -->
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-5">
+                            <!--                Ảnh , trạng thái-->
+                            <img class="img-fluid" src="../dist/img/project/avatar.png" alt="Photo">
+                            <div class="card card-primary">
+                                <div class="card-body">
+                                    <b>Trạng thái: </b>
+                                    <input type="checkbox" name="my-checkbox" checked data-bootstrap-switch
+                                           data-off-color="danger"
+                                           data-on-color="success">
+                                </div>
+                            </div>
+
+                            <!-- Ngày tạo , người tạo , ngày duyệt -->
+                            <div class="card card-primary">
+                                <div class="card-body">
+                                    <strong><i class="mr-1"></i> Người tạo: </strong>
+                                    <a class="text-muted" href="#">
+                                        Nguyễn Đắc Kiên
+                                    </a>
+                                    <hr>
+
+                                    <strong><i class="mr-1"></i> Ngày tạo: </strong>
+
+                                    <strong class="text-muted">20/01/2020</strong>
+
+                                    <hr>
+                                    <strong><i class="mr-1"></i> Người cập nhập: </strong>
+
+                                    <a href="#" class="text-muted">Nguyễn Tuấn Mạnh</a>
+                                    <hr>
+
+                                    <strong><i class="mr-1"></i> Ngày cập nhập: </strong>
+
+                                    <strong class="text-muted">20/01/2020</strong>
+
+                                    <hr>
+                                </div>
+                                <!-- /.card-body -->
+                            </div>
+                        </div>
+                        <!-- /.col -->
+                        <div class="col-md-7">
+                            <div class="card">
+                                <!--Tên đồ án-->
+                                <div class="card-header p-2">
+                                    <h4 class="">ASM - Front End Frameworks FPT Polytechnic web trắc nghiệm</h4>
+                                </div><!-- /.card-header -->
+                                <div class="card-body">
+                                    <div class="tab-content">
+                                        <div class="tab-pane active" id="activity">
+                                            <!-- Thông tin cơ bản -->
+                                            <div class="post">
+                                                <div class="row">
+                                                    <div class="form-group row">
+                                                        <label for="proejctCodeLabel" class="col-sm-4 col-form-label">Mã
+                                                            đồ án:</label>
+                                                        <label id="proejctCodeLabel"
+                                                               class="col-sm-8 col-form-label bg-light">P0001</label>
+                                                    </div>
+                                                    <div class="form-group row">
+                                                        <label for="departemtsLabel" class="col-sm-4 col-form-label">Bộ
+                                                            môn:</label>
+                                                        <label id="departemtsLabel"
+                                                               class="col-sm-8 col-form-label bg-light">Công nghệ phần
+                                                            mềm</label>
+                                                    </div>
+                                                    <div class="form-group row">
+                                                        <label for="subjectNameLabel" class="col-sm-4 col-form-label">Tên
+                                                            môn học:</label>
+                                                        <label id="subjectNameLabel"
+                                                               class="col-sm-8 col-form-label bg-light">Đồ án 1</label>
+                                                    </div>
+                                                    <div class="form-group row">
+                                                        <label for="subjectCodeLabel" class="col-sm-4 col-form-label">Mã
+                                                            môn học: </label>
+                                                        <label id="subjectCodeLabel"
+                                                               class="col-sm-8 col-form-label bg-light">MH0001</label>
+                                                    </div>
+                                                    <div class="form-group row">
+                                                        <label for="subjectGroupLabel" class="col-sm-4 col-form-label">Nhóm
+                                                            môn học:</label>
+                                                        <label id="subjectGroupLabel"
+                                                               class="col-sm-8 col-form-label bg-light">01</label>
+                                                    </div>
+                                                    <div class="form-group row">
+                                                        <label for="lecturerNameLabel" class="col-sm-4 col-form-label">Tên
+                                                            giảng viên:</label>
+                                                        <label id="lecturerNameLabel"
+                                                               class="col-sm-8 col-form-label bg-light">Ngô Công
+                                                            Thắng</label>
+                                                    </div>
+                                                    <div class="form-group row">
+                                                        <label for="lecturerCodeLabel" class="col-sm-4 col-form-label">Mã
+                                                            giảng viên:</label>
+                                                        <label id="lecturerCodeLabel"
+                                                               class="col-sm-8 col-form-label bg-light">CNP02</label>
+                                                    </div>
+                                                    <div class="form-group row">
+                                                        <label for="semester-yearLabel" class="col-sm-4 col-form-label">Học
+                                                            kỳ - Năm
+                                                            học:</label>
+                                                        <label id="semester-yearLabel"
+                                                               class="col-sm-8 col-form-label bg-light">2 -
+                                                            (2019-2020)</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="post clearfix">
+                                                <div class="form-group row">
+                                                    <label for="createdDateLabel" class="col-sm-4 col-form-label">Thể
+                                                        loại:</label>
+                                                    <label id="createdDateLabel"
+                                                           class="col-sm-8 col-form-label bg-light">Web
+                                                        application</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- /.tab-content -->
+                                    </div><!-- /.card-body -->
+                                </div>
+                                <!-- /.nav-tabs-custom -->
+                            </div>
+                            <!-- /.col -->
+                        </div>
+                    </div>
+                    <!--        Thông tin chi tiết , mô tả ngắn , mô tả chi tiết , ảnh-->
+                    <div class="row">
+                        <div class="col-12">
+                            <!-- Default box -->
+                            <div class="card">
+                                <div class="card-header">
+                                    <h3 class="card-title">Mô tả ngắn</h3>
+
+                                </div>
+                                <div class="card-footer">
+                                    Giao diện web trắc nghiệm có đầy đủ chức năng như tài liệu ASM, sử dụng thuần
+                                    AngularJS + Bootstrap4
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header">
+                                    <h3 class="card-title">Chi tiết đồ án</h3>
+                                </div>
+                                <div class="card-footer">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <h3 class="card-title">Thành viên thực hiện</h3>
+                                        </div>
+                                        <div class="card-body">
+                                            <table class="table table-striped">
+                                                <thead>
+                                                <tr>
+                                                    <th>Số thứ tự</th>
+                                                    <th>Họ tên</th>
+                                                    <th>Mã sinh viên</th>
+                                                    <th>Lớp</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                <tr>
+                                                    <td>1</td>
+                                                    <td>Nguyễn văn A ( Nhóm trưởng )</td>
+                                                    <td>611292</td>
+                                                    <td>K61CNTTP</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>2</td>
+                                                    <td>Nguyễn Văn B</td>
+                                                    <td>611292</td>
+                                                    <td>K61MMT</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>3</td>
+                                                    <td>Nguyễn Văn B</td>
+                                                    <td>611292</td>
+                                                    <td>K61MMT</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>4</td>
+                                                    <td>Nguyễn Văn B</td>
+                                                    <td>611292</td>
+                                                    <td>K61MMT</td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <div class="card">
+                                            <div class="card-header">
+                                                <h3 class="card-title">Mô tả chi tiết </h3>
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="tab-content">
+                                                    <div class="tab-pane active" id="tab_1">
+                                                        <div id="test">
+                                                            <header class="mb-2"
+                                                                    style="color: rgb(41, 43, 44); font-family: Roboto, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;Helvetica Neue&quot;, Arial, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;; font-size: 14px; margin-bottom: 1.5rem !important;">
+                                                                <h1 class="article-content__title"
+                                                                    style="font-weight: 700; color: rgb(27, 27, 27); overflow-wrap: break-word; word-break: break-word;">
+                                                                    Đôi nét về Microservice architecture và Monolithic
+                                                                    architecture</h1></header>
+                                                            <div class="d-md-flex align-items-top justify-content-between"
+                                                                 style="color: rgb(41, 43, 44); font-family: Roboto, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;Helvetica Neue&quot;, Arial, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;; font-size: 14px;">
+                                                                <div class="tags" data-v-190ce5c0=""><a
+                                                                        href="https://viblo.asia/tags/software-architecture"
+                                                                        class="el-tag tag_3wKND el-tag--info el-tag--medium"
+                                                                        data-v-190ce5c0=""
+                                                                        style="color: rgb(144, 147, 153); background-color: rgb(244, 244, 245); display: inline-block; height: 28px; padding: 0px 10px; line-height: 26px; font-size: 12px; border: 1px solid rgb(233, 233, 235); border-radius: 4px; white-space: nowrap; margin-right: 0.5rem; max-width: 150px; overflow: hidden; text-overflow: ellipsis;">Software
+                                                                    Architecture</a><a
+                                                                        href="https://viblo.asia/tags/microservices"
+                                                                        class="el-tag tag_3wKND el-tag--info el-tag--medium"
+                                                                        data-v-190ce5c0=""
+                                                                        style="color: rgb(144, 147, 153); background-color: rgb(244, 244, 245); display: inline-block; height: 28px; padding: 0px 10px; line-height: 26px; font-size: 12px; border: 1px solid rgb(233, 233, 235); border-radius: 4px; white-space: nowrap; margin-right: 0.5rem; max-width: 150px; overflow: hidden; text-overflow: ellipsis;">microservices</a><a
+                                                                        href="https://viblo.asia/tags/monolithic"
+                                                                        class="el-tag tag_3wKND el-tag--info el-tag--medium"
+                                                                        data-v-190ce5c0=""
+                                                                        style="color: rgb(144, 147, 153); background-color: rgb(244, 244, 245); display: inline-block; height: 28px; padding: 0px 10px; line-height: 26px; font-size: 12px; border: 1px solid rgb(233, 233, 235); border-radius: 4px; white-space: nowrap; margin-right: 0.5rem; max-width: 150px; overflow: hidden; text-overflow: ellipsis;">Monolithic</a><a
+                                                                        href="https://viblo.asia/tags/architecture-design"
+                                                                        class="el-tag tag_3wKND el-tag--info el-tag--medium"
+                                                                        data-v-190ce5c0=""
+                                                                        style="color: rgb(144, 147, 153); background-color: rgb(244, 244, 245); display: inline-block; height: 28px; padding: 0px 10px; line-height: 26px; font-size: 12px; border: 1px solid rgb(233, 233, 235); border-radius: 4px; white-space: nowrap; margin-right: 0.5rem; max-width: 150px; overflow: hidden; text-overflow: ellipsis;">architecture
+                                                                    design</a></div>
+                                                                <div class="post__menu" style="height: 30px;">
+                                                                    <div class="el-dropdown"
+                                                                         style="display: inline-block; position: relative; color: rgb(96, 98, 102);">
+                                                                        <button type="button"
+                                                                                class="el-button text-muted p-0 el-button--text el-dropdown-selfdefine"
+                                                                                data-tippy=""
+                                                                                data-original-title="Show more actions"
+                                                                                aria-haspopup="list"
+                                                                                aria-controls="dropdown-menu-7403"
+                                                                                role="button" tabindex="0"
+                                                                                style="border-radius: 4px; font-size: 14px; line-height: 1; -webkit-appearance: none; white-space: nowrap; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; border-width: 1px; border-style: solid; border-color: transparent; color: rgb(84, 136, 199); transition: all 0.1s ease 0s; user-select: none; padding-top: 12px; padding-bottom: 12px; outline: none !important;">
+                                                                            <span class="post__menu__more el-icon-more-outline"
+                                                                                  style="speak: none; font-feature-settings: normal; font-variant-numeric: normal; font-variant-east-asian: normal; line-height: 1; vertical-align: baseline; display: inline-block; -webkit-font-smoothing: antialiased; font-size: 28px; font-family: element-icons !important;"></span>
+                                                                        </button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="md-contents article-content__body my-2 flex-fill"
+                                                                 style="line-height: 1.75; overflow: hidden; font-family: &quot;Open Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;Helvetica Neue&quot;, Arial, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;; font-size: 18px; color: rgb(41, 43, 44); margin-top: 1.5rem !important; margin-bottom: 1.5rem !important;">
+                                                                <p style="margin-bottom: 0px; color: rgb(27, 27, 27); letter-spacing: -0.003em; font-size: 1em; word-break: break-word; overflow-wrap: break-word;">
+                                                                    Những bài viết chia sẻ về tech dev có khá là nhiều
+                                                                    và đầy đủ rồi. Hôm nay chúng ta chuyển sang software
+                                                                    architecture và cùng tìm hiểu, đánh giá chút về mô
+                                                                    hình đang khá nổi thời gian gần đây đó là
+                                                                    microservice.</p>
+                                                                <p style="margin-top: 1.5em; margin-bottom: 0px; color: rgb(27, 27, 27); letter-spacing: -0.003em; font-size: 1em; word-break: break-word; overflow-wrap: break-word;">
+                                                                    Software architecture là tổ chức hệ thống bao gồm
+                                                                    rất nhiều các thành phần như Web Server, cơ sở dữ
+                                                                    liệu, bộ nhớ và các lớp layer thực hiện việc giao
+                                                                    tiếp. Chúng liên kết với nhau hoặc với một môi
+                                                                    trường nhất định. Mục tiêu cuối cùng của thiết kế hệ
+                                                                    thống (system architecture) là giải quyết vấn đề của
+                                                                    doanh nghiệp.</p>
+                                                                <p style="margin-top: 1.5em; margin-bottom: 0px; color: rgb(27, 27, 27); letter-spacing: -0.003em; font-size: 1em; word-break: break-word; overflow-wrap: break-word;">
+                                                                    Ở thời điểm hiện tại, có 2 mô hình pattern của
+                                                                    software architecture đang được phổ biến là:</p>
+                                                                <ul style="margin-bottom: 0px; margin-top: 1em;">
+                                                                    <li style="font-size: 1em; word-break: break-word; overflow-wrap: break-word; margin-bottom: 0.5em;">
+                                                                        Monolith architecture
+                                                                    </li>
+                                                                    <li style="font-size: 1em; word-break: break-word; overflow-wrap: break-word; margin-bottom: 0.5em;">
+                                                                        Mircoservice architecture
+                                                                    </li>
+                                                                </ul>
+                                                                <h2 id="_monolith-architecture-0"
+                                                                    style="margin: 1.5em 0px 0.6em; font-weight: 700; font-size: 1.75rem;">
+                                                                    Monolith architecture</h2>
+                                                                <p style="margin-top: 0.5em; margin-bottom: 0px; color: rgb(27, 27, 27); letter-spacing: -0.003em; font-size: 1em; word-break: break-word; overflow-wrap: break-word;">
+                                                                    <img src="https://images.viblo.asia/647a9906-db1f-44a8-afe9-e699b464d849.png"
+                                                                         alt=""
+                                                                         data-src="https://images.viblo.asia/647a9906-db1f-44a8-afe9-e699b464d849.png"
+                                                                         data-zoom-src="https://images.viblo.asia/full/647a9906-db1f-44a8-afe9-e699b464d849.png"
+                                                                         srcset="https://images.viblo.asia/retina/647a9906-db1f-44a8-afe9-e699b464d849.png 2x"
+                                                                         class="medium-zoom-image" lazy="loaded"
+                                                                         style="vertical-align: baseline; cursor: pointer; transition: transform 0.3s cubic-bezier(0.2, 0, 0.2, 1) 0s; text-align: center; max-width: 100%; margin: 1.5em auto; display: block; z-index: 1050 !important;">
+                                                                </p>
+                                                                <p style="margin-top: 1.5em; margin-bottom: 0px; color: rgb(27, 27, 27); letter-spacing: -0.003em; font-size: 1em; word-break: break-word; overflow-wrap: break-word;">
+                                                                    Monolith có xu hướng phù hợp với những dự án có quy
+                                                                    mô nhỏ. Với việc áp dụng mô hình monolith, những lợi
+                                                                    ích đem lại có thể kể đến là:</p>
+                                                                <ul style="margin-bottom: 0px; margin-top: 1em;">
+                                                                    <li style="font-size: 1em; word-break: break-word; overflow-wrap: break-word; margin-bottom: 0.5em;">
+                                                                        Quá trình development đơn giản và trực tiếp,
+                                                                        centralized managenment và những bước phát triển
+                                                                        cơ bản thì sẽ không được lặp lại.
+                                                                    </li>
+                                                                    <li style="font-size: 1em; word-break: break-word; overflow-wrap: break-word; margin-bottom: 0.5em;">
+                                                                        Effort dành cho việc development được giảm
+                                                                        thiểu: tất cả mọi quá trình development đều nằm
+                                                                        trên 1 project. Development flow đơn giản chỉ là
+                                                                        submit changes, review, merge code và continue.
+                                                                    </li>
+                                                                </ul>
+                                                                <p style="margin-top: 1.5em; margin-bottom: 0px; color: rgb(27, 27, 27); letter-spacing: -0.003em; font-size: 1em; word-break: break-word; overflow-wrap: break-word;">
+                                                                    Tuy nhiên hạn chế mà mô hình này đem lại cũng khá
+                                                                    lớn :</p>
+                                                                <ul style="margin-bottom: 0px; margin-top: 1em;">
+                                                                    <li style="font-size: 1em; word-break: break-word; overflow-wrap: break-word; margin-bottom: 0.5em;">
+                                                                        Khó khăn trong việc bảo trì: vấn đề về coupling
+                                                                        code, các khối code dính chặt lại với nhau, vấn
+                                                                        đề cho member mới sẽ khó để biết nên bắt đầu từ
+                                                                        đâu trong 1 khối lớn
+                                                                    </li>
+                                                                    <li style="font-size: 1em; word-break: break-word; overflow-wrap: break-word; margin-bottom: 0.5em;">
+                                                                        Quá trình development sẽ mất đi tính linh hoạt:
+                                                                        thời gian để build feature sẽ bị dài lên, bị
+                                                                        block lẫn nhau. Bất kì một sự thay đổi dù nhỏ
+                                                                        nào cũng cần build lại toàn bộ dự án =&gt; tốn
+                                                                        khá nhiều thời gian
+                                                                    </li>
+                                                                    <li style="font-size: 1em; word-break: break-word; overflow-wrap: break-word; margin-bottom: 0.5em;">
+                                                                        Tính ổn định không cao. Bất kì một lỗi nào có
+                                                                        thể khiến toàn bộ application bị crash.
+                                                                    </li>
+                                                                    <li style="font-size: 1em; word-break: break-word; overflow-wrap: break-word; margin-bottom: 0.5em;">
+                                                                        Tính scalibility khó được đáp ứng trong trường
+                                                                        hợp phải đáp ứng một lượng truy cập lớn từ phía
+                                                                        yêu cầu của business
+                                                                    </li>
+                                                                </ul>
+                                                                <h2 id="_microservice-architecture-1"
+                                                                    style="margin: 1.5em 0px 0.6em; font-weight: 700; font-size: 1.75rem;">
+                                                                    Microservice architecture</h2>
+                                                                <p style="margin-top: 0.5em; margin-bottom: 0px; color: rgb(27, 27, 27); letter-spacing: -0.003em; font-size: 1em; word-break: break-word; overflow-wrap: break-word;">
+                                                                    Ngoài mô hình monolithic kể trên, hiện nay có 1
+                                                                    architecture khác đang nhận được nhiều sự quan tâm,
+                                                                    đó là microservice. Microservice đề cập đến quá
+                                                                    trình phát triển độc lập, tương đối nhỏ theo hướng
+                                                                    chia hệ thống ra thành các services. Mỗi service này
+                                                                    đều có một logic riêng, một trách nhiệm riêng và có
+                                                                    thể được deploy riêng biệt. Khái niệm mircoservice
+                                                                    đồng thời đề cập đến xu hướng tách biệt architecture
+                                                                    ra thành các loose coupling service, tức là các
+                                                                    service này sẽ có một mối liên hệ lỏng lẻo với nhau
+                                                                    và mối service sẽ được nằm trong 1 context nhất
+                                                                    định.</p>
+                                                                <p style="margin-top: 1.5em; margin-bottom: 0px; color: rgb(27, 27, 27); letter-spacing: -0.003em; font-size: 1em; word-break: break-word; overflow-wrap: break-word;">
+                                                                    So sánh với microservice và SOA (service-oriented
+                                                                    architecture), những điểm khác biệt của mô hình
+                                                                    microservice là componentization (thành phần hóa),
+                                                                    loose coupling (khớp nối lỏng lẻo), autonomy ( tính
+                                                                    tự quản lí) và decentralization (phân cấp), được
+                                                                    phản ánh cụ thể qua những khía cạnh sau:</p>
+                                                                <ul style="margin-bottom: 0px; margin-top: 1em;">
+                                                                    <li style="font-size: 1em; word-break: break-word; overflow-wrap: break-word; margin-bottom: 0.5em;">
+                                                                        tập hợp một nhóm nhỏ các service: mức độ chi
+                                                                        tiết của một service là nhỏ và mỗi service này
+                                                                        sẽ chịu một trách nhiệm cụ thể (single
+                                                                        responsiblity) và chỉ tập trung vào nhiệm vụ đó.
+                                                                        Ví dụ: storage service sẽ chịu riêng trách nhiệm
+                                                                        về lưu trữ
+                                                                    </li>
+                                                                    <li style="font-size: 1em; word-break: break-word; overflow-wrap: break-word; margin-bottom: 0.5em;">
+                                                                        Việc phát triển và mở rộng một service là hoàn
+                                                                        toàn độc lập. Điều này mang lại tính linh hoạt
+                                                                        cho hệ thống . Quá trình deliver feature,
+                                                                        release version sẽ dễ dàng và nhanh chóng. Hơn
+                                                                        nữa sẽ không còn tình trạng bị block như ở mô
+                                                                        hình monolith
+                                                                    </li>
+                                                                    <li style="font-size: 1em; word-break: break-word; overflow-wrap: break-word; margin-bottom: 0.5em;">
+                                                                        Giảm tải được các mối quan ngại về công nghệ sử
+                                                                        dụng. Chọn một công nghệ phù hợp với vấn đề của
+                                                                        doanh nghiệp có thể được giải quyết dễ dàng. Các
+                                                                        service giap tiếp với nhau thông qua API, do vậy
+                                                                        mỗi service có thể dùng một ngôn ngữ riêng biệt.
+                                                                        Serivce A dùng Java, Service B dùng Javascript,
+                                                                        it's ok !!!!
+                                                                    </li>
+                                                                    <li style="font-size: 1em; word-break: break-word; overflow-wrap: break-word; margin-bottom: 0.5em;">
+                                                                        Đối với team, microservice đem lại tính độc lập
+                                                                        và tự quản lí cho team. Một team sẽ có trách
+                                                                        nhiệm toàn bộ với life-cycle của một hay nhiều
+                                                                        service. Họ làm việc trong việc context biệt
+                                                                        lâp, có thể tự quản lí các quyết định của mình.
+                                                                    </li>
+                                                                </ul>
+                                                                <p style="margin-top: 1.5em; margin-bottom: 0px; color: rgb(27, 27, 27); letter-spacing: -0.003em; font-size: 1em; word-break: break-word; overflow-wrap: break-word;">
+                                                                    Chúng ta có thể thấy rõ toàn bộ ý tưởng của mô hình
+                                                                    microservice rất giống cách mà chúng ta chia nhỏ
+                                                                    thông tin và kiến thức. Bằng việc tách rời, chia nhỏ
+                                                                    và quản lí chúng ta có thể giảm tải sự phức tạp của
+                                                                    hệ thống, làm cho việc quản lí trở nên nhanh chóng
+                                                                    và dễ dàng, phản ánh sự thay đổi chính xác.</p>
+                                                                <p style="margin-top: 1.5em; margin-bottom: 0px; color: rgb(27, 27, 27); letter-spacing: -0.003em; font-size: 1em; word-break: break-word; overflow-wrap: break-word;">
+                                                                    Vậy tại sao chúng ta nên dùng microservice ?</p>
+                                                                <p style="margin-top: 1.5em; margin-bottom: 0px; color: rgb(27, 27, 27); letter-spacing: -0.003em; font-size: 1em; word-break: break-word; overflow-wrap: break-word;">
+                                                                    Ở thế kỷ trước, một số lightweight development
+                                                                    methods như eXtreme Programming (XP) hay Scrum nổi
+                                                                    lên; Đến năm 2001, tuyên ngôn Agile ra đời và một số
+                                                                    phương pháp quản lý mới như Lean hay Kanban. Nếu
+                                                                    những phương pháp quản lý trên được coi là giải pháp
+                                                                    cho việc quản lý tiến độ phát triển phần mềm và việc
+                                                                    thực hiện sớm nhất có thể khi có sự thay đổi thì
+                                                                    microservice architecture là hướng tiếp cận được nói
+                                                                    đến trong công nghệ phần mềm và ở tầng kiến trúc
+                                                                    (architecture level). Dưới đây là một biểu đồ so
+                                                                    sánh giữa monolith và microservice:</p>
+                                                                <p style="margin-top: 1.5em; margin-bottom: 0px; color: rgb(27, 27, 27); letter-spacing: -0.003em; font-size: 1em; word-break: break-word; overflow-wrap: break-word;">
+                                                                    <img src="https://images.viblo.asia/a3926a91-f71d-49e2-907d-da9fe4e18cd8.png"
+                                                                         alt=""
+                                                                         data-src="https://images.viblo.asia/a3926a91-f71d-49e2-907d-da9fe4e18cd8.png"
+                                                                         data-zoom-src="https://images.viblo.asia/full/a3926a91-f71d-49e2-907d-da9fe4e18cd8.png"
+                                                                         srcset="https://images.viblo.asia/retina/a3926a91-f71d-49e2-907d-da9fe4e18cd8.png 2x"
+                                                                         class="medium-zoom-image" lazy="loaded"
+                                                                         style="vertical-align: baseline; cursor: pointer; transition: transform 0.3s cubic-bezier(0.2, 0, 0.2, 1) 0s; text-align: center; max-width: 100%; margin: 1.5em auto; display: block; z-index: 1050 !important;">
+                                                                </p>
+                                                                <h3 id="_cac-thuoc-tinh-cua-mo-hinh-microservice-2"
+                                                                    style="margin: 1.5em 0px 0.6em; font-weight: 700; font-size: 1.45rem;">
+                                                                    Các thuộc tính của mô hình microservice</h3>
+                                                                <ul style="margin-bottom: 0px; margin-top: 0.5em;">
+                                                                    <li style="font-size: 1em; word-break: break-word; overflow-wrap: break-word; margin-bottom: 0.5em;">
+                                                                        <p style="margin-top: 1.5em; margin-bottom: 0px; color: rgb(27, 27, 27); letter-spacing: -0.003em; font-size: 1em; word-break: break-word; overflow-wrap: break-word;">
+                                                                            Autonomous (tính tự trị)</p>
+                                                                        <p style="margin-top: 1.5em; margin-bottom: 0px; color: rgb(27, 27, 27); letter-spacing: -0.003em; font-size: 1em; word-break: break-word; overflow-wrap: break-word;">
+                                                                            1 service sẽ là 1 đơn vị chức năng, cung cấp
+                                                                            API để thực hiện việc trao đổi, giao tiếp
+                                                                            với các service khác</p></li>
+                                                                    <li style="font-size: 1em; word-break: break-word; overflow-wrap: break-word; margin-bottom: 0.5em;">
+                                                                        <p style="margin-top: 1.5em; margin-bottom: 0px; color: rgb(27, 27, 27); letter-spacing: -0.003em; font-size: 1em; word-break: break-word; overflow-wrap: break-word;">
+                                                                            Isolated (tính biệt lập)</p>
+                                                                        <p style="margin-top: 1.5em; margin-bottom: 0px; color: rgb(27, 27, 27); letter-spacing: -0.003em; font-size: 1em; word-break: break-word; overflow-wrap: break-word;">
+                                                                            1 serivce sẽ là 1 đơn vị triển khai. Nó có
+                                                                            thể được chỉnh sửa, test và deployed như 1
+                                                                            đơn vị mà không ảnh hưởng đến những khía
+                                                                            cạnh khác.</p></li>
+                                                                    <li style="font-size: 1em; word-break: break-word; overflow-wrap: break-word; margin-bottom: 0.5em;">
+                                                                        <p style="margin-top: 1.5em; margin-bottom: 0px; color: rgb(27, 27, 27); letter-spacing: -0.003em; font-size: 1em; word-break: break-word; overflow-wrap: break-word;">
+                                                                            Elastic</p>
+                                                                        <p style="margin-top: 1.5em; margin-bottom: 0px; color: rgb(27, 27, 27); letter-spacing: -0.003em; font-size: 1em; word-break: break-word; overflow-wrap: break-word;">
+                                                                            1 service là phi trạng thái (stateless) vì
+                                                                            vậy nó có thể scale tùy ý khi cần thiết.</p>
+                                                                    </li>
+                                                                    <li style="font-size: 1em; word-break: break-word; overflow-wrap: break-word; margin-bottom: 0.5em;">
+                                                                        <p style="margin-top: 1.5em; margin-bottom: 0px; color: rgb(27, 27, 27); letter-spacing: -0.003em; font-size: 1em; word-break: break-word; overflow-wrap: break-word;">
+                                                                            Resilient</p>
+                                                                        <p style="margin-top: 1.5em; margin-bottom: 0px; color: rgb(27, 27, 27); letter-spacing: -0.003em; font-size: 1em; word-break: break-word; overflow-wrap: break-word;">
+                                                                            1 microservice sẽ được thiết kế để chấp nhận
+                                                                            các lỗi, các rủi ro có thể xảy ra, các lỗi
+                                                                            này là các lỗi có thể chấp nhận được</p>
+                                                                    </li>
+                                                                    <li style="font-size: 1em; word-break: break-word; overflow-wrap: break-word; margin-bottom: 0.5em;">
+                                                                        <p style="margin-top: 1.5em; margin-bottom: 0px; color: rgb(27, 27, 27); letter-spacing: -0.003em; font-size: 1em; word-break: break-word; overflow-wrap: break-word;">
+                                                                            Responsive</p>
+                                                                        <p style="margin-top: 1.5em; margin-bottom: 0px; color: rgb(27, 27, 27); letter-spacing: -0.003em; font-size: 1em; word-break: break-word; overflow-wrap: break-word;">
+                                                                            respond cho các request trong khoảng thời
+                                                                            gian hợp lý.</p></li>
+                                                                    <li style="font-size: 1em; word-break: break-word; overflow-wrap: break-word; margin-bottom: 0.5em;">
+                                                                        <p style="margin-top: 1.5em; margin-bottom: 0px; color: rgb(27, 27, 27); letter-spacing: -0.003em; font-size: 1em; word-break: break-word; overflow-wrap: break-word;">
+                                                                            Intelligent</p>
+                                                                        <p style="margin-top: 1.5em; margin-bottom: 0px; color: rgb(27, 27, 27); letter-spacing: -0.003em; font-size: 1em; word-break: break-word; overflow-wrap: break-word;">
+                                                                            Tính thông minh ở đây tức là muốn nhắc đến
+                                                                            việc hệ thống có thể tìm thấy các endpoint
+                                                                            của các microservice đã được đăng kí.</p>
+                                                                    </li>
+                                                                    <li style="font-size: 1em; word-break: break-word; overflow-wrap: break-word; margin-bottom: 0.5em;">
+                                                                        <p style="margin-top: 1.5em; margin-bottom: 0px; color: rgb(27, 27, 27); letter-spacing: -0.003em; font-size: 1em; word-break: break-word; overflow-wrap: break-word;">
+                                                                            Message Oriented</p>
+                                                                        <p style="margin-top: 1.5em; margin-bottom: 0px; color: rgb(27, 27, 27); letter-spacing: -0.003em; font-size: 1em; word-break: break-word; overflow-wrap: break-word;">
+                                                                            Mô hình micro-service hoạt động dựa trên
+                                                                            giao thức HTTP hoặc message bus để tạo nên
+                                                                            sự giao tiếp giữa các service. Điều này đảm
+                                                                            bảo tính loose coupling, tính biệt lập và có
+                                                                            thể cung cấp lỗi dưới dạng message</p></li>
+                                                                    <li style="font-size: 1em; word-break: break-word; overflow-wrap: break-word; margin-bottom: 0.5em;">
+                                                                        <p style="margin-top: 1.5em; margin-bottom: 0px; color: rgb(27, 27, 27); letter-spacing: -0.003em; font-size: 1em; word-break: break-word; overflow-wrap: break-word;">
+                                                                            Programmable</p>
+                                                                        <p style="margin-top: 1.5em; margin-bottom: 0px; color: rgb(27, 27, 27); letter-spacing: -0.003em; font-size: 1em; word-break: break-word; overflow-wrap: break-word;">
+                                                                            Cung cấp API's cho phép truy cập bởi
+                                                                            developer và administrator.</p></li>
+                                                                    <li style="font-size: 1em; word-break: break-word; overflow-wrap: break-word; margin-bottom: 0.5em;">
+                                                                        <p style="margin-top: 1.5em; margin-bottom: 0px; color: rgb(27, 27, 27); letter-spacing: -0.003em; font-size: 1em; word-break: break-word; overflow-wrap: break-word;">
+                                                                            Composable</p>
+                                                                        <p style="margin-top: 1.5em; margin-bottom: 0px; color: rgb(27, 27, 27); letter-spacing: -0.003em; font-size: 1em; word-break: break-word; overflow-wrap: break-word;">
+                                                                            Bao gồm nhiều microservices.</p></li>
+                                                                    <li style="font-size: 1em; word-break: break-word; overflow-wrap: break-word; margin-bottom: 0.5em;">
+                                                                        <p style="margin-top: 1.5em; margin-bottom: 0px; color: rgb(27, 27, 27); letter-spacing: -0.003em; font-size: 1em; word-break: break-word; overflow-wrap: break-word;">
+                                                                            Automated</p>
+                                                                        <p style="margin-top: 1.5em; margin-bottom: 0px; color: rgb(27, 27, 27); letter-spacing: -0.003em; font-size: 1em; word-break: break-word; overflow-wrap: break-word;">
+                                                                            Lifecycle của Microservice được quản lý
+                                                                            thông qua automation bao gồm development,
+                                                                            build, test, staging, production và
+                                                                            distribution.)</p></li>
+                                                                </ul>
+                                                                <h3 id="_microservice-advantages-3"
+                                                                    style="margin: 1.5em 0px 0.6em; font-weight: 700; font-size: 1.45rem;">
+                                                                    Microservice advantages</h3>
+                                                                <ul style="margin-bottom: 0px; margin-top: 0.5em;">
+                                                                    <li style="font-size: 1em; word-break: break-word; overflow-wrap: break-word; margin-bottom: 0.5em;">
+                                                                        <p style="margin-top: 1.5em; margin-bottom: 0px; color: rgb(27, 27, 27); letter-spacing: -0.003em; font-size: 1em; word-break: break-word; overflow-wrap: break-word;">
+                                                                            Mỗi microservice sẽ được chia nhỏ để tập
+                                                                            trung vào một business function cụ thể hoặc
+                                                                            business requirement.</p></li>
+                                                                    <li style="font-size: 1em; word-break: break-word; overflow-wrap: break-word; margin-bottom: 0.5em;">
+                                                                        <p style="margin-top: 1.5em; margin-bottom: 0px; color: rgb(27, 27, 27); letter-spacing: -0.003em; font-size: 1em; word-break: break-word; overflow-wrap: break-word;">
+                                                                            Microservices có thể phát triển độc lập bởi
+                                                                            một team nhỏ có thể chỉ từ 2 đến 5
+                                                                            developers.</p></li>
+                                                                    <li style="font-size: 1em; word-break: break-word; overflow-wrap: break-word; margin-bottom: 0.5em;">
+                                                                        <p style="margin-top: 1.5em; margin-bottom: 0px; color: rgb(27, 27, 27); letter-spacing: -0.003em; font-size: 1em; word-break: break-word; overflow-wrap: break-word;">
+                                                                            Microservice đem lại tính loose-coupling và
+                                                                            context riêng cho mỗi service, sẽ dễ dàng
+                                                                            trong quá trình development cũng như deploy
+                                                                            một cách độc lập..</p></li>
+                                                                    <li style="font-size: 1em; word-break: break-word; overflow-wrap: break-word; margin-bottom: 0.5em;">
+                                                                        <p style="margin-top: 1.5em; margin-bottom: 0px; color: rgb(27, 27, 27); letter-spacing: -0.003em; font-size: 1em; word-break: break-word; overflow-wrap: break-word;">
+                                                                            Microservices có thể phát triển với nhiều
+                                                                            ngôn ngữ khác nhau.</p></li>
+                                                                    <li style="font-size: 1em; word-break: break-word; overflow-wrap: break-word; margin-bottom: 0.5em;">
+                                                                        <p style="margin-top: 1.5em; margin-bottom: 0px; color: rgb(27, 27, 27); letter-spacing: -0.003em; font-size: 1em; word-break: break-word; overflow-wrap: break-word;">
+                                                                            Quá trình phát triển một service sẽ trở nên
+                                                                            dễ dàng và linh động thông qua việc sử dụng
+                                                                            CI/CD như Travis, Jenskin, Circle CI
+                                                                            ....</p></li>
+                                                                    <li style="font-size: 1em; word-break: break-word; overflow-wrap: break-word; margin-bottom: 0.5em;">
+                                                                        <p style="margin-top: 1.5em; margin-bottom: 0px; color: rgb(27, 27, 27); letter-spacing: -0.003em; font-size: 1em; word-break: break-word; overflow-wrap: break-word;">
+                                                                            1 new member có thể dễ dàng và nhanh chóng
+                                                                            đóng góp cho dự án</p></li>
+                                                                    <li style="font-size: 1em; word-break: break-word; overflow-wrap: break-word; margin-bottom: 0.5em;">
+                                                                        <p style="margin-top: 1.5em; margin-bottom: 0px; color: rgb(27, 27, 27); letter-spacing: -0.003em; font-size: 1em; word-break: break-word; overflow-wrap: break-word;">
+                                                                            1 serive trong mô hình micro serivce là
+                                                                            tương đối nhỏ, dễ hiểu và được quản lí bởi
+                                                                            các thành viên của 1 team nhỏ. Do đó, họ sẽ
+                                                                            dễ dàng tập trung vào công việc, nâng cao
+                                                                            được hiệu năng.</p></li>
+                                                                    <li style="font-size: 1em; word-break: break-word; overflow-wrap: break-word; margin-bottom: 0.5em;">
+                                                                        <p style="margin-top: 1.5em; margin-bottom: 0px; color: rgb(27, 27, 27); letter-spacing: -0.003em; font-size: 1em; word-break: break-word; overflow-wrap: break-word;">
+                                                                            Microservices cho phép tận dụng việc áp dụng
+                                                                            những công nghệ mới vào dự án.</p></li>
+                                                                    <li style="font-size: 1em; word-break: break-word; overflow-wrap: break-word; margin-bottom: 0.5em;">
+                                                                        <p style="margin-top: 1.5em; margin-bottom: 0px; color: rgb(27, 27, 27); letter-spacing: -0.003em; font-size: 1em; word-break: break-word; overflow-wrap: break-word;">
+                                                                            Microservices chỉ gồm business logic code và
+                                                                            không bao gồm HTML, CSS.</p></li>
+                                                                    <li style="font-size: 1em; word-break: break-word; overflow-wrap: break-word; margin-bottom: 0.5em;">
+                                                                        <p style="margin-top: 1.5em; margin-bottom: 0px; color: rgb(27, 27, 27); letter-spacing: -0.003em; font-size: 1em; word-break: break-word; overflow-wrap: break-word;">
+                                                                            Việc deploy sẽ mất ít effort cho việc
+                                                                            configuraton.</p></li>
+                                                                    <li style="font-size: 1em; word-break: break-word; overflow-wrap: break-word; margin-bottom: 0.5em;">
+                                                                        <p style="margin-top: 1.5em; margin-bottom: 0px; color: rgb(27, 27, 27); letter-spacing: -0.003em; font-size: 1em; word-break: break-word; overflow-wrap: break-word;">
+                                                                            Dễ dàng tích hợp 3rd-party.</p></li>
+                                                                    <li style="font-size: 1em; word-break: break-word; overflow-wrap: break-word; margin-bottom: 0.5em;">
+                                                                        <p style="margin-top: 1.5em; margin-bottom: 0px; color: rgb(27, 27, 27); letter-spacing: -0.003em; font-size: 1em; word-break: break-word; overflow-wrap: break-word;">
+                                                                            Mỗi service có dung lượng lưu trữ riêng và
+                                                                            có thể có cơ sở dữ liệu riêng.</p></li>
+                                                                </ul>
+                                                                <h3 id="_disadvantages-of-microservice-architecture-4"
+                                                                    style="margin: 1.5em 0px 0.6em; font-weight: 700; font-size: 1.45rem;">
+                                                                    Disadvantages of microservice architecture</h3>
+                                                                <ul style="margin-bottom: 0px; margin-top: 0.5em;">
+                                                                    <li style="font-size: 1em; word-break: break-word; overflow-wrap: break-word; margin-bottom: 0.5em;">
+                                                                        <p style="margin-top: 1.5em; margin-bottom: 0px; color: rgb(27, 27, 27); letter-spacing: -0.003em; font-size: 1em; word-break: break-word; overflow-wrap: break-word;">
+                                                                            Microservice architecture có thể dẫn tối
+                                                                            việc sử dụng quá nhiều operations.</p></li>
+                                                                    <li style="font-size: 1em; word-break: break-word; overflow-wrap: break-word; margin-bottom: 0.5em;">
+                                                                        <p style="margin-top: 1.5em; margin-bottom: 0px; color: rgb(27, 27, 27); letter-spacing: -0.003em; font-size: 1em; word-break: break-word; overflow-wrap: break-word;">
+                                                                            Cần thêm kiến thức về DevOps (<a
+                                                                                href="http://en.wikipedia.org/wiki/DevOps"
+                                                                                target="_blank"
+                                                                                style="color: rgb(43, 109, 173);">http://en.wikipedia.org/wiki/DevOps</a>).
+                                                                        </p></li>
+                                                                    <li style="font-size: 1em; word-break: break-word; overflow-wrap: break-word; margin-bottom: 0.5em;">
+                                                                        <p style="margin-top: 1.5em; margin-bottom: 0px; color: rgb(27, 27, 27); letter-spacing: -0.003em; font-size: 1em; word-break: break-word; overflow-wrap: break-word;">
+                                                                            Effort của team có thể sẽ phải x2.</p></li>
+                                                                    <li style="font-size: 1em; word-break: break-word; overflow-wrap: break-word; margin-bottom: 0.5em;">
+                                                                        <p style="margin-top: 1.5em; margin-bottom: 0px; color: rgb(27, 27, 27); letter-spacing: -0.003em; font-size: 1em; word-break: break-word; overflow-wrap: break-word;">
+                                                                            Distributed systems (hệ thống phân tán) phức
+                                                                            tạp và khó quản lý.</p></li>
+                                                                    <li style="font-size: 1em; word-break: break-word; overflow-wrap: break-word; margin-bottom: 0.5em;">
+                                                                        <p style="margin-top: 1.5em; margin-bottom: 0px; color: rgb(27, 27, 27); letter-spacing: -0.003em; font-size: 1em; word-break: break-word; overflow-wrap: break-word;">
+                                                                            Số lượng service càng lớn thì vấn đề về
+                                                                            management complexity cũng tăng theo.</p>
+                                                                    </li>
+                                                                </ul>
+                                                                <h3 id="_references-5"
+                                                                    style="margin: 1.5em 0px 0.6em; font-weight: 700; font-size: 1.45rem;">
+                                                                    References</h3>
+                                                                <p style="margin-top: 0.5em; margin-bottom: 0px; color: rgb(27, 27, 27); letter-spacing: -0.003em; font-size: 1em; word-break: break-word; overflow-wrap: break-word;">
+                                                                    <a href="https://www.cnblogs.com/wintersun/p/6219259.html"
+                                                                       target="_blank"
+                                                                       style="color: rgb(43, 109, 173);">https://www.cnblogs.com/wintersun/p/6219259.html</a>
+                                                                </p></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h3 class="card-title">Link demo : <a
+                                                href="https://wireframepro.mockflow.com/editor.jsp?editor=off&perm=Owner&projectid=M3b233c0ff7e27d44e705374ffa596ab91588585628708&publicid=d5963554103145e3aeb10f0ae09f507f#/page/cc05f57f83bc4ae8963f90c107ba346a">Click
+                                            here</a>
+                                        </h3>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <button type="button" class="btn btn-success">Trở lại
+                                                </button>
+                                            </div>
+                                            <div id="buttonEdit" class="col-sm-6">
+                                                <button type="button" class="btn btn-warning">
+                                                        <a style="color:white;" href="chinhsuadoan.html">Chỉnh sửa</a>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /.card -->
+                    </div>
+                </div>
+            </div>
+            <!-- /.container-fluid -->
+        </div>
+        <!-- /.content -->
+    </div><!-- /.container-fluid -->
+</div>
+<!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
+
+<!-- Control Sidebar -->
+<aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+</aside>
+<!-- /.control-sidebar -->
+
+<!-- Main Footer -->
+<footer class="main-footer">
+    <!-- To the right -->
+    <div class="float-right d-none d-sm-inline">
+        Anything you want
+    </div>
+    <!-- Default to the left -->
+    <strong>Copyright &copy; 2014-2019 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
+</footer>
+</div>
+<!-- ./wrapper -->
+
+<!-- REQUIRED SCRIPTS -->
+
+<!-- jQuery -->
+<script src="../plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- overlayScrollbars -->
+<script src="../plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+<!-- AdminLTE App -->
+<script src="../dist/js/adminlte.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="../dist/js/demo.js"></script>
+<!-- Bootstrap Switch -->
+<script src="../plugins/bootstrap-switch/js/bootstrap-switch.min.js"></script>
+<!-- Ekko Lightbox -->
+<script src="../plugins/ekko-lightbox/ekko-lightbox.min.js"></script>
+<script>
+    $("input[data-bootstrap-switch]").each(function () {
+        $(this).bootstrapSwitch('state', $(this).prop('checked'));
+    });
+    $(function () {
+        $(document).on('click', '[data-toggle="lightbox"]', function (event) {
+            event.preventDefault();
+            $(this).ekkoLightbox({
+                alwaysShowClose: true
+            });
+        });
+    })
+
+    $("input[data-bootstrap-switch]").on('switchChange.bootstrapSwitch',function (event,state) {
+        if (state!= true){
+            $('#buttonEdit').show();
+        }else if (state){
+            $('#buttonEdit').hide();
+        }
+    });
+
+
+</script>
+
+</body>
+</html>

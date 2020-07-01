@@ -1,0 +1,102 @@
+<!-- Modal thêm nhóm quyền -->
+<div class="modal fade" id="modal-add-role">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header bg-success">
+        <h4 class="modal-title">Thêm nhóm quyền</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label for="role-name-add">Tên nhóm quyền</label>
+          <input type="text" class="form-control" id="role-name-add" placeholder="Nhập tên nhóm quyền">
+        </div>
+        <table id="table-manager-function" class="table table-bordered table-striped" datatable >
+          <thead>
+          <tr>
+            <th>STT</th>
+            <th>Tên Chức năng</th>
+            <th>Tác vụ</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td>1</td>
+            <td>Phân quyền hệ thống</td>
+            <td>
+              <div class="icheck-success d-inline">
+                <input type="checkbox" id="checkboxSuccess1">
+                <label for="checkboxSuccess1">
+                </label>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>Thêm nhóm quyền</td>
+            <td>
+              <div class="icheck-success d-inline">
+                <input type="checkbox" id="checkboxSuccess2">
+                <label for="checkboxSuccess2">
+                </label>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>Phân quyền chức năng</td>
+            <td>
+              <div class="icheck-success d-inline">
+                <input type="checkbox" id="checkboxSuccess3">
+                <label for="checkboxSuccess3">
+                </label>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td>Xóa nhóm quyền</td>
+            <td>
+              <div class="icheck-success d-inline">
+                <input type="checkbox" id="checkboxSuccess4">
+                <label for="checkboxSuccess4">
+                </label>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td>Quản lý bộ môn</td>
+            <td>
+              <div class="icheck-success d-inline">
+                <input type="checkbox" id="checkboxSuccess5">
+                <label for="checkboxSuccess5">
+                </label>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>6</td>
+            <td>Thêm bộ môn</td>
+            <td>
+              <div class="icheck-success d-inline">
+                <input type="checkbox" id="checkboxSuccess6">
+                <label for="checkboxSuccess6">
+                </label>
+              </div>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+        <!-- /.modal-dialog -->
+      </div>
+      <div class="modal-footer justify-content-between">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
+        <button type="button" class="btn btn-primary">Thêm</button>
+      </div>
+    </div>
+    <!-- /.modal-content -->
+  </div>
+</div>

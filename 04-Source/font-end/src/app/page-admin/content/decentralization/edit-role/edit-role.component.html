@@ -1,0 +1,102 @@
+<div class="modal fade" id="modal-edit-role">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header bg-warning">
+        <h4 class="modal-title">Chỉnh sửa nhóm quyền</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label for="role-name-edit">Tên nhóm quyền</label>
+          <input type="text" class="form-control" id="role-name-edit" placeholder="Tên nhóm quyền"
+                 value="Admin">
+        </div>
+        <table id="table-manager-edit-function" class="table table-bordered table-striped" datatable>
+          <thead>
+          <tr>
+            <th>STT</th>
+            <th>Tên Chức năng</th>
+            <th>Tác vụ</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td>1</td>
+            <td>Phân quyền hệ thống</td>
+            <td>
+              <div class="icheck-success d-inline">
+                <input type="checkbox" checked="" id="checkboxEdit1">
+                <label for="checkboxEdit1">
+                </label>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>Thêm nhóm quyền</td>
+            <td>
+              <div class="icheck-success d-inline">
+                <input type="checkbox" checked="" id="checkboxEdit2">
+                <label for="checkboxEdit2">
+                </label>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>Phân quyền chức năng</td>
+            <td>
+              <div class="icheck-success d-inline">
+                <input type="checkbox" checked="" id="checkboxEdit3">
+                <label for="checkboxEdit3">
+                </label>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td>Xóa nhóm quyền</td>
+            <td>
+              <div class="icheck-success d-inline">
+                <input type="checkbox" checked="" id="checkboxEdit4">
+                <label for="checkboxEdit4">
+                </label>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td>Quản lý bộ môn</td>
+            <td>
+              <div class="icheck-success d-inline">
+                <input type="checkbox" checked="" id="checkboxEdit5">
+                <label for="checkboxEdit5">
+                </label>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>6</td>
+            <td>Thêm bộ môn</td>
+            <td>
+              <div class="icheck-success d-inline">
+                <input type="checkbox" checked="" id="checkboxEdit6">
+                <label for="checkboxEdit6">
+                </label>
+              </div>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+        <!-- /.modal-dialog -->
+      </div>
+      <div class="modal-footer justify-content-between">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
+        <button type="button" class="btn btn-primary">Lưu</button>
+      </div>
+    </div>
+    <!-- /.modal-content -->
+  </div>
+</div>

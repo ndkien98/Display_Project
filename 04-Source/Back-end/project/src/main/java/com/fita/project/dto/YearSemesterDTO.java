@@ -1,0 +1,17 @@
+package com.fita.project.dto;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class YearSemesterDTO {
+    private int id;
+    private int year;
+    private int semester;
+    private String startDate;
+    private int weeksNumber;
+}
