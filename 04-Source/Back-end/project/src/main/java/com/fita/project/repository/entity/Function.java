@@ -19,8 +19,8 @@ public class Function {
     @Column(name = "function_name", length = 50, nullable = false, unique = true)
     private String functionName;
 
-    @Column(name = "function_code", length = 20, nullable = false, unique = true)
-    private String functionCode;
+    @Column(name = "action_code", length = 20, nullable = false, unique = true)
+    private String actionCode;
 
     @Column(name = "function_description")
     private String functionDescription;
