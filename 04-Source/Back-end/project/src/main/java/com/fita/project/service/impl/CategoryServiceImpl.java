@@ -15,10 +15,10 @@ import java.util.NoSuchElementException;
 @Component
 public class CategoryServiceImpl implements CategoryService {
     @Autowired
-    CategoryRepository categoryRepository;
+    private CategoryRepository categoryRepository;
 
     @Autowired
-    ModelMapper modelMapper;
+    private ModelMapper modelMapper;
 
     /**
      * Lấy tất cả các thể loại trong cơ sở dữ liệu
@@ -82,6 +82,7 @@ public class CategoryServiceImpl implements CategoryService {
      * Sửa thể loại trong cơ sở dữ liệu dựa theo id
      *
      * @param id
+     * @param categoryDTO
      * @return true nếu sửa thành công, ngược lại trả về false
      */
     @Override

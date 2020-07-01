@@ -15,10 +15,10 @@ import java.util.NoSuchElementException;
 @Component
 public class DepartmentServiceImpl implements DepartmentService {
     @Autowired
-    DepartmentRepository departmentRepository;
+    private DepartmentRepository departmentRepository;
 
     @Autowired
-    ModelMapper modelMapper;
+    private ModelMapper modelMapper;
 
     /**
      * Lấy tất cả các bộ môn trong cơ sở dữ liệu
@@ -56,7 +56,7 @@ public class DepartmentServiceImpl implements DepartmentService {
             //Convert department (Entity) -> departmentDTO (DTO)
             DepartmentDTO departmentDTO = modelMapper.map(department, DepartmentDTO.class);
 
-            return  departmentDTO;
+            return departmentDTO;
         } catch (NoSuchElementException e) {
             return null;
         }
@@ -82,6 +82,7 @@ public class DepartmentServiceImpl implements DepartmentService {
      * Sửa bộ môn trong cơ sở dữ liệu dựa theo id
      *
      * @param id
+     * @param departmentDTO
      * @return true nếu sửa thành công, ngược lại trả về false
      */
     @Override

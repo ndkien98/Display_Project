@@ -7,21 +7,18 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "roles_functions")
+@Table(name = "lecturers")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class RoleFunction {
+public class Lecturer {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    @Column(name = "lecturer_code", length = 10, nullable = false)
+    private String lecturerCode;
 
     @Column(name = "role_id", nullable = false)
     private Integer roleId;
 
-    @Column(name = "function_id", nullable = false)
-    private Integer functionId;
-
-    @Column(name = "status", nullable = false)
-    private Integer status;
+    @Column(name = "department_code", length = 5, nullable = false)
+    private String departmentCode;
 }

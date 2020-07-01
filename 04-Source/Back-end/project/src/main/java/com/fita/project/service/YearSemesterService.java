@@ -16,7 +16,7 @@ public interface YearSemesterService {
     // Thêm năm học - học kỳ
     boolean addYearSemester(YearSemesterDTO yearSemesterDTO);
 
-    //Sửa năm học - học kỳ
+    // Sửa năm học - học kỳ
     boolean editYearSemester(int id, YearSemesterDTO yearSemesterDTO);
 
     // Xóa năm học - học kỳ
