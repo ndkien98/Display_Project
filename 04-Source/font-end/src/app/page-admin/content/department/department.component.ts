@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {DepartmentService} from '../../../shared/_service/department.service';
 import {Subject} from 'rxjs';
+import {BsModalRef, BsModalService} from 'ngx-bootstrap/modal';
+import {AddDepartmentComponent} from './add-department/add-department.component';
 
 @Component({
   selector: 'app-department',
@@ -9,15 +11,18 @@ import {Subject} from 'rxjs';
 })
 export class DepartmentComponent implements OnInit {
   listDepartments: any = []; // mảng chứa danh sách bộ môn
-  constructor(public departmentService: DepartmentService) {
-  }
 
   dataTableOptions: DataTables.Settings = {}; // tùy chọn của Datatable
   dtTrigger = new Subject();
-  STT: number;
+  bsModalRef: BsModalRef;
+
+  constructor(
+    public departmentService: DepartmentService,
+    public modalService: BsModalService
+  ) {
+  }
 
   ngOnInit(): void {
-    this.STT = 1;
     this.dataTableOptions = {
       pagingType: 'full_numbers',
     };
@@ -31,8 +36,16 @@ export class DepartmentComponent implements OnInit {
   loadAllDepartment() {
     return this.departmentService.getAllDepartment().subscribe((data: {}) => {
       this.listDepartments = data;
-      console.log(this.listDepartments);
       this.dtTrigger.next();
     });
   }
+
+  openModalAdd() {
+    const initialState = { // dùng để call mở modal thêm bộ môn
+      reloadParent: false
+    };
+    this.bsModalRef = this.modalService.show(AddDepartmentComponent, {initialState});
+  }
+
+
 }

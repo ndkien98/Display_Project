@@ -3,12 +3,13 @@ package com.fita.project.controller;
 import com.fita.project.dto.DepartmentDTO;
 import com.fita.project.service.DepartmentService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/departments/")
-@CrossOrigin(origins = "*", maxAge = -1) // cho khai báo phép có địa chỉ domain nhất định call tới api
+@RequestMapping("/api/departments/")
+@CrossOrigin(origins = "*", maxAge = -1)
 public class DepartmentController {
     @Autowired
     DepartmentService departmentService;
@@ -26,7 +27,7 @@ public class DepartmentController {
     }
 
     // Thêm bộ môn
-    @PostMapping("add")
+    @PostMapping(value = "add" ,produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> addDepartment(@RequestBody DepartmentDTO departmentDTO) {
         return ResponseEntity.ok(departmentService.addDepartment(departmentDTO));
     }

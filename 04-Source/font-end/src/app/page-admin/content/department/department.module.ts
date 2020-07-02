@@ -7,6 +7,7 @@ import {DeleteDepartmentComponent} from './delete-department/delete-department.c
 import {DataTablesModule} from 'angular-datatables';
 import {FormsModule} from '@angular/forms';
 import {RouterModule} from '@angular/router';
+import {BsModalRef, ModalModule} from 'ngx-bootstrap/modal';
 
 @NgModule({
   declarations: [
@@ -19,8 +20,12 @@ import {RouterModule} from '@angular/router';
     CommonModule,
     DataTablesModule,
     FormsModule,
-    RouterModule
-  ]
+    RouterModule,
+    ModalModule,
+    ModalModule.forRoot(),
+  ],
+  entryComponents: [AddDepartmentComponent],
+  providers: [BsModalRef]
 })
 export class DepartmentModule {
 }

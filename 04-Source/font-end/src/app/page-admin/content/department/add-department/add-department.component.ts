@@ -1,8 +1,8 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {BsModalRef, BsModalService} from 'ngx-bootstrap/modal';
 import {Department} from '../../../../shared/_models/department';
 import {DepartmentService} from '../../../../shared/_service/department.service';
-import {Router} from '@angular/router';
-import {DepartmentComponent} from '../department.component';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-add-department',
@@ -11,32 +11,29 @@ import {DepartmentComponent} from '../department.component';
 })
 export class AddDepartmentComponent implements OnInit {
   department: Department;
-  departmentComponent: DepartmentComponent;
-  @ViewChild('closebutton') closebutton;
+  reloadParent: boolean;
 
   constructor(
     public departmentService: DepartmentService,
-    private router: Router
+    public bsModalRef: BsModalRef,
+    private router: Router,
   ) {
   }
 
   onSubmit() {
     this.departmentService.addDepartment(this.department).subscribe(
-      // tslint:disable-next-line:ban-types
-      (data: Boolean) => {
-        console.log(data);
-        this.closebutton.nativeElement.click();
+      (data: boolean) => {
+        this.bsModalRef.hide(); // ẩn đi modal thêm bộ môn
         this.department.departmentCode = '';
         this.department.departmentName = '';
-        this.router.navigateByUrl('/management/department', {skipLocationChange: true}).then(() => {
-          this.router.navigate(['/management/department']);
-        });
+        this.router.navigateByUrl('/management/department');
+
       }
     );
   }
 
   ngOnInit(): void {
+    console.log(this.reloadParent);
     this.department = new Department();
   }
-
 }

@@ -28,7 +28,7 @@
             <div class="card-header">
               <div class="row">
                 <div class="col-sm-6 col-md-8 my-2">
-                  <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal-add-department">
+                  <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal-add-department" (click)="openModalAdd()">
                     Thêm bộ môn
                   </button>
                 </div>
@@ -76,7 +76,6 @@
     </div><!-- /.container-fluid -->
 
     <!-- Modal thêm bộ môn -->
-    <app-add-department></app-add-department>
     <!-- /.modal -->
 
     <!-- Modal sửa bộ môn -->

@@ -1,32 +1,25 @@
-<div class="modal fade" id="modal-add-department">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header bg-success">
-        <h4 class="modal-title">Thêm bộ môn</h4>
-        <button type="button" class="close" #closebutton data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <form role="form" (ngSubmit)="onSubmit()" #formAddDepartment="ngForm">
-        <div class="modal-body">
-          <div class="form-group">
-            <label for="departmentCodeAddModal">Mã bộ môn</label>
-            <input type="text" class="form-control" id="departmentCodeAddModal" placeholder="Nhập mã bộ môn" required
-                   [(ngModel)]="department.departmentCode" [ngModelOptions]="{standalone: true}">
-          </div>
-          <div class="form-group">
-            <label for="departmentNameAddModal">Tên Bộ môn</label>
-            <input type="text" class="form-control" id="departmentNameAddModal" placeholder="Nhập tên bộ môn" required
-                   [(ngModel)]="department.departmentName" [ngModelOptions]="{standalone: true}">
-          </div>
-        </div>
-        <div class="modal-footer justify-content-between">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
-          <button type="submit" class="btn btn-primary"><a></a>Thêm</button>
-        </div>
-      </form>
-    </div>
-    <!-- /.modal-content -->
-  </div>
-  <!-- /.modal-dialog -->
+<div class="modal-header bg-success">
+  <h4 class="modal-title pull-left">Thêm Bộ Môn</h4>
+  <button type="button" class="close pull-right" aria-label="Close" (click)="bsModalRef.hide()">
+    <span aria-hidden="true">&times;</span>
+  </button>
 </div>
+<form role="form" (ngSubmit)="onSubmit()" #formAddDepartment="ngForm">
+  <div class="modal-body">
+    <div class="form-group">
+      <label for="departmentCodeAddModal">Mã bộ môn</label>
+      <input type="text" class="form-control" id="departmentCodeAddModal" placeholder="Nhập mã bộ môn" required
+             [(ngModel)]="department.departmentCode" [ngModelOptions]="{standalone: true}">
+    </div>
+    <div class="form-group">
+      <label for="departmentNameAddModal">Tên Bộ môn</label>
+      <input type="text" class="form-control" id="departmentNameAddModal" placeholder="Nhập tên bộ môn" required
+             [(ngModel)]="department.departmentName" [ngModelOptions]="{standalone: true}">
+    </div>
+
+  </div>
+  <div class="modal-footer justify-content-between">
+    <button type="button" class="btn btn-default" (click)="bsModalRef.hide()">Đóng</button>
+    <button type="submit" class="btn btn-primary">Thêm</button>
+  </div>
+</form>
