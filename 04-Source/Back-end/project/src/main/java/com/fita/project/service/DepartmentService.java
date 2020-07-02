@@ -14,11 +14,11 @@ public interface DepartmentService {
     DepartmentDTO getDepartmentById(int id);
 
     // Thêm bộ môn
-    boolean addDepartment(DepartmentDTO departmentDTO);
+    void addDepartment(DepartmentDTO departmentDTO);
 
     // Sửa bộ môn
-    boolean editDepartment(int id, DepartmentDTO departmentDTO);
+    void editDepartment(int id, DepartmentDTO departmentDTO);
 
     // Xoá bộ môn
-    boolean deleteDepartment(int id);
+    void deleteDepartment(int id);
 }

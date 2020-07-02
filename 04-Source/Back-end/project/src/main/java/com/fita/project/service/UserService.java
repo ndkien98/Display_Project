@@ -20,13 +20,13 @@ public interface UserService {
     UserDTO getUserByUsername(String username);
 
     // Thêm người dùng
-    boolean addUser(UserDTO userDTO);
+    void addUser(UserDTO userDTO);
 
     // Sửa người dùng
-    boolean editUser(int id, UserDTO userDTO);
+    void editUser(int id, UserDTO userDTO);
 
     // Xoá người dùng
-    boolean deleteUser(int id);
+    void deleteUser(int id);
 
 
     //====================GIẢNG VIÊN====================
@@ -37,13 +37,13 @@ public interface UserService {
     LecturerDTO getLecturerById(int id);
 
     // Thêm giảng viên
-    boolean addLecturer(LecturerDTO lecturerDTO);
+    void addLecturer(LecturerDTO lecturerDTO);
 
     // Sửa giảng viên
-    boolean editLecturer(int id, LecturerDTO lecturerDTO);
+    void editLecturer(int id, LecturerDTO lecturerDTO);
 
     // Xoá giảng viên
-    boolean deleteLecturer(int id);
+    void deleteLecturer(int id);
 
 
     //====================SINH VIÊN====================
@@ -54,11 +54,11 @@ public interface UserService {
     StudentDTO getStudentById(int id);
 
     // Thêm sinh viên
-    boolean addStudent(StudentDTO studentDTO);
+    void addStudent(StudentDTO studentDTO);
 
     // Sửa sinh viên
-    boolean editStudent(int id, StudentDTO studentDTO);
+    void editStudent(int id, StudentDTO studentDTO);
 
     // Xoá sinh viên
-    boolean deleteStudent(int id);
+    void deleteStudent(int id);
 }

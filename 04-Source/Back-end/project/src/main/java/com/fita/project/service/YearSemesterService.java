@@ -14,11 +14,11 @@ public interface YearSemesterService {
     YearSemesterDTO getYearSemesterById(int id);
 
     // Thêm năm học - học kỳ
-    boolean addYearSemester(YearSemesterDTO yearSemesterDTO);
+    void addYearSemester(YearSemesterDTO yearSemesterDTO);
 
     // Sửa năm học - học kỳ
-    boolean editYearSemester(int id, YearSemesterDTO yearSemesterDTO);
+    void editYearSemester(int id, YearSemesterDTO yearSemesterDTO);
 
     // Xóa năm học - học kỳ
-    boolean deleteYearSemester(int id);
+    void deleteYearSemester(int id);
 }

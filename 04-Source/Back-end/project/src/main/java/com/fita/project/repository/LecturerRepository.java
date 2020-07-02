@@ -8,6 +8,8 @@ import javax.transaction.Transactional;
 
 @Repository
 public interface LecturerRepository extends JpaRepository<Lecturer, String> {
+    Lecturer findByLecturerCode(String lecturerCode);
+
     @Transactional
     void deleteByLecturerCode(String lecturerCode);
 }

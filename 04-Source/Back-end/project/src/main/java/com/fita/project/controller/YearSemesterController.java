@@ -7,8 +7,6 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-
 @RestController
 @RequestMapping(value = "/api/years-semesters/", produces = MediaType.APPLICATION_JSON_VALUE)
 @CrossOrigin(value = "*", maxAge = -1)
@@ -18,31 +16,54 @@ public class YearSemesterController {
 
     // Lấy ra tất cả các năm học - học kỳ
     @GetMapping("get-all")
-    public ResponseEntity<List<YearSemesterDTO>> getYearsSemesters() {
-        return ResponseEntity.ok(yearSemesterService.getYearsSemesters());
+    public ResponseEntity<?> getYearsSemesters() {
+        try {
+            return ResponseEntity.ok(yearSemesterService.getYearsSemesters());
+        } catch (Exception e) {
+            return ResponseEntity.ok(e.toString());
+        }
     }
 
     // Lấy ra năm học - học kỳ theo "id"
     @GetMapping("get-by-id/{id}")
-    public ResponseEntity<YearSemesterDTO> getYearSemester(@PathVariable int id) {
-        return ResponseEntity.ok(yearSemesterService.getYearSemesterById(id));
+    public ResponseEntity<?> getYearSemester(@PathVariable int id) {
+        try {
+            return ResponseEntity.ok(yearSemesterService.getYearSemesterById(id));
+        } catch (Exception e) {
+            return ResponseEntity.ok(e.toString());
+        }
     }
 
     // Thêm năm học - học kỳ
     @PostMapping("add")
-    public ResponseEntity<Boolean> addYearSemester(@RequestBody YearSemesterDTO yearSemesterDTO) {
-        return ResponseEntity.ok(yearSemesterService.addYearSemester(yearSemesterDTO));
+    public ResponseEntity<?> addYearSemester(@RequestBody YearSemesterDTO yearSemesterDTO) {
+        try {
+            yearSemesterService.addYearSemester(yearSemesterDTO);
+            return ResponseEntity.ok().build();
+        } catch (Exception e) {
+            return ResponseEntity.ok(e.toString());
+        }
     }
 
     //Sửa năm học - học kỳ
     @PutMapping("edit/{id}")
-    public ResponseEntity<Boolean> editYearSemester(@PathVariable int id, @RequestBody YearSemesterDTO yearSemesterDTO) {
-        return ResponseEntity.ok(yearSemesterService.editYearSemester(id, yearSemesterDTO));
+    public ResponseEntity<?> editYearSemester(@PathVariable int id, @RequestBody YearSemesterDTO yearSemesterDTO) {
+        try {
+            yearSemesterService.editYearSemester(id, yearSemesterDTO);
+            return ResponseEntity.ok().build();
+        } catch (Exception e) {
+            return ResponseEntity.ok(e.toString());
+        }
     }
 
     // Xóa năm học - học kỳ
     @DeleteMapping("delete/{id}")
-    public ResponseEntity<Boolean> deleteYearSemester(@PathVariable int id) {
-        return ResponseEntity.ok(yearSemesterService.deleteYearSemester(id));
+    public ResponseEntity<?> deleteYearSemester(@PathVariable int id) {
+        try {
+            yearSemesterService.deleteYearSemester(id);
+            return ResponseEntity.ok().build();
+        } catch (Exception e) {
+            return ResponseEntity.ok(e.toString());
+        }
     }
 }
