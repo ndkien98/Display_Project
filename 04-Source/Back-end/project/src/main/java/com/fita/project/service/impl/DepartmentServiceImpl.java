@@ -45,7 +45,7 @@ public class DepartmentServiceImpl implements DepartmentService {
      */
     @Override
     public DepartmentDTO getDepartmentById(int id) {
-        Department department = departmentRepository.getOne(id);
+        Department department = departmentRepository.findById(id).get();
 
         //Convert department (Entity) -> departmentDTO (DTO)
         DepartmentDTO departmentDTO = modelMapper.map(department, DepartmentDTO.class);

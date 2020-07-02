@@ -45,7 +45,7 @@ public class YearSemesterServiceImpl implements YearSemesterService {
      */
     @Override
     public YearSemesterDTO getYearSemesterById(int id) {
-        YearSemester yearSemester = yearSemesterRepository.getOne(id);
+        YearSemester yearSemester = yearSemesterRepository.findById(id).get();
 
         //Convert yearSemester (Entity) -> yearSemesterDTO (DTO)
         YearSemesterDTO yearSemesterDTO = modelMapper.map(yearSemester, YearSemesterDTO.class);
