@@ -9,6 +9,8 @@ import com.fita.project.repository.UserRepository;
 import com.fita.project.repository.entity.Lecturer;
 import com.fita.project.repository.entity.Student;
 import com.fita.project.repository.entity.User;
+import com.fita.project.service.DepartmentService;
+import com.fita.project.service.RoleService;
 import com.fita.project.service.UserService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,6 +31,12 @@ public class UserServiceImpl implements UserService {
     private StudentRepository studentRepository;
 
     @Autowired
+    private DepartmentService departmentService;
+
+    @Autowired
+    private RoleService roleService;
+
+    @Autowired
     private ModelMapper modelMapper;
 
     //====================NGƯỜI DÙNG====================
@@ -45,7 +53,9 @@ public class UserServiceImpl implements UserService {
 
         // Convert user (Entity) -> userDTO (DTO)
         for (User user : users) {
-            usersDTO.add(modelMapper.map(user, UserDTO.class));
+            UserDTO userDTO = modelMapper.map(user, UserDTO.class);
+            userDTO.setRoleName(roleService.getRoleById(userDTO.getRoleId()).getRoleName());
+            usersDTO.add(userDTO);
         }
 
         return usersDTO;
@@ -63,6 +73,7 @@ public class UserServiceImpl implements UserService {
 
         //Convert user (Entity) -> userDTO (DTO)
         UserDTO userDTO = modelMapper.map(user, UserDTO.class);
+        userDTO.setRoleName(roleService.getRoleById(userDTO.getRoleId()).getRoleName());
 
         return userDTO;
     }
@@ -79,6 +90,7 @@ public class UserServiceImpl implements UserService {
 
         //Convert user (Entity) -> userDTO (DTO)
         UserDTO userDTO = modelMapper.map(user, UserDTO.class);
+        userDTO.setRoleName(roleService.getRoleById(userDTO.getRoleId()).getRoleName());
 
         return userDTO;
     }
@@ -151,6 +163,7 @@ public class UserServiceImpl implements UserService {
 
             LecturerDTO lecturerDTO = modelMapper.map(userDTO, LecturerDTO.class);
             lecturerDTO.setDepartmentCode(lecturer.getDepartmentCode());
+            lecturerDTO.setDepartmentName(departmentService.getDepartmentByDepartmentCode(lecturer.getDepartmentCode()).getDepartmentName());
 
             lecturersDTO.add(lecturerDTO);
         }
@@ -161,6 +174,7 @@ public class UserServiceImpl implements UserService {
     /**
      * Lấy giảng viên trong cơ sở dữ liệu dựa theo id
      *
+     * @param id
      * @return LecturerDTO
      */
     @Override
@@ -174,8 +188,27 @@ public class UserServiceImpl implements UserService {
             if (userDTO.getUsername().equalsIgnoreCase(lecturer.getLecturerCode())) {
                 lecturerDTO = modelMapper.map(userDTO, LecturerDTO.class);
                 lecturerDTO.setDepartmentCode(lecturer.getDepartmentCode());
+                lecturerDTO.setDepartmentName(departmentService.getDepartmentByDepartmentCode(lecturer.getDepartmentCode()).getDepartmentName());
             }
         }
+
+        return lecturerDTO;
+    }
+
+    /**
+     * Lấy giảng viên trong cơ sở dữ liệu dựa theo mã giảng viên
+     *
+     * @param lecturerCode
+     * @return LecturerDTO
+     */
+    public LecturerDTO getLecturerByLecturerCode(String lecturerCode) {
+        Lecturer lecturer = lecturerRepository.findByLecturerCode(lecturerCode);
+        UserDTO userDTO = getUserByUsername(lecturer.getLecturerCode());
+
+        //Convert lecturer (Entity) -> lecturerDTO (DTO)
+        LecturerDTO lecturerDTO = modelMapper.map(userDTO, LecturerDTO.class);
+        lecturerDTO.setDepartmentCode(lecturer.getDepartmentCode());
+        lecturerDTO.setDepartmentName(departmentService.getDepartmentByDepartmentCode(lecturer.getDepartmentCode()).getDepartmentName());
 
         return lecturerDTO;
     }

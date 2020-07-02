@@ -45,7 +45,7 @@ public class CategoryServiceImpl implements CategoryService {
      */
     @Override
     public CategoryDTO getCategoryById(int id) {
-        Category category = categoryRepository.findById(id).get();
+        Category category = categoryRepository.getOne(id);
 
         //Convert category (Entity) -> categoryDTO (DTO)
         CategoryDTO categoryDTO = modelMapper.map(category, CategoryDTO.class);

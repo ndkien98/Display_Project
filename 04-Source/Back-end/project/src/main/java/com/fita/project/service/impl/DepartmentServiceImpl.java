@@ -45,7 +45,23 @@ public class DepartmentServiceImpl implements DepartmentService {
      */
     @Override
     public DepartmentDTO getDepartmentById(int id) {
-        Department department = departmentRepository.findById(id).get();
+        Department department = departmentRepository.getOne(id);
+
+        //Convert department (Entity) -> departmentDTO (DTO)
+        DepartmentDTO departmentDTO = modelMapper.map(department, DepartmentDTO.class);
+
+        return departmentDTO;
+    }
+
+    /**
+     * Lấy bộ môn trong cơ sở dữ liệu dựa theo mã bộ môn
+     *
+     * @param departmentCode
+     * @return departmentDTO
+     */
+    @Override
+    public DepartmentDTO getDepartmentByDepartmentCode(String departmentCode) {
+        Department department = departmentRepository.findByDepartmentCode(departmentCode);
 
         //Convert department (Entity) -> departmentDTO (DTO)
         DepartmentDTO departmentDTO = modelMapper.map(department, DepartmentDTO.class);
