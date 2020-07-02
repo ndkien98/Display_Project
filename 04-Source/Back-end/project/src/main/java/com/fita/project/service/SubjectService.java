@@ -8,21 +8,20 @@ import java.util.List;
 @Service
 public interface SubjectService {
     // Lấy ra tất cả các môn học
-<<<<<<< HEAD
-    List<SubjectDTO> getSubject();
-=======
     List<SubjectDTO> getSubjects();
->>>>>>> 9f861372b749a4b5ba027714a1c83319be0abbc9
 
     // Lấy ra môn học theo "id"
     SubjectDTO getSubjectById(int id);
 
-    // Thêm năm môn học
-    boolean addSubject(SubjectDTO subjectDTO);
+    // Lấy ra môn học theo "mã môn học"
+    SubjectDTO getSubjectBySubjectCode(String subjectCode);
 
-    //Sửa năm môn học
-    boolean editSubject(int id, SubjectDTO subjectDTO);
+    // Thêm môn học
+    void addSubject(SubjectDTO subjectDTO);
 
-    // Xóa năm môn học
-    boolean deleteSubject(int id);
+    // Sửa môn học
+    void editSubject(int id, SubjectDTO subjectDTO);
+
+    // Xóa môn học
+    void deleteSubject(int id);
 }
