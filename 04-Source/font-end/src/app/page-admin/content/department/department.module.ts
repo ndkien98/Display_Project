@@ -5,7 +5,7 @@ import {AddDepartmentComponent} from './add-department/add-department.component'
 import {EditDepartmentComponent} from './edit-department/edit-department.component';
 import {DeleteDepartmentComponent} from './delete-department/delete-department.component';
 import {DataTablesModule} from 'angular-datatables';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {RouterModule} from '@angular/router';
 import {BsModalRef, ModalModule} from 'ngx-bootstrap/modal';
 
@@ -20,6 +20,7 @@ import {BsModalRef, ModalModule} from 'ngx-bootstrap/modal';
     CommonModule,
     DataTablesModule,
     FormsModule,
+    ReactiveFormsModule,
     RouterModule,
     ModalModule,
     ModalModule.forRoot(),

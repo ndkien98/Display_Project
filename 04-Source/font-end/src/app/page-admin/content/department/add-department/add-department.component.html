@@ -1,25 +1,35 @@
 <div class="modal-header bg-success">
-  <h4 class="modal-title pull-left">Thêm Bộ Môn</h4>
+  <h4 class="modal-title pull-left">Thêm bộ môn</h4>
   <button type="button" class="close pull-right" aria-label="Close" (click)="bsModalRef.hide()">
     <span aria-hidden="true">&times;</span>
   </button>
 </div>
-<form role="form" (ngSubmit)="onSubmit()" #formAddDepartment="ngForm">
+<form role="form" (ngSubmit)="onSubmit()" [formGroup]="departmentFormGroup" novalidate>
   <div class="modal-body">
     <div class="form-group">
       <label for="departmentCodeAddModal">Mã bộ môn</label>
-      <input type="text" class="form-control" id="departmentCodeAddModal" placeholder="Nhập mã bộ môn" required
-             [(ngModel)]="department.departmentCode" [ngModelOptions]="{standalone: true}">
+      <input type="text" class="form-control" id="departmentCodeAddModal" placeholder="Nhập mã bộ môn"
+             formControlName="code">
+      <div [hidden]="departmentFormGroup.controls.code.status == 'VALID' || departmentFormGroup.controls.code.pristine"
+           class="alert alert-danger">
+        Mã bộ môn có dạng : BM_ _ _ , ex : BM001<br>
+        Mã bộ môn không được để trống và có chiều dài bằng 5<br>
+        Mã bộ môn không được trùng nhau.
+      </div>
     </div>
     <div class="form-group">
       <label for="departmentNameAddModal">Tên Bộ môn</label>
-      <input type="text" class="form-control" id="departmentNameAddModal" placeholder="Nhập tên bộ môn" required
-             [(ngModel)]="department.departmentName" [ngModelOptions]="{standalone: true}">
+      <input type="text" class="form-control" id="departmentNameAddModal" placeholder="Nhập tên bộ môn"
+             formControlName="name">
+      <div [hidden]="departmentFormGroup.controls.name.status == 'VALID' || departmentFormGroup.controls.name.pristine"
+           class="alert alert-danger">
+        Tên bộ môn không được để trống và không được trùng nhau.
+      </div>
     </div>
 
   </div>
   <div class="modal-footer justify-content-between">
     <button type="button" class="btn btn-default" (click)="bsModalRef.hide()">Đóng</button>
-    <button type="submit" class="btn btn-primary">Thêm</button>
+    <button type="submit" class="btn btn-primary" [disabled]="departmentFormGroup.status == 'INVALID'">Lưu</button>
   </div>
 </form>

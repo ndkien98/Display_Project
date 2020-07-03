@@ -52,12 +52,12 @@
                   <td>{{depart.departmentName}}</td>
                   <td>
                     <button type="button" class="btn btn-warning btn-sm" data-toggle="modal"
-                            data-target="#modal-edit-department">
+                            data-target="#modal-edit-department" id="{{depart.id}}" (click)="openModalEdit($event)">
                       <i class="fas fa-pencil-alt"></i>
                       Sửa
                     </button>
-                    <button type="button" class="btn btn-danger btn-sm" data-toggle="modal"
-                            data-target="#modal-delete-department">
+                    <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" name="{{depart.id}}"
+                            data-target="#modal-delete-department" (click)="openModalDelete($event)">
                       <i class="fas fa-trash"></i>
                       Xoá
                     </button>
@@ -79,11 +79,9 @@
     <!-- /.modal -->
 
     <!-- Modal sửa bộ môn -->
-    <app-edit-department></app-edit-department>
     <!-- /.modal -->
 
     <!-- Modal xoá bộ môn -->
-    <app-delete-department></app-delete-department>
     <!-- /.modal -->
   </div>
   <!-- /.content -->
