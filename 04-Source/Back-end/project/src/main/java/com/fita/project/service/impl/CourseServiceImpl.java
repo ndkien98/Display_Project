@@ -155,6 +155,7 @@ public class CourseServiceImpl implements CourseService {
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         courseDTO.setCreatedDate(dateFormat.format(new Date()));
         courseDTO.setLastModifiedDate(dateFormat.format(new Date()));
+
         courseRepository.save(modelMapper.map(courseDTO, Course.class));
     }
 

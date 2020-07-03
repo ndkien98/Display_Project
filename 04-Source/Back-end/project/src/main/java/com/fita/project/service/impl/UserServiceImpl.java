@@ -16,7 +16,9 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Component
@@ -102,6 +104,9 @@ public class UserServiceImpl implements UserService {
      */
     @Override
     public void addUser(UserDTO userDTO) {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        userDTO.setCreatedDate(dateFormat.format(new Date()));
+
         userRepository.save(modelMapper.map(userDTO, User.class));
     }
 
@@ -117,6 +122,13 @@ public class UserServiceImpl implements UserService {
         User userToUpdate = userRepository.getOne(id);
 
         // Cập nhật dữ liệu mới
+        convert(userDTO, userToUpdate);
+
+        // Lưu lại vào cơ sở dữ liệu
+        userRepository.save(userToUpdate);
+    }
+
+    private void convert(UserDTO userDTO, User userToUpdate) {
         userToUpdate.setUsername(userDTO.getUsername());
         userToUpdate.setPassword(userDTO.getPassword());
         userToUpdate.setFullName(userDTO.getFullName());
@@ -129,9 +141,6 @@ public class UserServiceImpl implements UserService {
         userToUpdate.setStatus(userDTO.getStatus());
         //userToUpdate.setCreatedDate(userDTO.getCreatedDate());
         //userToUpdate.setCreatedBy(userDTO.getCreatedBy());
-
-        // Lưu lại vào cơ sở dữ liệu
-        userRepository.save(userToUpdate);
     }
 
     /**
@@ -243,18 +252,7 @@ public class UserServiceImpl implements UserService {
         Lecturer lecturerToUpdate = lecturerRepository.findByLecturerCode(userToUpdate.getUsername());
 
         // Cập nhật dữ liệu mới
-        userToUpdate.setUsername(lecturerDTO.getUsername());
-        userToUpdate.setPassword(lecturerDTO.getPassword());
-        userToUpdate.setFullName(lecturerDTO.getFullName());
-        userToUpdate.setBirthDate(lecturerDTO.getBirthDate());
-        userToUpdate.setGender(lecturerDTO.getGender());
-        userToUpdate.setEmailAddress(lecturerDTO.getEmailAddress());
-        userToUpdate.setPhoneNumber(lecturerDTO.getPhoneNumber());
-        userToUpdate.setRoleId(lecturerDTO.getRoleId());
-        userToUpdate.setUserAvatarUrl(lecturerDTO.getUserAvatarUrl());
-        userToUpdate.setStatus(lecturerDTO.getStatus());
-        //userToUpdate.setCreatedDate(lecturerDTO.getCreatedDate());
-        //userToUpdate.setCreatedBy(lecturerDTO.getCreatedBy());
+        convert(lecturerDTO, userToUpdate);
 
         lecturerToUpdate.setLecturerCode(lecturerDTO.getUsername());
         lecturerToUpdate.setRoleId(lecturerDTO.getRoleId());
@@ -355,18 +353,7 @@ public class UserServiceImpl implements UserService {
         Student studentToUpdate = studentRepository.findByStudentCode(userToUpdate.getUsername());
 
         // Cập nhật dữ liệu mới
-        userToUpdate.setUsername(studentDTO.getUsername());
-        userToUpdate.setPassword(studentDTO.getPassword());
-        userToUpdate.setFullName(studentDTO.getFullName());
-        userToUpdate.setBirthDate(studentDTO.getBirthDate());
-        userToUpdate.setGender(studentDTO.getGender());
-        userToUpdate.setEmailAddress(studentDTO.getEmailAddress());
-        userToUpdate.setPhoneNumber(studentDTO.getPhoneNumber());
-        userToUpdate.setRoleId(studentDTO.getRoleId());
-        userToUpdate.setUserAvatarUrl(studentDTO.getUserAvatarUrl());
-        userToUpdate.setStatus(studentDTO.getStatus());
-        //userToUpdate.setCreatedDate(studentDTO.getCreatedDate());
-        //userToUpdate.setCreatedBy(studentDTO.getCreatedBy());
+        convert(studentDTO, userToUpdate);
 
         studentToUpdate.setStudentCode(studentDTO.getUsername());
         studentToUpdate.setRoleId(studentDTO.getRoleId());

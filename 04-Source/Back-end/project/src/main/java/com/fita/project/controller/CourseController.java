@@ -34,6 +34,16 @@ public class CourseController {
         }
     }
 
+    // Lấy ra lớp học phần theo "năm học - học kỳ id"
+    @GetMapping("get-by-year-semester-id/{yearSemesterId}")
+    public ResponseEntity<?> getCoursesByYearSemesterId(@PathVariable int yearSemesterId) {
+        try {
+            return ResponseEntity.ok(courseService.getCoursesByYearSemesterId(yearSemesterId));
+        } catch (Exception e) {
+            return ResponseEntity.ok(e.toString());
+        }
+    }
+
     // Thêm lớp học phần
     @PostMapping("add")
     public ResponseEntity<?> addCourse(@RequestBody CourseDTO courseDTO) {
