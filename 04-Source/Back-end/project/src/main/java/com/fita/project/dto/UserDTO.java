@@ -17,6 +17,7 @@ public class UserDTO {
     private String emailAddress;
     private String phoneNumber;
     private Integer roleId;
+    private String roleName;
     private String userAvatarUrl;
     private Integer status;
     private String createdDate;

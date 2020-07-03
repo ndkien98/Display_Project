@@ -9,4 +9,5 @@ import lombok.*;
 @ToString(callSuper = true)
 public class LecturerDTO extends UserDTO {
     private String departmentCode;
+    private String departmentName;
 }

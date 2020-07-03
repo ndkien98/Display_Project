@@ -7,8 +7,6 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-
 @RestController
 @RequestMapping(value = "/api/departments/", produces = MediaType.APPLICATION_JSON_VALUE)
 @CrossOrigin(value = "*", maxAge = -1)
@@ -18,31 +16,54 @@ public class DepartmentController {
 
     // Lấy ra tất cả các bộ môn
     @GetMapping("get-all")
-    public ResponseEntity<List<DepartmentDTO>> getDepartments() {
-        return ResponseEntity.ok(departmentService.getDepartments());
+    public ResponseEntity<?> getDepartments() {
+        try {
+            return ResponseEntity.ok(departmentService.getDepartments());
+        } catch (Exception e) {
+            return ResponseEntity.ok(e.toString());
+        }
     }
 
     // Lấy ra bộ môn theo "id"
     @GetMapping("get-by-id/{id}")
-    public ResponseEntity<DepartmentDTO> getDepartment(@PathVariable int id) {
-        return ResponseEntity.ok(departmentService.getDepartmentById(id));
+    public ResponseEntity<?> getDepartment(@PathVariable int id) {
+        try {
+            return ResponseEntity.ok(departmentService.getDepartmentById(id));
+        } catch (Exception e) {
+            return ResponseEntity.ok(e.toString());
+        }
     }
 
     // Thêm bộ môn
     @PostMapping("add")
-    public ResponseEntity<Boolean> addDepartment(@RequestBody DepartmentDTO departmentDTO) {
-        return ResponseEntity.ok(departmentService.addDepartment(departmentDTO));
+    public ResponseEntity<?> addDepartment(@RequestBody DepartmentDTO departmentDTO) {
+        try {
+            departmentService.addDepartment(departmentDTO);
+            return ResponseEntity.ok().build();
+        } catch (Exception e) {
+            return ResponseEntity.ok(e.toString());
+        }
     }
 
     // Sửa bộ môn
     @PutMapping("edit/{id}")
-    public ResponseEntity<Boolean> editDepartment(@PathVariable int id, @RequestBody DepartmentDTO departmentDTO) {
-        return ResponseEntity.ok(departmentService.editDepartment(id, departmentDTO));
+    public ResponseEntity<?> editDepartment(@PathVariable int id, @RequestBody DepartmentDTO departmentDTO) {
+        try {
+            departmentService.editDepartment(id, departmentDTO);
+            return ResponseEntity.ok().build();
+        } catch (Exception e) {
+            return ResponseEntity.ok(e.toString());
+        }
     }
 
     // Xoá bộ môn
     @DeleteMapping("delete/{id}")
-    public ResponseEntity<Boolean> deleteDepartment(@PathVariable int id) {
-        return ResponseEntity.ok(departmentService.deleteDepartment(id));
+    public ResponseEntity<?> deleteDepartment(@PathVariable int id) {
+        try {
+            departmentService.deleteDepartment(id);
+            return ResponseEntity.ok().build();
+        } catch (Exception e) {
+            return ResponseEntity.ok(e.toString());
+        }
     }
 }

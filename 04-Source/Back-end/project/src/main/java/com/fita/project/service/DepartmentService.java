@@ -13,12 +13,15 @@ public interface DepartmentService {
     // Lấy ra bộ môn theo "id"
     DepartmentDTO getDepartmentById(int id);
 
+    // Lấy ra bộ môn theo "mã bộ môn"
+    DepartmentDTO getDepartmentByDepartmentCode(String departmentCode);
+
     // Thêm bộ môn
-    boolean addDepartment(DepartmentDTO departmentDTO);
+    void addDepartment(DepartmentDTO departmentDTO);
 
     // Sửa bộ môn
-    boolean editDepartment(int id, DepartmentDTO departmentDTO);
+    void editDepartment(int id, DepartmentDTO departmentDTO);
 
     // Xoá bộ môn
-    boolean deleteDepartment(int id);
+    void deleteDepartment(int id);
 }

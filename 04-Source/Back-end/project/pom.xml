@@ -10,7 +10,7 @@
     </parent>
     <groupId>com.fita</groupId>
     <artifactId>project</artifactId>
-    <version>1.0.1</version>
+    <version>1.0.2</version>
     <packaging>war</packaging>
     <name>project</name>
     <description>Hệ thống trưng bày sản phẩm đồ án môn học (Back-end)</description>
