@@ -35,7 +35,7 @@ public class DepartmentController {
     }
 
     // Thêm bộ môn
-    @PostMapping(value = "add" ,produces = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping("add")
     public ResponseEntity<?> addDepartment(@RequestBody DepartmentDTO departmentDTO) {
         try {
             departmentService.addDepartment(departmentDTO);
