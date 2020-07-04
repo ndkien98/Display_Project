@@ -9,6 +9,7 @@ import {AppRoutingModule} from './app-routing.module';
 import {HeaderModule} from './page-admin/header/header.module';
 import {FooterModule} from './page-admin/footer/footer.module';
 import {MainSidebarModule} from './page-admin/main-sidebar/main-sidebar.module';
+import {BsModalService, ModalModule} from 'ngx-bootstrap/modal';
 
 @NgModule({
   declarations: [
