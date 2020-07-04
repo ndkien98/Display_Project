@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "roles")
+@Table(name = "roles_functions")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor

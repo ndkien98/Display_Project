@@ -10,114 +10,87 @@ import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.NoSuchElementException;
 
 @Component
 public class YearSemesterServiceImpl implements YearSemesterService {
     @Autowired
-    YearSemesterRepository yearSemesterRepository;
+    private YearSemesterRepository yearSemesterRepository;
 
     @Autowired
-    ModelMapper modelMapper;
+    private ModelMapper modelMapper;
 
     /**
      * Lấy tất cả các năm học - học kỳ trong cơ sở dữ liệu
      *
-     * @return danh sách các năm học - học kỳ (nếu có), ngược lại trả về null
+     * @return List<YearSemesterDTO>
      */
     @Override
     public List<YearSemesterDTO> getYearsSemesters() {
-        try {
-            List<YearSemester> yearsSemesters = yearSemesterRepository.findAll();
-            List<YearSemesterDTO> yearsSemestersDTO = new ArrayList<>();
+        List<YearSemester> yearsSemesters = yearSemesterRepository.findAll();
+        List<YearSemesterDTO> yearsSemestersDTO = new ArrayList<>();
 
-            //Convert yearSemester (Entity) -> yearSemesterDTO (DTO)
-            for (YearSemester yearSemester : yearsSemesters) {
-                yearsSemestersDTO.add(modelMapper.map(yearSemester, YearSemesterDTO.class));
-            }
-
-            return yearsSemestersDTO;
-        } catch (NoSuchElementException e) {
-            return null;
+        //Convert yearSemester (Entity) -> yearSemesterDTO (DTO)
+        for (YearSemester yearSemester : yearsSemesters) {
+            yearsSemestersDTO.add(modelMapper.map(yearSemester, YearSemesterDTO.class));
         }
+
+        return yearsSemestersDTO;
     }
 
     /**
      * Lấy năm học - học kỳ trong cơ sở dữ liệu dựa theo id
      *
      * @param id
-     * @return năm học - học kỳ lấy được (nếu có), ngược lại trả về null
+     * @return YearSemesterDTO
      */
     @Override
     public YearSemesterDTO getYearSemesterById(int id) {
-        try {
-            YearSemester yearSemester = yearSemesterRepository.findById(id).get();
+        YearSemester yearSemester = yearSemesterRepository.findById(id).get();
 
-            //Convert yearSemester (Entity) -> yearSemesterDTO (DTO)
-            YearSemesterDTO yearSemesterDTO = modelMapper.map(yearSemester, YearSemesterDTO.class);
+        //Convert yearSemester (Entity) -> yearSemesterDTO (DTO)
+        YearSemesterDTO yearSemesterDTO = modelMapper.map(yearSemester, YearSemesterDTO.class);
 
-            return  yearSemesterDTO;
-        } catch (NoSuchElementException e) {
-            return null;
-        }
+        return yearSemesterDTO;
     }
 
     /**
      * Thêm 1 học kỳ - năm học vào cơ sở dữ liệu
      *
      * @param yearSemesterDTO
-     * @return true nếu thêm thành công, ngược lại trả về false
      */
     @Override
-    public boolean addYearSemester(YearSemesterDTO yearSemesterDTO) {
-        try {
-            yearSemesterRepository.save(modelMapper.map(yearSemesterDTO, YearSemester.class));
-            return true;
-        } catch (Exception e) {
-            return false;
-        }
+    public void addYearSemester(YearSemesterDTO yearSemesterDTO) {
+        yearSemesterRepository.save(modelMapper.map(yearSemesterDTO, YearSemester.class));
     }
 
     /**
-     * Sửa học kỳ - năm học trong cơ sở dữ liệu dựa theo id
+     * Sửa năm học - học kỳ trong cơ sở dữ liệu dựa theo id
      *
      * @param id
-     * @return true nếu sửa thành công, ngược lại trả về false
+     * @param yearSemesterDTO
      */
     @Override
-    public boolean editYearSemester(int id, YearSemesterDTO yearSemesterDTO) {
-        try {
-            // Lấy năm học - học kỳ cần sửa
-            YearSemester yearSemesterToUpdate = yearSemesterRepository.getOne(id);
+    public void editYearSemester(int id, YearSemesterDTO yearSemesterDTO) {
+        // Lấy năm học - học kỳ cần sửa
+        YearSemester yearSemesterToUpdate = yearSemesterRepository.getOne(id);
 
-            // Cập nhật dữ liệu mới
-            yearSemesterToUpdate.setYear(yearSemesterDTO.getYear());
-            yearSemesterToUpdate.setSemester(yearSemesterDTO.getSemester());
-            yearSemesterToUpdate.setStartDate(yearSemesterDTO.getStartDate());
-            yearSemesterToUpdate.setWeeksNumber(yearSemesterDTO.getWeeksNumber());
+        // Cập nhật dữ liệu mới
+        yearSemesterToUpdate.setYear(yearSemesterDTO.getYear());
+        yearSemesterToUpdate.setSemester(yearSemesterDTO.getSemester());
+        yearSemesterToUpdate.setStartDate(yearSemesterDTO.getStartDate());
+        yearSemesterToUpdate.setWeeksNumber(yearSemesterDTO.getWeeksNumber());
 
-            // Lưu lại vào cơ sở dữ liệu
-            yearSemesterRepository.save(yearSemesterToUpdate);
-
-            return true;
-        } catch (Exception e) {
-            return false;
-        }
+        // Lưu lại vào cơ sở dữ liệu
+        yearSemesterRepository.save(yearSemesterToUpdate);
     }
 
     /**
-     * Xoá học kỳ - năm học trong cơ sở dữ liệu dựa theo id
+     * Xoá năm học - học kỳ trong cơ sở dữ liệu dựa theo id
      *
      * @param id
-     * @return true nếu xoá thành công, ngược lại trả về false
      */
     @Override
-    public boolean deleteYearSemester(int id) {
-        try {
-            yearSemesterRepository.deleteById(id);
-            return true;
-        } catch (Exception e) {
-            return false;
-        }
+    public void deleteYearSemester(int id) {
+        yearSemesterRepository.deleteById(id);
     }
 }

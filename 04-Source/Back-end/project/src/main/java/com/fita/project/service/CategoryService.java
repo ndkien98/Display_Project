@@ -14,12 +14,12 @@ public interface CategoryService {
     CategoryDTO getCategoryById(int id);
 
     // Thêm thể loại
-    boolean addCategory(CategoryDTO categoryDTO);
+    void addCategory(CategoryDTO categoryDTO);
 
     // Sửa thể loại
-    boolean editCategory(int id, CategoryDTO categoryDTO);
+    void editCategory(int id, CategoryDTO categoryDTO);
 
     // Xoá thể loại
-    boolean deleteCategory(int id);
+    void deleteCategory(int id);
 
 }
