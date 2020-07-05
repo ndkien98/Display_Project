@@ -255,7 +255,6 @@ public class UserServiceImpl implements UserService {
         convert(lecturerDTO, userToUpdate);
 
         lecturerToUpdate.setLecturerCode(lecturerDTO.getUsername());
-        lecturerToUpdate.setRoleId(lecturerDTO.getRoleId());
         lecturerToUpdate.setDepartmentCode(lecturerDTO.getDepartmentCode());
 
         // Lưu lại vào cơ sở dữ liệu
@@ -356,7 +355,6 @@ public class UserServiceImpl implements UserService {
         convert(studentDTO, userToUpdate);
 
         studentToUpdate.setStudentCode(studentDTO.getUsername());
-        studentToUpdate.setRoleId(studentDTO.getRoleId());
         studentToUpdate.setClassCode(studentDTO.getClassCode());
 
         // Lưu lại vào cơ sở dữ liệu
