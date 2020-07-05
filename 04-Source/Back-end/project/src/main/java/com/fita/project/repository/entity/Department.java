@@ -19,6 +19,6 @@ public class Department {
     @Column(name = "department_code", length = 5, nullable = false, unique = true)
     private String departmentCode;
 
-    @Column(name = "department_name", length = 50, nullable = false, unique = true)
+    @Column(name = "department_name", length = 100, nullable = false)
     private String departmentName;
 }

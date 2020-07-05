@@ -19,9 +19,6 @@ public class Student {
     @Column(name = "student_code", length = 10, nullable = false)
     private String studentCode;
 
-    @Column(name = "role_id", nullable = false)
-    private Integer roleId;
-
     @Column(name = "class_code", length = 10, nullable = false)
     private String classCode;
 }

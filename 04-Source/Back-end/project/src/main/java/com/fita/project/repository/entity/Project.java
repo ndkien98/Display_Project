@@ -31,13 +31,13 @@ public class Project {
     @Column(name = "demo_link", length = 500)
     private String demoLink;
 
-    @Column(name = "category_id", nullable = false)
+    @Column(name = "category_id")
     private Integer categoryId;
 
-    @Column(name = "student_code", length = 10, nullable = false)
+    @Column(name = "student_code", length = 10)
     private String studentCode;
 
-    @Column(name = "course_id", nullable = false)
+    @Column(name = "course_id")
     private Integer courseId;
 
     @Column(name = "status", nullable = false)

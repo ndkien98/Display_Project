@@ -16,10 +16,10 @@ public class Function {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(name = "function_name", length = 50, nullable = false, unique = true)
+    @Column(name = "function_name", length = 100, nullable = false)
     private String functionName;
 
-    @Column(name = "action_code", length = 20, nullable = false, unique = true)
+    @Column(name = "action_code", length = 50, nullable = false, unique = true)
     private String actionCode;
 
     @Column(name = "function_description")
