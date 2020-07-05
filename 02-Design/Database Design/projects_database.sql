@@ -55,7 +55,7 @@ CREATE TABLE `roles_functions` (
   `id` int NOT NULL AUTO_INCREMENT,
   `role_id` int NOT NULL,
   `function_id` int NOT NULL,
-  `status` int NOT NULL DEFAULT '0',  --
+  `status` int NOT NULL DEFAULT '0',  -- 0: Vô hiệu hoá | 1: Được kích hoạt
   PRIMARY KEY (`id`),
   UNIQUE KEY `role_id_function_id` (`role_id`,`function_id`),
   KEY `role_id` (`role_id`),
@@ -90,7 +90,7 @@ CREATE TABLE `users` (
   `phone_number` varchar(10) DEFAULT NULL,
   `role_id` int NOT NULL,
   `user_avatar_url` varchar(900) CHARACTER SET utf8mb4 DEFAULT NULL,
-  `status` int DEFAULT 1 NOT NULL,  -- 1: Tài khoản được kích hoạt | 0: Tài khoản bị khoá
+  `status` int DEFAULT 1 NOT NULL,	-- 1: Tài khoản được kích hoạt | 0: Tài khoản bị khoá
   `created_date` datetime DEFAULT CURRENT_TIMESTAMP,
   `created_by` varchar(10) DEFAULT NULL,
   PRIMARY KEY (`id`),
@@ -157,7 +157,7 @@ CREATE TABLE `projects` (
   `category_id` int DEFAULT NULL,
   `student_code` varchar(10) DEFAULT NULL,
   `course_id` int DEFAULT NULL,
-  `status` int NOT NULL DEFAULT '0',  -- 0: Đồ án đang chờ kiểm duyệt | 1: Đồ án đã được kiểm duyệt
+  `status` int NOT NULL DEFAULT '0',	-- 0: Đồ án đang chờ kiểm duyệt | 1: Đồ án đã được kiểm duyệt
   `created_date` datetime DEFAULT CURRENT_TIMESTAMP,
   `created_by` varchar(10) DEFAULT NULL,
   `last_modified_by` varchar(10) DEFAULT NULL,
