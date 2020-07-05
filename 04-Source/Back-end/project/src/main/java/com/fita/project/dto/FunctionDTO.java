@@ -7,8 +7,9 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class CategoryDTO {
+public class FunctionDTO {
     private int id;
-    private String categoryCode;
-    private String categoryName;
+    private String functionName;
+    private String actionCode;
+    private String functionDescription;
 }

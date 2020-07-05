@@ -7,8 +7,10 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class CategoryDTO {
+public class ProjectMemberDTO {
     private int id;
-    private String categoryCode;
-    private String categoryName;
+    private String studentCode;
+    private String fullName;
+    private String classCode;
+    private int projectCode;
 }
