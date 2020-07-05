@@ -70,7 +70,7 @@ CREATE TABLE `subjects` (
   `id` int NOT NULL AUTO_INCREMENT,
   `subject_code` varchar(10) NOT NULL,
   `subject_name` varchar(200) CHARACTER SET utf8mb4 NOT NULL,
-  `department_code` varchar(5) NOT NULL,
+  `department_code` varchar(5) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `subject_code` (`subject_code`),
   KEY `department_code` (`department_code`),
@@ -89,7 +89,7 @@ CREATE TABLE `users` (
   `email_address` varchar(100) DEFAULT NULL,
   `phone_number` varchar(10) DEFAULT NULL,
   `role_id` int NOT NULL,
-  `user_avatar_url` varchar(500) CHARACTER SET utf8mb4 DEFAULT NULL,
+  `user_avatar_url` varchar(900) CHARACTER SET utf8mb4 DEFAULT NULL,
   `status` int DEFAULT 1 NOT NULL,	-- 1: Tài khoản được kích hoạt | 0: Tài khoản bị khoá
   `created_date` datetime DEFAULT CURRENT_TIMESTAMP,
   `created_by` varchar(10) DEFAULT NULL,
@@ -104,7 +104,7 @@ CREATE TABLE `users` (
 -- Bảng "Giảng Viên"
 CREATE TABLE `lecturers` (
   `lecturer_code` varchar(10) NOT NULL,
-  `department_code` varchar(5) NOT NULL,
+  `department_code` varchar(5) DEFAULT NULL,
   PRIMARY KEY (`lecturer_code`),
   KEY `department_code` (`department_code`),
   KEY `lecturer_code` (`lecturer_code`),
@@ -116,7 +116,7 @@ CREATE TABLE `lecturers` (
 -- Bảng "Sinh Viên"
 CREATE TABLE `students` (
   `student_code` varchar(10) NOT NULL,
-  `class_code` varchar(10) NOT NULL,
+  `class_code` varchar(10) DEFAULT NULL,
   PRIMARY KEY (`student_code`),
   KEY `student_code` (`student_code`),
   CONSTRAINT `students_ibfk_1` FOREIGN KEY (`student_code`) REFERENCES `users` (`username`)
@@ -128,9 +128,9 @@ CREATE TABLE `courses` (
   `id` int NOT NULL AUTO_INCREMENT,
   `subject_code` varchar(10) NOT NULL,
   `subject_group` int NOT NULL,
-  `class_code` varchar(50) CHARACTER SET utf8mb4 NOT NULL,
-  `year_semester_id` int NOT NULL,
-  `lecturer_code` varchar(10) NOT NULL,
+  `class_code` varchar(50) CHARACTER SET utf8mb4 DEFAULT NULL,
+  `year_semester_id` int DEFAULT NULL,
+  `lecturer_code` varchar(10) DEFAULT NULL,
   `created_date` datetime DEFAULT CURRENT_TIMESTAMP,
   `created_by` varchar(10) DEFAULT NULL,
   `last_modified_date` datetime DEFAULT CURRENT_TIMESTAMP,
@@ -153,9 +153,9 @@ CREATE TABLE `projects` (
   `short_description` text,
   `detailed_description` text,
   `demo_link` varchar(900) CHARACTER SET utf8mb4 DEFAULT NULL,
-  `category_id` int NOT NULL,
-  `student_code` varchar(10) NOT NULL,
-  `course_id` int NOT NULL,
+  `category_id` int DEFAULT NULL,
+  `student_code` varchar(10) DEFAULT NULL,
+  `course_id` int DEFAULT NULL,
   `status` int NOT NULL DEFAULT '0',	-- 0: Đồ án đang chờ kiểm duyệt | 1: Đồ án đã được kiểm duyệt
   `created_date` datetime DEFAULT CURRENT_TIMESTAMP,
   `created_by` varchar(10) DEFAULT NULL,
@@ -178,7 +178,7 @@ CREATE TABLE `project_members` (
   `student_code` varchar(10) DEFAULT NULL,
   `full_name` varchar(50) CHARACTER SET utf8mb4 DEFAULT NULL,
   `class_code` varchar(10) DEFAULT NULL,
-  `project_code` varchar(10) NOT NULL,
+  `project_code` varchar(10) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `project_code` (`project_code`),
   CONSTRAINT `project_members_ibfk_1` FOREIGN KEY (`project_code`) REFERENCES `projects` (`project_code`)
