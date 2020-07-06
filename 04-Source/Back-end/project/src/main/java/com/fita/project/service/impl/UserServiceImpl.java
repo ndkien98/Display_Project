@@ -169,11 +169,7 @@ public class UserServiceImpl implements UserService {
         //Convert lecturer (Entity) -> lecturerDTO (DTO)
         for (Lecturer lecturer : lecturers) {
             UserDTO userDTO = getUserByUsername(lecturer.getLecturerCode());
-
-            LecturerDTO lecturerDTO = modelMapper.map(userDTO, LecturerDTO.class);
-            lecturerDTO.setDepartmentCode(lecturer.getDepartmentCode());
-            lecturerDTO.setDepartmentName(departmentService.getDepartmentByDepartmentCode(lecturer.getDepartmentCode()).getDepartmentName());
-
+            LecturerDTO lecturerDTO = convertLecturer(userDTO, lecturer);
             lecturersDTO.add(lecturerDTO);
         }
 
@@ -189,17 +185,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public LecturerDTO getLecturerById(int id) {
         UserDTO userDTO = getUserById(id);
-        List<Lecturer> lecturers = lecturerRepository.findAll();
-        LecturerDTO lecturerDTO = null;
-
-        //Convert lecturer (Entity) -> lecturerDTO (DTO)
-        for (Lecturer lecturer : lecturers) {
-            if (userDTO.getUsername().equalsIgnoreCase(lecturer.getLecturerCode())) {
-                lecturerDTO = modelMapper.map(userDTO, LecturerDTO.class);
-                lecturerDTO.setDepartmentCode(lecturer.getDepartmentCode());
-                lecturerDTO.setDepartmentName(departmentService.getDepartmentByDepartmentCode(lecturer.getDepartmentCode()).getDepartmentName());
-            }
-        }
+        LecturerDTO lecturerDTO = getLecturerByLecturerCode(userDTO.getUsername());
 
         return lecturerDTO;
     }
@@ -215,9 +201,18 @@ public class UserServiceImpl implements UserService {
         UserDTO userDTO = getUserByUsername(lecturer.getLecturerCode());
 
         //Convert lecturer (Entity) -> lecturerDTO (DTO)
+        LecturerDTO lecturerDTO = convertLecturer(userDTO, lecturer);
+
+        return lecturerDTO;
+    }
+
+    private LecturerDTO convertLecturer(UserDTO userDTO, Lecturer lecturer) {
         LecturerDTO lecturerDTO = modelMapper.map(userDTO, LecturerDTO.class);
-        lecturerDTO.setDepartmentCode(lecturer.getDepartmentCode());
-        lecturerDTO.setDepartmentName(departmentService.getDepartmentByDepartmentCode(lecturer.getDepartmentCode()).getDepartmentName());
+
+        if (lecturer.getDepartmentCode() != null) {
+            lecturerDTO.setDepartmentCode(lecturer.getDepartmentCode());
+            lecturerDTO.setDepartmentName(departmentService.getDepartmentByDepartmentCode(lecturer.getDepartmentCode()).getDepartmentName());
+        }
 
         return lecturerDTO;
     }
@@ -309,16 +304,25 @@ public class UserServiceImpl implements UserService {
     @Override
     public StudentDTO getStudentById(int id) {
         UserDTO userDTO = getUserById(id);
-        List<Student> students = studentRepository.findAll();
-        StudentDTO studentDTO = null;
+        StudentDTO studentDTO = getStudentByStudentCode(userDTO.getUsername());
 
-        //Convert student (Entity) -> studentDTO (DTO)
-        for (Student student : students) {
-            if (userDTO.getUsername().equalsIgnoreCase(student.getStudentCode())) {
-                studentDTO = modelMapper.map(userDTO, StudentDTO.class);
-                studentDTO.setClassCode(student.getClassCode());
-            }
-        }
+        return studentDTO;
+    }
+
+    /**
+     * Lấy sinh viên trong cơ sở dữ liệu dựa theo mã sinh viên
+     *
+     * @param studentCode
+     * @return studentDTO
+     */
+    @Override
+    public StudentDTO getStudentByStudentCode(String studentCode) {
+        Student student = studentRepository.findByStudentCode(studentCode);
+        UserDTO userDTO = getUserByUsername(student.getStudentCode());
+
+        // Convert student (Entity) -> studentDTO (DTO)
+        StudentDTO studentDTO = modelMapper.map(userDTO, StudentDTO.class);
+        studentDTO.setClassCode(student.getClassCode());
 
         return studentDTO;
     }

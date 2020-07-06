@@ -8,10 +8,10 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class RoleFunctionDTO {
-    private int id;
-    private int roleId;
+    private Integer id;
+    private Integer roleId;
     private String roleName;
-    private int functionId;
+    private Integer functionId;
     private String functionName;
     private String actionCode;
 }

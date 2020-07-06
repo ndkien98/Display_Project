@@ -35,8 +35,7 @@ public class SubjectServiceImpl implements SubjectService {
 
         //Convert subject (Entity) -> subjectDTO (DTO)
         for (Subject subject : subjects) {
-            SubjectDTO subjectDTO = modelMapper.map(subject, SubjectDTO.class);
-            subjectDTO.setDepartmentName(departmentService.getDepartmentByDepartmentCode(subjectDTO.getDepartmentCode()).getDepartmentName());
+            SubjectDTO subjectDTO = convert(subject);
             subjectsDTO.add(subjectDTO);
         }
 
@@ -54,8 +53,7 @@ public class SubjectServiceImpl implements SubjectService {
         Subject subject = subjectRepository.findById(id).get();
 
         //Convert subject (Entity) -> subjectDTO (DTO)
-        SubjectDTO subjectDTO = modelMapper.map(subject, SubjectDTO.class);
-        subjectDTO.setDepartmentName(departmentService.getDepartmentByDepartmentCode(subjectDTO.getDepartmentCode()).getDepartmentName());
+        SubjectDTO subjectDTO = convert(subject);
 
         return subjectDTO;
     }
@@ -71,8 +69,17 @@ public class SubjectServiceImpl implements SubjectService {
         Subject subject = subjectRepository.findBySubjectCode(subjectCode);
 
         //Convert subject (Entity) -> subjectDTO (DTO)
+        SubjectDTO subjectDTO = convert(subject);
+
+        return subjectDTO;
+    }
+
+    private SubjectDTO convert(Subject subject) {
         SubjectDTO subjectDTO = modelMapper.map(subject, SubjectDTO.class);
-        subjectDTO.setDepartmentName(departmentService.getDepartmentByDepartmentCode(subjectDTO.getDepartmentCode()).getDepartmentName());
+
+        if (subjectDTO.getDepartmentCode() != null) {
+            subjectDTO.setDepartmentName(departmentService.getDepartmentByDepartmentCode(subjectDTO.getDepartmentCode()).getDepartmentName());
+        }
 
         return subjectDTO;
     }

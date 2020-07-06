@@ -137,10 +137,16 @@ public class CourseServiceImpl implements CourseService {
     private CourseDTO convert(Course course) {
         CourseDTO courseDTO = modelMapper.map(course, CourseDTO.class);
         courseDTO.setSubjectName(subjectService.getSubjectBySubjectCode(courseDTO.getSubjectCode()).getSubjectName());
-        YearSemesterDTO yearSemesterDTO = yearSemesterService.getYearSemesterById(courseDTO.getYearSemesterId());
-        courseDTO.setYear(yearSemesterDTO.getYear());
-        courseDTO.setSemester(yearSemesterDTO.getSemester());
-        courseDTO.setLecturerName(userService.getUserByUsername(courseDTO.getLecturerCode()).getFullName());
+
+        if (courseDTO.getYearSemesterId() != null) {
+            YearSemesterDTO yearSemesterDTO = yearSemesterService.getYearSemesterById(courseDTO.getYearSemesterId());
+            courseDTO.setYear(yearSemesterDTO.getYear());
+            courseDTO.setSemester(yearSemesterDTO.getSemester());
+        }
+
+        if (courseDTO.getLecturerCode() != null) {
+            courseDTO.setLecturerName(userService.getUserByUsername(courseDTO.getLecturerCode()).getFullName());
+        }
 
         return courseDTO;
     }

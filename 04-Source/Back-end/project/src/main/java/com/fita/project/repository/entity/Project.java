@@ -16,6 +16,9 @@ public class Project {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
+    @Column(name = "project_code", length = 10, nullable = false, unique = true)
+    private String projectCode;
+
     @Column(name = "project_name", length = 200, nullable = false)
     private String projectName;
 
@@ -31,8 +34,8 @@ public class Project {
     @Column(name = "demo_link", length = 500)
     private String demoLink;
 
-    @Column(name = "category_id")
-    private Integer categoryId;
+    @Column(name = "category_code")
+    private String categoryCode;
 
     @Column(name = "student_code", length = 10)
     private String studentCode;

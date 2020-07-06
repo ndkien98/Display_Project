@@ -26,5 +26,5 @@ public class ProjectMember {
     private String classCode;
 
     @Column(name = "project_code", length = 10)
-    private Integer projectCode;
+    private String projectCode;
 }

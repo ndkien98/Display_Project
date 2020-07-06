@@ -4,33 +4,38 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class ProjectDTO {
-    private int id;
+    private Integer id;
+    private String projectCode;
     private String projectName;
     private String projectAvatarUrl;
     private String shortDescription;
     private String detailedDescription;
     private String demoLink;
-    private int categoryId;
+    private String categoryCode;
     private String categoryName;
     private String studentCode;
     private String studentName;
-    private int courseId;
+    private String studentClass;
+    private Integer courseId;
     private String subjectCode;
     private String subjectName;
-    private int subjectGroup;
-    private String classCode;
-    private int yearSemesterId;
-    private int year;
-    private int semester;
+    private Integer subjectGroup;
+    private String courseClass;
+    private Integer yearSemesterId;
+    private Integer year;
+    private Integer semester;
     private String lecturerCode;
     private String lecturerName;
-    private int status;
+    private Integer status;
     private String createdDate;
     private String createdBy;
     private String lastModifiedBy;
     private String lastModifiedDate;
+    private List<ProjectMemberDTO> projectMembers;
 }

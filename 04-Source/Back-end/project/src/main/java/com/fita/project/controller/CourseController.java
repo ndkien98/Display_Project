@@ -20,6 +20,7 @@ public class CourseController {
         try {
             return ResponseEntity.ok(courseService.getCourses());
         } catch (Exception e) {
+            e.printStackTrace();
             return ResponseEntity.ok(e.toString());
         }
     }
@@ -30,6 +31,7 @@ public class CourseController {
         try {
             return ResponseEntity.ok(courseService.getCourseById(id));
         } catch (Exception e) {
+            e.printStackTrace();
             return ResponseEntity.ok(e.toString());
         }
     }
@@ -40,6 +42,7 @@ public class CourseController {
         try {
             return ResponseEntity.ok(courseService.getCoursesByLecturerCode(lecturerCode));
         } catch (Exception e) {
+            e.printStackTrace();
             return ResponseEntity.ok(e.toString());
         }
     }
@@ -50,6 +53,7 @@ public class CourseController {
         try {
             return ResponseEntity.ok(courseService.getCoursesByYearSemesterId(yearSemesterId));
         } catch (Exception e) {
+            e.printStackTrace();
             return ResponseEntity.ok(e.toString());
         }
     }
@@ -61,6 +65,7 @@ public class CourseController {
         try {
             return ResponseEntity.ok(courseService.getCoursesByLecturerCodeAndYearSemesterId(lecturerCode, yearSemesterId));
         } catch (Exception e) {
+            e.printStackTrace();
             return ResponseEntity.ok(e.toString());
         }
     }
@@ -72,6 +77,7 @@ public class CourseController {
             courseService.addCourse(courseDTO);
             return ResponseEntity.ok().build();
         } catch (Exception e) {
+            e.printStackTrace();
             return ResponseEntity.ok(e.toString());
         }
     }
@@ -83,6 +89,7 @@ public class CourseController {
             courseService.editCourse(id, courseDTO);
             return ResponseEntity.ok().build();
         } catch (Exception e) {
+            e.printStackTrace();
             return ResponseEntity.ok(e.toString());
         }
     }
@@ -94,6 +101,7 @@ public class CourseController {
             courseService.deleteCourse(id);
             return ResponseEntity.ok().build();
         } catch (Exception e) {
+            e.printStackTrace();
             return ResponseEntity.ok(e.toString());
         }
     }

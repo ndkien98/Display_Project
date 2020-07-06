@@ -54,6 +54,22 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     /**
+     * Lấy thể loại trong cơ sở dữ liệu dựa theo id
+     *
+     * @param categoryCode
+     * @return CategoryDTO
+     */
+    @Override
+    public CategoryDTO getCategoryByCategoryCode(String categoryCode) {
+        Category category = categoryRepository.findByCategoryCode(categoryCode);
+
+        //Convert category (Entity) -> categoryDTO (DTO)
+        CategoryDTO categoryDTO = modelMapper.map(category, CategoryDTO.class);
+
+        return categoryDTO;
+    }
+
+    /**
      * Thêm 1 thể loại vào cơ sở dữ liệu
      *
      * @param categoryDTO
