@@ -131,4 +131,14 @@ public class ProjectServiceImpl implements ProjectService {
 
         return projectMembersDTO;
     }
+
+    /**
+     * Xoá bộ môn trong cơ sở dữ liệu dựa theo id
+     *
+     * @param id
+     */
+    @Override
+    public void deleteProject(int id) {
+        projectRepository.deleteById(id);
+    }
 }
