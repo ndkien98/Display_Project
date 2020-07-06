@@ -154,7 +154,7 @@ CREATE TABLE `projects` (
   `short_description` text,
   `detailed_description` text,
   `demo_link` varchar(900) CHARACTER SET utf8mb4 DEFAULT NULL,
-  `category_code` varchar(10) NOT NULL,
+  `category_code` varchar(10) DEFAULT NULL,
   `student_code` varchar(10) DEFAULT NULL,
   `course_id` int DEFAULT NULL,
   `status` int NOT NULL DEFAULT '0',	-- 0: Đồ án đang chờ kiểm duyệt | 1: Đồ án đã được kiểm duyệt
