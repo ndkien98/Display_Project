@@ -38,4 +38,5 @@ public interface ProjectService {
 
 
     // Xoá đồ án
+    void deleteProject(int id);
 }

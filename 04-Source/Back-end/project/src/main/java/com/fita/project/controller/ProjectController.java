@@ -76,4 +76,14 @@ public class ProjectController {
 
 
     // Xoá đồ án
+    @DeleteMapping("delete/{id}")
+    public ResponseEntity<?> deleteProject(@PathVariable int id) {
+        try {
+            projectService.deleteProject(id);
+            return ResponseEntity.ok().build();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResponseEntity.ok(e.toString());
+        }
+    }
 }
