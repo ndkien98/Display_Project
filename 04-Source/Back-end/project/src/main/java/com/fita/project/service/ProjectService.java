@@ -1,5 +1,6 @@
 package com.fita.project.service;
 
+import com.fita.project.dto.CategoryDTO;
 import com.fita.project.dto.ProjectDTO;
 import org.springframework.stereotype.Service;
 
@@ -32,7 +33,7 @@ public interface ProjectService {
 
 
     // Thêm đồ án
-
+    void addProject(ProjectDTO projectDTO);
 
     // Sửa đồ án
 

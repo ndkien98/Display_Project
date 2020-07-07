@@ -3,6 +3,7 @@ package com.fita.project.service.impl;
 import com.fita.project.dto.*;
 import com.fita.project.repository.ProjectMemberRepository;
 import com.fita.project.repository.ProjectRepository;
+import com.fita.project.repository.entity.Category;
 import com.fita.project.repository.entity.Project;
 import com.fita.project.repository.entity.ProjectMember;
 import com.fita.project.service.*;
@@ -130,6 +131,16 @@ public class ProjectServiceImpl implements ProjectService {
         }
 
         return projectMembersDTO;
+    }
+
+    /**
+     * Thêm 1 đồ án vào cơ sở dữ liệu
+     *
+     * @param projectDTO
+     */
+    @Override
+    public void addProject(ProjectDTO projectDTO) {
+        projectRepository.save(modelMapper.map(projectDTO, Project.class));
     }
 
     /**

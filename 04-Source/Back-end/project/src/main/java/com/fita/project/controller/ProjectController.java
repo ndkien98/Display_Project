@@ -1,5 +1,7 @@
 package com.fita.project.controller;
 
+import com.fita.project.dto.CategoryDTO;
+import com.fita.project.dto.ProjectDTO;
 import com.fita.project.service.ProjectService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -70,7 +72,16 @@ public class ProjectController {
 
 
     // Thêm đồ án
-
+    @PostMapping("add")
+    public ResponseEntity<?> addProject(@RequestBody ProjectDTO projectDTO) {
+        try {
+            projectService.addProject(projectDTO);
+            return ResponseEntity.ok().build();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResponseEntity.ok(e.toString());
+        }
+    }
 
     // Sửa đồ án
 
