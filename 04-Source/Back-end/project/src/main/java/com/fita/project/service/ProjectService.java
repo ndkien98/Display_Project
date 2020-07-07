@@ -17,13 +17,16 @@ public interface ProjectService {
     List<ProjectDTO> getProjectsByStudentCode(String studentCode);
 
     // Lấy ra đồ án theo "mã giảng viên"
-
+    List<ProjectDTO> getProjectsByLecturerCode(String lecturerCode);
 
     // Lấy ra đồ án theo "năm học - học kỳ id"
 
 
     // Lấy ra đồ án theo "mã thể loại"
     List<ProjectDTO> getProjectsByCategoryCode(String categoryCode);
+
+    // Lấy ra đồ án theo "lớp học phần id"
+    List<ProjectDTO> getProjectsByCourseId(int courseId);
 
     //...
 

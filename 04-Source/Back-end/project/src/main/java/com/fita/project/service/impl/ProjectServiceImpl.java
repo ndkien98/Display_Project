@@ -58,6 +58,7 @@ public class ProjectServiceImpl implements ProjectService {
     /**
      * Lấy đồ án trong cơ sở dữ liệu dựa theo id
      *
+     * @param id
      * @return ProjectDTO
      */
     @Override
@@ -70,14 +71,75 @@ public class ProjectServiceImpl implements ProjectService {
         return projectDTO;
     }
 
+    /**
+     * Lấy đồ án trong cơ sở dữ liệu dựa theo mã sinh viên
+     *
+     * @param studentCode
+     * @return ProjectDTO
+     */
     @Override
     public List<ProjectDTO> getProjectsByStudentCode(String studentCode) {
+        List<Project> projects = projectRepository.findByStudentCode(studentCode);
+        List<ProjectDTO> projectsDTO = new ArrayList<>();
+
+        // Convert project (Entity) -> project (DTO)
+        for (Project project : projects) {
+            ProjectDTO projectDTO = convert(project);
+            projectsDTO.add(projectDTO);
+        }
+
+        return projectsDTO;
+    }
+
+    /**
+     * Lấy đồ án trong cơ sở dữ liệu dựa theo mã giảng viên
+     *
+     * @param lecturerCode
+     * @return ProjectDTO
+     */
+    @Override
+    public List<ProjectDTO> getProjectsByLecturerCode(String lecturerCode) {
         return null;
     }
 
+    /**
+     * Lấy đồ án trong cơ sở dữ liệu dựa theo mã thể loại
+     *
+     * @param categoryCode
+     * @return ProjectDTO
+     */
     @Override
     public List<ProjectDTO> getProjectsByCategoryCode(String categoryCode) {
-        return null;
+        List<Project> projects = projectRepository.findByCategoryCode(categoryCode);
+        List<ProjectDTO> projectsDTO = new ArrayList<>();
+
+        // Convert project (Entity) -> project (DTO)
+        for (Project project : projects) {
+            ProjectDTO projectDTO = convert(project);
+            projectsDTO.add(projectDTO);
+        }
+
+        return projectsDTO;
+    }
+
+    /**
+     * Lấy đồ án trong cơ sở dữ liệu dựa theo lớp học phần id
+     *
+     * @param courseId
+     * @return ProjectDTO
+     */
+    @Override
+    public List<ProjectDTO> getProjectsByCourseId(int courseId) {
+        List<Project> projects = projectRepository.findByCourseId(courseId);
+        List<ProjectDTO> projectsDTO = new ArrayList<>();
+
+        // Convert project (Entity) -> project (DTO)
+        for (Project project : projects) {
+            ProjectDTO projectDTO = convert(project);
+            projectsDTO.add(projectDTO);
+        }
+
+        return projectsDTO;
     }
 
     private ProjectDTO convert(Project project) {
@@ -133,12 +195,13 @@ public class ProjectServiceImpl implements ProjectService {
     }
 
     /**
-     * Xoá bộ môn trong cơ sở dữ liệu dựa theo id
+     * Xoá đồ án trong cơ sở dữ liệu dựa theo id
      *
      * @param id
      */
     @Override
     public void deleteProject(int id) {
+        projectMemberRepository.deleteByProjectCode(getProjectById(id).getProjectCode());
         projectRepository.deleteById(id);
     }
 }
