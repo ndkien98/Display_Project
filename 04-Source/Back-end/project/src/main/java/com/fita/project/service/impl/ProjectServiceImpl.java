@@ -133,7 +133,37 @@ public class ProjectServiceImpl implements ProjectService {
     }
 
     /**
-     * Xoá bộ môn trong cơ sở dữ liệu dựa theo id
+     * Sửa đồ án trong cơ sở dữ liệu dựa theo id
+     *
+     * @param id
+     */
+    @Override
+    public void editProject(int id, com.fita.project.dto.ProjectDTO projectDTO) {
+        // Lấy đồ án cần sửa
+        com.fita.project.repository.entity.Project projectToUpdate = projectRepository.getOne(id);
+
+        // Cập nhật dữ liệu mới
+        projectToUpdate.setProjectCode(projectDTO.getProjectCode());
+        projectToUpdate.setProjectName(projectDTO.getProjectName());
+        projectToUpdate.setProjectAvatarUrl(projectDTO.getProjectAvatarUrl());
+        projectToUpdate.setShortDescription(projectDTO.getShortDescription());
+        projectToUpdate.setDetailedDescription(projectDTO.getDetailedDescription());
+        projectToUpdate.setDemoLink(projectDTO.getDemoLink());
+        projectToUpdate.setCategoryCode(projectDTO.getCategoryCode());
+        projectToUpdate.setStudentCode(projectDTO.getStudentCode());
+        projectToUpdate.setCourseId(projectDTO.getCourseId());
+        projectToUpdate.setStatus(projectDTO.getStatus());
+        projectToUpdate.setCreatedDate(projectDTO.getCreatedDate());
+        projectToUpdate.setCreatedBy(projectDTO.getCreatedBy());
+        projectToUpdate.setLastModifiedBy(projectDTO.getLastModifiedBy());
+        projectToUpdate.setLastModifiedDate(projectDTO.getLastModifiedDate());
+
+        // Lưu lại vào cơ sở dữ liệu
+        projectRepository.save(projectToUpdate);
+    }
+
+    /**
+     * Xoá đồ án trong cơ sở dữ liệu dựa theo id
      *
      * @param id
      */
