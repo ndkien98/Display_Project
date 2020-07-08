@@ -36,6 +36,18 @@ public class ProjectServiceImpl implements ProjectService {
     @Autowired
     private ModelMapper modelMapper;
 
+    private List<Project> projects;
+    private List<ProjectDTO> projectsDTO;
+    private Project project;
+    private ProjectDTO projectDTO;
+    private List<ProjectMember> projectMembers;
+    private List<ProjectMemberDTO> projectMembersDTO;
+    private CategoryDTO categoryDTO;
+    private StudentDTO studentDTO;
+    private CourseDTO courseDTO;
+    private YearSemesterDTO yearSemesterDTO;
+    private LecturerDTO lecturerDTO;
+
     /**
      * Lấy tất cả các đồ án trong cơ sở dữ liệu
      *
@@ -43,12 +55,12 @@ public class ProjectServiceImpl implements ProjectService {
      */
     @Override
     public List<ProjectDTO> getProjects() {
-        List<Project> projects = projectRepository.findAll();
-        List<ProjectDTO> projectsDTO = new ArrayList<>();
+        projects = projectRepository.findAll();
+        projectsDTO = new ArrayList<>();
 
         // Convert project (Entity) -> projectDTO (DTO)
         for (Project project : projects) {
-            ProjectDTO projectDTO = convert(project);
+            projectDTO = convert(project);
             projectsDTO.add(projectDTO);
         }
 
@@ -63,10 +75,10 @@ public class ProjectServiceImpl implements ProjectService {
      */
     @Override
     public ProjectDTO getProjectById(int id) {
-        Project project = projectRepository.findById(id).get();
+        project = projectRepository.findById(id).get();
 
         // Convert project (Entity) -> projectDTO (DTO)
-        ProjectDTO projectDTO = convert(project);
+        projectDTO = convert(project);
 
         return projectDTO;
     }
@@ -79,12 +91,12 @@ public class ProjectServiceImpl implements ProjectService {
      */
     @Override
     public List<ProjectDTO> getProjectsByStudentCode(String studentCode) {
-        List<Project> projects = projectRepository.findByStudentCode(studentCode);
-        List<ProjectDTO> projectsDTO = new ArrayList<>();
+        projects = projectRepository.findByStudentCode(studentCode);
+        projectsDTO = new ArrayList<>();
 
         // Convert project (Entity) -> project (DTO)
         for (Project project : projects) {
-            ProjectDTO projectDTO = convert(project);
+            projectDTO = convert(project);
             projectsDTO.add(projectDTO);
         }
 
@@ -110,12 +122,12 @@ public class ProjectServiceImpl implements ProjectService {
      */
     @Override
     public List<ProjectDTO> getProjectsByCategoryCode(String categoryCode) {
-        List<Project> projects = projectRepository.findByCategoryCode(categoryCode);
-        List<ProjectDTO> projectsDTO = new ArrayList<>();
+        projects = projectRepository.findByCategoryCode(categoryCode);
+        projectsDTO = new ArrayList<>();
 
         // Convert project (Entity) -> project (DTO)
         for (Project project : projects) {
-            ProjectDTO projectDTO = convert(project);
+            projectDTO = convert(project);
             projectsDTO.add(projectDTO);
         }
 
@@ -130,61 +142,21 @@ public class ProjectServiceImpl implements ProjectService {
      */
     @Override
     public List<ProjectDTO> getProjectsByCourseId(int courseId) {
-        List<Project> projects = projectRepository.findByCourseId(courseId);
-        List<ProjectDTO> projectsDTO = new ArrayList<>();
+        projects = projectRepository.findByCourseId(courseId);
+        projectsDTO = new ArrayList<>();
 
         // Convert project (Entity) -> project (DTO)
         for (Project project : projects) {
-            ProjectDTO projectDTO = convert(project);
+            projectDTO = convert(project);
             projectsDTO.add(projectDTO);
         }
 
         return projectsDTO;
     }
 
-    private ProjectDTO convert(Project project) {
-        ProjectDTO projectDTO = modelMapper.map(project, ProjectDTO.class);
-
-        if (projectDTO.getCategoryCode() != null) {
-            CategoryDTO categoryDTO = categoryService.getCategoryByCategoryCode(projectDTO.getCategoryCode());
-            projectDTO.setCategoryName(categoryDTO.getCategoryName());
-        }
-
-        if (projectDTO.getStudentCode() != null) {
-            StudentDTO studentDTO = userService.getStudentByStudentCode(projectDTO.getStudentCode());
-            projectDTO.setStudentName(studentDTO.getFullName());
-            projectDTO.setStudentClass(studentDTO.getClassCode());
-        }
-
-        if (projectDTO.getCourseId() != null) {
-            CourseDTO courseDTO = courseService.getCourseById(projectDTO.getCourseId());
-            projectDTO.setSubjectCode(courseDTO.getSubjectCode());
-            projectDTO.setSubjectName(courseDTO.getSubjectName());
-            projectDTO.setSubjectGroup(courseDTO.getSubjectGroup());
-            projectDTO.setCourseClass(courseDTO.getClassCode());
-
-            if (courseDTO.getYearSemesterId() != null) {
-                YearSemesterDTO yearSemesterDTO = yearSemesterService.getYearSemesterById(courseDTO.getYearSemesterId());
-                projectDTO.setYearSemesterId(yearSemesterDTO.getId());
-                projectDTO.setYear(yearSemesterDTO.getYear());
-                projectDTO.setSemester(yearSemesterDTO.getSemester());
-            }
-
-            if (courseDTO.getLecturerCode() != null) {
-                LecturerDTO lecturerDTO = userService.getLecturerByLecturerCode(courseDTO.getLecturerCode());
-                projectDTO.setLecturerCode(lecturerDTO.getUsername());
-                projectDTO.setLecturerName(lecturerDTO.getFullName());
-            }
-        }
-
-        projectDTO.setProjectMembers(getProjectMembers(projectDTO.getProjectCode()));
-
-        return projectDTO;
-    }
-
     private List<ProjectMemberDTO> getProjectMembers(String projectCode) {
-        List<ProjectMember> projectMembers = projectMemberRepository.findByProjectCode(projectCode);
-        List<ProjectMemberDTO> projectMembersDTO = new ArrayList<>();
+        projectMembers = projectMemberRepository.findByProjectCode(projectCode);
+        projectMembersDTO = new ArrayList<>();
 
         // Convert projectMember (Entity) -> projectMemberDTO (DTO)
         for (ProjectMember projectMember : projectMembers) {
@@ -203,5 +175,45 @@ public class ProjectServiceImpl implements ProjectService {
     public void deleteProject(int id) {
         projectMemberRepository.deleteByProjectCode(getProjectById(id).getProjectCode());
         projectRepository.deleteById(id);
+    }
+
+    private ProjectDTO convert(Project project) {
+        projectDTO = modelMapper.map(project, ProjectDTO.class);
+
+        if (projectDTO.getCategoryCode() != null) {
+            categoryDTO = categoryService.getCategoryByCategoryCode(projectDTO.getCategoryCode());
+            projectDTO.setCategoryName(categoryDTO.getCategoryName());
+        }
+
+        if (projectDTO.getStudentCode() != null) {
+            studentDTO = userService.getStudentByStudentCode(projectDTO.getStudentCode());
+            projectDTO.setStudentName(studentDTO.getFullName());
+            projectDTO.setStudentClass(studentDTO.getClassCode());
+        }
+
+        if (projectDTO.getCourseId() != null) {
+            courseDTO = courseService.getCourseById(projectDTO.getCourseId());
+            projectDTO.setSubjectCode(courseDTO.getSubjectCode());
+            projectDTO.setSubjectName(courseDTO.getSubjectName());
+            projectDTO.setSubjectGroup(courseDTO.getSubjectGroup());
+            projectDTO.setCourseClass(courseDTO.getClassCode());
+
+            if (courseDTO.getYearSemesterId() != null) {
+                yearSemesterDTO = yearSemesterService.getYearSemesterById(courseDTO.getYearSemesterId());
+                projectDTO.setYearSemesterId(yearSemesterDTO.getId());
+                projectDTO.setYear(yearSemesterDTO.getYear());
+                projectDTO.setSemester(yearSemesterDTO.getSemester());
+            }
+
+            if (courseDTO.getLecturerCode() != null) {
+                lecturerDTO = userService.getLecturerByLecturerCode(courseDTO.getLecturerCode());
+                projectDTO.setLecturerCode(lecturerDTO.getUsername());
+                projectDTO.setLecturerName(lecturerDTO.getFullName());
+            }
+        }
+
+        projectDTO.setProjectMembers(getProjectMembers(projectDTO.getProjectCode()));
+
+        return projectDTO;
     }
 }

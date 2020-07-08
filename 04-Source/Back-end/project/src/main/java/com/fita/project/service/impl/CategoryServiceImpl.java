@@ -19,6 +19,11 @@ public class CategoryServiceImpl implements CategoryService {
     @Autowired
     private ModelMapper modelMapper;
 
+    private List<Category> categories;
+    private List<CategoryDTO> categoriesDTO;
+    private Category category;
+    private CategoryDTO categoryDTO;
+
     /**
      * Lấy tất cả các thể loại trong cơ sở dữ liệu
      *
@@ -26,8 +31,8 @@ public class CategoryServiceImpl implements CategoryService {
      */
     @Override
     public List<CategoryDTO> getCategories() {
-        List<Category> categories = categoryRepository.findAll();
-        List<CategoryDTO> categoriesDTO = new ArrayList<>();
+        categories = categoryRepository.findAll();
+        categoriesDTO = new ArrayList<>();
 
         //Convert category (Entity) -> categoryDTO (DTO)
         for (Category category : categories) {
@@ -45,10 +50,10 @@ public class CategoryServiceImpl implements CategoryService {
      */
     @Override
     public CategoryDTO getCategoryById(int id) {
-        Category category = categoryRepository.findById(id).get();
+        category = categoryRepository.findById(id).get();
 
         //Convert category (Entity) -> categoryDTO (DTO)
-        CategoryDTO categoryDTO = modelMapper.map(category, CategoryDTO.class);
+        categoryDTO = modelMapper.map(category, CategoryDTO.class);
 
         return categoryDTO;
     }
@@ -61,10 +66,10 @@ public class CategoryServiceImpl implements CategoryService {
      */
     @Override
     public CategoryDTO getCategoryByCategoryCode(String categoryCode) {
-        Category category = categoryRepository.findByCategoryCode(categoryCode);
+        category = categoryRepository.findByCategoryCode(categoryCode);
 
         //Convert category (Entity) -> categoryDTO (DTO)
-        CategoryDTO categoryDTO = modelMapper.map(category, CategoryDTO.class);
+        categoryDTO = modelMapper.map(category, CategoryDTO.class);
 
         return categoryDTO;
     }
