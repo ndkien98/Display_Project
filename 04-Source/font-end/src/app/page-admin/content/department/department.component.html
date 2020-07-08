@@ -28,7 +28,7 @@
             <div class="card-header">
               <div class="row">
                 <div class="col-sm-6 col-md-8 my-2">
-                  <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal-add-department">
+                  <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal-add-department" (click)="openModalAdd()">
                     Thêm bộ môn
                   </button>
                 </div>
@@ -36,7 +36,7 @@
             </div>
             <!-- /.card-header -->
             <div class="card-body">
-              <table id="departmentsDatatable" class="table table-bordered table-striped" datatable>
+              <table id="departmentsDatatable" class="table table-bordered table-striped" [dtOptions]="dataTableOptions" [dtTrigger]="dtTrigger" datatable>
                 <thead>
                 <tr>
                   <th>STT</th>
@@ -46,52 +46,18 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                  <td>1</td>
-                  <td>TH01</td>
-                  <td>Khoa học máy tính</td>
+                <tr *ngFor="let depart of listDepartments">
+                  <td class="count"></td>
+                  <td>{{depart.departmentCode}}</td>
+                  <td>{{depart.departmentName}}</td>
                   <td>
                     <button type="button" class="btn btn-warning btn-sm" data-toggle="modal"
-                            data-target="#modal-edit-department">
+                            data-target="#modal-edit-department" id="{{depart.id}}" (click)="openModalEdit($event)">
                       <i class="fas fa-pencil-alt"></i>
                       Sửa
                     </button>
-                    <button type="button" class="btn btn-danger btn-sm" data-toggle="modal"
-                            data-target="#modal-delete-department">
-                      <i class="fas fa-trash"></i>
-                      Xoá
-                    </button>
-                  </td>
-                </tr>
-                <tr>
-                  <td>2</td>
-                  <td>TH02</td>
-                  <td>Công nghệ phần mềm</td>
-                  <td>
-                    <button type="button" class="btn btn-warning btn-sm" data-toggle="modal"
-                            data-target="#modal-edit-department">
-                      <i class="fas fa-pencil-alt"></i>
-                      Sửa
-                    </button>
-                    <button type="button" class="btn btn-danger btn-sm" data-toggle="modal"
-                            data-target="#modal-delete-department">
-                      <i class="fas fa-trash"></i>
-                      Xoá
-                    </button>
-                  </td>
-                </tr>
-                <tr>
-                  <td>3</td>
-                  <td>TH03</td>
-                  <td>Toán - Tin ứng dụng</td>
-                  <td>
-                    <button type="button" class="btn btn-warning btn-sm" data-toggle="modal"
-                            data-target="#modal-edit-department">
-                      <i class="fas fa-pencil-alt"></i>
-                      Sửa
-                    </button>
-                    <button type="button" class="btn btn-danger btn-sm" data-toggle="modal"
-                            data-target="#modal-delete-department">
+                    <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" name="{{depart.id}}"
+                            data-target="#modal-delete-department" (click)="openModalDelete($event)">
                       <i class="fas fa-trash"></i>
                       Xoá
                     </button>
@@ -110,15 +76,12 @@
     </div><!-- /.container-fluid -->
 
     <!-- Modal thêm bộ môn -->
-    <app-add-department></app-add-department>
     <!-- /.modal -->
 
     <!-- Modal sửa bộ môn -->
-    <app-edit-department></app-edit-department>
     <!-- /.modal -->
 
     <!-- Modal xoá bộ môn -->
-    <app-delete-department></app-delete-department>
     <!-- /.modal -->
   </div>
   <!-- /.content -->

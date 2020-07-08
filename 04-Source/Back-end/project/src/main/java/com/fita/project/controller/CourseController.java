@@ -34,11 +34,32 @@ public class CourseController {
         }
     }
 
+    // Lấy ra lớp học phần theo "mã giảng viên"
+    @GetMapping("get-by-lecturer-code/{lecturerCode}")
+    public ResponseEntity<?> getCoursesByLecturerCode(@PathVariable String lecturerCode) {
+        try {
+            return ResponseEntity.ok(courseService.getCoursesByLecturerCode(lecturerCode));
+        } catch (Exception e) {
+            return ResponseEntity.ok(e.toString());
+        }
+    }
+
     // Lấy ra lớp học phần theo "năm học - học kỳ id"
     @GetMapping("get-by-year-semester-id/{yearSemesterId}")
     public ResponseEntity<?> getCoursesByYearSemesterId(@PathVariable int yearSemesterId) {
         try {
             return ResponseEntity.ok(courseService.getCoursesByYearSemesterId(yearSemesterId));
+        } catch (Exception e) {
+            return ResponseEntity.ok(e.toString());
+        }
+    }
+
+    // Lấy ra lớp học phần theo "mã giảng viên" và "năm học - học kỳ id"
+    @GetMapping("get-by-lecturer-code-and-year-semester-id")
+    public ResponseEntity<?> getCoursesByLecturerCodeAndYearSemesterId(
+            @RequestParam(name = "lecturer-code") String lecturerCode, @RequestParam("year-semester-id") int yearSemesterId) {
+        try {
+            return ResponseEntity.ok(courseService.getCoursesByLecturerCodeAndYearSemesterId(lecturerCode, yearSemesterId));
         } catch (Exception e) {
             return ResponseEntity.ok(e.toString());
         }
