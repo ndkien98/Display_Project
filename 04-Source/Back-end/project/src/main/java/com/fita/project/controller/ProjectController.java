@@ -56,11 +56,23 @@ public class ProjectController {
 
 
     // Lấy ra đồ án theo "mã thể loại"
-    @GetMapping("get-by-category-id/{categoryCode}")
+    @GetMapping("get-by-category-code/{categoryCode}")
     public ResponseEntity<?> getProjectsByCategoryId(@PathVariable String categoryCode) {
         try {
             return ResponseEntity.ok(projectService.getProjectsByCategoryCode(categoryCode));
         } catch (Exception e) {
+            e.printStackTrace();
+            return ResponseEntity.ok(e.toString());
+        }
+    }
+
+    // Lấy ra đồ án theo "lớp học phần id"
+    @GetMapping("get-by-course-id/{courseId}")
+    public ResponseEntity<?> getProjectsByCourseId(@PathVariable int courseId) {
+        try {
+            return ResponseEntity.ok(projectService.getProjectsByCourseId(courseId));
+        } catch (Exception e) {
+            e.printStackTrace();
             return ResponseEntity.ok(e.toString());
         }
     }
