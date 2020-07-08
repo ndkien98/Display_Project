@@ -214,8 +214,9 @@ public class ProjectServiceImpl implements ProjectService {
     @Override
     public void editProject(int id, com.fita.project.dto.ProjectDTO projectDTO) {
         // Lấy đồ án cần sửa
-        com.fita.project.repository.entity.Project projectToUpdate = projectRepository.getOne(id);
-
+        Project projectToUpdate = projectRepository.getOne(id);
+        ProjectMember projectMemberToUpdate = projectMemberRepository.getOne(id);
+        projectMembersDTO = projectDTO.getProjectMembers();
         // Cập nhật dữ liệu mới
         projectToUpdate.setProjectCode(projectDTO.getProjectCode());
         projectToUpdate.setProjectName(projectDTO.getProjectName());
@@ -231,6 +232,17 @@ public class ProjectServiceImpl implements ProjectService {
         projectToUpdate.setCreatedBy(projectDTO.getCreatedBy());
         projectToUpdate.setLastModifiedBy(projectDTO.getLastModifiedBy());
         projectToUpdate.setLastModifiedDate(projectDTO.getLastModifiedDate());
+
+
+        //Sửa thành viên project
+        for (ProjectMemberDTO projectMemberDTO : projectMembersDTO) {
+            ProjectMember projectMember = new ProjectMember();
+            projectMember = modelMapper.map(projectDTO,ProjectMember.class);
+            //projectMember.setProjectCode(projectDTO.getProjectCode());
+            projectMemberRepository.save(projectMember);
+        }
+        ///Chưa cập nhật xử lý thêm member và xóa member
+
 
         // Lưu lại vào cơ sở dữ liệu
         projectRepository.save(projectToUpdate);
