@@ -226,13 +226,15 @@ public class ProjectServiceImpl implements ProjectService {
     @Override
     public void addProject(ProjectDTO projectDTO) {
         projectRepository.save(modelMapper.map(projectDTO, Project.class));
-        for (ProjectMemberDTO projectMemberDTO : projectDTO.getProjectMembers()
-             ) {
+        projectMembersDTO = projectDTO.getProjectMembers();
+        for (ProjectMemberDTO projectMemberDTO : projectMembersDTO) {
             ProjectMember projectMember = new ProjectMember();
-            projectMember = modelMapper.map(projectDTO,ProjectMember.class);
+            projectMember.setStudentCode(projectMemberDTO.getStudentCode());
+            projectMember.setFullName(projectMemberDTO.getFullName());
+            projectMember.setClassCode(projectMemberDTO.getClassCode());
             projectMember.setProjectCode(projectDTO.getProjectCode());
-            projectMemberRepository.save(projectMember);
 
+            projectMemberRepository.save(projectMember);
         }
     }
 }
