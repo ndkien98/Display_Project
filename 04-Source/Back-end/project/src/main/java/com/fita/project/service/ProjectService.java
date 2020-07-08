@@ -40,6 +40,7 @@ public interface ProjectService {
     // Sửa đồ án
     void editProject(int id, ProjectDTO projectDTO);
 
+
     // Xoá đồ án
     void deleteProject(int id);
 }
