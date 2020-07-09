@@ -155,29 +155,6 @@ public class ProjectServiceImpl implements ProjectService {
         return projectsDTO;
     }
 
-    private List<ProjectMemberDTO> getProjectMembers(String projectCode) {
-        projectMembers = projectMemberRepository.findByProjectCode(projectCode);
-        projectMembersDTO = new ArrayList<>();
-
-        // Convert projectMember (Entity) -> projectMemberDTO (DTO)
-        for (ProjectMember projectMember : projectMembers) {
-            projectMembersDTO.add(modelMapper.map(projectMember, ProjectMemberDTO.class));
-        }
-
-        return projectMembersDTO;
-    }
-
-    /**
-     * Xoá đồ án trong cơ sở dữ liệu dựa theo id
-     *
-     * @param id
-     */
-    @Override
-    public void deleteProject(int id) {
-        projectMemberRepository.deleteByProjectCode(getProjectById(id).getProjectCode());
-        projectRepository.deleteById(id);
-    }
-
     private ProjectDTO convert(Project project) {
         projectDTO = modelMapper.map(project, ProjectDTO.class);
 
@@ -218,6 +195,18 @@ public class ProjectServiceImpl implements ProjectService {
         return projectDTO;
     }
 
+    private List<ProjectMemberDTO> getProjectMembers(String projectCode) {
+        List<ProjectMember> projectMembers = projectMemberRepository.findByProjectCode(projectCode);
+        List<ProjectMemberDTO> projectMembersDTO = new ArrayList<>();
+
+        // Convert projectMember (Entity) -> projectMemberDTO (DTO)
+        for (ProjectMember projectMember : projectMembers) {
+            projectMembersDTO.add(modelMapper.map(projectMember, ProjectMemberDTO.class));
+        }
+
+        return projectMembersDTO;
+    }
+
     /**
      * Sửa đồ án trong cơ sở dữ liệu dựa theo id
      *
@@ -226,7 +215,10 @@ public class ProjectServiceImpl implements ProjectService {
     @Override
     public void editProject(int id, com.fita.project.dto.ProjectDTO projectDTO) {
         // Lấy đồ án cần sửa
-        com.fita.project.repository.entity.Project projectToUpdate = projectRepository.getOne(id);
+
+        Project projectToUpdate = projectRepository.getOne(id);
+        ProjectMember projectMemberToUpdate = projectMemberRepository.getOne(id);
+        projectMembersDTO = projectDTO.getProjectMembers();
 
         // Cập nhật dữ liệu mới
         projectToUpdate.setProjectCode(projectDTO.getProjectCode());
@@ -243,6 +235,16 @@ public class ProjectServiceImpl implements ProjectService {
         projectToUpdate.setCreatedBy(projectDTO.getCreatedBy());
         projectToUpdate.setLastModifiedBy(projectDTO.getLastModifiedBy());
         projectToUpdate.setLastModifiedDate(projectDTO.getLastModifiedDate());
+
+
+        //Sửa thành viên project
+        for (ProjectMemberDTO projectMemberDTO : projectMembersDTO) {
+            ProjectMember projectMember = new ProjectMember();
+            projectMember = modelMapper.map(projectDTO,ProjectMember.class);
+            //projectMember.setProjectCode(projectDTO.getProjectCode());
+            projectMemberRepository.save(projectMember);
+        }
+        ///Chưa cập nhật xử lý thêm member và xóa member
 
         // Lưu lại vào cơ sở dữ liệu
         projectRepository.save(projectToUpdate);

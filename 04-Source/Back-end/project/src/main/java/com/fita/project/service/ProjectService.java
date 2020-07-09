@@ -39,7 +39,8 @@ public interface ProjectService {
     void addProject(ProjectDTO projectDTO);
 
     // Sửa đồ án
-    void editProject(int id, com.fita.project.dto.ProjectDTO projectDTO);
+    void editProject(int id, ProjectDTO projectDTO);
+
 
     // Xoá đồ án
     void deleteProject(int id);
