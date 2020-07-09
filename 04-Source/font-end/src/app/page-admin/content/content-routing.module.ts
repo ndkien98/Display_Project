@@ -5,6 +5,7 @@ import {HomeComponent} from './home/home.component';
 import {DecentralizationComponent} from './decentralization/decentralization.component';
 import {DepartmentComponent} from './department/department.component';
 import {CategoryComponent} from './category/category.component';
+import {YearsSemestersComponent} from './years-semesters/years-semesters.component';
 
 
 const routes: Routes = [
@@ -23,6 +24,10 @@ const routes: Routes = [
       {
         path: 'department',
         component: DepartmentComponent
+      },
+      {
+        path: 'years-semesters',
+        component: YearsSemestersComponent
       },
       {
         path: 'category',

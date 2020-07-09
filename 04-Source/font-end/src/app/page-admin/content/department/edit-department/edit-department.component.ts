@@ -2,8 +2,9 @@ import {Component, OnInit} from '@angular/core';
 import {DepartmentService} from '../../../../shared/_service/department.service';
 import {BsModalRef} from 'ngx-bootstrap/modal';
 import {Department} from '../../../../shared/_models/department';
-import {Router} from '@angular/router';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {Subject} from "rxjs";
+import {reload} from "../../../../shared/_models/constant";
 
 @Component({
   selector: 'app-edit-department',
@@ -13,12 +14,12 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 export class EditDepartmentComponent implements OnInit {
   department: Department;
   departmentFormGroup: FormGroup;
+  public onClose: Subject<Boolean>;
 
   constructor(
     public departmentService: DepartmentService,
     public bsModalRef: BsModalRef,
-    private router: Router,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
   ) {
   }
 
@@ -27,6 +28,7 @@ export class EditDepartmentComponent implements OnInit {
   ngOnInit(): void {
     this.department = new Department();
     this.createForm();
+    this.onClose = new Subject();
   }
 
   /**
@@ -34,9 +36,9 @@ export class EditDepartmentComponent implements OnInit {
    * lấy id của bộ môn gửi lên serve và lấy ra thông tin của bộ môn theo id
    * set thông tin của bộ môn đấy vào form
    */
-  createForm() {
+  private createForm() {
     this.departmentFormGroup = this.formBuilder.group({
-      code: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(5)]],
+      code: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(4)]],
       name: ['', Validators.required]
     });
     this.departmentService.findDepartmentById(this.idDepartment).subscribe((data: Department) => {
@@ -45,16 +47,27 @@ export class EditDepartmentComponent implements OnInit {
         code: this.department.departmentCode,
         name: this.department.departmentName
       });
-    });
+    },
+      error1 => {
+        alert("Lỗi load data từ server đề nghỉ reload lại trang");
+        this.bsModalRef.hide();
+      });
   }
 
-  onSubmit() {
+  onSubmit(event: Event) {
     this.department.departmentCode = this.departmentFormGroup.controls.code.value;
     this.department.departmentName = this.departmentFormGroup.controls.name.value;
     this.departmentService.editDepartment(this.department).subscribe((data: boolean) => {
+      console.log(data);
       this.bsModalRef.hide();
-      this.router.navigateByUrl('/management/department');
-    });
+      this.onClose.next(reload);
+    },
+      error1 => {
+        this.onClose.next(!reload);
+        this.bsModalRef.hide();
+      }
+
+    );
   }
 
 }

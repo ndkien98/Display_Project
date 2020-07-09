@@ -5,12 +5,12 @@
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
-          <h1 class="m-0 text-dark">Quản Lý Bộ Môn</h1>
+          <h1 class="m-0 text-dark">Quản Lý Năm Học - Học Kỳ</h1>
         </div><!-- /.col -->
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
-            <li class="breadcrumb-item"><a href="home.html">Home</a></li>
-            <li class="breadcrumb-item active">Quản Lý Bộ Môn</li>
+            <li class="breadcrumb-item"><a routerLink='/management/home' >Home</a></li>
+            <li class="breadcrumb-item active">Quản Lý Năm Học - Học Kỳ</li>
           </ol>
         </div><!-- /.col -->
       </div><!-- /.row -->
@@ -28,38 +28,40 @@
             <div class="card-header">
               <div class="row">
                 <div class="col-sm-6 col-md-8 my-2">
-                  <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal-add-department"
-                          (click)="openModalAdd()">
-                    Thêm bộ môn
+                  <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal-add-year-semester" (click)="openModalAdd()">
+                    Thêm năm học - học kỳ
                   </button>
                 </div>
               </div>
             </div>
             <!-- /.card-header -->
             <div class="card-body">
-              <table id="departmentsDatatable" class="table table-bordered table-striped" [dtOptions]="dataTableOptions"
-                     [dtTrigger]="dtTrigger" datatable>
+              <table id="yearSemesterDatatable" class="table table-bordered table-striped" [dtOptions]="dataTableOptions" datatable [dtTrigger]="dtTrigger">
                 <thead>
                 <tr>
                   <th>STT</th>
-                  <th>Mã bộ môn</th>
-                  <th>Tên bộ môn</th>
+                  <th>Năm học</th>
+                  <th>Học kỳ</th>
+                  <th>Ngày bắt đầu</th>
+                  <th>Số tuần</th>
                   <th>Hành động</th>
                 </tr>
                 </thead>
                 <tbody>
-                <tr *ngFor="let depart of listDepartments">
+                <tr *ngFor="let yearS of listYearsSemesters">
                   <td class="count"></td>
-                  <td>{{depart.departmentCode}}</td>
-                  <td>{{depart.departmentName}}</td>
+                  <td>{{yearS.year}}</td>
+                  <td>{{yearS.semester}}</td>
+                  <td>{{yearS.startDate}}</td>
+                  <td>{{yearS.weeksNumber}}</td>
                   <td>
                     <button type="button" class="btn btn-warning btn-sm" data-toggle="modal"
-                            data-target="#modal-edit-department" id="{{depart.id}}" (click)="openModalEdit($event)">
+                            data-target="#modal-edit-year-semester" id="{{yearS.id}}" (click)="openModalEdit($event)">
                       <i class="fas fa-pencil-alt"></i>
                       Sửa
                     </button>
-                    <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" name="{{depart.id}}"
-                            data-target="#modal-delete-department" (click)="openModalDelete($event)">
+                    <button type="button" class="btn btn-danger btn-sm" data-toggle="modal"
+                            data-target="#modal-delete-year-semester" name="{{yearS.id}}" (click)="openModalDelete($event)">
                       <i class="fas fa-trash"></i>
                       Xoá
                     </button>
@@ -77,13 +79,15 @@
       <!-- /.row -->
     </div><!-- /.container-fluid -->
 
-    <!-- Modal thêm bộ môn -->
+    <!-- Modal thêm năm học - học kỳ -->
+
     <!-- /.modal -->
 
-    <!-- Modal sửa bộ môn -->
+    <!-- Modal sửa năm học - học kỳ -->
+
     <!-- /.modal -->
 
-    <!-- Modal xoá bộ môn -->
+    <!-- Modal xoá năm học - học kỳ -->
     <!-- /.modal -->
   </div>
   <!-- /.content -->

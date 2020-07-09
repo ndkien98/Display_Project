@@ -10,6 +10,7 @@ import {ContentRoutingModule} from './content-routing.module';
 import {DecentralizationModule} from './decentralization/decentralization.module';
 import {DepartmentModule} from './department/department.module';
 import {CategoryModule} from './category/category.module';
+import {YearsSemestersModule} from "./years-semesters/years-semesters.module";
 
 
 @NgModule({
@@ -29,8 +30,9 @@ import {CategoryModule} from './category/category.module';
     ContentRoutingModule,
     DecentralizationModule,
     DepartmentModule,
-    CategoryModule
-  ]
+    CategoryModule,
+    YearsSemestersModule
+  ],
 })
 export class ContentModule {
 }

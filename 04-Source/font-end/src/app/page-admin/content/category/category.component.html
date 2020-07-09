@@ -28,7 +28,7 @@
             <div class="card-header">
               <div class="row">
                 <div class="col-sm-6 col-md-8 my-2">
-                  <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal-add-category">Thêm thể
+                  <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal-add-category" (click)="openModalAdd()">Thêm thể
                     loại
                   </button>
                 </div>
@@ -36,7 +36,8 @@
             </div>
             <!-- /.card-header -->
             <div class="card-body">
-              <table id="categoryDatatable" class="table table-bordered table-striped" datatable>
+              <table id="categoryDatatable" class="table table-bordered table-striped"[dtOptions]="dataTableOptions"
+                     [dtTrigger]="dtTrigger" datatable>
                 <thead>
                 <tr>
                   <th>STT</th>
@@ -46,52 +47,18 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                  <td>1</td>
-                  <td>TL01</td>
-                  <td>Ứng dụng web</td>
+                <tr *ngFor="let category of listCategories">
+                  <td class="count"></td>
+                  <td>{{category.categoryCode}}</td>
+                  <td>{{category.categoryName}}</td>
                   <td>
                     <button type="button" class="btn btn-warning btn-sm" data-toggle="modal"
-                            data-target="#modal-edit-category">
+                            data-target="#modal-edit-category" id="{{category.id}}" (click)="openModalEdit($event)">
                       <i class="fas fa-pencil-alt"></i>
                       Sửa
                     </button>
                     <button type="button" class="btn btn-danger btn-sm" data-toggle="modal"
-                            data-target="#modal-delete-category">
-                      <i class="fas fa-trash"></i>
-                      Xoá
-                    </button>
-                  </td>
-                </tr>
-                <tr>
-                  <td>2</td>
-                  <td>TL02</td>
-                  <td>Ứng dụng desktop</td>
-                  <td>
-                    <button type="button" class="btn btn-warning btn-sm" data-toggle="modal"
-                            data-target="#modal-edit-category">
-                      <i class="fas fa-pencil-alt"></i>
-                      Sửa
-                    </button>
-                    <button type="button" class="btn btn-danger btn-sm" data-toggle="modal"
-                            data-target="#modal-delete-category">
-                      <i class="fas fa-trash"></i>
-                      Xoá
-                    </button>
-                  </td>
-                </tr>
-                <tr>
-                  <td>3</td>
-                  <td>TL03</td>
-                  <td>Ứng dụng mobile</td>
-                  <td>
-                    <button type="button" class="btn btn-warning btn-sm" data-toggle="modal"
-                            data-target="#modal-edit-category">
-                      <i class="fas fa-pencil-alt"></i>
-                      Sửa
-                    </button>
-                    <button type="button" class="btn btn-danger btn-sm" data-toggle="modal"
-                            data-target="#modal-delete-category">
+                            data-target="#modal-delete-category" name="{{category.id}}" (click)="openModalDelete($event)">
                       <i class="fas fa-trash"></i>
                       Xoá
                     </button>
@@ -110,15 +77,12 @@
     </div><!-- /.container-fluid -->
 
     <!-- Modal thêm thể loại -->
-    <app-add-category></app-add-category>
     <!-- /.modal -->
 
     <!-- Modal sửa thể loại -->
-    <app-edit-category></app-edit-category>
     <!-- /.modal -->
 
     <!-- Modal xoá thể loại -->
-    <app-delete-category></app-delete-category>
     <!-- /.modal -->
   </div>
   <!-- /.content -->
