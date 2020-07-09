@@ -1,6 +1,5 @@
 package com.fita.project.service;
 
-import com.fita.project.dto.CategoryDTO;
 import com.fita.project.dto.ProjectDTO;
 import org.springframework.stereotype.Service;
 
@@ -40,7 +39,6 @@ public interface ProjectService {
 
     // Sửa đồ án
     void editProject(int id, ProjectDTO projectDTO);
-
 
     // Xoá đồ án
     void deleteProject(int id);

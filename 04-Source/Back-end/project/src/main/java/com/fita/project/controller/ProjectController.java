@@ -1,6 +1,5 @@
 package com.fita.project.controller;
 
-import com.fita.project.dto.CategoryDTO;
 import com.fita.project.dto.ProjectDTO;
 import com.fita.project.service.ProjectService;
 import org.springframework.beans.factory.annotation.Autowired;
