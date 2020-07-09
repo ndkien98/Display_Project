@@ -96,7 +96,16 @@ public class ProjectController {
     }
 
     // Sửa đồ án
-
+    @PutMapping("edit/{id}")
+    public ResponseEntity<?> editProject(@PathVariable int id, @RequestBody ProjectDTO projectDTO) {
+        try {
+            projectService.editProject(id, projectDTO);
+            return ResponseEntity.ok().build();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResponseEntity.ok(e.toString());
+        }
+    }
 
     // Xoá đồ án
     @DeleteMapping("delete/{id}")
