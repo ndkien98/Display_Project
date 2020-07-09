@@ -19,6 +19,11 @@ public class DepartmentServiceImpl implements DepartmentService {
     @Autowired
     private ModelMapper modelMapper;
 
+    private List<Department> departments;
+    private List<DepartmentDTO> departmentsDTO;
+    private Department department;
+    private DepartmentDTO departmentDTO;
+
     /**
      * Lấy tất cả các bộ môn trong cơ sở dữ liệu
      *
@@ -26,8 +31,8 @@ public class DepartmentServiceImpl implements DepartmentService {
      */
     @Override
     public List<DepartmentDTO> getDepartments() {
-        List<Department> departments = departmentRepository.findAll();
-        List<DepartmentDTO> departmentsDTO = new ArrayList<>();
+        departments = departmentRepository.findAll();
+        departmentsDTO = new ArrayList<>();
 
         //Convert department (Entity) -> departmentDTO (DTO)
         for (Department department : departments) {
@@ -45,10 +50,10 @@ public class DepartmentServiceImpl implements DepartmentService {
      */
     @Override
     public DepartmentDTO getDepartmentById(int id) {
-        Department department = departmentRepository.findById(id).get();
+        department = departmentRepository.findById(id).get();
 
         //Convert department (Entity) -> departmentDTO (DTO)
-        DepartmentDTO departmentDTO = modelMapper.map(department, DepartmentDTO.class);
+        departmentDTO = modelMapper.map(department, DepartmentDTO.class);
 
         return departmentDTO;
     }
@@ -61,10 +66,10 @@ public class DepartmentServiceImpl implements DepartmentService {
      */
     @Override
     public DepartmentDTO getDepartmentByDepartmentCode(String departmentCode) {
-        Department department = departmentRepository.findByDepartmentCode(departmentCode);
+        department = departmentRepository.findByDepartmentCode(departmentCode);
 
         //Convert department (Entity) -> departmentDTO (DTO)
-        DepartmentDTO departmentDTO = modelMapper.map(department, DepartmentDTO.class);
+        departmentDTO = modelMapper.map(department, DepartmentDTO.class);
 
         return departmentDTO;
     }

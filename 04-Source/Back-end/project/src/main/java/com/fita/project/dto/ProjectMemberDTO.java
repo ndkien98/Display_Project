@@ -8,9 +8,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ProjectMemberDTO {
-    //private Integer id;
     private String studentCode;
     private String fullName;
     private String classCode;
-    //private String projectCode;
 }

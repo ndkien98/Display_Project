@@ -154,7 +154,7 @@ CREATE TABLE `projects` (
   `short_description` text,
   `detailed_description` text,
   `demo_link` varchar(900) CHARACTER SET utf8mb4 DEFAULT NULL,
-  `category_id` int DEFAULT NULL,
+  `category_code` varchar(10) DEFAULT NULL,
   `student_code` varchar(10) DEFAULT NULL,
   `course_id` int DEFAULT NULL,
   `status` int NOT NULL DEFAULT '0',	-- 0: Đồ án đang chờ kiểm duyệt | 1: Đồ án đã được kiểm duyệt
@@ -164,10 +164,10 @@ CREATE TABLE `projects` (
   `last_modified_date` datetime DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   UNIQUE KEY `project_code` (`project_code`),
-  KEY `category_id` (`category_id`),
+  KEY `category_code` (`category_code`),
   KEY `student_code` (`student_code`),
   KEY `course_id` (`course_id`),
-  CONSTRAINT `projects_ibfk_1` FOREIGN KEY (`category_id`) REFERENCES `categories` (`id`),
+  CONSTRAINT `projects_ibfk_1` FOREIGN KEY (`category_code`) REFERENCES `categories` (`category_code`),
   CONSTRAINT `projects_ibfk_2` FOREIGN KEY (`student_code`) REFERENCES `students` (`student_code`),
   CONSTRAINT `projects_ibfk_3` FOREIGN KEY (`course_id`) REFERENCES `courses` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;

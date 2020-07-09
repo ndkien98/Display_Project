@@ -19,10 +19,15 @@ public class RoleServiceImpl implements RoleService {
     @Autowired
     private ModelMapper modelMapper;
 
+    private List<Role> roles;
+    private List<RoleDTO> rolesDTO;
+    private Role role;
+    private RoleDTO roleDTO;
+
     @Override
     public List<RoleDTO> getRoles() {
-        List<Role> roles = roleRepository.findAll();
-        List<RoleDTO> rolesDTO = new ArrayList<>();
+        roles = roleRepository.findAll();
+        rolesDTO = new ArrayList<>();
 
         // Convert role (Entity) -> roleDTO (DTO)
         for (Role role : roles) {
@@ -40,10 +45,10 @@ public class RoleServiceImpl implements RoleService {
      */
     @Override
     public RoleDTO getRoleById(int id) {
-        Role role = roleRepository.findById(id).get();
+        role = roleRepository.findById(id).get();
 
         //Convert role (Entity) -> roleDTO (DTO)
-        RoleDTO roleDTO = modelMapper.map(role, RoleDTO.class);
+        roleDTO = modelMapper.map(role, RoleDTO.class);
 
         return roleDTO;
     }

@@ -1,5 +1,7 @@
 package com.fita.project.controller;
 
+import com.fita.project.dto.CategoryDTO;
+import com.fita.project.dto.ProjectDTO;
 import com.fita.project.service.ProjectService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -54,11 +56,23 @@ public class ProjectController {
 
 
     // Lấy ra đồ án theo "mã thể loại"
-    @GetMapping("get-by-category-id/{categoryCode}")
+    @GetMapping("get-by-category-code/{categoryCode}")
     public ResponseEntity<?> getProjectsByCategoryId(@PathVariable String categoryCode) {
         try {
             return ResponseEntity.ok(projectService.getProjectsByCategoryCode(categoryCode));
         } catch (Exception e) {
+            e.printStackTrace();
+            return ResponseEntity.ok(e.toString());
+        }
+    }
+
+    // Lấy ra đồ án theo "lớp học phần id"
+    @GetMapping("get-by-course-id/{courseId}")
+    public ResponseEntity<?> getProjectsByCourseId(@PathVariable int courseId) {
+        try {
+            return ResponseEntity.ok(projectService.getProjectsByCourseId(courseId));
+        } catch (Exception e) {
+            e.printStackTrace();
             return ResponseEntity.ok(e.toString());
         }
     }
@@ -70,7 +84,16 @@ public class ProjectController {
 
 
     // Thêm đồ án
-
+    @PostMapping("add")
+    public ResponseEntity<?> addProject(@RequestBody ProjectDTO projectDTO) {
+        try {
+            projectService.addProject(projectDTO);
+            return ResponseEntity.ok().build();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResponseEntity.ok(e.toString());
+        }
+    }
 
     // Sửa đồ án
     @PutMapping("edit/{id}")
