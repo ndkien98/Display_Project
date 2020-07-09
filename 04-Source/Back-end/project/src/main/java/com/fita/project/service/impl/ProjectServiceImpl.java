@@ -11,7 +11,9 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Component
@@ -213,12 +215,9 @@ public class ProjectServiceImpl implements ProjectService {
      * @param id
      */
     @Override
-    public void editProject(int id, com.fita.project.dto.ProjectDTO projectDTO) {
+    public void editProject(int id, ProjectDTO projectDTO) {
         // Lấy đồ án cần sửa
-
         Project projectToUpdate = projectRepository.getOne(id);
-        ProjectMember projectMemberToUpdate = projectMemberRepository.getOne(id);
-        projectMembersDTO = projectDTO.getProjectMembers();
 
         // Cập nhật dữ liệu mới
         projectToUpdate.setProjectCode(projectDTO.getProjectCode());
@@ -231,20 +230,16 @@ public class ProjectServiceImpl implements ProjectService {
         projectToUpdate.setStudentCode(projectDTO.getStudentCode());
         projectToUpdate.setCourseId(projectDTO.getCourseId());
         projectToUpdate.setStatus(projectDTO.getStatus());
-        projectToUpdate.setCreatedDate(projectDTO.getCreatedDate());
-        projectToUpdate.setCreatedBy(projectDTO.getCreatedBy());
+        //projectToUpdate.setCreatedDate(projectDTO.getCreatedDate());
+        //projectToUpdate.setCreatedBy(projectDTO.getCreatedBy());
         projectToUpdate.setLastModifiedBy(projectDTO.getLastModifiedBy());
-        projectToUpdate.setLastModifiedDate(projectDTO.getLastModifiedDate());
 
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        projectToUpdate.setLastModifiedDate(dateFormat.format(new Date()));
 
-        //Sửa thành viên project
-        for (ProjectMemberDTO projectMemberDTO : projectMembersDTO) {
-            ProjectMember projectMember = new ProjectMember();
-            projectMember = modelMapper.map(projectDTO,ProjectMember.class);
-            //projectMember.setProjectCode(projectDTO.getProjectCode());
-            projectMemberRepository.save(projectMember);
-        }
-        ///Chưa cập nhật xử lý thêm member và xóa member
+        // Cập nhật thành viên project
+        projectMemberRepository.deleteByProjectCode(projectDTO.getProjectCode());
+        saveProjectMember(projectDTO);
 
         // Lưu lại vào cơ sở dữ liệu
         projectRepository.save(projectToUpdate);
@@ -258,7 +253,11 @@ public class ProjectServiceImpl implements ProjectService {
     @Override
     public void addProject(ProjectDTO projectDTO) {
         projectRepository.save(modelMapper.map(projectDTO, Project.class));
-        projectMembersDTO = projectDTO.getProjectMembers();
+        saveProjectMember(projectDTO);
+    }
+
+    private void saveProjectMember(ProjectDTO projectDTO) {
+        List<ProjectMemberDTO> projectMembersDTO = projectDTO.getProjectMembers();
         for (ProjectMemberDTO projectMemberDTO : projectMembersDTO) {
             ProjectMember projectMember = new ProjectMember();
             projectMember.setStudentCode(projectMemberDTO.getStudentCode());
@@ -268,5 +267,10 @@ public class ProjectServiceImpl implements ProjectService {
 
             projectMemberRepository.save(projectMember);
         }
+    }
+
+    @Override
+    public void deleteProject(int id) {
+
     }
 }

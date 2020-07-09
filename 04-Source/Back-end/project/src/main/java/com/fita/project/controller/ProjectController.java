@@ -97,7 +97,7 @@ public class ProjectController {
 
     // Sửa đồ án
     @PutMapping("edit/{id}")
-    public ResponseEntity<?> editProject(@PathVariable int id, @RequestBody com.fita.project.dto.ProjectDTO projectDTO) {
+    public ResponseEntity<?> editProject(@PathVariable int id, @RequestBody ProjectDTO projectDTO) {
         try {
             projectService.editProject(id, projectDTO);
             return ResponseEntity.ok().build();
