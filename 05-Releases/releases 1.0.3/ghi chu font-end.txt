@@ -1,5 +1,13 @@
 
 
--1) cài server Nginx để chạy project
+1) cài server Nginx để chạy project
 
--2) Thư mục font-end : được deploy từ project 
+2) Thư mục font-end : được deploy từ project 
+	-) đưa con trỏ vào thư mục font-end 
+	-) câu lệnh chạy : 
+		ng serve --port 4201
+
+* các chức năng hiện hoạt động trên hệ thống : 
+	- quản lý bộ môn ( thêm , sửa , xóa , tìm kiếm)
+	- quản lý thể loại ( thêm , sửa , xóa , tìm kiếm)
+	- quản lý năm học - học kỳ ( thêm,  sửa , xóa , tìm kiếm )
