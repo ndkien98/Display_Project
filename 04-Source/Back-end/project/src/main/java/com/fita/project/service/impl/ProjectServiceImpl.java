@@ -104,17 +104,6 @@ public class ProjectServiceImpl implements ProjectService {
     }
 
     /**
-     * Lấy đồ án trong cơ sở dữ liệu dựa theo mã giảng viên
-     *
-     * @param lecturerCode
-     * @return ProjectDTO
-     */
-    @Override
-    public List<ProjectDTO> getProjectsByLecturerCode(String lecturerCode) {
-        return null;
-    }
-
-    /**
      * Lấy đồ án trong cơ sở dữ liệu dựa theo mã thể loại
      *
      * @param categoryCode
@@ -283,5 +272,34 @@ public class ProjectServiceImpl implements ProjectService {
         }
 
         return projectMembersDTO;
+    }
+
+    // Các thành viên viết code dưới này
+
+    /**
+     * Lấy đồ án trong cơ sở dữ liệu dựa theo mã giảng viên
+     *
+     * @param lecturerCode
+     * @return ProjectDTO
+     */
+    @Override
+    public List<ProjectDTO> getProjectsByLecturerCode(String lecturerCode) {
+        return null;
+    }
+
+    @Override
+    public List<ProjectDTO> getProjectsByYearSemesterId(int yearSemesterId) {
+        return null;
+    }
+
+
+    @Override
+    public List<ProjectDTO> getProjectsByStatus() {
+        return null;
+    }
+
+    @Override
+    public ProjectDTO getProjectByProjectCode(String projectCode) {
+        return null;
     }
 }

@@ -10,8 +10,14 @@ public interface ProjectService {
     // Lấy ra tất cả các đồ án
     List<ProjectDTO> getProjects();
 
+    // Lấy ra đồ án theo "trạng thái"
+    List<ProjectDTO> getProjectsByStatus();
+
     // Lấy ra đồ án theo "id"
     ProjectDTO getProjectById(int id);
+
+    // Lấy ra đồ án theo "mã đồ án"
+    ProjectDTO getProjectByProjectCode(String projectCode);
 
     // Lấy ra đồ án theo "mã sinh viên"
     List<ProjectDTO> getProjectsByStudentCode(String studentCode);
@@ -20,19 +26,13 @@ public interface ProjectService {
     List<ProjectDTO> getProjectsByLecturerCode(String lecturerCode);
 
     // Lấy ra đồ án theo "năm học - học kỳ id"
-
+    List<ProjectDTO> getProjectsByYearSemesterId(int yearSemesterId);
 
     // Lấy ra đồ án theo "mã thể loại"
     List<ProjectDTO> getProjectsByCategoryCode(String categoryCode);
 
     // Lấy ra đồ án theo "lớp học phần id"
     List<ProjectDTO> getProjectsByCourseId(int courseId);
-
-    //...
-
-
-
-
 
     // Thêm đồ án
     void addProject(ProjectDTO projectDTO);

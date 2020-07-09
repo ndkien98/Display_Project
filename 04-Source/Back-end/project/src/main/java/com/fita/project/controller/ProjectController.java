@@ -25,6 +25,14 @@ public class ProjectController {
         }
     }
 
+    // Lấy ra đồ án theo "trạng thái"
+
+
+
+
+
+
+
     // Lấy ra đồ án theo "id"
     @GetMapping("get-by-id/{id}")
     public ResponseEntity<?> getProjectById(@PathVariable int id) {
@@ -51,7 +59,16 @@ public class ProjectController {
     // Lấy ra đồ án theo "mã giảng viên"
 
 
+
+
+
+
     // Lấy ra đồ án theo "năm học - học kỳ id"
+
+
+
+
+
 
 
     // Lấy ra đồ án theo "mã thể loại"
@@ -75,12 +92,6 @@ public class ProjectController {
             return ResponseEntity.ok(e.toString());
         }
     }
-
-    //...
-
-
-
-
 
     // Thêm đồ án
     @PostMapping("add")
