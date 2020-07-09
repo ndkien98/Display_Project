@@ -1,3 +1,5 @@
-- Thư mục font-end : được deploy từ project 
 
-- đưa trực tiếp thư mục đấy lên máy chủ.
+
+-1) cài server Nginx để chạy project
+
+-2) Thư mục font-end : được deploy từ project 
