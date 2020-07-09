@@ -1,0 +1,3 @@
+- Thư mục font-end : được deploy từ project 
+
+- đưa trực tiếp thư mục đấy lên máy chủ.
