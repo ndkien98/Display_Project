@@ -298,8 +298,18 @@ public class ProjectServiceImpl implements ProjectService {
         return null;
     }
 
+    /**
+     * Lấy đồ án trong cơ sở dữ liệu dựa theo mã đồ án
+     *
+     * @param projectCode
+     * @return ProjectDTO
+     */
     @Override
     public ProjectDTO getProjectByProjectCode(String projectCode) {
-        return null;
+            project = projectRepository.findByProjectCode(projectCode);
+
+            // Convert project (Entity) -> project (DTO)
+                projectDTO = convert(project);
+        return projectDTO;
     }
 }
