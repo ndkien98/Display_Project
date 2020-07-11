@@ -289,7 +289,16 @@ public class ProjectServiceImpl implements ProjectService {
 
     @Override
     public List<ProjectDTO> getProjectsByYearSemesterId(int yearSemesterId) {
-        return null;
+        projects = projectRepository.findByYearSemesterId(yearSemesterId);
+        projectsDTO = new ArrayList<>();
+
+        // Convert project (Entity) -> project (DTO)
+        for (Project project : projects) {
+            projectDTO = convert(project);
+            projectsDTO.add(projectDTO);
+        }
+
+        return projectsDTO;
     }
 
 
@@ -306,10 +315,11 @@ public class ProjectServiceImpl implements ProjectService {
      */
     @Override
     public ProjectDTO getProjectByProjectCode(String projectCode) {
-            project = projectRepository.findByProjectCode(projectCode);
+        project = projectRepository.findByProjectCode(projectCode);
 
-            // Convert project (Entity) -> project (DTO)
-                projectDTO = convert(project);
+        // Convert project (Entity) -> project (DTO)
+        projectDTO = convert(project);
+
         return projectDTO;
     }
 }

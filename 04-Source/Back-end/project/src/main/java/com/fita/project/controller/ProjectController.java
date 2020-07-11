@@ -68,12 +68,15 @@ public class ProjectController {
     }
 
     // Lấy ra đồ án theo "năm học - học kỳ id"
-
-
-
-
-
-
+    @GetMapping("get-by-year-semester-id/{yearSemesterId}")
+    public ResponseEntity<?> getProjectByProjectCode(@PathVariable int yearSemesterId) {
+        try {
+            return ResponseEntity.ok(projectService.getProjectsByYearSemesterId(yearSemesterId));
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResponseEntity.ok(e.toString());
+        }
+    }
 
     // Lấy ra đồ án theo "mã thể loại"
     @GetMapping("get-by-category-code/{categoryCode}")
