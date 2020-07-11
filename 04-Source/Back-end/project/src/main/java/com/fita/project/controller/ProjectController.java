@@ -56,12 +56,16 @@ public class ProjectController {
     }
 
 
-    // Lấy ra đồ án theo "mã giảng viên"
-
-
-
-
-
+    // Lấy ra đồ án theo "mã đồ án"
+    @GetMapping("get-by-project-code/{projectCode}")
+    public ResponseEntity<?> getProjectByProjectCode(@PathVariable String projectCode) {
+        try {
+            return ResponseEntity.ok(projectService.getProjectByProjectCode(projectCode));
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResponseEntity.ok(e.toString());
+        }
+    }
 
     // Lấy ra đồ án theo "năm học - học kỳ id"
 
