@@ -292,10 +292,23 @@ public class ProjectServiceImpl implements ProjectService {
         return null;
     }
 
-
+    /**
+     * Lấy đồ án trong cơ sở dữ liệu dựa theo trạng thái
+     *
+     * @param status
+     * @return ProjectDTO
+     */
     @Override
-    public List<ProjectDTO> getProjectsByStatus() {
-        return null;
+    public List<ProjectDTO> getProjectsByStatus(int status) {
+            projects = projectRepository.findByStatus(status);
+            projectsDTO = new ArrayList<>();
+
+            //Convert project (Entity) -> project (DTO)
+        for (Project project : projects) {
+            projectDTO = convert(project);
+            projectsDTO.add(projectDTO);
+        }
+        return projectsDTO;
     }
 
     /**

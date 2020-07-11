@@ -11,7 +11,7 @@ public interface ProjectService {
     List<ProjectDTO> getProjects();
 
     // Lấy ra đồ án theo "trạng thái"
-    List<ProjectDTO> getProjectsByStatus();
+    List<ProjectDTO> getProjectsByStatus(int status);
 
     // Lấy ra đồ án theo "id"
     ProjectDTO getProjectById(int id);
