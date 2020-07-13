@@ -47,18 +47,6 @@ public class ProjectController {
         }
     }
 
-    // Lấy ra đồ án theo "mã sinh viên"
-    @GetMapping("get-by-student-code/{studentCode}")
-    public ResponseEntity<?> getProjectsByStudentCode(@PathVariable String studentCode) {
-        try {
-            return ResponseEntity.ok(projectService.getProjectsByStudentCode(studentCode));
-        } catch (Exception e) {
-            e.printStackTrace();
-            return ResponseEntity.ok(e.toString());
-        }
-    }
-
-
     // Lấy ra đồ án theo "mã đồ án"
     @GetMapping("get-by-project-code/{projectCode}")
     public ResponseEntity<?> getProjectByProjectCode(@PathVariable String projectCode) {
@@ -70,11 +58,11 @@ public class ProjectController {
         }
     }
 
-    // Lấy ra đồ án theo "năm học - học kỳ id"
-    @GetMapping("get-by-year-semester-id/{yearSemesterId}")
-    public ResponseEntity<?> getProjectByProjectCode(@PathVariable int yearSemesterId) {
+    // Lấy ra đồ án theo "mã sinh viên"
+    @GetMapping("get-by-student-code/{studentCode}")
+    public ResponseEntity<?> getProjectsByStudentCode(@PathVariable String studentCode) {
         try {
-            return ResponseEntity.ok(projectService.getProjectsByYearSemesterId(yearSemesterId));
+            return ResponseEntity.ok(projectService.getProjectsByStudentCode(studentCode));
         } catch (Exception e) {
             e.printStackTrace();
             return ResponseEntity.ok(e.toString());
@@ -92,11 +80,55 @@ public class ProjectController {
         }
     }
 
+    // Lấy ra đồ án theo "mã giảng viên"
+    @GetMapping("get-by-lecturer-code/{lecturerCode}")
+    public ResponseEntity<?> getProjectsByLecturerCode(@PathVariable String lecturerCode) {
+        try {
+            return ResponseEntity.ok(projectService.getProjectsByLecturerCode(lecturerCode));
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResponseEntity.ok(e.toString());
+        }
+    }
+
     // Lấy ra đồ án theo "lớp học phần id"
     @GetMapping("get-by-course-id/{courseId}")
     public ResponseEntity<?> getProjectsByCourseId(@PathVariable int courseId) {
         try {
             return ResponseEntity.ok(projectService.getProjectsByCourseId(courseId));
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResponseEntity.ok(e.toString());
+        }
+    }
+
+    // Lấy ra đồ án theo "năm học - học kỳ id"
+    @GetMapping("get-by-year-semester-id/{yearSemesterId}")
+    public ResponseEntity<?> getProjectByProjectCode(@PathVariable int yearSemesterId) {
+        try {
+            return ResponseEntity.ok(projectService.getProjectsByYearSemesterId(yearSemesterId));
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResponseEntity.ok(e.toString());
+        }
+    }
+
+    // Lấy ra đồ án theo "mã giảng viên + trạng thái"
+    @GetMapping("get-by-lecturer-code/{lecturerCode}/status/{status}")
+    public ResponseEntity<?> getProjects(@PathVariable String lecturerCode, @PathVariable int status) {
+        try {
+            return ResponseEntity.ok(projectService.getProjects(lecturerCode, status));
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResponseEntity.ok(e.toString());
+        }
+    }
+
+    // Lấy ra đồ án theo "mã giảng viên + trạng thái + năm học - học kỳ id"
+    @GetMapping("get-by-lecturer-code/{lecturerCode}/status/{status}/year-semester-id/{yearSemesterId}")
+    public ResponseEntity<?> getProjects(@PathVariable String lecturerCode, @PathVariable int status, @PathVariable int yearSemesterId) {
+        try {
+            return ResponseEntity.ok(projectService.getProjects(lecturerCode, status, yearSemesterId));
         } catch (Exception e) {
             e.printStackTrace();
             return ResponseEntity.ok(e.toString());

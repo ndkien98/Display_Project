@@ -59,11 +59,10 @@ public class CourseController {
     }
 
     // Lấy ra lớp học phần theo "mã giảng viên" và "năm học - học kỳ id"
-    @GetMapping("get-by-lecturer-code-and-year-semester-id")
-    public ResponseEntity<?> getCoursesByLecturerCodeAndYearSemesterId(
-            @RequestParam(name = "lecturer-code") String lecturerCode, @RequestParam("year-semester-id") int yearSemesterId) {
+    @GetMapping("get-by-lecturer-code/{lecturerCode}/year-semester-id/{yearSemesterId}")
+    public ResponseEntity<?> getCoursesByLecturerCodeAndYearSemesterId(@PathVariable String lecturerCode, @PathVariable int yearSemesterId) {
         try {
-            return ResponseEntity.ok(courseService.getCoursesByLecturerCodeAndYearSemesterId(lecturerCode, yearSemesterId));
+            return ResponseEntity.ok(courseService.getCourses(lecturerCode, yearSemesterId));
         } catch (Exception e) {
             e.printStackTrace();
             return ResponseEntity.ok(e.toString());

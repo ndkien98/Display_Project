@@ -22,17 +22,23 @@ public interface ProjectService {
     // Lấy ra đồ án theo "mã sinh viên"
     List<ProjectDTO> getProjectsByStudentCode(String studentCode);
 
+    // Lấy ra đồ án theo "mã thể loại"
+    List<ProjectDTO> getProjectsByCategoryCode(String categoryCode);
+
     // Lấy ra đồ án theo "mã giảng viên"
     List<ProjectDTO> getProjectsByLecturerCode(String lecturerCode);
+
+    // Lấy ra đồ án theo "lớp học phần id"
+    List<ProjectDTO> getProjectsByCourseId(int courseId);
 
     // Lấy ra đồ án theo "năm học - học kỳ id"
     List<ProjectDTO> getProjectsByYearSemesterId(int yearSemesterId);
 
-    // Lấy ra đồ án theo "mã thể loại"
-    List<ProjectDTO> getProjectsByCategoryCode(String categoryCode);
+    // Lấy ra đồ án theo "mã giảng viên + trạng thái";
+    List<ProjectDTO> getProjects(String lecturerCode, int status);
 
-    // Lấy ra đồ án theo "lớp học phần id"
-    List<ProjectDTO> getProjectsByCourseId(int courseId);
+    // Lấy ra đồ án theo "mã giảng viên + trạng thái + năm học - học kỳ id"
+    List<ProjectDTO> getProjects(String lecturerCode, int status, int yearSemesterId);
 
     // Thêm đồ án
     void addProject(ProjectDTO projectDTO);

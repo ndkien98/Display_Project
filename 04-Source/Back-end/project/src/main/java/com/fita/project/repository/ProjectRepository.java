@@ -17,4 +17,13 @@ public interface ProjectRepository extends JpaRepository<Project, Integer> {
 
     @Query("select p from Project p join Course c on p.courseId = c.id where c.yearSemesterId = :yearSemesterId")
     List<Project> findByYearSemesterId(int yearSemesterId);
+
+    @Query("select p from Project p join Course c on p.courseId = c.id where c.lecturerCode = :lecturerCode")
+    List<Project> findByLectureCode(String lecturerCode);
+
+    @Query("select p from Project p join Course c on p.courseId = c.id where c.lecturerCode = :lecturerCode and p.status = :status")
+    List<Project> findByLectureCodeAndStatus(String lecturerCode, int status);
+
+    @Query("select p from Project p join Course c on p.courseId = c.id where c.lecturerCode = :lecturerCode and p.status = :status and c.yearSemesterId = :yearSemesterId")
+    List<Project> findByLectureCodeAndStatusAndYearSemesterId(String lecturerCode, int status, int yearSemesterId);
 }

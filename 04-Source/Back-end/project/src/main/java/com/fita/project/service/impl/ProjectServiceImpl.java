@@ -68,6 +68,26 @@ public class ProjectServiceImpl implements ProjectService {
     }
 
     /**
+     * Lấy đồ án trong cơ sở dữ liệu dựa theo trạng thái
+     *
+     * @param status
+     * @return ProjectDTO
+     */
+    @Override
+    public List<ProjectDTO> getProjectsByStatus(int status) {
+        projects = projectRepository.findByStatus(status);
+        projectsDTO = new ArrayList<>();
+
+        //Convert project (Entity) -> project (DTO)
+        for (Project project : projects) {
+            projectDTO = convert(project);
+            projectsDTO.add(projectDTO);
+        }
+
+        return projectsDTO;
+    }
+
+    /**
      * Lấy đồ án trong cơ sở dữ liệu dựa theo id
      *
      * @param id
@@ -78,6 +98,22 @@ public class ProjectServiceImpl implements ProjectService {
         project = projectRepository.findById(id).get();
 
         // Convert project (Entity) -> projectDTO (DTO)
+        projectDTO = convert(project);
+
+        return projectDTO;
+    }
+
+    /**
+     * Lấy đồ án trong cơ sở dữ liệu dựa theo mã đồ án
+     *
+     * @param projectCode
+     * @return ProjectDTO
+     */
+    @Override
+    public ProjectDTO getProjectByProjectCode(String projectCode) {
+        project = projectRepository.findByProjectCode(projectCode);
+
+        // Convert project (Entity) -> project (DTO)
         projectDTO = convert(project);
 
         return projectDTO;
@@ -124,6 +160,26 @@ public class ProjectServiceImpl implements ProjectService {
     }
 
     /**
+     * Lấy đồ án trong cơ sở dữ liệu dựa theo mã giảng viên
+     *
+     * @param lecturerCode
+     * @return ProjectDTO
+     */
+    @Override
+    public List<ProjectDTO> getProjectsByLecturerCode(String lecturerCode) {
+        projects = projectRepository.findByLectureCode(lecturerCode);
+        projectsDTO = new ArrayList<>();
+
+        // Convert project (Entity) -> project (DTO)
+        for (Project project : projects) {
+            projectDTO = convert(project);
+            projectsDTO.add(projectDTO);
+        }
+
+        return projectsDTO;
+    }
+
+    /**
      * Lấy đồ án trong cơ sở dữ liệu dựa theo lớp học phần id
      *
      * @param courseId
@@ -132,6 +188,69 @@ public class ProjectServiceImpl implements ProjectService {
     @Override
     public List<ProjectDTO> getProjectsByCourseId(int courseId) {
         projects = projectRepository.findByCourseId(courseId);
+        projectsDTO = new ArrayList<>();
+
+        // Convert project (Entity) -> project (DTO)
+        for (Project project : projects) {
+            projectDTO = convert(project);
+            projectsDTO.add(projectDTO);
+        }
+
+        return projectsDTO;
+    }
+
+    /**
+     * Lấy đồ án trong cơ sở dữ liệu dựa theo năm học - học kỳ id
+     *
+     * @param yearSemesterId
+     * @return ProjectDTO
+     */
+    @Override
+    public List<ProjectDTO> getProjectsByYearSemesterId(int yearSemesterId) {
+        projects = projectRepository.findByYearSemesterId(yearSemesterId);
+        projectsDTO = new ArrayList<>();
+
+        // Convert project (Entity) -> project (DTO)
+        for (Project project : projects) {
+            projectDTO = convert(project);
+            projectsDTO.add(projectDTO);
+        }
+
+        return projectsDTO;
+    }
+
+    /**
+     * Lấy đồ án trong cơ sở dữ liệu dựa theo mã giảng viên + trạng thái
+     *
+     * @param lecturerCode
+     * @param status
+     * @return ProjectDTO
+     */
+    @Override
+    public List<ProjectDTO> getProjects(String lecturerCode, int status) {
+        projects = projectRepository.findByLectureCodeAndStatus(lecturerCode, status);
+        projectsDTO = new ArrayList<>();
+
+        // Convert project (Entity) -> project (DTO)
+        for (Project project : projects) {
+            projectDTO = convert(project);
+            projectsDTO.add(projectDTO);
+        }
+
+        return projectsDTO;
+    }
+
+    /**
+     * Lấy đồ án trong cơ sở dữ liệu dựa theo mã giảng viên + trạng thái + năm học - học kỳ id
+     *
+     * @param lecturerCode
+     * @param status
+     * @param yearSemesterId
+     * @return ProjectDTO
+     */
+    @Override
+    public List<ProjectDTO> getProjects(String lecturerCode, int status, int yearSemesterId) {
+        projects = projectRepository.findByLectureCodeAndStatusAndYearSemesterId(lecturerCode, status, yearSemesterId);
         projectsDTO = new ArrayList<>();
 
         // Convert project (Entity) -> project (DTO)
@@ -276,63 +395,5 @@ public class ProjectServiceImpl implements ProjectService {
 
     // Các thành viên viết code dưới này
 
-    /**
-     * Lấy đồ án trong cơ sở dữ liệu dựa theo mã giảng viên
-     *
-     * @param lecturerCode
-     * @return ProjectDTO
-     */
-    @Override
-    public List<ProjectDTO> getProjectsByLecturerCode(String lecturerCode) {
-        return null;
-    }
 
-    @Override
-    public List<ProjectDTO> getProjectsByYearSemesterId(int yearSemesterId) {
-        projects = projectRepository.findByYearSemesterId(yearSemesterId);
-        projectsDTO = new ArrayList<>();
-
-        // Convert project (Entity) -> project (DTO)
-        for (Project project : projects) {
-            projectDTO = convert(project);
-            projectsDTO.add(projectDTO);
-        }
-
-        return projectsDTO;
-    }
-
-    /**
-     * Lấy đồ án trong cơ sở dữ liệu dựa theo trạng thái
-     *
-     * @param status
-     * @return ProjectDTO
-     */
-    @Override
-    public List<ProjectDTO> getProjectsByStatus(int status) {
-            projects = projectRepository.findByStatus(status);
-            projectsDTO = new ArrayList<>();
-
-            //Convert project (Entity) -> project (DTO)
-        for (Project project : projects) {
-            projectDTO = convert(project);
-            projectsDTO.add(projectDTO);
-        }
-        return projectsDTO;
-    }
-
-    /**
-     * Lấy đồ án trong cơ sở dữ liệu dựa theo mã đồ án
-     *
-     * @param projectCode
-     * @return ProjectDTO
-     */
-    @Override
-    public ProjectDTO getProjectByProjectCode(String projectCode) {
-        project = projectRepository.findByProjectCode(projectCode);
-
-        // Convert project (Entity) -> project (DTO)
-        projectDTO = convert(project);
-
-        return projectDTO;
-    }
 }

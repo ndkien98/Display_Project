@@ -126,7 +126,7 @@ public class CourseServiceImpl implements CourseService {
      * @return List<CourseDTO>
      */
     @Override
-    public List<CourseDTO> getCoursesByLecturerCodeAndYearSemesterId(String lecturerCode, int yearSemesterId) {
+    public List<CourseDTO> getCourses(String lecturerCode, int yearSemesterId) {
         courses = courseRepository.findByLecturerCodeAndYearSemesterId(lecturerCode, yearSemesterId);
         coursesDTO = new ArrayList<>();
 
