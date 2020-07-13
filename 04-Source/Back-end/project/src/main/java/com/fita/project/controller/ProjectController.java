@@ -26,12 +26,15 @@ public class ProjectController {
     }
 
     // Lấy ra đồ án theo "trạng thái"
-
-
-
-
-
-
+    @GetMapping("get-by-status/{status}")
+    public ResponseEntity<?> getProjectsByStatus(@PathVariable int status) {
+        try {
+            return ResponseEntity.ok(projectService.getProjectsByStatus(status));
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResponseEntity.ok(e.toString());
+        }
+    }
 
     // Lấy ra đồ án theo "id"
     @GetMapping("get-by-id/{id}")
