@@ -4,10 +4,11 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve --port 4201",
-    "build": "ng build",
+    "build": "ng build ",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "prod": "ng build --prod --aot  --vendor-chunk --common-chunk --delete-output-path --buildOptimizer --stats-json && gzipper c --verbose ./dist"
   },
   "private": true,
   "dependencies": {
@@ -24,6 +25,7 @@
     "bootstrap": "^4.5.0",
     "datatables.net": "^1.10.21",
     "datatables.net-dt": "^1.10.21",
+    "gzipper": "^4.0.0",
     "icheck-bootstrap": "^3.0.1",
     "inputmask": "^5.0.3",
     "jquery": "^3.5.1",

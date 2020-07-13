@@ -4,7 +4,7 @@
     <span aria-hidden="true">&times;</span>
   </button>
 </div>
-<form role="form" (ngSubmit)="onSubmit()" [formGroup]="departmentFormGroup" novalidate>
+<form role="form" (ngSubmit)="onSubmit($event)" [formGroup]="departmentFormGroup" novalidate>
   <div class="modal-body">
     <div class="form-group">
       <label for="departmentCodeAddModal">Mã bộ môn</label>
@@ -12,7 +12,7 @@
              formControlName="code">
       <div [hidden]="departmentFormGroup.controls.code.status == 'VALID' || departmentFormGroup.controls.code.pristine"
            class="alert alert-danger">
-        Mã bộ môn có dạng : BM_ _ _ , ex : BM001<br>
+        Mã bộ môn có dạng : TH_ _  , ex : TH01<br>
         Mã bộ môn không được để trống và có chiều dài bằng 5<br>
         Mã bộ môn không được trùng nhau.
       </div>

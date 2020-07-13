@@ -19,7 +19,6 @@ import {BsModalRef, ModalModule} from 'ngx-bootstrap/modal';
   imports: [
     CommonModule,
     DataTablesModule,
-    FormsModule,
     ReactiveFormsModule,
     RouterModule,
     ModalModule,

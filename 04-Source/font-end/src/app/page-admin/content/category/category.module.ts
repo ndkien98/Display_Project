@@ -5,6 +5,7 @@ import { AddCategoryComponent } from './add-category/add-category.component';
 import { EditCategoryComponent } from './edit-category/edit-category.component';
 import { DeleteCategoryComponent } from './delete-category/delete-category.component';
 import {DataTablesModule} from 'angular-datatables';
+import {ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import {DataTablesModule} from 'angular-datatables';
   ],
   imports: [
     CommonModule,
-    DataTablesModule
+    DataTablesModule,
+    ReactiveFormsModule
   ]
 })
 export class CategoryModule { }
