@@ -4,13 +4,12 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.List;
-
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class RoleDTO {
+public class FunctionDTO {
     private int id;
-    private String roleName;
-    List<FunctionDTO> functionsDTO;
+    private String functionName;
+    private String actionCode;
+    private int status;
 }
