@@ -71,10 +71,26 @@ public class RoleController {
     }
 
     // Sửa nhóm quyền
-
+    @PutMapping("edit/{id}")
+    public ResponseEntity<?> editRole(@PathVariable int id, @RequestBody RoleDTO roleDTO) {
+        try {
+            roleService.editRole(id, roleDTO);
+            return ResponseEntity.ok().build();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResponseEntity.ok(e.toString());
+        }
+    }
 
     // Xoá nhóm quyền
-
-
-
+    @DeleteMapping("delete/{id}")
+    public ResponseEntity<?> deleteRole(@PathVariable int id) {
+        try {
+            roleService.deleteRole(id);
+            return ResponseEntity.ok().build();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResponseEntity.ok(e.toString());
+        }
+    }
 }

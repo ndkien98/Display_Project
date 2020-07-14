@@ -163,7 +163,15 @@ public class RoleServiceImpl implements RoleService {
      */
     @Override
     public void editRole(int id, RoleDTO roleDTO) {
+        role = modelMapper.map(roleDTO, Role.class);
+        role.setId(id);
+        roleRepository.save(role);
 
+        functionsDTO = roleDTO.getFunctionsDTO();
+
+        for (FunctionDTO functionDTO : functionsDTO) {
+            roleFunctionRepository.updateStatus(id, functionDTO.getId(), functionDTO.getStatus());
+        }
     }
 
     /**
@@ -173,6 +181,7 @@ public class RoleServiceImpl implements RoleService {
      */
     @Override
     public void deleteRole(int id) {
-
+        roleFunctionRepository.deleteByRoleId(id);
+        roleRepository.deleteById(id);
     }
 }
