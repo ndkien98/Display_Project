@@ -20,6 +20,7 @@ public class CategoryController {
         try {
             return ResponseEntity.ok(categoryService.getCategories());
         } catch (Exception e) {
+            e.printStackTrace();
             return ResponseEntity.ok(e.toString());
         }
     }
@@ -30,6 +31,7 @@ public class CategoryController {
         try {
             return ResponseEntity.ok(categoryService.getCategoryById(id));
         } catch (Exception e) {
+            e.printStackTrace();
             return ResponseEntity.ok(e.toString());
         }
     }
@@ -41,6 +43,7 @@ public class CategoryController {
             categoryService.addCategory(categoryDTO);
             return ResponseEntity.ok().build();
         } catch (Exception e) {
+            e.printStackTrace();
             return ResponseEntity.ok(e.toString());
         }
     }
@@ -52,6 +55,7 @@ public class CategoryController {
             categoryService.editCategory(id, categoryDTO);
             return ResponseEntity.ok().build();
         } catch (Exception e) {
+            e.printStackTrace();
             return ResponseEntity.ok(e.toString());
         }
     }
@@ -63,6 +67,7 @@ public class CategoryController {
             categoryService.deleteCategory(id);
             return ResponseEntity.ok().build();
         } catch (Exception e) {
+            e.printStackTrace();
             return ResponseEntity.ok(e.toString());
         }
     }

@@ -79,7 +79,6 @@ public class RoleServiceImpl implements RoleService {
 
             functionsDTO.add(functionDTO);
         }
-
         roleDTO.setFunctionsDTO(functionsDTO);
 
         return roleDTO;

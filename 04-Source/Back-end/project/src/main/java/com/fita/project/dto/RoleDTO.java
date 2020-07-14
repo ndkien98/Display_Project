@@ -10,7 +10,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class RoleDTO {
-    private int id;
+    private Integer id;
     private String roleName;
     List<FunctionDTO> functionsDTO;
 }

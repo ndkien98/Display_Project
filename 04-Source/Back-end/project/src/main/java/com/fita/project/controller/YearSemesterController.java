@@ -20,6 +20,7 @@ public class YearSemesterController {
         try {
             return ResponseEntity.ok(yearSemesterService.getYearsSemesters());
         } catch (Exception e) {
+            e.printStackTrace();
             return ResponseEntity.ok(e.toString());
         }
     }
@@ -30,6 +31,7 @@ public class YearSemesterController {
         try {
             return ResponseEntity.ok(yearSemesterService.getYearSemesterById(id));
         } catch (Exception e) {
+            e.printStackTrace();
             return ResponseEntity.ok(e.toString());
         }
     }
@@ -41,6 +43,7 @@ public class YearSemesterController {
             yearSemesterService.addYearSemester(yearSemesterDTO);
             return ResponseEntity.ok().build();
         } catch (Exception e) {
+            e.printStackTrace();
             return ResponseEntity.ok(e.toString());
         }
     }
@@ -52,6 +55,7 @@ public class YearSemesterController {
             yearSemesterService.editYearSemester(id, yearSemesterDTO);
             return ResponseEntity.ok().build();
         } catch (Exception e) {
+            e.printStackTrace();
             return ResponseEntity.ok(e.toString());
         }
     }
@@ -63,6 +67,7 @@ public class YearSemesterController {
             yearSemesterService.deleteYearSemester(id);
             return ResponseEntity.ok().build();
         } catch (Exception e) {
+            e.printStackTrace();
             return ResponseEntity.ok(e.toString());
         }
     }
