@@ -23,6 +23,7 @@ public class UserController {
         try {
             return ResponseEntity.ok(userService.getUsers());
         } catch (Exception e) {
+            e.printStackTrace();
             return ResponseEntity.ok(e.toString());
         }
     }
@@ -33,6 +34,7 @@ public class UserController {
         try {
             return ResponseEntity.ok(userService.getUserById(id));
         } catch (Exception e) {
+            e.printStackTrace();
             return ResponseEntity.ok(e.toString());
         }
     }
@@ -43,6 +45,7 @@ public class UserController {
         try {
             return ResponseEntity.ok(userService.getLecturers());
         } catch (Exception e) {
+            e.printStackTrace();
             return ResponseEntity.ok(e.toString());
         }
     }
@@ -53,6 +56,7 @@ public class UserController {
         try {
             return ResponseEntity.ok(userService.getStudents());
         } catch (Exception e) {
+            e.printStackTrace();
             return ResponseEntity.ok(userService.getStudents());
         }
     }
@@ -63,6 +67,7 @@ public class UserController {
         try {
             return ResponseEntity.ok(userService.getLecturerById(id));
         } catch (Exception e) {
+            e.printStackTrace();
             return ResponseEntity.ok(e.toString());
         }
     }
@@ -73,6 +78,7 @@ public class UserController {
         try {
             return ResponseEntity.ok(userService.getStudentById(id));
         } catch (Exception e) {
+            e.printStackTrace();
             return ResponseEntity.ok(e.toString());
         }
     }
@@ -86,6 +92,7 @@ public class UserController {
             userService.addUser(userDTO);
             return ResponseEntity.ok().build();
         } catch (Exception e) {
+            e.printStackTrace();
             return ResponseEntity.ok(e.toString());
         }
     }
@@ -97,6 +104,7 @@ public class UserController {
             userService.addLecturer(lecturerDTO);
             return ResponseEntity.ok().build();
         } catch (Exception e) {
+            e.printStackTrace();
             return ResponseEntity.ok(e.toString());
         }
     }
@@ -108,6 +116,7 @@ public class UserController {
             userService.addStudent(studentDTO);
             return ResponseEntity.ok().build();
         } catch (Exception e) {
+            e.printStackTrace();
             return ResponseEntity.ok(e.toString());
         }
     }
@@ -121,6 +130,7 @@ public class UserController {
             userService.editUser(id, userDTO);
             return ResponseEntity.ok().build();
         } catch (Exception e) {
+            e.printStackTrace();
             return ResponseEntity.ok(e.toString());
         }
     }
@@ -132,6 +142,7 @@ public class UserController {
             userService.editLecturer(id, lecturerDTO);
             return ResponseEntity.ok().build();
         } catch (Exception e) {
+            e.printStackTrace();
             return ResponseEntity.ok(e.toString());
         }
     }
@@ -143,6 +154,7 @@ public class UserController {
             userService.editStudent(id, studentDTO);
             return ResponseEntity.ok().build();
         } catch (Exception e) {
+            e.printStackTrace();
             return ResponseEntity.ok(e.toString());
         }
     }
@@ -156,6 +168,7 @@ public class UserController {
             userService.deleteUser(id);
             return ResponseEntity.ok().build();
         } catch (Exception e) {
+            e.printStackTrace();
             return ResponseEntity.ok(e.toString());
         }
     }
@@ -167,6 +180,7 @@ public class UserController {
             userService.deleteLecturer(id);
             return ResponseEntity.ok().build();
         } catch (Exception e) {
+            e.printStackTrace();
             return ResponseEntity.ok(e.toString());
         }
     }
@@ -178,6 +192,7 @@ public class UserController {
             userService.deleteStudent(id);
             return ResponseEntity.ok().build();
         } catch (Exception e) {
+            e.printStackTrace();
             return ResponseEntity.ok(e.toString());
         }
     }

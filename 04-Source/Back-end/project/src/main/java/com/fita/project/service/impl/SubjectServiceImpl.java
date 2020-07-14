@@ -23,6 +23,11 @@ public class SubjectServiceImpl implements SubjectService {
     @Autowired
     ModelMapper modelMapper;
 
+    private List<Subject> subjects;
+    private List<SubjectDTO> subjectsDTO;
+    private Subject subject;
+    private SubjectDTO subjectDTO;
+
     /**
      * Lấy tất cả các môn học trong cơ sở dữ liệu
      *
@@ -30,13 +35,12 @@ public class SubjectServiceImpl implements SubjectService {
      */
     @Override
     public List<SubjectDTO> getSubjects() {
-        List<Subject> subjects = subjectRepository.findAll();
-        List<SubjectDTO> subjectsDTO = new ArrayList<>();
+        subjects = subjectRepository.findAll();
+        subjectsDTO = new ArrayList<>();
 
         //Convert subject (Entity) -> subjectDTO (DTO)
         for (Subject subject : subjects) {
-            SubjectDTO subjectDTO = modelMapper.map(subject, SubjectDTO.class);
-            subjectDTO.setDepartmentName(departmentService.getDepartmentByDepartmentCode(subjectDTO.getDepartmentCode()).getDepartmentName());
+            subjectDTO = convert(subject);
             subjectsDTO.add(subjectDTO);
         }
 
@@ -51,11 +55,10 @@ public class SubjectServiceImpl implements SubjectService {
      */
     @Override
     public SubjectDTO getSubjectById(int id) {
-        Subject subject = subjectRepository.findById(id).get();
+        subject = subjectRepository.findById(id).get();
 
         //Convert subject (Entity) -> subjectDTO (DTO)
-        SubjectDTO subjectDTO = modelMapper.map(subject, SubjectDTO.class);
-        subjectDTO.setDepartmentName(departmentService.getDepartmentByDepartmentCode(subjectDTO.getDepartmentCode()).getDepartmentName());
+        subjectDTO = convert(subject);
 
         return subjectDTO;
     }
@@ -68,11 +71,20 @@ public class SubjectServiceImpl implements SubjectService {
      */
     @Override
     public SubjectDTO getSubjectBySubjectCode(String subjectCode) {
-        Subject subject = subjectRepository.findBySubjectCode(subjectCode);
+        subject = subjectRepository.findBySubjectCode(subjectCode);
 
         //Convert subject (Entity) -> subjectDTO (DTO)
-        SubjectDTO subjectDTO = modelMapper.map(subject, SubjectDTO.class);
-        subjectDTO.setDepartmentName(departmentService.getDepartmentByDepartmentCode(subjectDTO.getDepartmentCode()).getDepartmentName());
+        subjectDTO = convert(subject);
+
+        return subjectDTO;
+    }
+
+    private SubjectDTO convert(Subject subject) {
+        subjectDTO = modelMapper.map(subject, SubjectDTO.class);
+
+        if (subjectDTO.getDepartmentCode() != null) {
+            subjectDTO.setDepartmentName(departmentService.getDepartmentByDepartmentCode(subjectDTO.getDepartmentCode()).getDepartmentName());
+        }
 
         return subjectDTO;
     }

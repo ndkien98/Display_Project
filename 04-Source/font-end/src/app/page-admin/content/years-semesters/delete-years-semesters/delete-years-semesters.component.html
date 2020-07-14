@@ -1,0 +1,13 @@
+<div class="modal-header bg-danger">
+  <h4 class="modal-title">Xoá năm học - học kỳ</h4>
+  <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="bsModalRef.hide()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body" style="text-align: center">
+  Xoá học kỳ <label id="semesterDeleteModal">{{yearSemester.semester}}</label> - năm học <label id="yearDeleteModal">{{yearSemester.year}} - {{yearSemester.year +1}}</label>
+</div>
+<div class="modal-footer justify-content-between">
+  <button type="button" class="btn btn-default" data-dismiss="modal" (click)="bsModalRef.hide()">Đóng</button>
+  <button type="button" class="btn btn-primary" (click)="delete()">Xoá</button>
+</div>

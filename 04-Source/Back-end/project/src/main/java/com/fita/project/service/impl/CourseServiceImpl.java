@@ -34,6 +34,12 @@ public class CourseServiceImpl implements CourseService {
     @Autowired
     ModelMapper modelMapper;
 
+    private List<Course> courses;
+    private List<CourseDTO> coursesDTO;
+    private Course course;
+    private CourseDTO courseDTO;
+    private YearSemesterDTO yearSemesterDTO;
+
     /**
      * Lấy tất cả các lớp học phần trong cơ sở dữ liệu
      *
@@ -41,12 +47,12 @@ public class CourseServiceImpl implements CourseService {
      */
     @Override
     public List<CourseDTO> getCourses() {
-        List<Course> courses = courseRepository.findAll();
-        List<CourseDTO> coursesDTO = new ArrayList<>();
+        courses = courseRepository.findAll();
+        coursesDTO = new ArrayList<>();
 
         //Convert course (Entity) -> courseDTO (DTO)
         for (Course course : courses) {
-            CourseDTO courseDTO = convert(course);
+            courseDTO = convert(course);
 
             coursesDTO.add(courseDTO);
         }
@@ -62,10 +68,10 @@ public class CourseServiceImpl implements CourseService {
      */
     @Override
     public CourseDTO getCourseById(int id) {
-        Course course = courseRepository.findById(id).get();
+        course = courseRepository.findById(id).get();
 
         //Convert course (Entity) -> courseDTO (DTO)
-        CourseDTO courseDTO = convert(course);
+        courseDTO = convert(course);
 
         return courseDTO;
     }
@@ -78,12 +84,12 @@ public class CourseServiceImpl implements CourseService {
      */
     @Override
     public List<CourseDTO> getCoursesByLecturerCode(String lecturerCode) {
-        List<Course> courses = courseRepository.findByLecturerCode(lecturerCode);
-        List<CourseDTO> coursesDTO = new ArrayList<>();
+        courses = courseRepository.findByLecturerCode(lecturerCode);
+        coursesDTO = new ArrayList<>();
 
         //Convert course (Entity) -> courseDTO (DTO)
         for (Course course : courses) {
-            CourseDTO courseDTO = convert(course);
+            courseDTO = convert(course);
 
             coursesDTO.add(courseDTO);
         }
@@ -99,12 +105,12 @@ public class CourseServiceImpl implements CourseService {
      */
     @Override
     public List<CourseDTO> getCoursesByYearSemesterId(int yearSemesterId) {
-        List<Course> courses = courseRepository.findByYearSemesterId(yearSemesterId);
-        List<CourseDTO> coursesDTO = new ArrayList<>();
+        courses = courseRepository.findByYearSemesterId(yearSemesterId);
+        coursesDTO = new ArrayList<>();
 
         //Convert course (Entity) -> courseDTO (DTO)
         for (Course course : courses) {
-            CourseDTO courseDTO = convert(course);
+            courseDTO = convert(course);
 
             coursesDTO.add(courseDTO);
         }
@@ -120,13 +126,13 @@ public class CourseServiceImpl implements CourseService {
      * @return List<CourseDTO>
      */
     @Override
-    public List<CourseDTO> getCoursesByLecturerCodeAndYearSemesterId(String lecturerCode, int yearSemesterId) {
-        List<Course> courses = courseRepository.findByLecturerCodeAndYearSemesterId(lecturerCode, yearSemesterId);
-        List<CourseDTO> coursesDTO = new ArrayList<>();
+    public List<CourseDTO> getCourses(String lecturerCode, int yearSemesterId) {
+        courses = courseRepository.findByLecturerCodeAndYearSemesterId(lecturerCode, yearSemesterId);
+        coursesDTO = new ArrayList<>();
 
         //Convert course (Entity) -> courseDTO (DTO)
         for (Course course : courses) {
-            CourseDTO courseDTO = convert(course);
+            courseDTO = convert(course);
 
             coursesDTO.add(courseDTO);
         }
@@ -135,12 +141,18 @@ public class CourseServiceImpl implements CourseService {
     }
 
     private CourseDTO convert(Course course) {
-        CourseDTO courseDTO = modelMapper.map(course, CourseDTO.class);
+        courseDTO = modelMapper.map(course, CourseDTO.class);
         courseDTO.setSubjectName(subjectService.getSubjectBySubjectCode(courseDTO.getSubjectCode()).getSubjectName());
-        YearSemesterDTO yearSemesterDTO = yearSemesterService.getYearSemesterById(courseDTO.getYearSemesterId());
-        courseDTO.setYear(yearSemesterDTO.getYear());
-        courseDTO.setSemester(yearSemesterDTO.getSemester());
-        courseDTO.setLecturerName(userService.getUserByUsername(courseDTO.getLecturerCode()).getFullName());
+
+        if (courseDTO.getYearSemesterId() != null) {
+            yearSemesterDTO = yearSemesterService.getYearSemesterById(courseDTO.getYearSemesterId());
+            courseDTO.setYear(yearSemesterDTO.getYear());
+            courseDTO.setSemester(yearSemesterDTO.getSemester());
+        }
+
+        if (courseDTO.getLecturerCode() != null) {
+            courseDTO.setLecturerName(userService.getUserByUsername(courseDTO.getLecturerCode()).getFullName());
+        }
 
         return courseDTO;
     }

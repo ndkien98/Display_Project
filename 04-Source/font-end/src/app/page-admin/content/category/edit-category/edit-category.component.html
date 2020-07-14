@@ -1,28 +1,34 @@
-<div class="modal fade" id="modal-edit-category">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header bg-warning">
-        <h4 class="modal-title">Sửa thể loại</h4>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <div class="form-group">
-          <label for="categoryCodeEditModal">Mã thể loại</label>
-          <input type="text" class="form-control" id="categoryCodeEditModal" value="TL01">
-        </div>
-        <div class="form-group">
-          <label for="categoryNameEditModal">Tên Thể loại</label>
-          <input type="text" class="form-control" id="categoryNameEditModal" value="Ứng dụng web">
-        </div>
-      </div>
-      <div class="modal-footer justify-content-between">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
-        <button type="button" class="btn btn-primary">Lưu</button>
+<div class="modal-header bg-warning">
+  <h4 class="modal-title pull-left">Chỉnh sửa thể loại</h4>
+  <button type="button" class="close pull-right" aria-label="Close" (click)="bsModalRef.hide()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<form role="form" (ngSubmit)="onSubmit()" [formGroup]="categoriesFormGroup" novalidate>
+  <div class="modal-body">
+    <div class="form-group">
+      <label for="categoriesCodeAddModal">Mã thể loại</label>
+      <input type="text" class="form-control" id="categoriesCodeAddModal" placeholder="Nhập mã thể loại"
+             formControlName="code">
+      <div [hidden]="categoriesFormGroup.controls.code.status == 'VALID' || categoriesFormGroup.controls.code.pristine"
+           class="alert alert-danger">
+        Mã bộ môn có dạng : TL_ _  , ex : TL01<br>
+        Mã bộ môn không được trùng nhau.
       </div>
     </div>
-    <!-- /.modal-content -->
+    <div class="form-group">
+      <label for="categoriesNameAddModal">Tên thể loại</label>
+      <input type="text" class="form-control" id="categoriesNameAddModal" placeholder="Nhập tên thể loại"
+             formControlName="name">
+      <div [hidden]="categoriesFormGroup.controls.name.status == 'VALID' || categoriesFormGroup.controls.name.pristine"
+           class="alert alert-danger">
+        Tên bộ không được để trống và không được trùng nhau.
+      </div>
+    </div>
+
   </div>
-  <!-- /.modal-dialog -->
-</div>
+  <div class="modal-footer justify-content-between">
+    <button type="button" class="btn btn-default" (click)="bsModalRef.hide()">Đóng</button>
+    <button type="submit" class="btn btn-primary" [disabled]="categoriesFormGroup.status == 'INVALID'">Lưu</button>
+  </div>
+</form>

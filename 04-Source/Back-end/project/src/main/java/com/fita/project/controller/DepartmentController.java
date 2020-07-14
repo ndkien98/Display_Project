@@ -20,6 +20,7 @@ public class DepartmentController {
         try {
             return ResponseEntity.ok(departmentService.getDepartments());
         } catch (Exception e) {
+            e.printStackTrace();
             return ResponseEntity.ok(e.toString());
         }
     }
@@ -30,6 +31,7 @@ public class DepartmentController {
         try {
             return ResponseEntity.ok(departmentService.getDepartmentById(id));
         } catch (Exception e) {
+            e.printStackTrace();
             return ResponseEntity.ok(e.toString());
         }
     }
@@ -41,6 +43,7 @@ public class DepartmentController {
             departmentService.addDepartment(departmentDTO);
             return ResponseEntity.ok().build();
         } catch (Exception e) {
+            e.printStackTrace();
             return ResponseEntity.ok(e.toString());
         }
     }
@@ -52,6 +55,7 @@ public class DepartmentController {
             departmentService.editDepartment(id, departmentDTO);
             return ResponseEntity.ok().build();
         } catch (Exception e) {
+            e.printStackTrace();
             return ResponseEntity.ok(e.toString());
         }
     }
@@ -63,6 +67,7 @@ public class DepartmentController {
             departmentService.deleteDepartment(id);
             return ResponseEntity.ok().build();
         } catch (Exception e) {
+            e.printStackTrace();
             return ResponseEntity.ok(e.toString());
         }
     }

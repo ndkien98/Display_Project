@@ -1,0 +1,52 @@
+<div class="modal-header bg-success">
+  <h4 class="modal-title pull-left">Thêm năm học - học kỳ</h4>
+  <button type="button" class="close pull-right" aria-label="Close" (click)="bsModalRef.hide()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<form role="form" (ngSubmit)="onSubmit()" [formGroup]="yearsSemestersFormGroup" novalidate>
+  <div class="modal-body">
+    <div class="form-group">
+      <label for="year">Năm học</label>
+      <input type="text" class="form-control" id="year" placeholder="năm bắt đầu-năm kết thúc"
+             formControlName="year">
+      <div [hidden]="yearsSemestersFormGroup.controls.year.status == 'VALID' || yearsSemestersFormGroup.controls.year.pristine"
+           class="alert alert-danger">
+        Năm học có dạng : yyyy-yyyy.<br>
+        Năm học không được để trống.<br>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="semester">Học kỳ</label>
+      <input type="number" class="form-control" id="semester" placeholder="Nhập học kỳ"
+             formControlName="semester">
+      <div [hidden]="yearsSemestersFormGroup.controls.semester.status == 'VALID' || yearsSemestersFormGroup.controls.semester.pristine"
+           class="alert alert-danger">
+        Học kỳ không được để trống.
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="startDate">Ngày bắt đầu</label>
+      <input type="date" class="form-control" id="startDate" placeholder="dd/mm/yyyy"
+             formControlName="startDate">
+      <div [hidden]="yearsSemestersFormGroup.controls.startDate.status == 'VALID' || yearsSemestersFormGroup.controls.startDate.pristine"
+           class="alert alert-danger">
+        Học kỳ không được để trống.
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="weeksNumber">Số tuần</label>
+      <input type="number" class="form-control" id="weeksNumber" placeholder="Nhập số lượng tuần học"
+             formControlName="weeksNumber">
+      <div [hidden]="yearsSemestersFormGroup.controls.weeksNumber.status == 'VALID' || yearsSemestersFormGroup.controls.weeksNumber.pristine"
+           class="alert alert-danger">
+        Số tuần học không được để trồng.
+      </div>
+    </div>
+
+  </div>
+  <div class="modal-footer justify-content-between">
+    <button type="button" class="btn btn-default" (click)="bsModalRef.hide()">Đóng</button>
+    <button type="submit" class="btn btn-primary" [disabled]="yearsSemestersFormGroup.status == 'INVALID'">Lưu</button>
+  </div>
+</form>

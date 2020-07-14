@@ -19,6 +19,11 @@ public class YearSemesterServiceImpl implements YearSemesterService {
     @Autowired
     private ModelMapper modelMapper;
 
+    private List<YearSemester> yearsSemesters;
+    private List<YearSemesterDTO> yearsSemestersDTO;
+    private YearSemester yearSemester;
+    private YearSemesterDTO yearSemesterDTO;
+
     /**
      * Lấy tất cả các năm học - học kỳ trong cơ sở dữ liệu
      *
@@ -26,8 +31,8 @@ public class YearSemesterServiceImpl implements YearSemesterService {
      */
     @Override
     public List<YearSemesterDTO> getYearsSemesters() {
-        List<YearSemester> yearsSemesters = yearSemesterRepository.findAll();
-        List<YearSemesterDTO> yearsSemestersDTO = new ArrayList<>();
+        yearsSemesters = yearSemesterRepository.findAll();
+        yearsSemestersDTO = new ArrayList<>();
 
         //Convert yearSemester (Entity) -> yearSemesterDTO (DTO)
         for (YearSemester yearSemester : yearsSemesters) {
@@ -45,10 +50,10 @@ public class YearSemesterServiceImpl implements YearSemesterService {
      */
     @Override
     public YearSemesterDTO getYearSemesterById(int id) {
-        YearSemester yearSemester = yearSemesterRepository.findById(id).get();
+        yearSemester = yearSemesterRepository.findById(id).get();
 
         //Convert yearSemester (Entity) -> yearSemesterDTO (DTO)
-        YearSemesterDTO yearSemesterDTO = modelMapper.map(yearSemester, YearSemesterDTO.class);
+        yearSemesterDTO = modelMapper.map(yearSemester, YearSemesterDTO.class);
 
         return yearSemesterDTO;
     }
