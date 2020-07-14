@@ -39,6 +39,7 @@ public class RoleServiceImpl implements RoleService {
     private Function function;
     private FunctionDTO functionDTO;
     private List<RoleFunction> roleFunctions;
+    private RoleFunction roleFunction;
 
     /**
      * Lấy tất cả nhóm quyền trong cơ sở dữ liệu
@@ -145,7 +146,6 @@ public class RoleServiceImpl implements RoleService {
 
         functionsDTO = roleDTO.getFunctionsDTO();
         for (FunctionDTO functionDTO : functionsDTO) {
-            RoleFunction roleFunction = new RoleFunction();
             roleFunction.setRoleId(getRoleByRoleName(roleDTO.getRoleName()).getId());
             roleFunction.setFunctionId(functionDTO.getId());
             roleFunction.setStatus(functionDTO.getStatus());
