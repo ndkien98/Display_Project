@@ -19,12 +19,12 @@ public class ProjectMember {
     @Column(name = "student_code", length = 10)
     private String studentCode;
 
-    @Column(name = "full_name", length = 50, nullable = false)
+    @Column(name = "full_name", length = 50)
     private String fullName;
 
     @Column(name = "class_code", length = 10)
     private String classCode;
 
-    @Column(name = "project_id", nullable = false)
-    private Integer projectId;
+    @Column(name = "project_code", length = 10)
+    private String projectCode;
 }

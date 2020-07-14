@@ -9,9 +9,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class YearSemesterDTO {
-    private int id;
-    private int year;
-    private int semester;
+    private Integer id;
+    private Integer year;
+    private Integer semester;
     private String startDate;
-    private int weeksNumber;
+    private Integer weeksNumber;
 }

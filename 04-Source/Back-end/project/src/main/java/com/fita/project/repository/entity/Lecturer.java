@@ -16,9 +16,6 @@ public class Lecturer {
     @Column(name = "lecturer_code", length = 10, nullable = false)
     private String lecturerCode;
 
-    @Column(name = "role_id", nullable = false)
-    private Integer roleId;
-
-    @Column(name = "department_code", length = 5, nullable = false)
+    @Column(name = "department_code", length = 5)
     private String departmentCode;
 }

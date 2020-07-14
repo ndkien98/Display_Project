@@ -20,7 +20,7 @@ public interface CourseService {
     List<CourseDTO> getCoursesByYearSemesterId(int yearSemesterId);
 
     // Lấy ra lớp học phần theo "mã giảng viên" và "năm học - học kỳ id"
-    List<CourseDTO> getCoursesByLecturerCodeAndYearSemesterId(String lecturerCode, int yearSemesterId);
+    List<CourseDTO> getCourses(String lecturerCode, int yearSemesterId);
 
     // Thêm lớp học phần
     void addCourse(CourseDTO courseDTO);

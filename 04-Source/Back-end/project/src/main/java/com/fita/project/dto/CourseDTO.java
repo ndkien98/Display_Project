@@ -8,14 +8,14 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class CourseDTO {
-    private int id;
+    private Integer id;
     private String subjectCode;
     private String subjectName;
-    private int subjectGroup;
+    private Integer subjectGroup;
     private String classCode;
-    private int yearSemesterId;
-    private int year;
-    private int semester;
+    private Integer yearSemesterId;
+    private Integer year;
+    private Integer semester;
     private String lecturerCode;
     private String lecturerName;
     private String createdDate;

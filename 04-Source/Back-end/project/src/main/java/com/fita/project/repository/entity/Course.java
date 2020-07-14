@@ -22,13 +22,13 @@ public class Course {
     @Column(name = "subject_group", nullable = false)
     private Integer subjectGroup;
 
-    @Column(name = "class_code", length = 50, nullable = false)
+    @Column(name = "class_code", length = 50)
     private String classCode;
 
-    @Column(name = "year_semester_id", nullable = false)
+    @Column(name = "year_semester_id")
     private Integer yearSemesterId;
 
-    @Column(name = "lecturer_code", length = 10, nullable = false)
+    @Column(name = "lecturer_code", length = 10)
     private String lecturerCode;
 
     @Column(name = "created_date")

@@ -19,7 +19,7 @@ public class User {
     @Column(name = "username", length = 10, nullable = false, unique = true)
     private String username;
 
-    @Column(name = "password", length = 255, nullable = false)
+    @Column(name = "password", nullable = false)
     private String password;
 
     @Column(name = "full_name", length = 50, nullable = false)
@@ -31,7 +31,7 @@ public class User {
     @Column(name = "gender", length = 5)
     private String gender;
 
-    @Column(name = "email_address", length = 100, nullable = false, unique = true)
+    @Column(name = "email_address", length = 100, unique = true)
     private String emailAddress;
 
     @Column(name = "phone_number", length = 10)

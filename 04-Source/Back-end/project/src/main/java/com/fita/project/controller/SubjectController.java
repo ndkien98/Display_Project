@@ -20,6 +20,7 @@ public class SubjectController {
         try {
             return ResponseEntity.ok(subjectService.getSubjects());
         } catch (Exception e) {
+            e.printStackTrace();
             return ResponseEntity.ok(e.toString());
         }
     }
@@ -30,6 +31,7 @@ public class SubjectController {
         try {
             return ResponseEntity.ok(subjectService.getSubjectById(id));
         } catch (Exception e) {
+            e.printStackTrace();
             return ResponseEntity.ok(e.toString());
         }
     }
@@ -41,6 +43,7 @@ public class SubjectController {
             subjectService.addSubject(subjectDTO);
             return ResponseEntity.ok().build();
         } catch (Exception e) {
+            e.printStackTrace();
             return ResponseEntity.ok(e.toString());
         }
     }
@@ -52,6 +55,7 @@ public class SubjectController {
             subjectService.editSubject(id, subjectDTO);
             return ResponseEntity.ok().build();
         } catch (Exception e) {
+            e.printStackTrace();
             return ResponseEntity.ok(e.toString());
         }
     }
@@ -63,6 +67,7 @@ public class SubjectController {
             subjectService.deleteSubject(id);
             return ResponseEntity.ok().build();
         } catch (Exception e) {
+            e.printStackTrace();
             return ResponseEntity.ok(e.toString());
         }
     }

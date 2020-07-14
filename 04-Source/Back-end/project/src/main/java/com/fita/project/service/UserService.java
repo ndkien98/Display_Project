@@ -36,6 +36,9 @@ public interface UserService {
     // Lấy ra giảng viên theo "id"
     LecturerDTO getLecturerById(int id);
 
+    // Lấy ra giảng viên theo "mã giảng viên"
+    LecturerDTO getLecturerByLecturerCode(String lecturerCode);
+
     // Thêm giảng viên
     void addLecturer(LecturerDTO lecturerDTO);
 
@@ -52,6 +55,9 @@ public interface UserService {
 
     // Lấy ra sinh viên theo "id"
     StudentDTO getStudentById(int id);
+
+    // Lất ra sinh viên theo "mã sinh viên"
+    StudentDTO getStudentByStudentCode(String studentCode);
 
     // Thêm sinh viên
     void addStudent(StudentDTO studentDTO);
