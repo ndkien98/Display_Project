@@ -135,6 +135,39 @@ public class ProjectController {
         }
     }
 
+    // Lấy ra số lượng đồ án theo "mã thể loại"
+    @GetMapping("get-quantity-by-category-code/{categoryCode}")
+    public ResponseEntity<?> getQuantityByCategoryCode(@PathVariable String categoryCode) {
+        try {
+            return ResponseEntity.ok(projectService.getQuantityByCategoryCode(categoryCode));
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResponseEntity.ok(e.toString());
+        }
+    }
+
+    // Lấy ra số lượng đồ án theo "mã bộ môn"
+    @GetMapping("get-quantity-by-department-code/{departmentCode}")
+    public ResponseEntity<?> getQuantityByDepartmentCode(@PathVariable String departmentCode) {
+        try {
+            return ResponseEntity.ok(projectService.getQuantityByDepartmentCode(departmentCode));
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResponseEntity.ok(e.toString());
+        }
+    }
+
+    // Lấy ra số lượng đồ án theo "năm học"
+    @GetMapping("get-quantity-by-year/{year}")
+    public ResponseEntity<?> getQuantityByYear(@PathVariable int year) {
+        try {
+            return ResponseEntity.ok(projectService.getQuantityByYear(year));
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResponseEntity.ok(e.toString());
+        }
+    }
+
     // Thêm đồ án
     @PostMapping("add")
     public ResponseEntity<?> addProject(@RequestBody ProjectDTO projectDTO) {
