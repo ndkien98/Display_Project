@@ -146,7 +146,8 @@ public class RoleServiceImpl implements RoleService {
 
         functionsDTO = roleDTO.getFunctionsDTO();
         for (FunctionDTO functionDTO : functionsDTO) {
-            roleFunction.setRoleId(getRoleByRoleName(roleDTO.getRoleName()).getId());
+            roleFunction = new RoleFunction();
+            roleFunction.setRoleId(getRoleByRoleName(role.getRoleName()).getId());
             roleFunction.setFunctionId(functionDTO.getId());
             roleFunction.setStatus(functionDTO.getStatus());
 

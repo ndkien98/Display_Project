@@ -60,7 +60,7 @@ public class RoleController {
 
     // Thêm nhóm quyền
     @PostMapping("add")
-    public ResponseEntity<?> addRole(@RequestParam RoleDTO roleDTO) {
+    public ResponseEntity<?> addRole(@RequestBody RoleDTO roleDTO) {
         try {
             roleService.addRole(roleDTO);
             return ResponseEntity.ok().build();
