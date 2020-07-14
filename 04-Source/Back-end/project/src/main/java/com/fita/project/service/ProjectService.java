@@ -40,6 +40,15 @@ public interface ProjectService {
     // Lấy ra đồ án theo "mã giảng viên + trạng thái + năm học - học kỳ id"
     List<ProjectDTO> getProjects(String lecturerCode, int status, int yearSemesterId);
 
+    // Lấy ra số lượng đồ án theo "mã thể loại"
+    int getQuantityByCategoryCode(String categoryCode);
+
+    // Lấy ra số lượng đồ án theo "mã bộ môn"
+    int getQuantityByDepartmentCode(String departmentCode);
+
+    // Lấy ra số lượng đồ án theo "năm học"
+    int getQuantityByYear(int year);
+
     // Thêm đồ án
     void addProject(ProjectDTO projectDTO);
 

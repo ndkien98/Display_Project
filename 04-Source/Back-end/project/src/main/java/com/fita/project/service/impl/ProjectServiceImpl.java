@@ -263,6 +263,39 @@ public class ProjectServiceImpl implements ProjectService {
     }
 
     /**
+     * Lấy số lượng đồ án trong cơ sở dữ liệu dựa theo mã thể loại
+     *
+     * @param categoryCode
+     * @return int
+     */
+    @Override
+    public int getQuantityByCategoryCode(String categoryCode) {
+        return projectRepository.countByCategoryCode(categoryCode);
+    }
+
+    /**
+     * Lấy số lượng đồ án trong cơ sở dữ liệu dựa theo mã bộ môn
+     *
+     * @param departmentCode
+     * @return int
+     */
+    @Override
+    public int getQuantityByDepartmentCode(String departmentCode) {
+        return projectRepository.countByDepartmentCode(departmentCode);
+    }
+
+    /**
+     * Lấy số lượng đồ án trong cơ sở dữ liệu dựa theo mã bộ môn
+     *
+     * @param year
+     * @return int
+     */
+    @Override
+    public int getQuantityByYear(int year) {
+        return projectRepository.countByYear(year);
+    }
+
+    /**
      * Thêm 1 đồ án vào cơ sở dữ liệu
      *
      * @param projectDTO
@@ -392,8 +425,4 @@ public class ProjectServiceImpl implements ProjectService {
 
         return projectMembersDTO;
     }
-
-    // Các thành viên viết code dưới này
-
-
 }
