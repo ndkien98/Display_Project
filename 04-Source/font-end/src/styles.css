@@ -1,1 +1,8 @@
-/* You can add global styles to this file, and also import other style files */
+table {
+  counter-reset: section;
+}
+/*set tu dong tang cho STT*/
+.count:before {
+  counter-increment: section;
+  content: counter(section);
+}

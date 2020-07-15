@@ -1,0 +1,149 @@
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <div class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col-sm-6">
+          <h1 class="m-0 text-dark">Quản Lý Môn Học</h1>
+        </div><!-- /.col -->
+        <div class="col-sm-6">
+          <ol class="breadcrumb float-sm-right">
+            <li class="breadcrumb-item"><a href="/management/home">Home</a></li>
+            <li class="breadcrumb-item active">Quản Lý Môn Học</li>
+          </ol>
+        </div><!-- /.col -->
+      </div><!-- /.row -->
+    </div><!-- /.container-fluid -->
+  </div>
+  <!-- /.content-header -->
+
+  <!-- Main content -->
+  <div class="content">
+    <div class="container-fluid">
+      <!-- JUST EDIT HERE! -->
+      <div class="row">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-header">
+              <div class="row">
+                <div class="col-sm-6 col-md-8 my-2">
+                  <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal-add-subject" (click)="openModalAdd()">
+                    Thêm môn học
+                  </button>
+                </div>
+              </div>
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body">
+              <table datatable id="subjectsDatatable" class="table table-bordered table-striped" [dtOptions]="dataTableOptions"
+                      [dtTrigger]="dtTrigger">
+                <thead>
+                <tr>
+                  <th>STT</th>
+                  <th>Mã môn học</th>
+                  <th>Tên môn học</th>
+                  <th>Bộ môn</th>
+                  <th>Hành động</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr *ngFor="let subject of subjects">
+                  <td class="count"></td>
+                  <td>{{subject.subjectCode}}</td>
+                  <td>{{subject.subjectName}}</td>
+                  <td>{{subject.departmentName}}</td>
+                  <td>
+                    <button type="button" class="btn btn-warning btn-sm" data-toggle="modal"
+                            data-target="#modal-edit-subject" id="{{subject.id}}">
+                      <i class="fas fa-pencil-alt"></i>
+                      Sửa
+                    </button>
+                    <button type="button" class="btn btn-danger btn-sm" data-toggle="modal"
+                            data-target="#modal-delete-subject" name="{{subject.id}}">
+                      <i class="fas fa-trash"></i>
+                      Xoá
+                    </button>
+                  </td>
+                </tr>
+                </tbody>
+              </table>
+            </div>
+            <!-- /.card-body -->
+          </div>
+          <!-- /.card -->
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+    </div><!-- /.container-fluid -->
+
+    <!-- Modal thêm môn học -->
+    <!-- /.modal -->
+
+    <!-- Modal sửa môn học -->
+    <div class="modal fade" id="modal-edit-subject">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header bg-warning">
+            <h4 class="modal-title">Sửa môn học</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="form-group">
+              <label for="subjectCodeEditModal">Mã môn học</label>
+              <input type="text" class="form-control" id="subjectCodeEditModal" value="PTH03115">
+            </div>
+            <div class="form-group">
+              <label for="subjectNameEditModal">Tên môn học</label>
+              <input type="text" class="form-control" id="subjectNameEditModal" value="Đồ án 1">
+            </div>
+            <div class="form-group">
+              <label>Bộ môn</label>
+              <select class="form-control department-select2" style="width: 100%;">
+                <option>Công nghệ phần mềm</option>
+                <option>Khoa học máy tính</option>
+                <option>Toán - Tin ứng dụng</option>
+              </select>
+            </div>
+          </div>
+          <div class="modal-footer justify-content-between">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
+            <button type="button" class="btn btn-primary">Lưu</button>
+          </div>
+        </div>
+        <!-- /.modal-content -->
+      </div>
+      <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+
+    <!-- Modal xoá môn học -->
+    <div class="modal fade" id="modal-delete-subject">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header bg-danger">
+            <h4 class="modal-title">Xoá môn học</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body" style="text-align: center">
+            Xoá môn học <label id="subjectNameDeleteModal">Đồ án 1</label>?
+          </div>
+          <div class="modal-footer justify-content-between">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Huỷ</button>
+            <button type="button" class="btn btn-primary">Xoá</button>
+          </div>
+        </div>
+        <!-- /.modal-content -->
+      </div>
+      <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+  </div>
+  <!-- /.content -->
+</div>
+<!-- /.content-wrapper -->

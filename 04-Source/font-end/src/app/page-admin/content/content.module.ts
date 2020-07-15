@@ -11,11 +11,13 @@ import {DecentralizationModule} from './decentralization/decentralization.module
 import {DepartmentModule} from './department/department.module';
 import {CategoryModule} from './category/category.module';
 import {YearsSemestersModule} from "./years-semesters/years-semesters.module";
+import { SubjectsComponent } from './subjects/subjects.component';
+import {SubjectsModule} from "./subjects/subjects.module";
 
 
 @NgModule({
   declarations: [
-    ContentComponent
+    ContentComponent,
   ],
   exports: [
     ContentComponent
@@ -31,7 +33,8 @@ import {YearsSemestersModule} from "./years-semesters/years-semesters.module";
     DecentralizationModule,
     DepartmentModule,
     CategoryModule,
-    YearsSemestersModule
+    YearsSemestersModule,
+    SubjectsModule
   ],
 })
 export class ContentModule {
