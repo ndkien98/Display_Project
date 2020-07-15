@@ -2,13 +2,13 @@ import {Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {Subject} from 'rxjs';
 import {BsModalRef, BsModalService} from 'ngx-bootstrap/modal';
 import {YearsSemesterService} from '../../../shared/_service/years-semester.service';
-import {DataTableDirective} from "angular-datatables";
-import {AddDepartmentComponent} from "../department/add-department/add-department.component";
-import {AddYearsSemestersComponent} from "./add-years-semesters/add-years-semesters.component";
-import {EditDepartmentComponent} from "../department/edit-department/edit-department.component";
-import {DeleteDepartmentComponent} from "../department/delete-department/delete-department.component";
-import {EditYearsSemestersComponent} from "./edit-years-semesters/edit-years-semesters.component";
-import {DeleteYearsSemestersComponent} from "./delete-years-semesters/delete-years-semesters.component";
+import {DataTableDirective} from 'angular-datatables';
+import {AddDepartmentComponent} from '../department/add-department/add-department.component';
+import {AddYearsSemestersComponent} from './add-years-semesters/add-years-semesters.component';
+import {EditDepartmentComponent} from '../department/edit-department/edit-department.component';
+import {DeleteDepartmentComponent} from '../department/delete-department/delete-department.component';
+import {EditYearsSemestersComponent} from './edit-years-semesters/edit-years-semesters.component';
+import {DeleteYearsSemestersComponent} from './delete-years-semesters/delete-years-semesters.component';
 
 
 @Component({
@@ -73,9 +73,9 @@ export class YearsSemestersComponent implements OnInit, OnDestroy {
       if (result) {
         this.reload();
       }  else if (!result) {
-        alert("Lỗi năm học - học kỳ không được trùng nhau");
+        alert('Lỗi năm học - học kỳ không được trùng nhau');
       }
-    })
+    });
   }
 
   openModalEdit(event: Event) {
@@ -89,9 +89,9 @@ export class YearsSemestersComponent implements OnInit, OnDestroy {
       if (result) {
         this.reload();
       } else if (!result) {
-        alert("Lỗi năm học - học kỳ không được trùng nhau");
+        alert('Lỗi năm học - học kỳ không được trùng nhau');
       }
-    })
+    });
   }
 
   openModalDelete(event: Event) {
@@ -104,17 +104,17 @@ export class YearsSemestersComponent implements OnInit, OnDestroy {
     this.bsModalRef.content.onClose.subscribe(result => { // component cha tiếp tục lắng nghe sự kiện từ component con, nếu thực hiện crud sẽ truyền về 1 v và thực hiện reload
       if (result) {
         this.reload();
-      }else if (!result) {
-        alert("Học kỳ muốn xóa hiện đã có dữ liệu không thể xóa");
+      } else if (!result) {
+        alert('Học kỳ muốn xóa hiện đã có dữ liệu không thể xóa');
       }
-    })
+    });
   }
 
   private reload() {
     this.dtElement.dtInstance.then((dtInstance: DataTables.Api) => {
       dtInstance.destroy();
       // Call the dtTrigger to rerender again
-      this.loadAllYearsSemester()
+      this.loadAllYearsSemester();
     });
   }
 

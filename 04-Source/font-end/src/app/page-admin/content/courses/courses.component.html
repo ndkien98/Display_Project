@@ -1,0 +1,206 @@
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <div class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col-sm-6">
+          <h1 class="m-0 text-dark">Quản Lý Lớp Học Phần</h1>
+        </div><!-- /.col -->
+        <div class="col-sm-6">
+          <ol class="breadcrumb float-sm-right">
+            <li class="breadcrumb-item"><a href="home.html">Home</a></li>
+            <li class="breadcrumb-item active">Quản Lý Lớp Học Phần</li>
+          </ol>
+        </div><!-- /.col -->
+      </div><!-- /.row -->
+    </div><!-- /.container-fluid -->
+  </div>
+  <!-- /.content-header -->
+
+  <!-- Main content -->
+  <div class="content">
+    <div class="container-fluid">
+      <!-- JUST EDIT HERE! -->
+      <div class="row">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-header">
+              <div class="row">
+                <div class="col-sm-6 col-md-8 my-2">
+                  <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal-add" (click)="OpenModalAdd()">Thêm lớp
+                    học phần
+                  </button>
+                </div>
+                <div class="col-sm-6 col-md-4 my-2">
+                  <ng-select2 [data]="dataSelect2" [options]="option">
+
+                  </ng-select2>
+                </div>
+              </div>
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body">
+              <table id="coursesDatatable" class="table table-bordered table-striped" [dtOptions]="dataTableOptions" datatable [dtTrigger]="dtTrigger">
+                <thead>
+                <tr>
+                  <th>STT</th>
+                  <th>Mã môn học</th>
+                  <th>Tên môn học</th>
+                  <th>Nhóm môn học</th>
+                  <th>Mã lớp</th>
+                  <th>Giảng viên</th>
+                  <th>Hành động</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr *ngFor="let courses of listCourses">
+                  <td class="count"></td>
+                  <td>{{courses.subjectCode}}</td>
+                  <td>{{courses.subjectName}}</td>
+                  <td>{{courses.subjectGroup}}</td>
+                  <td>{{courses.classCode}}</td>
+                  <td>{{courses.lecturerName}}</td>
+                  <td>
+                    <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#modal-info">
+                      <i class="fas fa-eye"></i> Chi tiết
+                    </button>
+                    <button type="button" class="btn btn-warning btn-sm" data-toggle="modal"
+                            data-target="#modal-edit">
+                      <i class="fas fa-pencil-alt"></i> Sửa
+                    </button>
+                    <button type="button" class="btn btn-danger btn-sm" data-toggle="modal"
+                            data-target="#modal-delete">
+                      <i class="fas fa-trash"></i> Xoá
+                    </button>
+                  </td>
+                </tr>
+                </tbody>
+              </table>
+            </div>
+            <!-- /.card-body -->
+          </div>
+          <!-- /.card -->
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+    </div><!-- /.container-fluid -->
+
+    <!-- Modal thêm lớp học phần -->
+<!--    <div class="modal fade" id="modal-add">-->
+<!--      <div class="modal-dialog">-->
+
+<!--        &lt;!&ndash; /.modal-content &ndash;&gt;-->
+<!--      </div>-->
+<!--      &lt;!&ndash; /.modal-dialog &ndash;&gt;-->
+<!--    </div>-->
+    <!-- /.modal -->
+
+    <!-- Modal chi tiết lớp học phần -->
+    <div class="modal fade" id="modal-info">
+      <div class="modal-dialog">
+
+        <!-- /.modal-content -->
+      </div>
+      <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+
+    <!-- Modal sửa lớp học phần -->
+    <div class="modal fade" id="modal-edit">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header bg-warning">
+            <h4 class="modal-title">Sửa lớp học phần</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="form-group">
+              <label>Mã môn học</label>
+              <select class="form-control subject-code-select2" style="width: 100%;">
+                <option>PTH03115</option>
+                <option>PTH02004</option>
+                <option>TH01206</option>
+                <option>TH02490</option>
+                <option>PTH25112</option>
+                <option>PTH46080</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="subjectNameEditModal">Tên môn học</label>
+              <input type="text" class="form-control" id="subjectNameEditModal" value="Đồ án 1" readonly>
+            </div>
+            <div class="form-group">
+              <label for="subjectGroupEditModal">Nhóm môn học</label>
+              <input type="number" class="form-control" id="subjectGroupEditModal" value="1"
+                     placeholder="Nhập nhóm môn học" min="1">
+            </div>
+            <div class="form-group">
+              <label for="classCodeEditModal">Mã lớp</label>
+              <input type="text" class="form-control" id="classCodeEditModal" value="K61CNPMP">
+            </div>
+            <div class="form-group">
+              <label>Mã giảng viên</label>
+              <select class="form-control lecturer-code-select2" style="width: 100%;">
+                <option>CNP02</option>
+                <option>CNP03</option>
+                <option>CNP04</option>
+                <option>CNP07</option>
+                <option>MTI05</option>
+                <option>MTI10</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="lecturerNameEditModal">Tên giảng viên</label>
+              <input type="text" class="form-control" id="lecturerNameEditModal" value="Ngô Công Thắng" readonly>
+            </div>
+            <div class="form-group">
+              <label>Học kỳ - năm học</label>
+              <select class="form-control year-semester-select2" style="width: 100%;" disabled>
+                <option>Học kỳ 1 - Năm học 2019-2020</option>
+                <option>Học kỳ 2 - Năm học 2019-2020</option>
+                <option>Học kỳ 1 - Năm học 2020-2021</option>
+              </select>
+            </div>
+          </div>
+          <div class="modal-footer justify-content-between">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
+            <button type="button" class="btn btn-primary">Lưu</button>
+          </div>
+        </div>
+        <!-- /.modal-content -->
+      </div>
+      <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+
+    <!-- Modal xoá lớp học phần -->
+    <div class="modal fade" id="modal-delete">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header bg-danger">
+            <h4 class="modal-title">Xoá lớp học phần</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body" style="text-align: center">
+            Xoá lớp học phần <label id="subjectNameDeleteModal">Đồ án 1</label>?
+          </div>
+          <div class="modal-footer justify-content-between">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Huỷ</button>
+            <button type="button" class="btn btn-primary">Xoá</button>
+          </div>
+        </div>
+        <!-- /.modal-content -->
+      </div>
+      <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+  </div>
+  <!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
+

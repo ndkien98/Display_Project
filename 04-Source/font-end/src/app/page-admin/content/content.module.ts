@@ -10,12 +10,13 @@ import {ContentRoutingModule} from './content-routing.module';
 import {DecentralizationModule} from './decentralization/decentralization.module';
 import {DepartmentModule} from './department/department.module';
 import {CategoryModule} from './category/category.module';
-import {YearsSemestersModule} from "./years-semesters/years-semesters.module";
+import {YearsSemestersModule} from './years-semesters/years-semesters.module';
+import {CoursesModule} from './courses/courses.module';
 
 
 @NgModule({
   declarations: [
-    ContentComponent
+    ContentComponent,
   ],
   exports: [
     ContentComponent
@@ -31,7 +32,8 @@ import {YearsSemestersModule} from "./years-semesters/years-semesters.module";
     DecentralizationModule,
     DepartmentModule,
     CategoryModule,
-    YearsSemestersModule
+    YearsSemestersModule,
+    CoursesModule
   ],
 })
 export class ContentModule {
