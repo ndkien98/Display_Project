@@ -14,7 +14,7 @@ public class RoleController {
     @Autowired
     private RoleService roleService;
 
-    // Lấy ra tất cả các nhóm quyền
+    // Lấy ra tất cả các vai trò
     @GetMapping("get-all")
     public ResponseEntity<?> getRoles() {
         try {
@@ -25,7 +25,7 @@ public class RoleController {
         }
     }
 
-    // Lấy ra nhóm quyền theo "id"
+    // Lấy ra vai trò theo "id"
     @GetMapping("get-by-id/{roleId}")
     public ResponseEntity<?> getRoleById(@PathVariable int roleId) {
         try {
@@ -36,7 +36,7 @@ public class RoleController {
         }
     }
 
-    // Lấy ra nhóm quyền theo "tên quyền"
+    // Lấy ra vai trò theo "tên vai trò"
     @GetMapping("get-by-role-name/{roleName}")
     public ResponseEntity<?> getRoleById(@PathVariable String roleName) {
         try {
@@ -58,7 +58,7 @@ public class RoleController {
         }
     }
 
-    // Thêm nhóm quyền
+    // Thêm vai trò
     @PostMapping("add")
     public ResponseEntity<?> addRole(@RequestBody RoleDTO roleDTO) {
         try {
@@ -70,7 +70,7 @@ public class RoleController {
         }
     }
 
-    // Sửa nhóm quyền
+    // Sửa vai trò
     @PutMapping("edit/{id}")
     public ResponseEntity<?> editRole(@PathVariable int id, @RequestBody RoleDTO roleDTO) {
         try {
@@ -82,7 +82,7 @@ public class RoleController {
         }
     }
 
-    // Xoá nhóm quyền
+    // Xoá vai trò
     @DeleteMapping("delete/{id}")
     public ResponseEntity<?> deleteRole(@PathVariable int id) {
         try {

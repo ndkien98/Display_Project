@@ -42,7 +42,7 @@ public class RoleServiceImpl implements RoleService {
     private RoleFunction roleFunction;
 
     /**
-     * Lấy tất cả nhóm quyền trong cơ sở dữ liệu
+     * Lấy tất cả vai trò trong cơ sở dữ liệu
      *
      * @return List<RoleDTO>
      */
@@ -60,7 +60,7 @@ public class RoleServiceImpl implements RoleService {
     }
 
     /**
-     * Lấy nhóm quyền trong cơ sở dữ liệu dựa theo id
+     * Lấy vai trò trong cơ sở dữ liệu dựa theo id
      *
      * @param id
      * @return roleDTO
@@ -85,7 +85,7 @@ public class RoleServiceImpl implements RoleService {
         return roleDTO;
     }
     /**
-     * Lấy nhóm quyền trong cơ sở dữ liệu dựa theo tên quyền
+     * Lấy vai trò trong cơ sở dữ liệu dựa theo tên quyền
      *
      * @param roleName
      * @return roleDTO
@@ -135,7 +135,7 @@ public class RoleServiceImpl implements RoleService {
     }
 
     /**
-     * Thêm 1 nhóm quyền vào cơ sở dữ liệu
+     * Thêm 1 vai trò vào cơ sở dữ liệu
      *
      * @param roleDTO
      */
@@ -156,7 +156,7 @@ public class RoleServiceImpl implements RoleService {
     }
 
     /**
-     * Sửa nhóm quyền trong cơ sở dữ liệu dựa theo id
+     * Sửa vai trò trong cơ sở dữ liệu dựa theo id
      *
      * @param id
      * @param roleDTO
@@ -175,7 +175,7 @@ public class RoleServiceImpl implements RoleService {
     }
 
     /**
-     * Xoá nhóm quyền trong cơ sở dữ liệu dựa theo id
+     * Xoá vai trò trong cơ sở dữ liệu dựa theo id
      *
      * @param id
      */
