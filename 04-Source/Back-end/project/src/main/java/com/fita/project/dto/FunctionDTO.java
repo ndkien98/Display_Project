@@ -11,5 +11,5 @@ public class FunctionDTO {
     private Integer id;
     private String functionName;
     private String actionCode;
-    private String functionDescription;
+    private int status;
 }
