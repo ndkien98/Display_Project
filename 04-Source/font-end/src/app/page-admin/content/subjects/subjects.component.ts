@@ -4,8 +4,6 @@ import {Subject} from "rxjs";
 import {BsModalRef, BsModalService} from "ngx-bootstrap/modal";
 import {SubjectsService} from "../../../shared/_service/subjects.service";
 import {Subjects} from "../../../shared/_models/subjects";
-import {EditDepartmentComponent} from "../department/edit-department/edit-department.component";
-import {DeleteDepartmentComponent} from "../department/delete-department/delete-department.component";
 import {AddSubjectsComponent} from "./add-subjects/add-subjects.component";
 
 @Component({
@@ -58,14 +56,6 @@ export class SubjectsComponent implements OnInit, OnDestroy {
 
   openModalAdd() {
     this.bsModalRef = this.modalService.show(AddSubjectsComponent);
-
-    this.bsModalRef.content.onClose.subscribe(result => { // component cha tiếp tục lắng nghe sự kiện từ component con, nếu thực hiện crud sẽ truyền về 1 v và thực hiện reload
-      if (result) {
-        this.reload();
-      } else {
-        console.log('Thêm thất bại');
-      }
-    })
   }
 
   ngOnDestroy(): void {

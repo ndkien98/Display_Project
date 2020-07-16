@@ -1,11 +1,12 @@
-import { Component, OnInit } from '@angular/core';
-import {Subjects} from "../../../../shared/_models/subjects";
+import {Component, OnInit} from '@angular/core';
+import {DataConvertSelect2, Subjects} from "../../../../shared/_models/subjects";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {SubjectsService} from "../../../../shared/_service/subjects.service";
 import {BsModalRef} from "ngx-bootstrap/modal";
 import {Select2OptionData} from "ng-select2";
-import { Options } from 'select2';
+import {Options} from 'select2';
 import {reload} from "../../../../shared/_models/constant";
+import {DepartmentService} from "../../../../shared/_service/department.service";
 
 @Component({
   selector: 'app-add-subjects',
@@ -14,65 +15,62 @@ import {reload} from "../../../../shared/_models/constant";
 })
 export class AddSubjectsComponent implements OnInit {
 
-  subject: Subjects;
-  subjectFormGroup: FormGroup;
+
+  subject: Subjects;          // sử dụng để đóng modal
+  subjectFormGroup: FormGroup; // tạo ra form group tổng
   // @ts-ignore
-  public onClose: Subjects<boolean>;
-  value: null;
-  public exampleData: Array<Select2OptionData>;
+  public onClose: Subjects<boolean>; // đóng modal
 
-  public data: any[] = [];
-  public options: Options;
-
+  public select2Data: Array<Select2OptionData>; // data chính đổ vào select 2
+  public options: Options;                        // option của select 2
+  private dataConvert: DataConvertSelect2;       // dữ liệu đệm tạm để chuyển data từ api -> select2Data
 
   constructor(
-    private subjectService: SubjectsService,
+    private subjectService: SubjectsService,      // service của subjects
     public bsModalRef: BsModalRef,
-    public formBuilder: FormBuilder
-  ) { }
-
+    public formBuilder: FormBuilder,
+    private departmentService: DepartmentService  // service cua department
+  ) {
+  }
 
   ngOnInit(): void {
     this.subject = new Subjects();
     this.createForm();
     this.onClose = new Subjects();
-    this.exampleData = [
-      {
-        id: 'basic1',
-        text: 'Basic 1'
-      },
-      {
-        id: 'basic2',
-        disabled: true,
-        text: 'Basic 2'
-      },
-      {
-        id: 'basic3',
-        text: 'Basic 3'
-      },
-      {
-        id: 'basic4',
-        text: 'Basic 4'
-      }
-    ];
-    this.options = {
-      theme: 'classic',
-      width: '300',
-    };
+    this.setDataForSelect2();
   }
 
   public createForm() {
     this.subjectFormGroup = this.formBuilder.group({
       code: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(4)]],
       name: ['', Validators.required],
-      codeDepartMent: ['', Validators.required]
+      idDepartment: ['', Validators.required]
     });
   }
 
-  onSubmit(){
+  onSubmit() {
+    console.log(this.subjectFormGroup.value);
     this.onClose.next(reload);
     this.bsModalRef.hide();
   }
 
+  private setDataForSelect2() {
+    this.options = {
+      theme: 'classic',
+      width: '465',
+      placeholder: 'Chọn tên bộ môn',
+      dropdownAutoWidth: true
+    };
+    let dataArr = [];
+    this.departmentService.getAllDepartment().subscribe((data: any) => {
+      data.map(obj => {
+        this.dataConvert = new DataConvertSelect2();
+        this.dataConvert.id = obj.id;
+        this.dataConvert.text = obj.departmentName;
+        dataArr.push(this.dataConvert);
+      });
+      this.select2Data = dataArr;
+    })
+  }
 
 }
