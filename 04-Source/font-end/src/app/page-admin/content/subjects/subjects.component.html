@@ -55,12 +55,12 @@
                   <td>{{subject.departmentName}}</td>
                   <td>
                     <button type="button" class="btn btn-warning btn-sm" data-toggle="modal"
-                            data-target="#modal-edit-subject" id="{{subject.id}}">
+                            data-target="#modal-edit-subject" id="{{subject.id}}" (click)="openModalEdit($event)">
                       <i class="fas fa-pencil-alt"></i>
                       Sửa
                     </button>
                     <button type="button" class="btn btn-danger btn-sm" data-toggle="modal"
-                            data-target="#modal-delete-subject" name="{{subject.id}}">
+                            data-target="#modal-delete-subject" name="{{subject.id}}" (click)="openModalDelete($event)">
                       <i class="fas fa-trash"></i>
                       Xoá
                     </button>
@@ -82,66 +82,9 @@
     <!-- /.modal -->
 
     <!-- Modal sửa môn học -->
-    <div class="modal fade" id="modal-edit-subject">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header bg-warning">
-            <h4 class="modal-title">Sửa môn học</h4>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <div class="form-group">
-              <label for="subjectCodeEditModal">Mã môn học</label>
-              <input type="text" class="form-control" id="subjectCodeEditModal" value="PTH03115">
-            </div>
-            <div class="form-group">
-              <label for="subjectNameEditModal">Tên môn học</label>
-              <input type="text" class="form-control" id="subjectNameEditModal" value="Đồ án 1">
-            </div>
-            <div class="form-group">
-              <label>Bộ môn</label>
-              <select class="form-control department-select2" style="width: 100%;">
-                <option>Công nghệ phần mềm</option>
-                <option>Khoa học máy tính</option>
-                <option>Toán - Tin ứng dụng</option>
-              </select>
-            </div>
-          </div>
-          <div class="modal-footer justify-content-between">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
-            <button type="button" class="btn btn-primary">Lưu</button>
-          </div>
-        </div>
-        <!-- /.modal-content -->
-      </div>
-      <!-- /.modal-dialog -->
-    </div>
     <!-- /.modal -->
 
     <!-- Modal xoá môn học -->
-    <div class="modal fade" id="modal-delete-subject">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header bg-danger">
-            <h4 class="modal-title">Xoá môn học</h4>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body" style="text-align: center">
-            Xoá môn học <label id="subjectNameDeleteModal">Đồ án 1</label>?
-          </div>
-          <div class="modal-footer justify-content-between">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Huỷ</button>
-            <button type="button" class="btn btn-primary">Xoá</button>
-          </div>
-        </div>
-        <!-- /.modal-content -->
-      </div>
-      <!-- /.modal-dialog -->
-    </div>
     <!-- /.modal -->
   </div>
   <!-- /.content -->

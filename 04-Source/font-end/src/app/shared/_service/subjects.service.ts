@@ -68,9 +68,9 @@ export class SubjectsService {
    * @return thành công trả về status 200 , thất bại trả về exeption
    */
   // tslint:disable-next-line:ban-types
-  editDepartment(data: Subjects): Observable<Boolean> {
+  editSubject(data: Subjects, id: any): Observable<Boolean> {
     // tslint:disable-next-line:ban-types max-line-length
-    return this.http.put<Boolean>(this.baseService.baseUrl + '/qly-do-an/api/subjects/edit/' + data.id, JSON.stringify(data), this.httpOptions)
+    return this.http.put<Boolean>(this.baseService.baseUrl + '/qly-do-an/api/subjects/edit/' + id, JSON.stringify(data), this.httpOptions)
       .pipe(
         retry(1),
         catchError(this.errorHandl)

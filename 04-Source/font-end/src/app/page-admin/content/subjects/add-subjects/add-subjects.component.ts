@@ -7,6 +7,7 @@ import {Select2OptionData} from "ng-select2";
 import {Options} from 'select2';
 import {reload} from "../../../../shared/_models/constant";
 import {DepartmentService} from "../../../../shared/_service/department.service";
+import {Subject} from "rxjs";
 
 @Component({
   selector: 'app-add-subjects',
@@ -36,28 +37,38 @@ export class AddSubjectsComponent implements OnInit {
   ngOnInit(): void {
     this.subject = new Subjects();
     this.createForm();
-    this.onClose = new Subjects();
+    this.onClose = new Subject();
     this.setDataForSelect2();
   }
 
   public createForm() {
     this.subjectFormGroup = this.formBuilder.group({
-      code: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(4)]],
-      name: ['', Validators.required],
-      idDepartment: ['', Validators.required]
+      subjectCode: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(8)]],
+      subjectName: ['', Validators.required],
+      departmentCode: ['', Validators.required]
     });
   }
 
   onSubmit() {
     console.log(this.subjectFormGroup.value);
-    this.onClose.next(reload);
-    this.bsModalRef.hide();
+    this.subjectService.addSubjects(this.subjectFormGroup.value).subscribe( data=> {
+        this.onClose.next(reload);
+        this.bsModalRef.hide();
+        this.subjectFormGroup.reset();
+      },
+      error1 => {
+        this.onClose.next(!reload);
+        this.bsModalRef.hide();
+        this.subjectFormGroup.reset();
+      }
+    )
+
   }
 
   private setDataForSelect2() {
     this.options = {
       theme: 'classic',
-      width: '465',
+      width: '100%',
       placeholder: 'Chọn tên bộ môn',
       dropdownAutoWidth: true
     };
@@ -65,7 +76,7 @@ export class AddSubjectsComponent implements OnInit {
     this.departmentService.getAllDepartment().subscribe((data: any) => {
       data.map(obj => {
         this.dataConvert = new DataConvertSelect2();
-        this.dataConvert.id = obj.id;
+        this.dataConvert.id = obj.departmentCode;
         this.dataConvert.text = obj.departmentName;
         dataArr.push(this.dataConvert);
       });
