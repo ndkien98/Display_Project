@@ -58,12 +58,14 @@ export class CoursesComponent implements OnInit {
   setAllYearsSemesterForSelect2() {
     this.option = {
       theme: 'classic',
-      width: '456',
+      width: '100%',
+      placeholder: 'Chọn học kỳ - năm học',
     };
     const dataArray = [];
+    // tslint:disable-next-line:prefer-const
     this.yearsSemesterService.getAllYearsSemester().subscribe((data: YearsSemester[]) => {
       data.map(yearsSemes => {
-        this.semesterYear = 'Học kỳ ' + yearsSemes.semester + '- Năm học' + yearsSemes.year + '-' + yearsSemes.year + 1;
+        this.semesterYear = 'Học kỳ ' + yearsSemes.semester + ' - Năm học ' + yearsSemes.year + ' - ' + ++yearsSemes.year;
         // this.listSemesterYear.push(this.semesterYear);
         this.dataConvert = new DataConvertSelect2();
         this.dataConvert.id = yearsSemes.id;
@@ -71,6 +73,7 @@ export class CoursesComponent implements OnInit {
         dataArray.push(this.dataConvert);
       });
       this.dataSelect2 = dataArray;
+
       console.log(this.dataSelect2);
     });
 
