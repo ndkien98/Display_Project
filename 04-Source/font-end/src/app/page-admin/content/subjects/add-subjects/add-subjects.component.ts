@@ -1,11 +1,11 @@
 import {Component, OnInit} from '@angular/core';
-import {DataConvertSelect2, Subjects} from "../../../../shared/_models/subjects";
+import {Subjects} from "../../../../shared/_models/subjects";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {SubjectsService} from "../../../../shared/_service/subjects.service";
 import {BsModalRef} from "ngx-bootstrap/modal";
 import {Select2OptionData} from "ng-select2";
 import {Options} from 'select2';
-import {reload} from "../../../../shared/_models/constant";
+import {DataConvertSelect2, reload} from "../../../../shared/_models/constant";
 import {DepartmentService} from "../../../../shared/_service/department.service";
 import {Subject} from "rxjs";
 

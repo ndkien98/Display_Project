@@ -44,7 +44,10 @@ export class DepartmentComponent implements OnInit, OnDestroy {
     return this.departmentService.getAllDepartment().subscribe((data: {}) => {
       this.listDepartments = data;
       this.dtTrigger.next();
-    });
+    }, error1 => {
+      alert("Lỗi load data từ serve, đề nghị tải lại trang")
+      }
+    );
   }
 
   /**

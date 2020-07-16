@@ -6,7 +6,3 @@ export class Subjects {
   departmentName?: string;
 }
 
-export class DataConvertSelect2 {
-  id: any;
-  text: any;
-}
