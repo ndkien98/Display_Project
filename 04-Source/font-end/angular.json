@@ -13,6 +13,9 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "allowedCommonJsDependencies": [
+              "lodash"
+            ],
             "outputPath": "dist/font-end",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -37,9 +40,9 @@
               "src/assets/admin-dashboard/plugins/moment/moment.min.js",
               "src/assets/admin-dashboard/dist/js/adminlte.min.js",
               "src/assets/admin-dashboard/dist/js/demo.js",
+              "node_modules/jquery/dist/jquery.js",
               "node_modules/datatables.net/js/jquery.dataTables.js",
               "node_modules/bootstrap/dist/js/bootstrap.js",
-              "node_modules/jquery/dist/jquery.js",
               "node_modules/select2/dist/js/select2.min.js"
             ]
           },
