@@ -4,6 +4,7 @@ import {BaseService} from './base.service';
 import {Observable, throwError} from 'rxjs';
 import {Courses} from '../_models/courses';
 import {catchError, retry} from 'rxjs/operators';
+import {YearsSemester} from '../_models/years-semester';
 
 @Injectable({
     providedIn: 'root',
@@ -23,6 +24,30 @@ export class CoursesService {
   getAllCourses(): Observable<Courses[]> {
     return this.http.get<Courses[]>(this.baseService.baseUrl + '/qly-do-an/api/courses/get-all')
       .pipe(  retry(1),
+        catchError(this.errorHandl)
+      );
+  }
+
+  getCourseByYearSemesterId(id: number): Observable<Courses[]> {
+    return this.http.get<Courses[]>(this.baseService.baseUrl + '/qly-do-an/api/courses/get-by-year-semester-id/ ')
+      .pipe(  retry(1),
+        catchError(this.errorHandl)
+      );
+  }
+  findCoursesById(id): Observable<Courses> {
+    return this.http.get<Courses>(this.baseService.baseUrl + '/qly-do-an/api/courses/get-by-id/' + id)
+      .pipe(
+        retry(1),
+        catchError(this.errorHandl)
+      );
+  }
+
+  // tslint:disable-next-line:ban-types
+  deleteCourses(id): Observable<Boolean> {
+    // tslint:disable-next-line:ban-types
+    return this.http.delete<Boolean>(this.baseService.baseUrl + '/qly-do-an/api/courses/delete/' + id)
+      .pipe(
+        retry(1),
         catchError(this.errorHandl)
       );
   }

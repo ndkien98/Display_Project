@@ -9,6 +9,8 @@ import {YearsSemesterService} from '../../../shared/_service/years-semester.serv
 import {YearsSemester} from '../../../shared/_models/years-semester';
 import {Select2OptionData} from 'ng-select2';
 import {Options} from 'select2';
+import {DeleteCoursesComponent} from './delete-courses/delete-courses.component';
+import {DetailCoursesComponent} from './detail-courses/detail-courses.component';
 
 @Component({
   selector: 'app-courses',
@@ -83,4 +85,36 @@ export class CoursesComponent implements OnInit {
     this.bsModalRef = this.modalService.show(AddCoursesComponent);
   }
 
+  OpenModalDetail(event: Event) {
+    const idDetail = (event.target as Element).id;
+    const initialState = {
+       idDetail
+    };
+    this.bsModalRef = this.modalService.show(DetailCoursesComponent, {initialState});
+  }
+  OpenModalDelete(event: Event) {
+    const id = (event.target as Element).getAttribute('name');
+    const initialState = {
+      idCourses: id
+    };
+    this.bsModalRef = this.modalService.show(DeleteCoursesComponent, {initialState});
+
+    this.bsModalRef.content.onClose.subscribe(result => {
+      if (result) {
+        this.reload();
+      } else if (!result) {
+        alert('Lớp học phần muốn xóa hiện đã có dữ liệu không thể xóa');
+      }
+    });
+  }
+
+
+  private reload() {
+    this.dtElement.dtInstance.then((dtInstance: DataTables.Api) => {
+      dtInstance.destroy();
+      // Call the dtTrigger to rerender again
+      this.loadAllCourses();
+    });
+
+  }
 }
