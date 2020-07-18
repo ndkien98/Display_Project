@@ -28,18 +28,21 @@ export class CoursesService {
       );
   }
 
-  getCourseByYearSemesterId(id: number): Observable<Courses[]> {
-    return this.http.get<Courses[]>(this.baseService.baseUrl + '/qly-do-an/api/courses/get-by-year-semester-id/ ')
-      .pipe(  retry(1),
-        catchError(this.errorHandl)
-      );
-  }
   findCoursesById(id): Observable<Courses> {
     return this.http.get<Courses>(this.baseService.baseUrl + '/qly-do-an/api/courses/get-by-id/' + id)
       .pipe(
         retry(1),
         catchError(this.errorHandl)
       );
+  }
+  getCoursesByYearSemesterId(id): Observable<boolean> {
+    // @ts-ignore
+    return this.http.get<Courses[]>(this.baseService.baseUrl + '/qly-do-an/api/courses/get-by-year-semester-id/' + id)
+      .pipe(
+        retry(1),
+        catchError(this.errorHandl)
+      );
+
   }
 
   // tslint:disable-next-line:ban-types

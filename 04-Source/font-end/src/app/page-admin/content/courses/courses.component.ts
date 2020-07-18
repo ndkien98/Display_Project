@@ -12,6 +12,7 @@ import {Options} from 'select2';
 import {DeleteCoursesComponent} from './delete-courses/delete-courses.component';
 import {DetailCoursesComponent} from './detail-courses/detail-courses.component';
 
+
 @Component({
   selector: 'app-courses',
   templateUrl: './courses.component.html',
@@ -30,6 +31,7 @@ export class CoursesComponent implements OnInit {
   dataSelect2: Array<Select2OptionData>;
   option: Options;
   dataConvert: DataConvertSelect2;
+  selected: boolean;
 
   constructor(
     public modalService: BsModalService,
@@ -75,7 +77,6 @@ export class CoursesComponent implements OnInit {
         dataArray.push(this.dataConvert);
       });
       this.dataSelect2 = dataArray;
-
       console.log(this.dataSelect2);
     });
 
@@ -108,6 +109,13 @@ export class CoursesComponent implements OnInit {
     });
   }
 
+  public onChange(id: any) {
+      console.log(id);
+      this.coursesService.getCoursesByYearSemesterId(id).subscribe((data: {}) => {
+      this.listCourses = data;
+      console.log(data);
+    });
+  }
 
   private reload() {
     this.dtElement.dtInstance.then((dtInstance: DataTables.Api) => {
