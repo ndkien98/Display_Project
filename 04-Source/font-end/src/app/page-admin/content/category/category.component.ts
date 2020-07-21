@@ -29,9 +29,6 @@ export class CategoryComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.dataTableOptions = {
-      pagingType: 'full_numbers',
-    };
     this.loadAllCategories();
   }
 

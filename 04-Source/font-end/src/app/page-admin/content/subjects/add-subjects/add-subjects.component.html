@@ -1,0 +1,42 @@
+<div class="modal-header bg-success">
+  <h4 class="modal-title pull-left">Thêm môn học</h4>
+  <button type="button" class="close pull-right" aria-label="Close" (click)="bsModalRef.hide()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<form role="form" (ngSubmit)="onSubmit()" [formGroup]="subjectFormGroup" novalidate>
+  <div class="modal-body">
+    <div class="form-group">
+      <label for="subjectCodeAddModal">Mã môn học</label>
+      <input type="text" class="form-control" id="subjectCodeAddModal" placeholder="Nhập mã môn học"
+             formControlName="subjectCode">
+      <div
+        [hidden]="subjectFormGroup.controls.subjectCode.status == 'VALID' || subjectFormGroup.controls.subjectCode.pristine"
+        class="alert alert-danger">
+        Mã môn học có dạng : PTH _ _ _ _ _ , ex : PTH03115<br>
+        Mã môn học không được để trống và có chiều dài bằng 8<br>
+        Mã môn học không được trùng nhau.
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="subjectNameAddModal">Tên Bộ môn</label>
+      <input type="text" class="form-control" id="subjectNameAddModal" placeholder="Nhập tên môn học"
+             formControlName="subjectName">
+      <div
+        [hidden]="subjectFormGroup.controls.subjectName.status == 'VALID' || subjectFormGroup.controls.subjectName.pristine"
+        class="alert alert-danger">
+        Tên môn học không được để trống và không được trùng nhau.
+      </div>
+    </div>
+    <div class="form-group">
+        <label>Bộ môn</label><br>
+        <ng-select2 [data]="select2Data"
+                    [options]="options" formControlName="departmentCode">
+        </ng-select2>
+      </div>
+  </div>
+  <div class="modal-footer justify-content-between">
+    <button type="button" class="btn btn-default" (click)="bsModalRef.hide()">Đóng</button>
+    <button type="submit" class="btn btn-primary" [disabled]="subjectFormGroup.status == 'INVALID'">Lưu</button>
+  </div>
+</form>

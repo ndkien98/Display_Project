@@ -1,0 +1,61 @@
+<div class="modal-content">
+  <div class="modal-header bg-warning">
+    <h4 class="modal-title">Chỉnh sửa lớp học phần</h4>
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="bsModalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <form role="form" (ngSubmit)="onSubmit()" [formGroup]="courseFormGroup" novalidate>
+    <div class="modal-body">
+      <div class="form-group">
+        <label>Mã môn học</label>
+        <ng-select2 [data]="dataSelect2CodeSubject" [options]="optionSelect2"
+                    (valueChanged)="onChangeCodeSubject($event)" placeholder="Chọn mã môn học" formControlName="subjectCode">
+        </ng-select2>
+      </div>
+      <div class="form-group">
+        <label for="subjectNameAddModal">Tên môn học</label>
+        <input type="text" class="form-control" id="subjectNameAddModal" readonly value="{{subjectName}}">
+      </div>
+      <div class="form-group">
+        <label for="subjectGroupAddModal">Nhóm môn học</label>
+        <input type="number" class="form-control" id="subjectGroupAddModal" placeholder="Nhập nhóm môn học"
+               min="1" formControlName="subjectGroup">
+        <div
+          [hidden]="courseFormGroup.controls.subjectGroup.status == 'VALID' || courseFormGroup.controls.subjectGroup.pristine"
+          class="alert alert-danger">
+          Nhóm lớp không được để trống và phải > 1
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Mã lớp</label>
+        <input type="text" class="form-control" id="classCodeAddModal" placeholder="Nhập mã lớp" formControlName="classCode">
+        <div
+          [hidden]="courseFormGroup.controls.classCode.status == 'VALID' || courseFormGroup.controls.classCode.pristine"
+          class="alert alert-danger">
+          Mã lớp không được để trống
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Mã giảng viên</label>
+        <ng-select2 [data]="dataSelect2CodeLecture" [options]="optionSelect2"
+                    (valueChanged)="onChangeCodeLecture($event)" placeholder="Chọn mã giảng viên" formControlName="lecturerCode">
+        </ng-select2>
+      </div>
+      <div class="form-group">
+        <label for="lecturerNameAddModal">Tên giảng viên</label>
+        <input type="text" class="form-control" id="lecturerNameAddModal" readonly value="{{lectureName}}" >
+      </div>
+      <div class="form-group">
+        <label>Học kỳ - năm học</label>
+        <ng-select2 [data]="dataSelect2YearsSemester" [options]="optionSelect2"
+                    placeholder="Chọn năm học - học kỳ" formControlName="yearSemesterId">
+        </ng-select2>
+      </div>
+    </div>
+    <div class="modal-footer justify-content-between">
+      <button type="button" class="btn btn-default" data-dismiss="modal " (click)="bsModalRef.hide()">Đóng</button>
+      <button type="submit" class="btn btn-primary" [disabled]="courseFormGroup.status == 'INVALID'">Thêm</button>
+    </div>
+  </form>
+</div>

@@ -6,7 +6,8 @@ import {DecentralizationComponent} from './decentralization/decentralization.com
 import {DepartmentComponent} from './department/department.component';
 import {CategoryComponent} from './category/category.component';
 import {YearsSemestersComponent} from './years-semesters/years-semesters.component';
-import {CoursesComponent} from './courses/courses.component';
+import {SubjectsComponent} from "./subjects/subjects.component";
+import {CoursesComponent} from "./courses/courses.component";
 
 
 const routes: Routes = [
@@ -36,7 +37,11 @@ const routes: Routes = [
       },
       {
         path: 'courses',
-        component: CoursesComponent
+        component: CoursesComponent,
+      },
+      {
+        path: 'subjects',
+        component: SubjectsComponent
       },
       {
         path: '',

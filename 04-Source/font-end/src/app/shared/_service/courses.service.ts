@@ -4,7 +4,6 @@ import {BaseService} from './base.service';
 import {Observable, throwError} from 'rxjs';
 import {Courses} from '../_models/courses';
 import {catchError, retry} from 'rxjs/operators';
-import {YearsSemester} from '../_models/years-semester';
 
 @Injectable({
     providedIn: 'root',
@@ -23,6 +22,20 @@ export class CoursesService {
 
   getAllCourses(): Observable<Courses[]> {
     return this.http.get<Courses[]>(this.baseService.baseUrl + '/qly-do-an/api/courses/get-all')
+      .pipe(  retry(1),
+        catchError(this.errorHandl)
+      );
+  }
+
+  addCourse(data): Observable<any> {
+    return this.http.post<any>(this.baseService.baseUrl + '/qly-do-an/api/courses/add',JSON.stringify(data), this.httpOptions)
+      .pipe(  retry(1),
+        catchError(this.errorHandl)
+      );
+  }
+
+  editCourse(data,id): Observable<any> {
+    return this.http.put<any>(this.baseService.baseUrl + '/qly-do-an/api/courses/edit/'+ id ,JSON.stringify(data), this.httpOptions)
       .pipe(  retry(1),
         catchError(this.errorHandl)
       );

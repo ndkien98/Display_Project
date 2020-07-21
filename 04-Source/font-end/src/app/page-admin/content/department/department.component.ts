@@ -6,7 +6,6 @@ import {AddDepartmentComponent} from './add-department/add-department.component'
 import {EditDepartmentComponent} from './edit-department/edit-department.component';
 import {DeleteDepartmentComponent} from './delete-department/delete-department.component';
 import {DataTableDirective} from 'angular-datatables';
-import {reload} from "../../../shared/_models/constant";
 
 
 @Component({
@@ -45,7 +44,10 @@ export class DepartmentComponent implements OnInit, OnDestroy {
     return this.departmentService.getAllDepartment().subscribe((data: {}) => {
       this.listDepartments = data;
       this.dtTrigger.next();
-    });
+    }, error1 => {
+      alert("Lỗi load data từ serve, đề nghị tải lại trang")
+      }
+    );
   }
 
   /**
@@ -66,8 +68,8 @@ export class DepartmentComponent implements OnInit, OnDestroy {
     this.bsModalRef.content.onClose.subscribe(result => { // component cha tiếp tục lắng nghe sự kiện từ component con, nếu thực hiện crud sẽ truyền về 1 v và thực hiện reload
       if (result) {
         this.reload();
-      } else {
-        console.log('Thêm thất bại');
+      }else if (!result) {
+        alert("Lỗi tên bộ môn và mã bộ môn không được trùng nhau");
       }
     })
   }

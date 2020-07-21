@@ -38,6 +38,10 @@ export class AddDepartmentComponent implements OnInit {
           this.bsModalRef.hide();                                                    // ẩn đi modal thêm bộ môn
           this.department.departmentCode = '';
           this.department.departmentName = '';
+      },
+      error1 => {
+        this.onClose.next(!reload);                                           // khi click submit sẽ gửi 1 biến về component list cha để check xem đã insert thành công chưa, nếu thành công là true sẽ thực hiện reload danh sách
+        this.bsModalRef.hide();                                                    // ẩn đi modal thêm bộ môn
       }
     );
   }

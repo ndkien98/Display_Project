@@ -1,21 +1,21 @@
 import {Component, OnInit} from '@angular/core';
-import {BsModalRef} from 'ngx-bootstrap/modal';
-import {CoursesService} from '../../../../shared/_service/courses.service';
-import {Subject} from 'rxjs';
-import {YearsSemester} from '../../../../shared/_models/years-semester';
-import {Courses} from '../../../../shared/_models/courses';
-import {reload} from '../../../../shared/_models/constant';
+import {Subject} from "rxjs";
+import {Courses} from "../../../../shared/_models/courses";
+import {CoursesService} from "../../../../shared/_service/courses.service";
+import {BsModalRef} from "ngx-bootstrap/modal";
+import {reload} from "../../../../shared/_models/constant";
 
 @Component({
   selector: 'app-delete-courses',
   templateUrl: './delete-courses.component.html',
   styleUrls: ['./delete-courses.component.css']
 })
-
 export class DeleteCoursesComponent implements OnInit {
+
   public onClose: Subject<boolean>;
   idCourses: any;
   courses: Courses;
+
   constructor(
     public coursesService: CoursesService,
     public bsModalRef: BsModalRef,

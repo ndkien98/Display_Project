@@ -1,35 +1,30 @@
-import {NgModule} from '@angular/core';
-import {CoursesComponent} from './courses.component';
-import {DataTablesModule} from 'angular-datatables';
-import {AddCoursesComponent} from './add-coures/add-courses.component';
-import {ModalModule} from 'ngx-bootstrap/modal';
-import {CommonModule} from '@angular/common';
-import {ReactiveFormsModule} from '@angular/forms';
-import {RouterModule} from '@angular/router';
-import {NgSelect2Module} from 'ng-select2';
-import {DeleteCoursesComponent} from './delete-courses/delete-courses.component';
-import {DetailCoursesComponent} from './detail-courses/detail-courses.component';
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import {CoursesComponent} from "./courses.component";
+import {DataTablesModule} from "angular-datatables";
+import {NgSelect2Module} from "ng-select2";
+import { AddCoursesComponent } from './add-courses/add-courses.component';
+import { EditCoursesComponent } from './edit-courses/edit-courses.component';
+import { DeleteCoursesComponent } from './delete-courses/delete-courses.component';
+import { DetailCoursesComponent } from './detail-courses/detail-courses.component';
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+
+
 
 @NgModule({
   declarations: [
     CoursesComponent,
     AddCoursesComponent,
+    EditCoursesComponent,
     DeleteCoursesComponent,
     DetailCoursesComponent
   ],
-    imports: [
-        DataTablesModule,
-        ModalModule,
-        CommonModule,
-        ReactiveFormsModule,
-        RouterModule,
-        ModalModule,
-        ModalModule.forRoot(),
-        NgSelect2Module
-    ],
-
-  exports: []
+  imports: [
+    CommonModule,
+    DataTablesModule,
+    NgSelect2Module,
+    ReactiveFormsModule,
+    FormsModule
+  ]
 })
-export class CoursesModule {
-}
-
+export class CoursesModule { }

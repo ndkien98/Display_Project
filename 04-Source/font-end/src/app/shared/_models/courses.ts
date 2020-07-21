@@ -13,8 +13,3 @@ export class Courses {
   createdBy: string;
   lastModifiedDate: string;
 }
-
-export class DataConvertSelect2 {
-  id: any;
-  text: string;
-}

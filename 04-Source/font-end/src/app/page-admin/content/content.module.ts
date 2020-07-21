@@ -10,8 +10,9 @@ import {ContentRoutingModule} from './content-routing.module';
 import {DecentralizationModule} from './decentralization/decentralization.module';
 import {DepartmentModule} from './department/department.module';
 import {CategoryModule} from './category/category.module';
-import {YearsSemestersModule} from './years-semesters/years-semesters.module';
-import {CoursesModule} from './courses/courses.module';
+import {YearsSemestersModule} from "./years-semesters/years-semesters.module";
+import {SubjectsModule} from "./subjects/subjects.module";
+import {CoursesModule} from "./courses/courses.module";
 
 
 @NgModule({
@@ -33,6 +34,7 @@ import {CoursesModule} from './courses/courses.module';
     DepartmentModule,
     CategoryModule,
     YearsSemestersModule,
+    SubjectsModule,
     CoursesModule
   ],
 })

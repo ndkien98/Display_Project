@@ -34,6 +34,7 @@
     "ng-select2": "^1.2.2",
     "ngx-bootstrap": "^5.6.1",
     "ngx-mask": "^9.1.2",
+    "ngx-select2": "^0.3.0",
     "rxjs": "~6.5.4",
     "save": "^2.4.0",
     "select2": "^4.0.13",

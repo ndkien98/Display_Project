@@ -10,6 +10,7 @@ import {HeaderModule} from './page-admin/header/header.module';
 import {FooterModule} from './page-admin/footer/footer.module';
 import {MainSidebarModule} from './page-admin/main-sidebar/main-sidebar.module';
 import {BsModalService, ModalModule} from 'ngx-bootstrap/modal';
+import {DataTablesModule} from "angular-datatables";
 
 @NgModule({
   declarations: [
@@ -23,7 +24,7 @@ import {BsModalService, ModalModule} from 'ngx-bootstrap/modal';
     RouterModule,
     FormsModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
