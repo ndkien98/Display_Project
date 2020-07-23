@@ -3,12 +3,15 @@ package com.fita.project.service;
 import com.fita.project.dto.LecturerDTO;
 import com.fita.project.dto.StudentDTO;
 import com.fita.project.dto.UserDTO;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-public interface UserService {
+public interface UserService extends UserDetailsService {
     //====================NGƯỜI DÙNG====================
     // Lấy ra tất cả người dùng
     List<UserDTO> getUsers();
@@ -67,4 +70,9 @@ public interface UserService {
 
     // Xoá sinh viên
     void deleteStudent(int id);
+
+
+    // JWT
+    @Override
+    UserDetails loadUserByUsername(String username) throws UsernameNotFoundException;
 }
