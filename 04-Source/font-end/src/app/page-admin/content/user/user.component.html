@@ -1,0 +1,228 @@
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <div class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col-sm-6">
+          <h1 class="m-0 text-dark">Quản Lý Người Dùng</h1>
+        </div><!-- /.col -->
+        <div class="col-sm-6">
+          <ol class="breadcrumb float-sm-right">
+            <li class="breadcrumb-item"><a routerLink="/management/home">Home</a></li>
+            <li class="breadcrumb-item active">Quản Lý Người Dùng</li>
+          </ol>
+        </div><!-- /.col -->
+      </div><!-- /.row -->
+    </div><!-- /.container-fluid -->
+  </div>
+  <!-- /.content-header -->
+
+  <!-- Main content -->
+  <div class="content">
+    <div class="container-fluid">
+      <!-- JUST EDIT HERE! -->
+      <div class="row">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-header">
+              <div class="row">
+                <div class="col-sm-6 col-md-10 my-2">
+                  <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal-add" (click)="openModalAdd()">Thêm
+                    người dùng
+                  </button>
+                </div>
+                <div class="col-sm-6 col-md-2 my-2">
+                  <ng-select2 [data]="dataSelect2" [options]="option" (valueChanged)="onChangeSelect2($event)">
+                  </ng-select2>
+                </div>
+              </div>
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body">
+              <table datatable id="userDatatable" class="table table-bordered table-striped"
+                     [dtOptions]="dataTableOptions"
+                     [dtTrigger]="dtTrigger">
+                <thead>
+                <tr>
+                  <th>STT</th>
+                  <th>Tên đăng nhập</th>
+                  <th>Họ tên</th>
+                  <th>Email</th>
+                  <th>Quyền</th>
+                  <th>Ngày tham gia</th>
+                  <th>Hành động</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr *ngFor="let user of dataForTable">
+                  <td class="count"></td>
+                  <td>{{user.username}}</td>
+                  <td>{{user.fullName}}</td>
+                  <td>{{user.emailAddress}}</td>
+                  <td>{{user.roleName}}</td>
+                  <td>{{user.createdDate}}</td>
+                  <!--                  <td>-->
+                  <!--                    <ng-container *ngIf="user.status ==1 ;then thenBlock else elseBlock"></ng-container>-->
+                  <!--                    <ng-template #thenBlock>-->
+                  <!--                      <ui-switch uncheckedLabel="OFF" checked (valueChange)="onChangeState($event)" className="user.id"-->
+                  <!--                                 checkedLabel="ON"></ui-switch>-->
+                  <!--                    </ng-template>-->
+                  <!--                    <ng-template #elseBlock>-->
+                  <!--                      <ui-switch uncheckedLabel="OFF" [checked]="false"-->
+                  <!--                                 checkedLabel="ON"></ui-switch>-->
+                  <!--                    </ng-template>-->
+                  <!--                  </td>-->
+                  <td>
+                    <button type="button" class="btn btn-info btn-sm" data-toggle="modal"
+                            data-target="#modal-info" id="{{user.id}}" (click)="openModalDetail($event)" name="{{user.roleId}}">
+                      <i class="fas fa-eye"></i> Chi tiết
+                    </button>
+                    <button type="button" class="btn btn-warning btn-sm" data-toggle="modal"
+                            data-target="#modal-edit">
+                      <i class="fas fa-pencil-alt"></i> Sửa
+                    </button>
+                    <button type="button" class="btn btn-danger btn-sm" data-toggle="modal"
+                            data-target="#modal-delete">
+                      <i class="fas fa-trash"></i> Xoá
+                    </button>
+                  </td>
+                </tr>
+                </tbody>
+              </table>
+            </div>
+            <!-- /.card-body -->
+          </div>
+          <!-- /.card -->
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+    </div><!-- /.container-fluid -->
+
+    <!-- Modal thêm người dùng -->
+
+    <!-- /.modal -->
+
+    <!-- Modal chi tiết người dùng -->
+
+    <!-- /.modal -->
+
+    <!-- Modal sửa người dùng -->
+    <div class="modal fade" id="modal-edit">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header bg-warning">
+            <h4 class="modal-title">Sửa người dùng</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="form-group text-center">
+              <div class="text-center mb-2">
+                <img src="assets/admin-dashboard/dist/img/user2-160x160.jpg" class="user-image img-circle elevation-2"
+                     alt="User Image">
+              </div>
+              <input type="file" accept="image/*">
+              <hr>
+            </div>
+            <div class="form-group">
+              <label for="usernameEditModal">Tên tài khoản</label>
+              <input type="text" id="usernameEditModal" class="form-control" value="CNP02">
+            </div>
+            <div class="form-group">
+              <label for="passwordEditModal">Mật khẩu</label>
+              <input type="text" id="passwordEditModal" class="form-control" value="123456">
+            </div>
+            <div class="form-group">
+              <label for="fullNameEditModal">Họ tên</label>
+              <input type="text" id="fullNameEditModal" class="form-control" value="Ngô Công Thắng">
+            </div>
+            <div class="form-group">
+              <label for="birthDateEditModal">Ngày sinh</label>
+              <input id="birthDateEditModal" type="text" class="form-control" data-inputmask-alias="datetime"
+                     data-inputmask-inputformat="dd/mm/yyyy" data-mask value="10/10/1968">
+            </div>
+            <div class="form-group">
+              <label for="genderEditModal">Giới tính</label>
+              <div class="form-inline" id="genderEditModal">
+                <div class="form-check mx-2">
+                  <input class="form-check-input" type="radio" id="maleGenderEditModal" name="genderEditModal"
+                         checked>
+                  <label for="maleGenderEditModal" class="form-check-label">Nam</label>
+                </div>
+                <div class="form-check mx-2">
+                  <input class="form-check-input" type="radio" id="femaleGenderEditModal" name="genderEditModal">
+                  <label for="femaleGenderEditModal" class="form-check-label">Nữ</label>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="emailEditModal">Email</label>
+              <input type="email" id="emailEditModal" class="form-control" value="ncthang@gmail.com">
+            </div>
+            <div class="form-group">
+              <label for="phoneEditModal">Số điện thoại</label>
+              <input type="text" id="phoneEditModal" class="form-control" data-inputmask='"mask": "9999999999"'
+                     data-mask value="0123456789">
+            </div>
+            <div class="form-group">
+              <label for="roleEditModal">Quyền</label>
+              <select class="form-control role-name-select2" id="roleEditModal" style="width: 100%;" disabled>
+                <option value="1" selected>Giảng viên</option>
+                <option value="2">Sinh viên</option>
+              </select>
+            </div>
+            <div class="form-group" id="lecturerDepartmentEditModal">
+              <label for="departmentEditModal">Bộ môn</label>
+              <select class="form-control department-name-select2" id="departmentEditModal" style="width: 100%;">
+                <option>Công nghệ phần mềm</option>
+                <option>Khoa học máy tính</option>
+                <option>Toán - Tin ứng dụng</option>
+              </select>
+            </div>
+            <div class="form-group" id="studentClassEditModal" style="display: none">
+              <label for="classEditModal">Lớp</label>
+              <input type="text" id="classEditModal" class="form-control" style="width: 100%;"
+                     value="K61CNPMP">
+            </div>
+          </div>
+          <div class="modal-footer justify-content-between">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
+            <button type="button" class="btn btn-primary">Thêm</button>
+          </div>
+        </div>
+        <!-- /.modal-content -->
+      </div>
+      <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+
+    <!-- Modal xoá người dùng -->
+    <div class="modal fade" id="modal-delete">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header bg-danger">
+            <h4 class="modal-title">Xoá người dùng</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body text-center">
+            Xoá người dùng <label id="usernameDeleteModal">611209</label>?
+          </div>
+          <div class="modal-footer justify-content-between">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
+            <button type="button" class="btn btn-primary">Xoá</button>
+          </div>
+        </div>
+        <!-- /.modal-content -->
+      </div>
+      <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+  </div>
+  <!-- /.content -->
+</div>
+<!-- /.content-wrapper -->

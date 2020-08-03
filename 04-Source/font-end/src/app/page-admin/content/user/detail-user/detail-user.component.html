@@ -1,0 +1,75 @@
+<div class="modal-content">
+  <div class="modal-header bg-info">
+    <h4 class="modal-title">Chi tiết người dùng</h4>
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="bsModalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="form-group text-center">
+      <div class="text-center mb-2">
+        <img src="data:image/png;base64,{{user.userAvatarUrl}}" style="width: 160px; height: 160px" class="user-image img-circle elevation-2" alt="Red dot">
+      </div>
+      <hr>
+    </div>
+    <div class="form-group row">
+      <label for="usernameDetail" class="col-sm-4 col-form-label">Tên tài khoản:</label>
+      <label id="usernameDetail" class="col-sm-8 col-form-label bg-light">{{user.username}}</label>
+    </div>
+    <div class="form-group row">
+      <label for="passwordDetailModal" class="col-sm-4 col-form-label">Mật khẩu:</label>
+      <label id="passwordDetailModal" class="col-sm-8 col-form-label bg-light">{{user.password}}</label>
+    </div>
+    <div class="form-group row">
+      <label for="fullNameDetailModal" class="col-sm-4 col-form-label">Họ tên:</label>
+      <label id="fullNameDetailModal" class="col-sm-8 col-form-label bg-light">{{user.fullName}}</label>
+    </div>
+    <div class="form-group row">
+      <label for="birthDateDetailModal" class="col-sm-4 col-form-label">Ngày sinh:</label>
+      <label id="birthDateDetailModal" class="col-sm-8 col-form-label bg-light">{{user.birthDate}}</label>
+    </div>
+    <div class="form-group row">
+      <label for="genderDetailModal" class="col-sm-4 col-form-label">Giới tính:</label>
+      <label id="genderDetailModal" class="col-sm-8 col-form-label bg-light">{{user.gender}}</label>
+    </div>
+    <div class="form-group row">
+      <label for="emailDetailModal" class="col-sm-4 col-form-label">Email:</label>
+      <label id="emailDetailModal"
+             class="col-sm-8 col-form-label bg-light">{{user.emailAddress}}</label>
+    </div>
+    <div class="form-group row">
+      <label for="phoneDetailModal" class="col-sm-4 col-form-label">Số điện thoại:</label>
+      <label id="phoneDetailModal" class="col-sm-8 col-form-label bg-light">{{user.phoneNumber}}</label>
+    </div>
+    <div class="form-group row">
+      <label for="roleDetailModal" class="col-sm-4 col-form-label">Vai trò:</label>
+      <label id="roleDetailModal" class="col-sm-8 col-form-label bg-light">{{user.roleName}}</label>
+    </div>
+    <ng-container *ngIf="idRole == 2">
+      <div class="form-group row">
+        <label for="departmentDetailModal" class="col-sm-4 col-form-label">Bộ môn:</label>
+        <label id="departmentDetailModal" class="col-sm-8 col-form-label bg-light">{{user.departmentName}}</label>
+      </div>
+    </ng-container>
+    <ng-container *ngIf="idRole == 3">
+      <div class="form-group row">
+        <label for="classDetailModal" class="col-sm-4 col-form-label">Lớp:</label>
+        <label id="classDetailModal" class="col-sm-8 col-form-label bg-light">{{user.classCode}}</label>
+      </div>
+    </ng-container>
+    <ng-container *ngIf="idRole == 1">
+    </ng-container>
+    <div class="form-group row">
+      <label for="createdDateDetailModal" class="col-sm-4 col-form-label">Trạng thái:</label>
+      <ng-container *ngIf="user.status ==1; else elseBlock"><label id="createdDateDetail" class="col-sm-8 col-form-label bg-light">Đang hoạt động</label></ng-container>
+      <ng-template #elseBlock> <label id="createdDateDetailModal" class="col-sm-8 col-form-label bg-light">Ngừng hoạt động</label></ng-template>
+    </div>
+    <div class="form-group row">
+      <label for="createdByDetailModal" class="col-sm-4 col-form-label">Người tạo:</label>
+      <label id="createdByDetailModal" class="col-sm-8 col-form-label bg-light">{{user.createdBy}}</label>
+    </div>
+  </div>
+  <div class="modal-footer justify-content-center">
+    <button type="button" class="btn btn-default" data-dismiss="modal" (click)="bsModalRef.hide()">Đóng</button>
+  </div>
+</div>

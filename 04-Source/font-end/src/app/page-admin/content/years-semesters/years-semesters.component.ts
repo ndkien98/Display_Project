@@ -3,10 +3,7 @@ import {Subject} from 'rxjs';
 import {BsModalRef, BsModalService} from 'ngx-bootstrap/modal';
 import {YearsSemesterService} from '../../../shared/_service/years-semester.service';
 import {DataTableDirective} from 'angular-datatables';
-import {AddDepartmentComponent} from '../department/add-department/add-department.component';
 import {AddYearsSemestersComponent} from './add-years-semesters/add-years-semesters.component';
-import {EditDepartmentComponent} from '../department/edit-department/edit-department.component';
-import {DeleteDepartmentComponent} from '../department/delete-department/delete-department.component';
 import {EditYearsSemestersComponent} from './edit-years-semesters/edit-years-semesters.component';
 import {DeleteYearsSemestersComponent} from './delete-years-semesters/delete-years-semesters.component';
 

@@ -121,7 +121,8 @@ export class AddCoursesComponent implements OnInit {
         });
         this.dataSelect2CodeSubject = dataAdapterArray;
       }, error1 => {
-        alert("Lỗi tải data từ serve, đề nghị tải lại trang");
+      this.onClose.next(!reload);
+      this.bsModalRef.hide();
       }
     );
   }

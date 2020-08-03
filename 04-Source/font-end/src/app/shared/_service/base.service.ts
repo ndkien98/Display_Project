@@ -1,16 +1,22 @@
 import {Injectable} from '@angular/core';
-import {Subject} from 'rxjs';
+import {throwError} from 'rxjs';
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class BaseService {
-  baseUrl = 'https://st-dse.vnua.edu.vn:6885/';
-
-  buttonSubject: Subject<any> = new Subject();
-  buttonObservable = this.buttonSubject.asObservable();
-
   constructor() {
+  }
+
+  static errorHandl(error) {
+    let errorMessage = '';
+    if (error.error instanceof ErrorEvent) {
+      errorMessage = error.error.message;
+    } else {
+      errorMessage = `Error code: ${error.status}\nMessage: ${error.message}`;
+    }
+    console.log(errorMessage);
+    return throwError(errorMessage);
   }
 }

@@ -1,59 +1,54 @@
 import {Injectable} from '@angular/core';
-import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {HttpClient} from '@angular/common/http';
 import {BaseService} from './base.service';
-import {Observable, throwError} from 'rxjs';
+import {Observable} from 'rxjs';
 import {Courses} from '../_models/courses';
 import {catchError, retry} from 'rxjs/operators';
+import {baseUrl, httpOptions} from "../_models/constant";
 
 @Injectable({
-    providedIn: 'root',
-  })
+  providedIn: 'root',
+})
 
 export class CoursesService {
-  constructor(public http: HttpClient, private baseService: BaseService) {
+  constructor(private http: HttpClient) {
   }
 
-  // Http headers
-  httpOptions = {
-    headers: new HttpHeaders({
-      'content-type': 'application/json'
-    })
-  };
-
   getAllCourses(): Observable<Courses[]> {
-    return this.http.get<Courses[]>(this.baseService.baseUrl + '/qly-do-an/api/courses/get-all')
-      .pipe(  retry(1),
-        catchError(this.errorHandl)
+    return this.http.get<Courses[]>(baseUrl + 'api/courses/get-all')
+      .pipe(retry(1),
+        catchError(BaseService.errorHandl)
       );
   }
 
   addCourse(data): Observable<any> {
-    return this.http.post<any>(this.baseService.baseUrl + '/qly-do-an/api/courses/add',JSON.stringify(data), this.httpOptions)
-      .pipe(  retry(1),
-        catchError(this.errorHandl)
+    return this.http.post<any>(baseUrl + 'api/courses/add', JSON.stringify(data), httpOptions)
+      .pipe(retry(1),
+        catchError(BaseService.errorHandl)
       );
   }
 
-  editCourse(data,id): Observable<any> {
-    return this.http.put<any>(this.baseService.baseUrl + '/qly-do-an/api/courses/edit/'+ id ,JSON.stringify(data), this.httpOptions)
-      .pipe(  retry(1),
-        catchError(this.errorHandl)
+  editCourse(data, id): Observable<any> {
+    return this.http.put<any>(baseUrl + 'api/courses/edit/' + id, JSON.stringify(data), httpOptions)
+      .pipe(retry(1),
+        catchError(BaseService.errorHandl)
       );
   }
 
   findCoursesById(id): Observable<Courses> {
-    return this.http.get<Courses>(this.baseService.baseUrl + '/qly-do-an/api/courses/get-by-id/' + id)
+    return this.http.get<Courses>(baseUrl + 'api/courses/get-by-id/' + id)
       .pipe(
         retry(1),
-        catchError(this.errorHandl)
+        catchError(BaseService.errorHandl)
       );
   }
+
   getCoursesByYearSemesterId(id): Observable<boolean> {
     // @ts-ignore
-    return this.http.get<Courses[]>(this.baseService.baseUrl + '/qly-do-an/api/courses/get-by-year-semester-id/' + id)
+    return this.http.get<Courses[]>(baseUrl + 'api/courses/get-by-year-semester-id/' + id)
       .pipe(
         retry(1),
-        catchError(this.errorHandl)
+        catchError(BaseService.errorHandl)
       );
 
   }
@@ -61,21 +56,10 @@ export class CoursesService {
   // tslint:disable-next-line:ban-types
   deleteCourses(id): Observable<Boolean> {
     // tslint:disable-next-line:ban-types
-    return this.http.delete<Boolean>(this.baseService.baseUrl + '/qly-do-an/api/courses/delete/' + id)
+    return this.http.delete<Boolean>(baseUrl + 'api/courses/delete/' + id)
       .pipe(
         retry(1),
-        catchError(this.errorHandl)
+        catchError(BaseService.errorHandl)
       );
-  }
-
-  errorHandl(error) {
-    let errorMessage = '';
-    if (error.error instanceof ErrorEvent) {
-      errorMessage = error.error.message;
-    } else {
-      errorMessage = `Error code: ${error.status}\nMessage: ${error.message}`;
-    }
-    console.log(errorMessage);
-    return throwError(errorMessage);
   }
 }

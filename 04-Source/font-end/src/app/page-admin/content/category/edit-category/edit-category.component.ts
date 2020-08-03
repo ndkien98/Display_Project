@@ -17,7 +17,7 @@ export class EditCategoryComponent implements OnInit {
   categoriesFormGroup: FormGroup;     // formgroup để chứa các formcontroll
   public onClose: Subject<boolean>;
 
-  idCategories: any;
+  idCategorie: any;
 
   constructor(
     private categoriesService: CategoriesService,
@@ -59,7 +59,7 @@ export class EditCategoryComponent implements OnInit {
       code: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(4)]],
       name: ['', Validators.required]
     });
-    this.categoriesService.findCategoriesById(this.idCategories).subscribe((data) => {
+    this.categoriesService.findCategoriesById(this.idCategorie).subscribe((data) => {
       this.categories = data;
       this.categoriesFormGroup.patchValue({
         code: this.categories.categoryCode,

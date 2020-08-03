@@ -36,7 +36,8 @@ export class CategoryComponent implements OnInit, OnDestroy {
     return this.categoriesService.getAllCategories().subscribe((data: {}) => {
       this.listCategories = data;
       this.dtTrigger.next();
-    });
+    },error1 => alert("Lỗi tải dữ liệu từ serve, đề ngị tải lại trang")
+    );
   }
 
 

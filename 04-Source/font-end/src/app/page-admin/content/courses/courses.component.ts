@@ -69,26 +69,31 @@ export class CoursesComponent implements OnInit {
     const dataArray = [];
     // tslint:disable-next-line:prefer-const
     this.yearsSemesterService.getAllYearsSemester().subscribe((data: YearsSemester[]) => {
-      data.map(yearsSemes => {
-        this.semesterYear = 'Học kỳ ' + yearsSemes.semester + ' - Năm học ' + yearsSemes.year + ' - ' + ++yearsSemes.year;
-        this.dataConvert = new DataConvertSelect2();
-        this.dataConvert.id = yearsSemes.id;
-        this.dataConvert.text = this.semesterYear;
-        dataArray.push(this.dataConvert);
-      });
-      this.dataSelect2 = dataArray;
-    },
+        data.map(yearsSemes => {
+          this.semesterYear = 'Học kỳ ' + yearsSemes.semester + ' - Năm học ' + yearsSemes.year + ' - ' + ++yearsSemes.year;
+          this.dataConvert = new DataConvertSelect2();
+          this.dataConvert.id = yearsSemes.id;
+          this.dataConvert.text = this.semesterYear;
+          dataArray.push(this.dataConvert);
+        });
+        dataArray.push(new DataConvertSelect2('all', 'Tất cả năm học học kỳ'));
+        this.dataSelect2 = dataArray;
+      },
       error1 => {
-      alert("Lỗi tải data từ serve, đề nghị tải lại trang");
+        alert("Lỗi tải data từ serve, đề nghị tải lại trang");
       }
     );
   }
 
   public onChange(id: any) {
     if (id !== undefined) {
-      this.coursesService.getCoursesByYearSemesterId(id).subscribe((data: {}) => {
-        this.listCourses = data;
-      });
+      if (id == 'all') {
+        this.reload();
+      } else {
+        this.coursesService.getCoursesByYearSemesterId(id).subscribe((data: {}) => {
+          this.listCourses = data;
+        });
+      }
     }
   }
 
@@ -100,12 +105,12 @@ export class CoursesComponent implements OnInit {
     this.bsModalRef = this.modalService.show(DetailCoursesComponent, {initialState});
   }
 
-  openModalAdd(){
+  openModalAdd() {
     this.bsModalRef = this.modalService.show(AddCoursesComponent);
     this.bsModalRef.content.onClose.subscribe(result => {
       if (result) {
         this.reload();
-      } else if (!result){
+      } else if (!result) {
         alert('Lớp học phần không được trùng tên và nhóm lớp và giảng viên');
       }
     })

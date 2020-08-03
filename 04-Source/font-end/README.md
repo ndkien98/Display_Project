@@ -30,3 +30,10 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 -------
 ## nhận xét của thầy
 
+## 31-07-2020
+cần kiểm tra lại tất cả những phần bắt error khi call api của server. Để khi xảy ra lỗi sẽ không sảy ra hiện tượng alert lung tung
+
+
+## 01-08-2020
+cần update lại data , bảng role cần có thêm mã nhóm quyền
+

@@ -1,34 +1,28 @@
 import {Injectable} from '@angular/core';
-import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {Observable, throwError} from 'rxjs';
+import {HttpClient} from '@angular/common/http';
+import {Observable} from 'rxjs';
 import {Department} from '../_models/department';
 import {catchError, retry} from 'rxjs/operators';
 import {BaseService} from './base.service';
+import {baseUrl, httpOptions} from "../_models/constant";
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class DepartmentService {
-  constructor(public http: HttpClient, private baseService: BaseService) {
+  constructor(private http: HttpClient) {
   }
-
-  // Http headers
-  httpOptions = {
-    headers: new HttpHeaders({
-      'content-type': 'application/json'
-    })
-  };
 
   /**
    * @param: null
    * @return: trả ra mảng Department[] bộ môn
    */
   getAllDepartment(): Observable<Department[]> {
-    return this.http.get<Department[]>(this.baseService.baseUrl + '/qly-do-an/api/departments/get-all')
+    return this.http.get<Department[]>(baseUrl + 'api/departments/get-all')
       .pipe( // kiểm tra trạng thái gọi thành công hay không
         retry(1),
-        catchError(this.errorHandl)
+        catchError(BaseService.errorHandl)
       );
   }
 
@@ -41,10 +35,10 @@ export class DepartmentService {
   addDepartment(data): Observable<Boolean> {
     // @ts-ignore
     // tslint:disable-next-line:ban-types max-line-length
-    return this.http.post<Boolean>(this.baseService.baseUrl + '/qly-do-an/api/departments/add', JSON.stringify(data), this.httpOptions)
+    return this.http.post<Boolean>(baseUrl + 'api/departments/add', JSON.stringify(data), httpOptions)
       .pipe(
         retry(1),
-        catchError(this.errorHandl)
+        catchError(BaseService.errorHandl)
       );
   }
 
@@ -54,10 +48,10 @@ export class DepartmentService {
    * return : trả về 1 department theo id
    */
   findDepartmentById(id): Observable<Department> {
-    return this.http.get<Department>(this.baseService.baseUrl + '/qly-do-an/api/departments/get-by-id/' + id)
+    return this.http.get<Department>(baseUrl + 'api/departments/get-by-id/' + id)
       .pipe(
         retry(1),
-        catchError(this.errorHandl)
+        catchError(BaseService.errorHandl)
       );
   }
 
@@ -70,10 +64,10 @@ export class DepartmentService {
   // tslint:disable-next-line:ban-types
   editDepartment(data: Department): Observable<Boolean> {
     // tslint:disable-next-line:ban-types max-line-length
-    return this.http.put<Boolean>(this.baseService.baseUrl + '/qly-do-an/api/departments/edit/' + data.id, JSON.stringify(data), this.httpOptions)
+    return this.http.put<Boolean>(baseUrl + 'api/departments/edit/' + data.id, JSON.stringify(data), httpOptions)
       .pipe(
         retry(1),
-        catchError(this.errorHandl)
+        catchError(BaseService.errorHandl)
       );
   }
 
@@ -86,22 +80,11 @@ export class DepartmentService {
   // tslint:disable-next-line:ban-types
   deleteDepartment(id): Observable<Boolean> {
     // tslint:disable-next-line:ban-types
-    return this.http.delete<Boolean>(this.baseService.baseUrl + '/qly-do-an/api/departments/delete/' + id)
+    return this.http.delete<Boolean>(baseUrl + 'api/departments/delete/' + id)
       .pipe(
         retry(1),
-        catchError(this.errorHandl)
+        catchError(BaseService.errorHandl)
       );
   }
 
-  // xử lý đưa ra lỗi nếu có
-  errorHandl(error) {
-    let errorMessage = '';
-    if (error.error instanceof ErrorEvent) {
-      errorMessage = error.error.message;
-    } else {
-      errorMessage = `Error code: ${error.status}\nMessage: ${error.message}`;
-    }
-    console.log(errorMessage);
-    return throwError(errorMessage);
-  }
 }

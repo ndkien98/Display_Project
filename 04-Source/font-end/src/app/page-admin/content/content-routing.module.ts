@@ -8,6 +8,7 @@ import {CategoryComponent} from './category/category.component';
 import {YearsSemestersComponent} from './years-semesters/years-semesters.component';
 import {SubjectsComponent} from "./subjects/subjects.component";
 import {CoursesComponent} from "./courses/courses.component";
+import {UserComponent} from "./user/user.component";
 
 
 const routes: Routes = [
@@ -42,6 +43,10 @@ const routes: Routes = [
       {
         path: 'subjects',
         component: SubjectsComponent
+      },
+      {
+        path: 'user',
+        component: UserComponent
       },
       {
         path: '',

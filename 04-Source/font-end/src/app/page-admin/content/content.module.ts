@@ -13,11 +13,12 @@ import {CategoryModule} from './category/category.module';
 import {YearsSemestersModule} from "./years-semesters/years-semesters.module";
 import {SubjectsModule} from "./subjects/subjects.module";
 import {CoursesModule} from "./courses/courses.module";
+import {UserModule} from "./user/user.module";
 
 
 @NgModule({
   declarations: [
-    ContentComponent,
+    ContentComponent
   ],
   exports: [
     ContentComponent
@@ -35,7 +36,8 @@ import {CoursesModule} from "./courses/courses.module";
     CategoryModule,
     YearsSemestersModule,
     SubjectsModule,
-    CoursesModule
+    CoursesModule,
+    UserModule
   ],
 })
 export class ContentModule {
