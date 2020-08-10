@@ -1,6 +1,7 @@
 package com.fita.project.service;
 
 import com.fita.project.dto.ProjectDTO;
+import com.fita.project.dto.YearDTO;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -47,7 +48,7 @@ public interface ProjectService {
     int getQuantityByDepartmentCode(String departmentCode);
 
     // Lấy ra số lượng đồ án theo "năm học"
-    int getQuantityByYear(int year);
+    List<YearDTO> getQuantityByYears(int startYear, int endYear);
 
     // Thêm đồ án
     void addProject(ProjectDTO projectDTO);

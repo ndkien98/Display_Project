@@ -36,7 +36,9 @@ public class AuthenticationController {
 
         final String token = jwtTokenUtil.generateToken(userDetails);
 
-        return ResponseEntity.ok(new JwtResponse(token));
+        UserDTO userDTO = userService.getUserByUsername(jwtTokenUtil.getUsernameFromToken(token));
+
+        return ResponseEntity.ok(new JwtResponse(token, userDTO));
     }
 
 //    @PostMapping("register")
