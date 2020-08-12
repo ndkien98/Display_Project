@@ -40,7 +40,7 @@ public class User {
     @Column(name = "role_id", nullable = false)
     private Integer roleId;
 
-    @Column(name = "user_avatar_url", length = 500)
+    @Column(name = "user_avatar_url")
     private String userAvatarUrl;
 
     @Column(name = "status")
