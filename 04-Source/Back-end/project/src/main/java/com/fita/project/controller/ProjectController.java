@@ -158,10 +158,10 @@ public class ProjectController {
     }
 
     // Lấy ra số lượng đồ án theo "năm học"
-    @GetMapping("get-quantity-by-year/{year}")
-    public ResponseEntity<?> getQuantityByYear(@PathVariable int year) {
+    @GetMapping("get-quantity-by-years")
+    public ResponseEntity<?> getQuantityByYear(@RequestParam("startYear") int startYear, @RequestParam("endYear") int endYear) {
         try {
-            return ResponseEntity.ok(projectService.getQuantityByYear(year));
+            return ResponseEntity.ok(projectService.getQuantityByYears(startYear, endYear));
         } catch (Exception e) {
             e.printStackTrace();
             return ResponseEntity.ok(e.toString());

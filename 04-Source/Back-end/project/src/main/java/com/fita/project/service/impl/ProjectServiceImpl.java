@@ -287,12 +287,19 @@ public class ProjectServiceImpl implements ProjectService {
     /**
      * Lấy số lượng đồ án trong cơ sở dữ liệu dựa theo mã bộ môn
      *
-     * @param year
+     * @param startYear
+     * @param endYear
      * @return int
      */
     @Override
-    public int getQuantityByYear(int year) {
-        return projectRepository.countByYear(year);
+    public List<YearDTO> getQuantityByYears(int startYear, int endYear) {
+        List<YearDTO> yearsDTO = new ArrayList<>();
+        while (startYear <= endYear) {
+            int quantity = projectRepository.countByYear(startYear);
+            yearsDTO.add(new YearDTO(startYear++, quantity));
+        }
+
+        return yearsDTO;
     }
 
     /**

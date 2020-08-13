@@ -210,19 +210,19 @@ INSERT INTO `roles_functions` (`id`, `role_id`, `function_id`, `status`) VALUES 
 INSERT INTO `subjects` (`id`, `subject_code`, `subject_name`, `department_code`) VALUES (1,'PTH03115','Đồ án 1','TH02');
 
 -- Bảng "Người Dùng"
-INSERT INTO `users` (`id`, `username`, `password`, `full_name`, `birth_date`, `gender`, `email_address`, `phone_number`, `role_id`, `user_avatar_url`, `status`, `created_date`, `created_by`) VALUES (1,'admin','admin','Admin',NULL,NULL,NULL,NULL,1,NULL,1,NULL,'admin'),(2,'CNP02','cnp02','Ngô Công Thắng',NULL,NULL,NULL,NULL,2,NULL,1,'2020-07-15 14:32:00','admin'),(3,'611209','611209','Nguyễn Tùng Bái',NULL,NULL,NULL,NULL,3,NULL,1,'2020-07-15 14:33:58','CNP02'),(4,'611292','611292','Nguyễn Đắc Kiên',NULL,NULL,NULL,NULL,3,NULL,1,'2020-07-15 14:34:49','CNP02');
+INSERT INTO `users` (`id`, `username`, `password`, `full_name`, `birth_date`, `gender`, `email_address`, `phone_number`, `role_id`, `user_avatar_url`, `status`, `created_date`, `created_by`) VALUES (1,'admin','$2a$10$8CqLZsTmKYONt2T/UItm5.e5HG9Zjoecfvh/UXWhLsj4UCqJXAuH6','Administrator',NULL,NULL,NULL,NULL,1,NULL,1,NULL,NULL);
 
 -- Bảng "Giảng Viên"
-INSERT INTO `lecturers` (`lecturer_code`, `department_code`) VALUES ('CNP02','TH02');
+-- INSERT INTO `lecturers` (`lecturer_code`, `department_code`) VALUES ('CNP02','TH02');
 
 -- Bảng "Sinh Viên"
-INSERT INTO `students` (`student_code`, `class_code`) VALUES ('611209','K61CNPMP'),('611292','K61CNPMP');
+-- INSERT INTO `students` (`student_code`, `class_code`) VALUES ('611209','K61CNPMP'),('611292','K61CNPMP');
 
 -- Bảng "Lớp Học Phần"
-INSERT INTO `courses` (`id`, `subject_code`, `subject_group`, `class_code`, `year_semester_id`, `lecturer_code`, `created_date`, `created_by`, `last_modified_date`) VALUES (1,'PTH03115',1,'K61CNPMP',2,'CNP02','2020-07-15 14:37:24','CNP02','2020-07-15 14:37:24');
+-- INSERT INTO `courses` (`id`, `subject_code`, `subject_group`, `class_code`, `year_semester_id`, `lecturer_code`, `created_date`, `created_by`, `last_modified_date`) VALUES (1,'PTH03115',1,'K61CNPMP',2,'CNP02','2020-07-15 14:37:24','CNP02','2020-07-15 14:37:24');
 
 -- Bảng "Đồ Án"
-INSERT INTO `projects` (`id`, `project_code`, `project_name`, `project_avatar_url`, `short_description`, `detailed_description`, `demo_link`, `category_code`, `student_code`, `course_id`, `status`, `created_date`, `created_by`, `last_modified_by`, `last_modified_date`) VALUES (1,'DA01','Hệ thống trưng bày sản phẩm đồ án môn học',NULL,NULL,NULL,NULL,'TL02','611209',1,1,'2020-07-15 14:39:37','611209',NULL,'2020-07-15 14:39:37');
+-- INSERT INTO `projects` (`id`, `project_code`, `project_name`, `project_avatar_url`, `short_description`, `detailed_description`, `demo_link`, `category_code`, `student_code`, `course_id`, `status`, `created_date`, `created_by`, `last_modified_by`, `last_modified_date`) VALUES (1,'DA01','Hệ thống trưng bày sản phẩm đồ án môn học',NULL,NULL,NULL,NULL,'TL02','611209',1,1,'2020-07-15 14:39:37','611209',NULL,'2020-07-15 14:39:37');
 
 -- Bảng "Thành Viên"
-INSERT INTO `project_members` (`id`, `student_code`, `full_name`, `class_code`, `project_code`) VALUES (1,'611292','Nguyễn Đắc Kiên','K61CNPMP','DA01'),(2,'611244','Nguyễn Tuấn Mạnh','K61CNPMP','DA01'),(3,'614091','Dương Thanh Huyền','K61CNPMP','DA01'),(4,'611254','Phạm Thị Phượng','K61CNPMP','DA01'),(5,'611245','Trần Đức Mạnh','K61CNPMP','DA01'),(6,'614086','Nguyễn Văn Dần','K61CNPMP','DA01'),(7,'611289','Đinh Quang Huy','K61CNPMP','DA01');
+-- INSERT INTO `project_members` (`id`, `student_code`, `full_name`, `class_code`, `project_code`) VALUES (1,'611292','Nguyễn Đắc Kiên','K61CNPMP','DA01'),(2,'611244','Nguyễn Tuấn Mạnh','K61CNPMP','DA01'),(3,'614091','Dương Thanh Huyền','K61CNPMP','DA01'),(4,'611254','Phạm Thị Phượng','K61CNPMP','DA01'),(5,'611245','Trần Đức Mạnh','K61CNPMP','DA01'),(6,'614086','Nguyễn Văn Dần','K61CNPMP','DA01'),(7,'611289','Đinh Quang Huy','K61CNPMP','DA01');

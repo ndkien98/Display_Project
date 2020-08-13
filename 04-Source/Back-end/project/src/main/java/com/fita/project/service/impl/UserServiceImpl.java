@@ -14,6 +14,9 @@ import com.fita.project.service.RoleService;
 import com.fita.project.service.UserService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
 import java.text.SimpleDateFormat;
@@ -40,6 +43,9 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     private ModelMapper modelMapper;
+
+    @Autowired
+    private PasswordEncoder bCryptEncoder;
 
     private List<User> users;
     private List<UserDTO> usersDTO;
@@ -119,6 +125,7 @@ public class UserServiceImpl implements UserService {
     public void addUser(UserDTO userDTO) {
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         userDTO.setCreatedDate(dateFormat.format(new Date()));
+        userDTO.setPassword(bCryptEncoder.encode(userDTO.getPassword()));
 
         userRepository.save(modelMapper.map(userDTO, User.class));
     }
@@ -141,21 +148,6 @@ public class UserServiceImpl implements UserService {
         userRepository.save(userToUpdate);
     }
 
-    private void convert(UserDTO userDTO, User userToUpdate) {
-        userToUpdate.setUsername(userDTO.getUsername());
-        userToUpdate.setPassword(userDTO.getPassword());
-        userToUpdate.setFullName(userDTO.getFullName());
-        userToUpdate.setBirthDate(userDTO.getBirthDate());
-        userToUpdate.setGender(userDTO.getGender());
-        userToUpdate.setEmailAddress(userDTO.getEmailAddress());
-        userToUpdate.setPhoneNumber(userDTO.getPhoneNumber());
-        userToUpdate.setRoleId(userDTO.getRoleId());
-        userToUpdate.setUserAvatarUrl(userDTO.getUserAvatarUrl());
-        userToUpdate.setStatus(userDTO.getStatus());
-        //userToUpdate.setCreatedDate(userDTO.getCreatedDate());
-        //userToUpdate.setCreatedBy(userDTO.getCreatedBy());
-    }
-
     /**
      * Xoá người dùng trong cơ sở dữ liệu dựa theo id
      *
@@ -163,6 +155,11 @@ public class UserServiceImpl implements UserService {
      */
     @Override
     public void deleteUser(int id) {
+        String username = getUserById(id).getUsername();
+
+        lecturerRepository.deleteByLecturerCode(username);
+        studentRepository.deleteByStudentCode(username);
+
         userRepository.deleteById(id);
     }
 
@@ -238,6 +235,7 @@ public class UserServiceImpl implements UserService {
      */
     @Override
     public void addLecturer(LecturerDTO lecturerDTO) {
+        lecturerDTO.setPassword(bCryptEncoder.encode(lecturerDTO.getPassword()));
         user = modelMapper.map(lecturerDTO, User.class);
         lecturer = modelMapper.map(lecturerDTO, Lecturer.class);
         lecturer.setLecturerCode(lecturerDTO.getUsername());
@@ -347,6 +345,7 @@ public class UserServiceImpl implements UserService {
      */
     @Override
     public void addStudent(StudentDTO studentDTO) {
+        studentDTO.setPassword(bCryptEncoder.encode(studentDTO.getPassword()));
         user = modelMapper.map(studentDTO, User.class);
         student = modelMapper.map(studentDTO, Student.class);
         student.setStudentCode(studentDTO.getUsername());
@@ -390,5 +389,37 @@ public class UserServiceImpl implements UserService {
 
         studentRepository.deleteByStudentCode(studentToDeleteDTO.getUsername());
         userRepository.deleteById(id);
+    }
+
+    private void convert(UserDTO userDTO, User userToUpdate) {
+        userToUpdate.setUsername(userDTO.getUsername());
+        userToUpdate.setPassword(bCryptEncoder.encode(userDTO.getPassword()));
+        userToUpdate.setFullName(userDTO.getFullName());
+        userToUpdate.setBirthDate(userDTO.getBirthDate());
+        userToUpdate.setGender(userDTO.getGender());
+        userToUpdate.setEmailAddress(userDTO.getEmailAddress());
+        userToUpdate.setPhoneNumber(userDTO.getPhoneNumber());
+        userToUpdate.setRoleId(userDTO.getRoleId());
+        userToUpdate.setUserAvatarUrl(userDTO.getUserAvatarUrl());
+        userToUpdate.setStatus(userDTO.getStatus());
+        //userToUpdate.setCreatedDate(userDTO.getCreatedDate());
+        //userToUpdate.setCreatedBy(userDTO.getCreatedBy());
+    }
+
+    /**
+     * Get username + password by username
+     *
+     * @param username
+     * @return username + password
+     * @throws UsernameNotFoundException
+     */
+    @Override
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        user = userRepository.findByUsername(username);
+        if (user == null) {
+            throw new UsernameNotFoundException("User not found with username: " + username);
+        } else {
+            return new org.springframework.security.core.userdetails.User(user.getUsername(), user.getPassword(), new ArrayList<>());
+        }
     }
 }
