@@ -12,17 +12,22 @@
                   [options]="options" (valueChanged)="onChangeRole($event)" formControlName="roleId" placeholder="Chọn vai trò">
       </ng-select2>
     </div>
-    <ng-container *ngIf="checkSelectRole == STUDENT; else teacher">
-      <div class="form-group">
-        <label>Mã sinh viên</label>
-        <input type="text" class="form-control" placeholder="Nhập mã sinh viên" formControlName="username">
-      </div>
+    <ng-container *ngIf="checkSelectRole == 0; else user">
+      <input type="text" class="form-control" placeholder="Tên đăng nhập" readonly formControlName="username">
     </ng-container>
-    <ng-template #teacher>
-      <div class="form-group">
-        <label>Mã giảng viên</label>
-        <input type="text" class="form-control" placeholder="Nhập mã giảng viên" formControlName="username">
-      </div>
+    <ng-template #user>
+      <ng-container *ngIf="checkSelectRole == STUDENT; else teacher">
+        <div class="form-group">
+          <label>Mã sinh viên</label>
+          <input type="text" class="form-control" placeholder="Nhập mã sinh viên" formControlName="username">
+        </div>
+      </ng-container>
+      <ng-template #teacher>
+        <div class="form-group">
+          <label>Mã giảng viên</label>
+          <input type="text" class="form-control" placeholder="Nhập mã giảng viên" formControlName="username">
+        </div>
+      </ng-template>
     </ng-template>
     <div class="form-group">
       <label for="passwordAddModal">Mật khẩu</label>
@@ -64,10 +69,12 @@
              data-mask>
     </div>
     <ng-container *ngIf="checkSelectRole == 0; else elseBlock">
-      <label>Chọn vai trò người dùng</label>
+      <div class="alert alert-warning">
+        <strong>Warning!</strong> Chọn vai trò của người dùng.
+      </div>
     </ng-container>
     <ng-template #elseBlock>
-      <ng-container *ngIf="checkSelectRole == LECTURE; else teacherDP">
+      <ng-container *ngIf="checkSelectRole == STUDENT; else teacherDP">
         <div class="form-group">
           <label>Mã lớp</label>
           <input type="text" class="form-control" placeholder="Nhập mã lớp theo khóa học" formControlName="address">

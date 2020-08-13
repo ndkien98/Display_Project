@@ -48,7 +48,6 @@ export class AddUserComponent implements OnInit {
 
   setOptionSelect2() {
     // set option for role
-    this.checkSelectRole = this.STUDENT;
     this.options = {
       theme: 'classic',
       width: '100%',
@@ -107,6 +106,7 @@ export class AddUserComponent implements OnInit {
   }
 
   onSubmit() {
+    console.log(this.gender);
     console.log(this.userFormGroup.value);
   }
 }
